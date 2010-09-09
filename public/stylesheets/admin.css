@@ -1,0 +1,58 @@
+/**
+ * Admin stylesheet
+ * Author: Alex Duller 2010
+ */
+
+table.admin-table {
+  width: 100%;
+  border: 1px solid gray;
+  margin: 20px 0;
+  border-collapse: collapse;
+}
+
+table.admin-table td, table.admin-table th {
+  border-bottom: 1px solid gray;
+  padding: 6px;
+}
+
+table.admin-table tr.even td {
+  background: #e5ecf9;
+}
+
+table.admin-table td.edit, td.delete {
+  width: 10%;
+  text-align: center;
+}
+
+table.admin-table .centered {
+  text-align: center;
+}
+
+input {
+  border: 1px solid #bbb;
+  margin-top: 4px;
+}
+
+#admin-settings ul {
+  list-style: none;
+  margin-top: 10px;
+}
+
+#admin-settings ul a {
+  text-decoration: none;
+  display: block;
+  line-height: 2em;
+  border: 1px solid gray;
+  float: left;
+  padding: 0 5px;
+  margin: 0 5px;
+}
+
+#admin-settings ul a:hover {
+  background: #e5ecf9;
+  color: black;
+}
+
+#admin-content {
+  margin: 10px;
+}

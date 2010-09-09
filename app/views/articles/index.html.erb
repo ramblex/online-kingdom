@@ -1,0 +1,17 @@
+<div id="full-col">
+  <div class="box-title">
+    <span class="medium-narrow"><span class="blue">NEWS</span> PAGE<br/></span>
+    <span class="subtitle">CONTENT <span>CHANGER</span></span>
+  </div>
+  <ul id="news-category" class="switcher">
+    <li><a href="/articles/category/All" class="selected">All</a></li>
+    <% Category.all.each do |category| %>
+      <li><%= link_to category.name, category %></li>
+    <% end %>
+  </ul>
+  <div id="paginated-news-list">
+    <%= render :partial => @articles %>
+  </div>
+  <div class="clear"></div>
+  <div id="pagination"></div>
+</div> <!-- end left-col -->

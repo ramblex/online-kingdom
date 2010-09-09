@@ -1,0 +1,22 @@
+<div class="news-item">
+  <div class="news-left">
+    <div class="news-author">
+      <div class="news-author-picture"></div>
+      <%= link_to article.user.username, "#" %><br />
+      <strong>Author</strong>
+    </div>
+    <div class="news-author">
+      <div class="news-author-picture"></div>
+      <strong>Author</strong>
+    </div>
+  </div>
+  <div class="news-content">
+    <div class="news-title">
+      <%= link_to article.title, article, :class => 'news-title' %>
+    </div>
+    <div class="news-rating"></div>
+    <%= truncate(article.content, :length => 320) %>
+  </div>
+  <div class="news-picture"></div>
+<hr />
+</div>

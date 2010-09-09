@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ONLINE KINGDOM</title>
+    <%= stylesheet_link_tag("screen") %>
+    <%= javascript_include_tag("jquery") %>
+    <%= include_tiny_mce_if_needed %>
+  </head>
+  <body>
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, :id => "flash-#{name}" %>
+      <% content_tag :script, :type => "text/javascript" do %>
+        $("#flash_notice").fadeOut(6000);
+      <% end %>
+    <% end %>
+    <div id="wrapper">
+      <div id="top-news">
+      </div>
+      <div id="top-advert"></div>
+      <div id="login">
+        <%= render :partial => 'shared/login_area' %>
+      </div>
+      <div id="top-match"></div>
+      <div id="sponsors"></div>
+      <a href="#" name="content"></a>
+      <ul id="top-nav">
+        <li id="news"><a href="/articles"></a></li>
+        <li id="videos"><a href="/videos"></a></li>
+        <li id="albums"><a href="/albums"></a></li>
+        <li id="files"><a href="/files"></a></li>
+        <li id="blogs"><a href="/blogs"></a></li>
+        <li id="matches"><a href="/matches"></a></li>
+
+        <li id="players"><a href="/players"></a></li>
+        <li id="awards"><a href="/awards"></a></li>
+        <li id="partners"><a href="/partners"></a></li>
+        <li id="about"><a href="/about"></a></li>
+      </ul>
+      <div id="content">
+        <%= yield %>
+        <div class="clear"></div>
+      </div>
+      <div id="footer">
+        <span class="copyright">
+          <p>2010 ONLINE KINGDOM - ALL RIGHTS RESERVED</p>
+          DESIGN BY DSGF DESIGNS - COPYRIGHT &copy; BY ONLINE KINGDOM
+        </span>
+        <ul>
+          <li><a href="/about">ABOUT</a></li>
+          <li><a href="/faq">FAQ</a></li>
+          <li><a href="/logos">LOGOS</a></li>
+          <li><a href="/jobs">JOBS</a></li>
+          <li><a href="/contact">CONTACT</a></li>
+          <li><a href="/">ONLINE GAMING</a></li>
+        </ul>
+      </div>
+    </div>
+  </body>
+  <script type="text/javascript">
+    $("#flash-notice").fadeOut(6000);
+  </script>
+  <%= yield :extra_js %>
+</html>

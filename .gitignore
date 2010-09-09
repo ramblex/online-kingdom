@@ -1,0 +1,9 @@
+.DS_Store
+*.swp
+config/database.yml
+public/system/*
+log/*.log
+tmp/**/*
+*.xml.gz
+db/sphinx
+log/*

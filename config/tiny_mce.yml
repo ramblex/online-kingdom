@@ -4,6 +4,3 @@
 # plugins:
 #  - table
 #  - fullscreen
-theme: advanced
-plugins:
-  media

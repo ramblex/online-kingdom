@@ -2,8 +2,8 @@
   Welcome <%= current_user.username %>
 <% else %>
   <% form_tag :action => 'sign_in', :controller => 'users' do %>
-    <%= text_field :username, :id => 'login-username' %><br />
-    <%= password_field :password, :id => 'login-password' %>
+    <%= text_field :user, :email, :id => 'login-username' %><br />
+    <%= password_field :user, :password, :id => 'login-password' %>
     <%= image_submit_tag "login-btn-bg.png", :id => 'login-btn' %>
   <% end -%>
   <span>Not a member? <%= link_to "JOIN NOW", new_user_registration_path %></span>

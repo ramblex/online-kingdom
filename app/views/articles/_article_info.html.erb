@@ -3,5 +3,5 @@
   <div class="news-rating"></div>
   <%= truncate(article.content, :length => 320) %>
 </div>
-<div class="news-picture"></div>
+<%= image_tag article.image.url, :class => 'news-picture' %>
 <hr />

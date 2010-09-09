@@ -1,5 +1,10 @@
 <% if user_signed_in? %>
-  Welcome <%= current_user.username %>
+  <div id="logged-in">
+    Welcome back <%= current_user.username %>
+    <%= link_to 'INBOX' %>
+    <%= link_to 'SETTINGS' %>
+    <%= link_to 'LOGOUT', destroy_user_session_path %>
+  </div>
 <% else %>
   <% form_tag :action => 'sign_in', :controller => 'users' do %>
     <%= text_field :user, :email, :id => 'login-username' %><br />

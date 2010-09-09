@@ -1,0 +1,7 @@
+<div class="news-content">
+  <%= link_to article.title, article, :class => 'news-title' %>
+  <div class="news-rating"></div>
+  <%= truncate(article.content, :length => 320) %>
+</div>
+<div class="news-picture"></div>
+<hr />

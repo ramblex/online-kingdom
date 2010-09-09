@@ -10,13 +10,5 @@
       <strong>Author</strong>
     </div>
   </div>
-  <div class="news-content">
-    <div class="news-title">
-      <%= link_to article.title, article, :class => 'news-title' %>
-    </div>
-    <div class="news-rating"></div>
-    <%= truncate(article.content, :length => 320) %>
-  </div>
-  <div class="news-picture"></div>
-<hr />
+  <%= render :partial => 'article_info', :locals => {:article => article} %>
 </div>

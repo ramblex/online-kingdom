@@ -3,6 +3,7 @@ class Ability
 
   def initialize(user)
     can :read, [Article]
+    can :show, User
     if user.is? :admin
       can :manage, :all
     end

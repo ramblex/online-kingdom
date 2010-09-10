@@ -1,6 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
   map.devise_for :users
 
+  map.resources :users
   map.resources :articles
   map.resources :categories
 

@@ -1,1 +1,5 @@
 <%= @user.username %>
+<%= @user.roles %>
+<% if @user.is? :admin %>
+  Is Admin
+<% end %>

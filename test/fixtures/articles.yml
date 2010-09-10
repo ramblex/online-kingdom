@@ -5,8 +5,8 @@ one:
   category_id: 
   featured: false
   approved: false
-  poster_id: 
-  approver_id: 
+  user_id:
+  moderator_id:
   content: MyText
 
 two:
@@ -14,6 +14,6 @@ two:
   category_id: 
   featured: false
   approved: false
-  poster_id: 
-  approver_id: 
+  user_id: 
+  moderator_id: 
   content: MyText

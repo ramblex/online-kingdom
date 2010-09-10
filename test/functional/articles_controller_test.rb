@@ -34,12 +34,4 @@ class ArticlesControllerTest < ActionController::TestCase
     put :update, :id => articles(:one).to_param, :article => { }
     assert_redirected_to article_path(assigns(:article))
   end
-
-  test "should destroy article" do
-    assert_difference('Article.count', -1) do
-      delete :destroy, :id => articles(:one).to_param
-    end
-
-    assert_redirected_to articles_path
-  end
 end

@@ -159,7 +159,7 @@ div#flash-notice {
 
 #login-btn {
   position: absolute;
-  top: 0;
+  top: -5px;
   right: 0;
   border: 0;
 }

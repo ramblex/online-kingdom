@@ -10,6 +10,7 @@
     <%= text_field :user, :username, :id => 'login-username' %><br />
     <%= password_field :user, :password, :id => 'login-password' %>
     <%= image_submit_tag "login-btn-bg.png", :id => 'login-btn' %>
+    <%= link_to(image_tag("pw-btn-bg.png"), '#') %>
   <% end -%>
   <span>Not a member? <%= link_to "JOIN NOW", new_user_registration_path %></span>
 <% end %>

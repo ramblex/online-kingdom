@@ -7,7 +7,7 @@
   </div>
 <% else %>
   <% form_tag :action => 'sign_in', :controller => 'users' do %>
-    <%= text_field :user, :email, :id => 'login-username' %><br />
+    <%= text_field :user, :username, :id => 'login-username' %><br />
     <%= password_field :user, :password, :id => 'login-password' %>
     <%= image_submit_tag "login-btn-bg.png", :id => 'login-btn' %>
   <% end -%>

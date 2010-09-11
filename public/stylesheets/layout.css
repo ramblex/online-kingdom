@@ -164,7 +164,7 @@ div#flash-notice {
   border: 0;
 }
 
-#login img {
+#login img.pw {
   position: absolute;
   bottom: 0;
   right: 0;

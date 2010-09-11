@@ -5,7 +5,12 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.xml
   def index
-    @articles = Article.all
+    if params[:category].blank? or params[:category].eql? 'all'
+      @articles = Article.all
+    else
+      @articles = Article.find_by_category_id(params[:category])
+    end
+
 
     respond_to do |format|
       format.html # index.html.erb

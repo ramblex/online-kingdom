@@ -1,5 +1,5 @@
 h1 {
-  font-size: 9pt;
+  font-size: 8pt;
   font-weight: bold;
 }
 
@@ -33,6 +33,5 @@ a:hover {
 }
 
 .medium-narrow {
-  font-family: "Arial Narrow";
-  font-size: 9pt;
+  font-size: 8pt;
 }

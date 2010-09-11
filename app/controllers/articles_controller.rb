@@ -6,11 +6,10 @@ class ArticlesController < ApplicationController
   # GET /articles.xml
   def index
     if params[:category].blank? or params[:category].eql? 'all'
-      @articles = Article.all
+      @articles = Article.paginate :page => params[:page]
     else
-      @articles = Article.find_by_category_id(params[:category])
+      @articles = Article.paginate :page => params[:page], :conditions => ['category_id = ?', params[:category]]
     end
-
 
     respond_to do |format|
       format.html # index.html.erb

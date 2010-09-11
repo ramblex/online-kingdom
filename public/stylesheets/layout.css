@@ -408,8 +408,8 @@ div.comment-info {
   position: relative;
 }
 
-.pagination .prev, .pagination .next {
-  display: none;
+.prev_page, .next_page {
+  display: none !important;
 }
 
 .pagination span, .pagination a {

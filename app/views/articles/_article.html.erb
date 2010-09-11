@@ -6,8 +6,9 @@
       <strong>Author</strong>
     </div>
     <div class="news-author">
-      <div class="news-author-picture"></div>
-      <strong>Author</strong>
+      <%= image_tag article.user.avatar.url, :class => 'news-author-picture' %>
+      <%= link_to article.user.username, article.user %><br />
+      <strong>Moderator</strong>
     </div>
   </div>
   <%= render :partial => 'article_info', :locals => {:article => article} %>

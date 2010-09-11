@@ -1,26 +1,6 @@
-<h1>Listing blogs</h1>
-
-<table>
-  <tr>
-    <th>User</th>
-    <th>Title</th>
-    <th>Content</th>
-    <th>Deleted</th>
-  </tr>
-
-<% @blogs.each do |blog| %>
-  <tr>
-    <td><%=h blog.user_id %></td>
-    <td><%=h blog.title %></td>
-    <td><%=h blog.content %></td>
-    <td><%=h blog.deleted %></td>
-    <td><%= link_to 'Show', blog %></td>
-    <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
-    <td><%= link_to 'Destroy', blog, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New blog', new_blog_path %>
+<div id="wide-left-col">
+  <div class="box">
+    <div class="box-title"><span class="blue">BLOGS</span> PAGE</div>
+    <%= render :partial => @blogs %>
+  </div>
+</div>

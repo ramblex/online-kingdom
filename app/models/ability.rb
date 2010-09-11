@@ -9,6 +9,8 @@ class Ability
       return
     end
 
+    can :create, Blog
+
     if user.is? :admin
       can :manage, :all
     end

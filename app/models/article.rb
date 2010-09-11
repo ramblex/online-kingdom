@@ -1,6 +1,6 @@
 class Article < ActiveRecord::Base
   cattr_reader :per_page
-  @@per_page = 1
+  @@per_page = 5
   default_scope :order => 'created_at DESC'
   belongs_to :category
   belongs_to :user

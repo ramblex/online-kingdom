@@ -441,29 +441,43 @@ div.comment-info {
 #roller {
   height: 292px;
 }
+.switcher {
+  height: 19px;
+  margin-bottom: 25px;
+}
 
-#news-switcher li {
+.switcher li {
   list-style: none;
   float: left;
-  margin-right: 9px;
-  text-align: center;
+  margin: -2px 1px 0 1px;
+  border: 1px solid #525252;
+  height: 17px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
 }
 
-#news-switcher li a {
+.switcher li a {
+  text-align: center;
   display: block;
-  width: 68px;
-  height: 19px;
-  line-height: 19px;
+  height: 15px;
+  line-height: 15px;
   color: white;
   text-decoration: none;
-  font-size: 75%;
+  font-weight: "Arial Rounded MT Bold", Arial;
+  font-size: 8px;
   font-weight: bold;
   margin-bottom: 12px;
-  background: url(/images/blue-btn-bg.png);
+  padding: 0 7px;
+  background: #1a3f5a;
+  border: 1px solid white;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
 }
 
-#news-switcher li a:hover {
-  background: url(/images/black-btn-bg.png);
+.switcher li a:hover, .switcher .selected {
+  background-color: black;
+  background-image: -moz-linear-gradient(100% 100% 90deg, #110f0f, #322f30);
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, to(#110f0f), from(#322f30));
 }
 
 #news-picture {

@@ -1,37 +1,20 @@
 require 'test_helper'
 
 class ArticlesControllerTest < ActionController::TestCase
-  test "should get index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:articles)
-  end
-
-  test "should get new" do
-    get :new
-    assert_response :success
-  end
-
-  test "should create article" do
-    assert_difference('Article.count') do
-      post :create, :article => { }
+  test "should get unauth when creating without login" do
+    assert_raise CanCan::AccessDenied do
+      get :new
     end
-
-    assert_redirected_to article_path(assigns(:article))
   end
 
-  test "should show article" do
-    get :show, :id => articles(:one).to_param
-    assert_response :success
+  test "should get unauth when editing without login" do
+    assert_raise CanCan::AccessDenied do
+      get :edit, :id => articles(:one).to_param
+    end
   end
 
-  test "should get edit" do
-    get :edit, :id => articles(:one).to_param
-    assert_response :success
-  end
-
-  test "should update article" do
-    put :update, :id => articles(:one).to_param, :article => { }
-    assert_redirected_to article_path(assigns(:article))
-  end
+  #test "should update article" do
+    #put :update, :id => articles(:one).to_param, :article => { }
+    #assert_redirected_to article_path(assigns(:article))
+  #end
 end

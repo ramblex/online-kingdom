@@ -5,7 +5,7 @@ one:
   category_id: 
   featured: false
   approved: false
-  user_id:
+  user_id: 1
   moderator_id:
   content: MyText
 
@@ -14,6 +14,6 @@ two:
   category_id: 
   featured: false
   approved: false
-  user_id: 
+  user_id: 1
   moderator_id: 
   content: MyText

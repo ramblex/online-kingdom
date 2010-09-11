@@ -9,10 +9,13 @@ class User < ActiveRecord::Base
          :authentication_keys => [:username]
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :username, :roles
+  attr_accessible :email, :password, :password_confirmation, :username, :roles, :avatar
 
   has_many :articles
   has_many :blogs
+
+  has_attached_file :avatar, :styles => { :default => "50x50#" },
+    :default_url => '/images/default-user.png'
 
   def roles=(roles)
     self.roles_mask = (roles & ROLES).map { |r| 2**ROLES.index(r) }.sum

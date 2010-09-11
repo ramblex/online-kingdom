@@ -1,5 +1,5 @@
 <div class="blog-summary">
-  <div class="news-author-picture"></div>
+  <%= image_tag blog.user.avatar.url, :class => 'news-author-picture' %>
   <div class="blog-info">
     <%= link_to blog.title, blog %>
     <span>by <%= link_to blog.user.username, blog.user %></span>

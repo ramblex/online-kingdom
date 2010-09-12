@@ -1,8 +1,39 @@
-<p>
-  <b>Start date:</b>
-  <%=h @match.start_date %>
-</p>
+<div id="wide-left-col">
+  <div class="box">
+    <div class="box-title"><span class="blue">MATCH</span> DETAILS</div>
+    <div class="matches">
+      <div class="matches-title">
+        <span class="team1"><%= @match.team1.name %></span>
+        <span class="scores">[ ]</span>
+        <span class="team2"><%= @match.team2.name %></span>
+      </div>
+      <table class="match-info">
+        <tr class="odd">
+          <td class="title">Date</td>
+          <td><%= @match.start_date %></td>
+        </tr>
+        <tr>
+          <td class="title">Game</td>
+          <td><%= @match.category.name %></td>
+        </tr>
+        <tr class="odd">
+          <td class="title">Event</td>
+          <td><%= @match.event.name %></td>
+        </tr>
+        <tr>
+          <td class="title">Format</td>
+          <td></td>
+        </tr>
+      </table>
+      <div class="matches-title">Results</div>
+      <div class="matches-title">
+        <span class="team1"><%= @match.team1.name %></span>
+        <span class="team2"><%= @match.team2.name %></span>
+      </div>
+    </div>
+  </div>
+</div>
 
-
-<%= link_to 'Edit', edit_match_path(@match) %> |
-<%= link_to 'Back', matches_path %>
+<div id="thin-right-col">
+  <div class="box"></div>
+</div>

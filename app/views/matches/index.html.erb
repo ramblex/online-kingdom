@@ -1,20 +1,26 @@
-<h1>Listing matches</h1>
+<div id="wide-left-col">
+  <div class="box">
+    <div class="box-title">
+      <span class="blue">MATCHES</span> PAGE
+      <span class="subtitle"></span>
+    </div>
+    <ul id="matches-switcher" class="switcher">
+      <li><%= link_to 'All', params.merge(:category => 'all'), :class => 'selected' %></li>
+      <% Category.all.each do |category| %>
+        <li><%= link_to category.name, params.merge(:category => category.id) %></li>
+      <% end %>
+    </ul>
+    <ul id="match-ticker" class="matches">
+      <% @matches.each do |match| %>
+        <li>
+        <% link_to match do %>
+          <span class="team1"><%= match.team1.name %></span> vs.
+          <span class="team2"><%= match.team2.name %></span>
+          <span class="scores"></span>
+        <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
 
-<table>
-  <tr>
-    <th>Start date</th>
-  </tr>
-
-<% @matches.each do |match| %>
-  <tr>
-    <td><%=h match.start_date %></td>
-    <td><%= link_to 'Show', match %></td>
-    <td><%= link_to 'Edit', edit_match_path(match) %></td>
-    <td><%= link_to 'Destroy', match, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New match', new_match_path %>

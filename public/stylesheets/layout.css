@@ -485,6 +485,51 @@ div.comment-info {
   height: 179px;
   border: 1px solid #888;
 }
+.profile-picture {
+  width: 128px;
+  height: 128px;
+  float: left;
+  margin-right: 11px;
+}
+
+.profile-info {
+  margin-top: 32px;
+  clear: left;
+}
+
+.profile-details {
+  width: 374px;
+}
+
+.profile-username {
+  margin: 10px 0 0 139px;
+  color: #797979;
+  padding-left: 3px;
+  width: 371px;
+}
+
+.profile-description {
+  margin-top: 30px;
+  clear: both;
+}
+
+.profile-details tr, .profile-username {
+  background: #ebebeb;
+  height: 23px;
+  line-height: 23px;
+}
+
+.profile-details tr.odd {
+  background: #e0e0e0;
+}
+
+.profile-details td {
+  padding-left: 10px;
+}
+
+.profile-details td.title {
+  width: 65%;
+}
 
 /* Thin right column */
 #thin-right-col {
@@ -565,6 +610,15 @@ div.comment-info {
   font-weight: bold;
   float: right;
   text-decoration: none;
+}
+
+.blog-user-summary {
+  font-weight: normal;
+  margin: 10px 0 0 10px;
+}
+
+.blog-user-summary p {
+  margin-top: 5px;
 }
 
 .blog-summary {

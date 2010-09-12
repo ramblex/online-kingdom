@@ -1,5 +1,57 @@
-<%= @user.username %>
-<%= @user.roles %>
-<% if @user.is? :admin %>
-  Is Admin
-<% end %>
+<div id="left-col">
+  <div class="box-title">
+    <span class="blue">PRO</span>FILE
+  </div>
+  <div class="profile-info">
+    <%= image_tag @user.avatar.url, :class => 'profile-picture' %>
+    <p>Personal information</p>
+    <div class="profile-username"><%= @user.username %></div>
+    <table class="profile-details">
+      <tr class="odd">
+        <td class="title">Name</td>
+        <td><%= @user.username %></td>
+      </tr>
+      <tr>
+        <td class="title">Age</td>
+        <td><%= Date.today.year - @user.birthdate.year %></td>
+      </tr>
+      <tr class="odd">
+        <td class="title">City</td>
+        <td><%= @user.city %></td>
+      </tr>
+    </table>
+  </div>
+  <div class="profile-description">Description
+    <p><%= @user.description %></p>
+  </div>
+</div>
+
+<div id="right-col">
+  <div class="box">
+    <div class="box-title">
+      <span class="blue">HARD</span>WARE
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div class="box">
+    <div class="box-title">
+      <span class="blue">BL</span>OGS<br />
+      <span class="subtitle">WRITTEN <span>IN PERSON</span></span>
+      <%= render :partial => 'blog', :collection => @user.blogs %>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div class="box">
+    <div class="box-title">
+      <span class="blue">VI</span>DEOS<br />
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div class="box">
+    <div class="box-title">
+      <span class="blue">AL</span>BUMS<br />
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+

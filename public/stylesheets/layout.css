@@ -612,6 +612,21 @@ div.comment-info {
   text-decoration: none;
 }
 
+#user-hardware {
+  clear: both;
+  list-style: none;
+  margin: 0 10px;
+}
+
+#user-hardware li {
+  border-bottom: 1px dotted #e3e3e3;
+  padding: 10px 5px;
+}
+
+#user-hardware span {
+  float: right;
+}
+
 .blog-user-summary {
   font-weight: normal;
   margin: 10px 0 0 10px;

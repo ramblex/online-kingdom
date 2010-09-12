@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100912144308) do
+ActiveRecord::Schema.define(:version => 20100912154822) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -71,6 +71,17 @@ ActiveRecord::Schema.define(:version => 20100912144308) do
     t.text     "description"
     t.string   "firstname"
     t.string   "surname"
+    t.string   "headset"
+    t.string   "mousepad"
+    t.string   "keyboard"
+    t.string   "mouse"
+    t.string   "monitor"
+    t.string   "motherboard"
+    t.string   "cpu"
+    t.string   "graphicscard"
+    t.string   "memory"
+    t.string   "hdd"
+    t.string   "gamepad"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true

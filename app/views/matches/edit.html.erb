@@ -1,0 +1,16 @@
+<h1>Editing match</h1>
+
+<% form_for(@match) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :start_date %><br />
+    <%= f.datetime_select :start_date %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @match %> |
+<%= link_to 'Back', matches_path %>

@@ -1,0 +1,13 @@
+Create a new event
+
+<% form_for @event do |f| %>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :category_id, 'Category' %><br />
+    <%= f.collection_select :category_id, Category.all, :id, :name %>
+  </p>
+  <%= f.submit 'Submit' %>
+<% end %>

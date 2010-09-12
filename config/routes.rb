@@ -1,10 +1,11 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :matches
-
-  map.resources :blogs
 
   map.devise_for :users
 
+  map.resources :teams
+  map.resources :events
+  map.resources :matches
+  map.resources :blogs
   map.resources :users
   map.resources :articles
   map.resources :categories

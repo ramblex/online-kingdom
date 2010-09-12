@@ -8,11 +8,13 @@
     <%= f.collection_select :team1_id, Team.all, :id, :name %>
     <%= link_to 'Add new team', new_team_path %>
   </p>
+  <p><%= link_to 'Add a player' %></p>
   <p>
     <%= f.label :team2_id, 'Team 2' %><br />
     <%= f.collection_select :team2_id, Team.all, :id, :name %>
     <%= link_to 'Add new team', new_team_path %>
   </p>
+  <p><%= link_to 'Add a player' %></p>
   <p>
     <%= f.label :category_id, 'Game' %><br />
     <%= f.collection_select :category_id, Category.all, :id, :name %>

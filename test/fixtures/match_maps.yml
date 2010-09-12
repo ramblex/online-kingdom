@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  team1_score: 
+  team2_score: 
+
+two:
+  team1_score: 
+  team2_score: 

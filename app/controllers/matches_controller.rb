@@ -4,11 +4,15 @@ class MatchesController < ApplicationController
   # GET /matches
   # GET /matches.xml
   def index
-    @matches = Match.all
+    if params[:category].blank? or params[:category] == 'all'
+      @matches = Match.paginate :page => params[:page]
+    else
+      @matches = Match.paginate :page => params[:page], :conditions => ['category_id = ?', params[:category]]
+    end
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @matches }
+      format.js { render :partial => @matches }
     end
   end
 

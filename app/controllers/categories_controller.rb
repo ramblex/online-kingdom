@@ -19,8 +19,7 @@ class CategoriesController < ApplicationController
     respond_to do |format|
       if @category.save
         flash[:notice] = 'Category was successfully created.'
-        format.html { redirect_to(@category) }
-        format.xml  { render :xml => @category, :status => :created, :location => @category }
+        redirect_to root_url
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @category.errors, :status => :unprocessable_entity }

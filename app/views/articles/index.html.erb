@@ -18,4 +18,7 @@
 
 <% content_for :extra_js do %>
   <%= javascript_include_tag 'switcher' %>
+  <script type="text/javascript">
+    switcher('#news-category', '#paginated-news-list');
+  </script>
 <% end %>

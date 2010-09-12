@@ -11,16 +11,15 @@
       <% end %>
     </ul>
     <ul id="match-ticker" class="matches">
-      <% @matches.each do |match| %>
-        <li>
-        <% link_to match do %>
-          <span class="team1"><%= match.team1.name %></span> vs.
-          <span class="team2"><%= match.team2.name %></span>
-          <span class="scores"></span>
-        <% end %>
-        </li>
-      <% end %>
+      <%= render :partial => @matches %>
     </ul>
   </div>
 </div>
 
+
+<% content_for :extra_js do %>
+  <%= javascript_include_tag 'switcher' %>
+  <script type="text/javascript">
+    switcher('#matches-switcher', '#match-ticker');
+  </script>
+<% end %>

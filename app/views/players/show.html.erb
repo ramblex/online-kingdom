@@ -14,6 +14,10 @@
           <td class="title">Country</td>
           <td><%= @player.country %></td>
         </tr>
+        <tr class="odd">
+          <td class="title">Game</td>
+          <td><%= @player.category.name %></td>
+        </tr>
       </table>
       <%= image_tag @player.avatar.url, :class => 'matches-logo' %>
     </div>

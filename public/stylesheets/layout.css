@@ -64,7 +64,6 @@ div#flash-notice {
 .logo {
   width: 61px;
   height: 24px;
-  background: gray;
   margin-right: 11px;
   float: left;
 }
@@ -90,6 +89,7 @@ div#flash-notice {
 #top-match-content .logo {
   width: 100px;
   height: 100px;
+  display: block;
   padding: 0;
   margin: 0;
   float: none;
@@ -103,7 +103,6 @@ div#flash-notice {
   float: right;
   width: 55px;
   height: 24px;
-  background: gray;
 }
 
 .top-info {

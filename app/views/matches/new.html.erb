@@ -1,38 +1,3 @@
 <h1>New match</h1>
-
-<% form_for(@match) do |f| %>
-  <%= f.error_messages %>
-
-  <p>
-    <%= f.label :team1_id, 'Team 1' %><br />
-    <%= f.collection_select :team1_id, Team.all, :id, :name %>
-    <%= link_to 'Add new team', new_team_path %>
-  </p>
-  <p><%= link_to 'Add a player' %></p>
-  <p>
-    <%= f.label :team2_id, 'Team 2' %><br />
-    <%= f.collection_select :team2_id, Team.all, :id, :name %>
-    <%= link_to 'Add new team', new_team_path %>
-  </p>
-  <p><%= link_to 'Add a player' %></p>
-  <p>
-    <%= f.label :category_id, 'Game' %><br />
-    <%= f.collection_select :category_id, Category.all, :id, :name %>
-    <%= link_to 'Add game', new_category_path %>
-  </p>
-  <p>
-    <%= f.label :event_id, 'Event' %><br />
-    <%= f.collection_select :event_id, Event.all, :id, :name %>
-    <%= link_to 'Add event', new_event_path %>
-  </p>
-  <p>
-    <%= f.label :start_date %><br />
-    <%= f.datetime_select :start_date %>
-  </p>
-  <p><%= link_to 'Add a map' %></p>
-  <p>
-    <%= f.submit 'Create' %>
-  </p>
-<% end %>
-
+<%= render :partial => 'form' %>
 <%= link_to 'Back', matches_path %>

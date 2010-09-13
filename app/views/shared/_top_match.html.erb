@@ -9,12 +9,12 @@
 </div>
 <div id="top-match-content">
   <div class="team">
-    <div class="logo"></div>
+    <%= image_tag latest.team1.logo.url, :class => 'logo' %>
     <div class="name"><%= latest.team1.name %></div>
   </div>
   <div class="versus">VERSUS</div>
   <div class="team">
-    <div class="logo"></div>
+    <%= image_tag latest.team2.logo.url, :class => 'logo' %>
     <div class="name"><%= latest.team2.name %></div>
   </div>
 </div>

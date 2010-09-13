@@ -9,6 +9,8 @@
   </p>
   <% f.fields_for :album_photos do |photos| %>
     <p>
+      <%= photos.label :name, 'Photo name' %>
+      <%= photos.text_field :name %>
       <%= photos.label :photo %>
       <%= photos.file_field :photo %>
     </p>

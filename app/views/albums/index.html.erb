@@ -1,20 +1,10 @@
-<h1>Listing albums</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-  </tr>
-
-<% @albums.each do |album| %>
-  <tr>
-    <td><%=h album.name %></td>
-    <td><%= link_to 'Show', album %></td>
-    <td><%= link_to 'Edit', edit_album_path(album) %></td>
-    <td><%= link_to 'Destroy', album, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New album', new_album_path %>
+<div id="wide-left-col">
+  <div class="box">
+    <div class="box-title">
+      <span class="blue">AL</span>BUMS
+    </div>
+    <div class="clear"></div>
+    <%= render :partial => @albums %>
+    <div class="clear"></div>
+  </div>
+</div>

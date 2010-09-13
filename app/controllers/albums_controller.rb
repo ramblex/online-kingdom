@@ -42,6 +42,7 @@ class AlbumsController < ApplicationController
   # POST /albums.xml
   def create
     @album = Album.new(params[:album])
+    @album.user_id = current_user.id
 
     respond_to do |format|
       if @album.save

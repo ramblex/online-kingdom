@@ -416,6 +416,24 @@ table.match-info td.title {
   margin: 15px 0;
 }
 
+/** Albums */
+.album {
+  float: left;
+  width: 120px;
+  height: 184px;
+  margin: 27px 52px 0 0;
+}
+
+.album .name {
+  height: 38px;
+}
+
+.album .info {
+  width: 73px;
+  height: 41px;
+  background: #f2f2f2;
+}
+
 div.comment {
   padding: 6px 11px;
 }

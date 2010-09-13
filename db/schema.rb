@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100913165832) do
+ActiveRecord::Schema.define(:version => 20100913184707) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -48,6 +48,10 @@ ActiveRecord::Schema.define(:version => 20100913165832) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "category_id"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
   end
 
   create_table "maps", :force => true do |t|

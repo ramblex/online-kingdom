@@ -4,6 +4,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.devise_for :users
 
+  map.resources :players
   map.resources :teams
   map.resources :events
   map.resources :matches

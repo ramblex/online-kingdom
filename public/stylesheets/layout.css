@@ -704,6 +704,37 @@ div.comment-info {
   margin: 16px 0;
 }
 
+.player {
+  height: 100px;
+  margin: 15px 0;
+}
+
+.player a {
+  text-decoration: none;
+  font-size: 110%;
+  display: block;
+  width: 340px;
+}
+
+.player .description {
+  border: 2px solid #ccc;
+  margin-top: 5px;
+  padding: 10px;
+  display: block;
+  float: right;
+  width: 382px;
+}
+
+.left img {
+  float: left;
+  margin-right: 12px;
+}
+
+.right img {
+  float: right;
+  margin-left: 12px;
+}
+
 /* Footer */
 #footer {
   padding: 66px 0 100px 170px;

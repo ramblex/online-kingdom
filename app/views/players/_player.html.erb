@@ -1,0 +1,9 @@
+<div class="player <%= cycle('left', 'right') %>">
+  <%= image_tag player.avatar.url(:default) %>
+  <% link_to player do %>
+    &raquo; <%= "#{player.firstname} '#{player.nickname}' #{player.surname}" %>
+  <% end %>
+  <p class="description">
+    aslkdjalskdj
+  </p>
+</div>

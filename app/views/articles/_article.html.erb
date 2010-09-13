@@ -1,10 +1,6 @@
 <div class="news-item">
   <div class="news-left">
-    <div class="news-author">
-      <%= image_tag article.user.avatar.url, :class => 'news-author-picture' %>
-      <%= link_to article.user.username, article.user %><br />
-      <strong>Author</strong>
-    </div>
+    <%= render :partial => 'author', :locals => {:user => article.user} %>
     <div class="news-author">
       <%= image_tag article.user.avatar.url, :class => 'news-author-picture' %>
       <%= link_to article.user.username, article.user %><br />

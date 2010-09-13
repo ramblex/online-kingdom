@@ -35,5 +35,11 @@
 </div>
 
 <div id="thin-right-col">
-  <div class="box"></div>
+  <div class="box">
+    <div class="box-title">
+      <span class="blue">CREDITS</span> TO
+    </div>
+    <div class="clear"></div>
+    <%= render :partial => 'articles/author', :locals => {:user => @match.user} %>
+  </div>
 </div>

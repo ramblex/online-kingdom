@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   has_many :articles
   has_many :blogs
   has_many :teams
+  has_many :matches
 
   has_attached_file :avatar, :styles => { :default => "50x50#" },
     :default_url => '/images/default-user.png'

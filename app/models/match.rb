@@ -3,5 +3,6 @@ class Match < ActiveRecord::Base
   belongs_to :team2, :class_name => 'Team', :foreign_key => 'team2_id'
   belongs_to :category
   belongs_to :event
+  belongs_to :user
   has_many :match_maps
 end

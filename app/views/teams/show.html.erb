@@ -1,0 +1,43 @@
+<div id="wide-left-col">
+  <div class="box">
+    <div class="box-title">
+      <span class="blue">TE</span>AM
+    </div>
+    <div class="matches">
+      <div class="matches-title"><%= @team.name %></div>
+      <table class="match-info">
+        <tr class="odd">
+          <td class="title">Date</td>
+          <td><%= @team.created_at %></td>
+        </tr>
+        <tr>
+          <td class="title">Game</td>
+          <td><%= @team.category.name %></td>
+        </tr>
+        <tr class="odd">
+          <td class="title">Country</td>
+          <td><%= @team.country %></td>
+        </tr>
+        <tr>
+          <td class="title">Website</td>
+          <td><%= @team.website %></td>
+        </tr>
+      </table>
+      <%= image_tag @team.logo.url, :class => 'matches-logo' %>
+      <div class="matches-title">Players</div>
+      <% @team.players.each do |player| %>
+        <%= player.name %>
+      <% end %>
+      <div class="matches-title">Latest results</div>
+    </div>
+  </div>
+</div>
+
+<div id="thin-right-col">
+  <div class="box">
+    <div class="box-title">
+      <span class="blue">CREDITS</span> TO
+    </div>
+    <%= render :partial => 'articles/author', :locals => {:user => @team.user} %>
+  </div>
+</div>

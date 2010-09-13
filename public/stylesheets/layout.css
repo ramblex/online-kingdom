@@ -363,6 +363,7 @@ ul#top-nav a {
 }
 
 .matches-title {
+  clear: left;
   line-height: 25px;
   margin-top: 16px;
   padding: 0 51px 0 9px;
@@ -386,6 +387,7 @@ table.match-info {
   width: 275px;
   margin: 15px 0;
   border-collapse: collapse;
+  float: left;
 }
 
 table.match-info tr, table.match-info td {
@@ -402,6 +404,10 @@ table.match-info td.title {
   width: 63px;
 }
 
+.matches-logo {
+  float: right;
+  margin: 15px 0;
+}
 
 div.comment {
   padding: 6px 11px;

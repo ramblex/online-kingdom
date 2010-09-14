@@ -4,6 +4,5 @@ class Team < ActiveRecord::Base
   has_many :players
   has_many :matches
 
-  has_attached_file :logo, :styles => { :default => '100x100#' },
-    :default_url => '/images/default-user.png'
+  has_attached_file :logo, :styles => { :default => '100x100#' }
 end

@@ -1,0 +1,13 @@
+<p>
+  <b>Name:</b>
+  <%=h @award.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @award.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_award_path(@award) %> |
+<%= link_to 'Back', awards_path %>

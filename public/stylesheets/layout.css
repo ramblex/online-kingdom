@@ -438,6 +438,17 @@ table.match-info td.title {
   display: none;
 }
 
+/** Partners */
+.partner {
+  clear: both;
+  margin-top: 25px;
+}
+
+.partner-logo {
+  float: left;
+  margin-right: 15px;
+}
+
 div.comment {
   padding: 6px 11px;
 }

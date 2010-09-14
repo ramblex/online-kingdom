@@ -1,0 +1,11 @@
+<% if @page.permalink.eql? 'about' %>
+<div id="full-col">
+  <h1><span class="blue">OUR</span> HISTORY</h1>
+  <span class="subtitle">ABOUT <span>ONLINE KINGDOM</span></span>
+  <hr />
+  <%= @page.content %>
+  <h1><span class="blue">OUR</span> ORGANIZATION</h1>
+  <span class="subtitle">THE PEOPLE <span>WHO MAKE IT HAPPEN</span></span>
+  <hr />
+</div>
+<% end %>

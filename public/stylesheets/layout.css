@@ -234,6 +234,12 @@ div#flash-notice {
   height: 217px;
 }
 
+#sponsors img {
+  position: relative;
+  top: 35%;
+  margin-left: 40px;
+}
+
 /* Navigation */
 #top-nav {
   margin: 0 0 6px 64px;

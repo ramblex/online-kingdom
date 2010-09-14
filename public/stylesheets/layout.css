@@ -434,6 +434,10 @@ table.match-info td.title {
   background: #f2f2f2;
 }
 
+#album-links {
+  display: none;
+}
+
 div.comment {
   padding: 6px 11px;
 }

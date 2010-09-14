@@ -1,7 +1,27 @@
 <div class="album">
-  <%= link_to image_tag(album.album_photos.first.photo.url(:thumb)), album %>
+  <%= link_to image_tag(album.album_photos.first.photo.url(:thumb)), album, :rel => album.id %>
   <div class="name"><%= truncate album.name, :length => 40 %></div>
   <div class="info">
     By: <%= link_to album.user.username, album.user %>
   </div>
 </div>
+<div id="album-links">
+  <% album.album_photos.each do |album_photo| %>
+    <%= link_to album_photo.id, album_photo.photo.url, :rel => album.id %>
+  <% end %>
+</div>
+
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'colorbox' %>
+  <%= javascript_include_tag 'jquery.colorbox-min' %>
+<% end %>
+
+<script type="text/javascript">
+  $(".album a").click(function() {
+    var rel = $(this).attr('rel');
+    var selector = "#album-links a[rel='"+rel+"']";
+    $(selector).colorbox();
+    $(selector+":first").click();
+    return false;
+  });
+</script>

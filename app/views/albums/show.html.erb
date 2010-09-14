@@ -1,8 +1,8 @@
-<p>
-  <b>Name:</b>
-  <%=h @album.name %>
-</p>
-
+<div id="photos">
+  <% @album.album_photos.each do |album_photo| %>
+    <%= link_to album_photo.id, album_photo.photo.url, :rel => 'currentalbum' %>
+  <% end %>
+</div>
 
 <%= link_to 'Edit', edit_album_path(@album) %> |
 <%= link_to 'Back', albums_path %>

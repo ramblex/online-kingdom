@@ -1,4 +1,5 @@
 <% latest = Match.find(:last) %>
+<% if latest %>
 <div id="top-match-title">
   <% if latest.event.logo? %>
     <%= image_tag latest.event.logo.url(:default), :class => 'logo' %>
@@ -26,3 +27,4 @@
     <%= link_to latest.team2.name, latest.team2, :class => 'name' %>
   </div>
 </div>
+<% end %>

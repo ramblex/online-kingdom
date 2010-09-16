@@ -1,4 +1,5 @@
 <% latest = Article.find(:last) %>
+<% if latest %>
 <div id="top-news-title">
   <span class="title"><%= latest.title %></span>
   <div class="rating"></div>
@@ -12,3 +13,4 @@
   <span class="content"><%= truncate(latest.content, :length => 700) %></span>
 </div>
 <%= link_to image_tag('readmore.png'), latest, :class => 'readmore' %>
+<% end %>

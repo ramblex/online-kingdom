@@ -9,7 +9,8 @@ class User < ActiveRecord::Base
          :authentication_keys => [:username]
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :username, :roles, :avatar
+  attr_accessible :email, :password, :password_confirmation, :username, :roles,
+    :avatar, :city, :firstname, :surname, :birthdate
 
   has_many :articles
   has_many :blogs

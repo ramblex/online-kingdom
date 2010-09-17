@@ -821,3 +821,10 @@ div.comment-info {
 textarea {
   width: 100%;
 }
+
+.settings-avatar {
+  height: 50px;
+  border: 1px solid #ccc;
+  width: 50px;
+  padding: 5px;
+}

@@ -357,6 +357,7 @@ ul#top-nav a {
   width: 202px;
   height: 139px;
   background: gray;
+  border: 1px solid gray;
 }
 
 #settings-current {

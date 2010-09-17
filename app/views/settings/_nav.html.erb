@@ -1,0 +1,9 @@
+<div class="box-title">
+  <span class="blue">SETT</span>INGS<br />
+  <span class="subtitle">CONTENT <span>CHANGER</span></span>
+</div>
+<ul class="switcher">
+  <% Setting.all.each do |section| %>
+    <li><%= link_to section.name.upcase, "/settings/#{section.permalink}" %></li>
+  <% end %>
+</ul>

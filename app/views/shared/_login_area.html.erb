@@ -3,7 +3,7 @@
   <div id="logged-in">
     Welcome back <%= current_user.username %>
     <%= link_to 'INBOX' %>
-    <%= link_to 'SETTINGS' %>
+    <%= link_to 'SETTINGS', settings_path %>
     <%= link_to 'LOGOUT', destroy_user_session_path %>
   </div>
 <% else %>

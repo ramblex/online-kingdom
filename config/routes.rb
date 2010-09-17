@@ -1,12 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
+
   map.resources :videos
-
   map.resources :partners
-
   map.resources :awards
-
   map.devise_for :users
-
+  map.resources :settings, :except => :show
   map.resources :pages
   map.resources :albums
   map.resources :maps

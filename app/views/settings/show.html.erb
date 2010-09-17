@@ -1,0 +1,13 @@
+<p>
+  <b>Name:</b>
+  <%=h @setting.name %>
+</p>
+
+<p>
+  <b>Permalink:</b>
+  <%=h @setting.permalink %>
+</p>
+
+
+<%= link_to 'Edit', edit_setting_path(@setting) %> |
+<%= link_to 'Back', settings_path %>

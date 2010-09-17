@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100914192645) do
+ActiveRecord::Schema.define(:version => 20100917085947) do
 
   create_table "album_photos", :force => true do |t|
     t.datetime "created_at"
@@ -143,6 +143,13 @@ ActiveRecord::Schema.define(:version => 20100914192645) do
     t.date     "birth_date"
     t.integer  "user_id"
     t.integer  "category_id"
+  end
+
+  create_table "settings", :force => true do |t|
+    t.string   "name"
+    t.string   "permalink"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "teams", :force => true do |t|

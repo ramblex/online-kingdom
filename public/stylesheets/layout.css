@@ -395,6 +395,10 @@ ul#top-nav a {
   float: right;
 }
 
+#match-results {
+  padding: 5px;
+}
+
 table.match-info {
   border: 1px solid #d9d9d9;
   width: 275px;

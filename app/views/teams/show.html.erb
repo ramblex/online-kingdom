@@ -4,7 +4,7 @@
       <span class="blue">TE</span>AM
     </div>
     <div class="matches">
-      <div class="matches-title"><%= @team.name %></div>
+      <div class="matches-title"><%= @team.name %><%= admin_links @team, 'team-admin-links' %></div>
       <table class="match-info">
         <tr class="odd">
           <td class="title">Date</td>
@@ -31,6 +31,9 @@
         <% end %>
       </ul>
       <div class="matches-title">Latest results</div>
+      <ul id="match-ticker">
+        <%= render :partial => @matches %>
+      </ul>
     </div>
   </div>
 </div>

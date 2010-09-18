@@ -858,10 +858,6 @@ div.comment-info {
   clear: both;
 }
 
-textarea {
-  width: 100%;
-}
-
 .settings-avatar {
   height: 50px;
   border: 1px solid #ccc;

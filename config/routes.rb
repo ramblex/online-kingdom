@@ -9,7 +9,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :albums
   map.resources :maps
   map.resources :players
-  map.resources :teams
+  map.resources :teams, :has_many => :matches
   map.resources :events
   map.resources :matches
   map.resources :blogs

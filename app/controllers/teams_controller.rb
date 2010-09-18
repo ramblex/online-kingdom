@@ -17,6 +17,11 @@ class TeamsController < ApplicationController
     @team = Team.find(params[:id])
   end
 
+  def show
+    @team = Team.find(params[:id])
+    @matches = @team.matches
+  end
+
   # POST /teams
   # POST /teams.xml
   def create

@@ -11,4 +11,18 @@ module ApplicationHelper
     end
     return country_code
   end
+
+  def admin_links(obj, extra_class = nil)
+    html = %Q[ <div class="admin-links #{extra_class}"> ]
+    if can? :edit, obj
+      html << (link_to '[Edit]', :action => 'edit', :id => obj.id)
+    end
+
+    if can? :delete, obj
+      html << ' '
+      html << (link_to '[Delete]', {:id => obj.id, :method => :delete}, :confirm => 'Are you sure you want to delete this?')
+    end
+
+    html << '</div>'
+  end
 end

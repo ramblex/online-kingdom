@@ -25,6 +25,10 @@ class SettingsController < ApplicationController
     @user = User.find(current_user.id)
   end
 
+  def admin
+
+  end
+
   # GET /settings/new
   # GET /settings/new.xml
   def new

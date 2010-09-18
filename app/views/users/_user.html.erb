@@ -1,0 +1,6 @@
+<tr class="<%= cycle('even', 'odd') %>">
+  <td><%= user.username %></td>
+  <td><%= user.roles %></td>
+  <td><%= link_to 'show', user %></td>
+  <td><%= admin_links user, 'user-admin-links' %></td>
+</tr>

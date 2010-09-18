@@ -1,2 +1,10 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<h1>Users</h1>
+<table class="admin-table">
+  <tr>
+    <th>Username</th>
+    <th>Roles</th>
+    <th>Profile</th>
+    <th>Admin</th>
+  </tr>
+  <%= render :partial => @users %>
+</table>

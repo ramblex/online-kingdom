@@ -33,12 +33,12 @@ input {
   margin-top: 4px;
 }
 
-#admin-settings ul {
+#admin-settings {
   list-style: none;
   margin-top: 10px;
 }
 
-#admin-settings ul a {
+#admin-settings a {
   text-decoration: none;
   display: block;
   line-height: 2em;
@@ -48,11 +48,39 @@ input {
   margin: 0 5px;
 }
 
-#admin-settings ul a:hover {
+#admin-settings a:hover {
   background: #e5ecf9;
   color: black;
 }
 
 #admin-content {
   margin: 10px;
+}
+
+.admin-links a {
+  font-size: 10px;
+  color: #999;
+}
+
+.admin-links a:hover {
+  color: black;
+}
+
+.match-admin-links {
+  float: right;
+  line-height: 25px;
+  padding-left: 5px;
+}
+
+.player-admin-links a {
+  display: inline !important;
+}
+
+.team-admin-links {
+  float: right;
+  margin-right: -40px;
+}
+
+.user-admin-links a {
+  color: #1a3f5a;
 }

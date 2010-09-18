@@ -1,0 +1,7 @@
+<%= render :partial => 'nav' %>
+<ul id="admin-settings">
+  <% ['users'].each do |section| %>
+    <li><%= link_to "Manage #{section}", :controller => section, :action => 'admin' %></li>
+  <% end %>
+</ul>
+<div id="admin-content"></div>

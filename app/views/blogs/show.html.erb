@@ -1,6 +1,7 @@
 <div id="wide-left-col">
   <div class="box">
     <h1><span class="blue">BL</span>OG</h1>
+    <%= admin_links @blog %>
     <div class="blog-show-info">
       <p><strong>By <%= @blog.user.username %></strong></p>
       <%= truncate @blog.content, :length => 300 %>
@@ -13,12 +14,15 @@
 <div id="thin-right-col">
   <div class="box">
     <h1><span class="blue">BLO</span>GGER</h1>
-    <%= image_tag @blog.user.avatar.url, :class => 'news-author-picture' %>
+    <%= render :partial => 'articles/author', :locals => {:user => @blog.user} %>
     <div class="clear"></div>
   </div>
   <div class="box">
     <h1><span class="blue">BLOG</span> ARCHIVE</h1>
     <ul id="blog-archive">
+      <% Blog.all.each do |blog| %>
+        <li><%= link_to blog.title, blog %></li>
+      <% end %>
     </ul>
   </div>
 </div>

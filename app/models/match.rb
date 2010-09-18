@@ -4,5 +4,4 @@ class Match < ActiveRecord::Base
   belongs_to :category
   belongs_to :event
   belongs_to :user
-  has_many :match_maps
 end

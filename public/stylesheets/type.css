@@ -3,6 +3,10 @@ h1 {
   font-weight: bold;
 }
 
+h1#album-title {
+  margin-bottom: 15px;
+}
+
 .subtitle {
   font-size: 8.5px;
 }

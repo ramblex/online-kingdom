@@ -1,8 +1,23 @@
-<div id="photos">
-  <% @album.album_photos.each do |album_photo| %>
-    <%= link_to album_photo.id, album_photo.photo.url, :rel => 'currentalbum' %>
-  <% end %>
+<div id="full-col">
+  <h1 id="album-title"><%= @album.name %></h1>
+  <div id="photos">
+    <% @album.album_photos.each do |album_photo| %>
+      <%= link_to image_tag(album_photo.photo.url(:mini)), album_photo.photo.url %>
+      <div class="hidden-slideshow">
+        <%= link_to image_tag(album_photo.photo.url(:slideshow)), album_photo.photo.url %>
+      </div>
+    <% end %>
+  </div>
+  <div id="current">
+    <%= link_to image_tag(@album.album_photos.first.photo.url(:slideshow)), @album.album_photos.first.photo.url %>
+  </div>
 </div>
 
-<%= link_to 'Edit', edit_album_path(@album) %> |
-<%= link_to 'Back', albums_path %>
+<% content_for :extra_js do %>
+<script type="text/javascript">
+  $("#photos a").click(function() {
+    $("#current").html($(this).next('.hidden-slideshow').html());
+    return false;
+  });
+</script>
+<% end %>

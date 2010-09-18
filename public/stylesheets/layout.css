@@ -39,6 +39,18 @@ div#flash-notice {
   background: #bcdd9f;
 }
 
+#loading {
+  line-height: 40px;
+  clear: left;
+  left: 40%;
+  position: relative;
+}
+
+#loading img {
+  width: 30px !important;
+  height: 30px !important;
+  float: left;
+}
 
 /* Header */
 #wrapper {

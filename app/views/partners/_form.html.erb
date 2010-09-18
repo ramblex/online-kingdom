@@ -1,0 +1,31 @@
+
+<% form_for @partner, :html => {:multipart => true} do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description, :class => 'mceEditor' %>
+  </p>
+  <p>
+    <% if @partner.logo %>
+      <%= image_tag @partner.logo.url(:default) %>
+    <% end %>
+    <%= f.label :logo %><br />
+    <%= f.file_field :logo %>
+  </p>
+  <p>
+    <% if @partner.white_logo %>
+      <%= image_tag @partner.white_logo.url(:default), :style => 'background: gray;' %>
+    <% end %>
+    <%= f.label :white_logo %><br />
+    <%= f.file_field :white_logo %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+

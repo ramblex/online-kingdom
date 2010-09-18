@@ -498,6 +498,15 @@ table.match-info td.title {
   margin-right: 15px;
 }
 
+.partner-description {
+  float: right;
+  width: 300px;
+}
+
+.partner-description p {
+  margin-top: 10px;
+}
+
 div.comment {
   padding: 6px 11px;
 }

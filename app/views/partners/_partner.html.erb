@@ -1,6 +1,7 @@
 <div class="partner">
   <%= image_tag partner.logo.url(:default), :class => 'partner-logo' %>
-  <p class="partner-description">
+  <div class="partner-description">
+    <%= admin_links partner %>
     <%= partner.description %>
-  </p>
+  </div>
 </div>

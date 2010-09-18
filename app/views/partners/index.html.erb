@@ -6,5 +6,8 @@
     </div>
     <%= render :partial => @partners %>
     <div class="clear"></div>
+    <% if can? :create, Partner %>
+      <%= link_to 'Add partner', new_partner_path %>
+    <% end %>
   </div>
 </div>

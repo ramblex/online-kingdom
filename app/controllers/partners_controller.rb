@@ -48,11 +48,9 @@ class PartnersController < ApplicationController
     respond_to do |format|
       if @partner.save
         flash[:notice] = 'Partner was successfully created.'
-        format.html { redirect_to(@partner) }
-        format.xml  { render :xml => @partner, :status => :created, :location => @partner }
+        format.html { redirect_to partners_url }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @partner.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -65,11 +63,9 @@ class PartnersController < ApplicationController
     respond_to do |format|
       if @partner.update_attributes(params[:partner])
         flash[:notice] = 'Partner was successfully updated.'
-        format.html { redirect_to(@partner) }
-        format.xml  { head :ok }
+        format.html { redirect_to partners_url }
       else
         format.html { render :action => "edit" }
-        format.xml  { render :xml => @partner.errors, :status => :unprocessable_entity }
       end
     end
   end

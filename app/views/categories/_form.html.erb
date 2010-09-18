@@ -1,0 +1,17 @@
+<% form_for @category, :html => {:multipart => true} do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <% if @category.small_icon %>
+      <%= image_tag @category.small_icon.url(:default) %>
+    <% end %>
+    <%= f.label :small_icon %><br />
+    <%= f.file_field :small_icon %>
+  </p>
+
+  <p><%= f.submit "Submit" %></p>
+<% end %>

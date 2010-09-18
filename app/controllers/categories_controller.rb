@@ -27,5 +27,26 @@ class CategoriesController < ApplicationController
     end
   end
 
+  # GET /categories/1/edit
+  def edit
+    @category = Category.find(params[:id])
+  end
+
+  # PUT /categories/1
+  # PUT /categories/1.xml
+  def update
+    @category = Category.find(params[:id])
+
+    respond_to do |format|
+      if @category.update_attributes(params[:category])
+        flash[:notice] = 'Category was successfully updated.'
+        format.html { redirect_to(@category) }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @category.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
 
 end

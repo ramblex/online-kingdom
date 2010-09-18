@@ -1,4 +1,5 @@
 <% form_for @player do |f| %>
+  <%= f.error_messages %>
   <p>
     <%= f.label :firstname, 'First name' %><br />
     <%= f.text_field :firstname %>
@@ -16,8 +17,9 @@
     <%= f.country_select :country %>
   </p>
   <p>
-    <%= f.label :category_id, 'Category' %><br />
+    <%= f.label :category_id, 'Game' %><br />
     <%= f.collection_select :category_id, Category.all, :id, :name %>
+    <%= link_to 'Add a game', new_category_path %>
   </p>
   <p>
     <%= f.label :team_id, 'Team' %><br />

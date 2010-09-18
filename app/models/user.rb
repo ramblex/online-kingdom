@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   # When adding roles, be sure to add them to the end of this array
   ROLES = %w[admin editorial_staff events_staff]
 
+  validates_length_of :username, :within => 4..20
   validates_presence_of :username, :email
   validates_uniqueness_of :username
   validates_format_of :username, :with => /^\w+$/i, :message => "can only contain letters and numbers."

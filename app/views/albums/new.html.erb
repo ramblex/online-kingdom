@@ -7,20 +7,11 @@
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </p>
-  <% f.fields_for :album_photos do |photos| %>
-    <p>
-      <%= photos.label :photo %>
-      <%= photos.file_field :photo %>
-    </p>
-
-    <% unless photos.object.new_record? %>
-      <%= photos.check_box '_delete' %>
-      <%= photos.label '_delete', 'Remove' %>
-    <% end %>
-  <% end %>
+  <div id="new_photos">
+    <%= render :partial => 'photo', :collection => @album.album_photos %>
+  </div>
+  <%= add_photo_link %>
   <p>
     <%= f.submit 'Create' %>
   </p>
 <% end %>
-
-<%= link_to 'Back', albums_path %>

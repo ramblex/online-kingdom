@@ -11,6 +11,7 @@
   <div id="current">
     <%= link_to image_tag(@album.album_photos.first.photo.url(:slideshow)), @album.album_photos.first.photo.url %>
   </div>
+  <div class="clear"></div>
 </div>
 
 <% content_for :extra_js do %>

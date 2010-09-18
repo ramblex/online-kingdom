@@ -3,7 +3,7 @@
     <span class="blue">PRO</span>FILE
   </div>
   <div class="profile-info">
-    <%= image_tag @user.avatar.url, :class => 'profile-picture' %>
+    <%= image_tag @user.avatar.url(:profile), :class => 'profile-picture' %>
     <p>Personal information</p>
     <div class="profile-username"><%= @user.username %></div>
     <table class="profile-details">

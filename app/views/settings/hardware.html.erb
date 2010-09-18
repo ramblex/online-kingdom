@@ -1,0 +1,43 @@
+<% form_for @user do |f| %>
+  <p>
+    <%= f.label :headset %><br />
+    <%= f.text_field :headset %>
+  </p>
+  <p>
+    <%= f.label :mousepad %><br />
+    <%= f.text_field :mousepad %>
+  </p>
+  <p>
+    <%= f.label :keyboard %><br />
+    <%= f.text_field :keyboard %>
+  </p>
+  <p>
+    <%= f.label :mouse %><br />
+    <%= f.text_field :mouse %>
+  </p>
+  <p>
+    <%= f.label :motherboard %><br />
+    <%= f.text_field :motherboard %>
+  </p>
+  <p>
+    <%= f.label :cpu, 'CPU' %><br />
+    <%= f.text_field :cpu %>
+  </p>
+  <p>
+    <%= f.label :graphicscard, 'Graphics card' %><br />
+    <%= f.text_field :graphicscard %>
+  </p>
+  <p>
+    <%= f.label :memory %><br />
+    <%= f.text_field :memory %>
+  </p>
+  <p>
+    <%= f.label :hdd, 'Hard disk' %><br />
+    <%= f.text_field :hdd %>
+  </p>
+  <p>
+    <%= f.label :gamepad %><br />
+    <%= f.text_field :gamepad %>
+  </p>
+  <%= f.submit 'Submit' %>
+<% end %>

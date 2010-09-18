@@ -18,6 +18,7 @@ class SettingsController < ApplicationController
   end
 
   def hardware
+    @user = User.find(current_user.id)
   end
 
   def account

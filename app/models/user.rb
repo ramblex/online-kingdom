@@ -10,7 +10,17 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :username, :roles,
-    :avatar, :city, :firstname, :surname, :birthdate
+    :avatar, :city, :firstname, :surname, :birthdate,
+    :headset,
+    :mousepad,
+    :keyboard,
+    :mouse,
+    :motherboard,
+    :cpu,
+    :graphicscard,
+    :memory,
+    :hdd,
+    :gamepad
 
   has_many :articles
   has_many :blogs
@@ -18,7 +28,10 @@ class User < ActiveRecord::Base
   has_many :matches
   has_many :players
 
-  has_attached_file :avatar, :styles => { :default => "50x50#" },
+  has_attached_file :avatar, :styles => {
+    :default => "50x50#",
+    :profile => "128x128"
+  },
     :default_url => '/images/default-user.png'
 
   def roles=(roles)

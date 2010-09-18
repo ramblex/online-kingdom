@@ -4,7 +4,7 @@
     <div class="matches">
       <div class="matches-title">
         <span class="team1"><%= @match.team1.name %></span>
-        <span class="scores">[ ]</span>
+        <span class="scores">[ <%= render :partial => 'scores', :locals => {:match => @match} %> ]</span>
         <span class="team2"><%= @match.team2.name %></span>
       </div>
       <table class="match-info">

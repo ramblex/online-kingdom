@@ -4,4 +4,6 @@ class Match < ActiveRecord::Base
   belongs_to :category
   belongs_to :event
   belongs_to :user
+
+  validates_presence_of :team1, :team2, :category, :event, :start_date
 end

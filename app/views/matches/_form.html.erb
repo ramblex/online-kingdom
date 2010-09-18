@@ -14,6 +14,12 @@
   </p>
   <p><%= link_to 'Add a player' %></p>
   <p>
+    <%= f.label :team1_score, 'Team 1 score' %><br />
+    <%= f.text_field :team1_score, :class => 'number' %>
+    <%= f.label :team2_score, 'Team 2 score' %><br />
+    <%= f.text_field :team2_score, :class => 'number' %>
+  </p>
+  <p>
     <%= f.label :category_id, 'Game' %><br />
     <%= f.collection_select :category_id, Category.all, :id, :name %>
     <%= link_to 'Add game', new_category_path %>
@@ -25,9 +31,8 @@
   </p>
   <p>
     <%= f.label :start_date %><br />
-    <%= f.datetime_select :start_date %>
+    <%= f.datetime_select :start_date, :order => [:day, :month, :year], :minute_step => 15 %>
   </p>
-  <p><%= link_to 'Add a map' %></p>
   <p>
     <%= f.submit 'Create' %>
   </p>

@@ -2,6 +2,6 @@
 <% link_to match do %>
   <span class="team1"><%= match.team1.name %></span> vs.
   <span class="team2"><%= match.team2.name %></span>
-  <span class="scores"></span>
+  <span class="scores"><%= render :partial => 'scores', :locals => {:match => match} %></span>
 <% end %>
 </li>

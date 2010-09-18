@@ -4,10 +4,10 @@
       <span class="blue">TE</span>AM
     </div>
     <div class="matches">
-      <div class="matches-title"><%= @team.name %><%= admin_links @team, 'team-admin-links' %></div>
+      <div class="matches-title"><%= flag @team.country %><%= @team.name %><%= admin_links @team, 'team-admin-links' %></div>
       <table class="match-info">
         <tr class="odd">
-          <td class="title">Date</td>
+          <td class="title">Established</td>
           <td><%= @team.created_at %></td>
         </tr>
         <tr>
@@ -16,7 +16,7 @@
         </tr>
         <tr class="odd">
           <td class="title">Country</td>
-          <td><%= flag @team.country %><%= country_name @team.country %></td>
+          <td><%= country_name @team.country %></td>
         </tr>
         <tr>
           <td class="title">Website</td>

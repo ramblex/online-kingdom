@@ -1,6 +1,7 @@
 <div id="wide-left-col">
   <div class="box">
     <div class="box-title"><span class="blue">MATCH</span> DETAILS</div>
+    <%= admin_links @match %>
     <div class="matches">
       <div class="matches-title">
         <span class="team1"><%= flag @match.team1.country %><%= link_to @match.team1.name, @match.team1 %></span>

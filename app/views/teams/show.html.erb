@@ -16,7 +16,7 @@
         </tr>
         <tr class="odd">
           <td class="title">Country</td>
-          <td><%= @team.country %></td>
+          <td><%= flag @team.country %></td>
         </tr>
         <tr>
           <td class="title">Website</td>
@@ -25,9 +25,11 @@
       </table>
       <%= image_tag @team.logo.url, :class => 'matches-logo' %>
       <div class="matches-title">Players</div>
-      <% @team.players.each do |player| %>
-        <%= player.name %>
-      <% end %>
+      <ul class="team-players">
+        <% @team.players.each do |player| %>
+          <li><%= flag player.country %><%= link_to player.nickname, player %></li>
+        <% end %>
+      </ul>
       <div class="matches-title">Latest results</div>
     </div>
   </div>

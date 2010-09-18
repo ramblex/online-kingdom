@@ -3,9 +3,9 @@
     <div class="box-title"><span class="blue">MATCH</span> DETAILS</div>
     <div class="matches">
       <div class="matches-title">
-        <span class="team1"><%= @match.team1.name %></span>
+        <span class="team1"><%= flag @match.team1.country %><%= link_to @match.team1.name, @match.team1 %></span>
         <span class="scores">[ <%= render :partial => 'scores', :locals => {:match => @match} %> ]</span>
-        <span class="team2"><%= @match.team2.name %></span>
+        <span class="team2"><%= flag @match.team2.country %><%= link_to @match.team2.name, @match.team2 %></span>
       </div>
       <table class="match-info">
         <tr class="odd">

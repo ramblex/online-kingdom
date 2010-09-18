@@ -377,11 +377,11 @@ ul#top-nav a {
 
 .matches-title {
   clear: left;
-  line-height: 25px;
+  line-height: 11px;
   margin-top: 16px;
-  padding: 0 51px 0 9px;
+  padding: 7px 51px 7px 9px;
   border: 1px solid #d9d9d9;
-  height: 25px;
+  height: 11px;
   background: #ededed;
 }
 
@@ -391,12 +391,30 @@ ul#top-nav a {
   float: left;
 }
 
+img.flag {
+  margin: 0 3px 0 0;
+  height: 11px;
+  line-height: 11px; /** Set the line-height in case the image is missing and text is displayed */
+  float: left;
+}
+
 .matches-title .team2 {
   float: right;
 }
 
 #match-results {
   padding: 5px;
+}
+
+.team-players {
+  margin: 10px;
+  list-style: none;
+}
+
+.team-players li {
+  margin: 10px 3px;
+  height: 11px;
+  clear: left;
 }
 
 table.match-info {

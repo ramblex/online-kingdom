@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   # When adding roles, be sure to add them to the end of this array
-  ROLES = %w[admin editorial_staff events_staff player]
+  ROLES = %w[admin editorial_staff events_staff]
 
   # Include default devise modules. Others available are:
   # :http_authenticatable, :token_authenticatable, :confirmable, :lockable, :timeoutable and :activatable

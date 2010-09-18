@@ -2,18 +2,26 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    can :read, [Article, Match, Blog, Album, Player]
+    can :read, [Article, Match, Blog, Album, Player, Video, Award, Partner, Page, Team]
     can :show, User
-
-    can :update, User do |u|
-      u && u.id == user.id
-    end
 
     if user.nil?
       return
     end
 
+    can :update, User do |u|
+      u && u.id == user.id
+    end
+
+    can [:update, :delete], Player do |p|
+      p && p.user_id == user.id
+    end
+
     can :create, Blog
+
+    if user.is? :events_staff
+      can :create, Player
+    end
 
     if user.is? :admin
       can :manage, :all

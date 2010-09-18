@@ -1,0 +1,28 @@
+<% form_for @player do |f| %>
+  <p>
+    <%= f.label :firstname, 'First name' %><br />
+    <%= f.text_field :firstname %>
+  </p>
+  <p>
+    <%= f.label :surname, 'Surname' %><br />
+    <%= f.text_field :surname %>
+  </p>
+  <p>
+    <%= f.label :nickname %><br />
+    <%= f.text_field :nickname %>
+  </p>
+  <p>
+    <%= f.label :country %><br />
+    <%= f.country_select :country %>
+  </p>
+  <p>
+    <%= f.label :category_id, 'Category' %><br />
+    <%= f.collection_select :category_id, Category.all, :id, :name %>
+  </p>
+  <p>
+    <%= f.label :team_id, 'Team' %><br />
+    <%= f.collection_select :team_id, Team.all, :id, :name %>
+    <%= link_to 'Add a team', new_team_path %>
+  </p>
+  <%= f.submit 'Submit' %>
+<% end %>

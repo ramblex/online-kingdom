@@ -18,6 +18,10 @@
           <td class="title">Game</td>
           <td><%= @player.category.name %></td>
         </tr>
+        <tr>
+          <td class="title">Team</td>
+          <td><%= link_to @player.team.name, @player.team %></td>
+        </tr>
       </table>
       <%= image_tag @player.avatar.url, :class => 'matches-logo' %>
     </div>

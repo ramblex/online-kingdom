@@ -38,6 +38,7 @@ class PlayersController < ApplicationController
   # POST /players.xml
   def create
     @player = Player.new(params[:player])
+    @player.user_id = current_user.id
 
     respond_to do |format|
       if @player.save

@@ -220,10 +220,15 @@ div#flash-notice {
   padding-left: 70px;
 }
 
+#logged-in #links {
+  float: right;
+  width: 200px;
+}
+
 #logged-in a {
   color: white;
   text-decoration: none;
-  margin-left: 25px;
+  margin-left: 15px;
 }
 
 #logged-in a:hover {

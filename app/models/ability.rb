@@ -5,6 +5,10 @@ class Ability
     can :read, [Article, Match, Blog, Album, Player]
     can :show, User
 
+    can :update, User do |u|
+      u && u.id == user.id
+    end
+
     if user.nil?
       return
     end

@@ -1,10 +1,12 @@
 <% if user_signed_in? %>
   <%= image_tag current_user.avatar.url(:default), :class => 'news-author-picture' %>
   <div id="logged-in">
-    Welcome back <%= current_user.username %>
-    <%= link_to 'INBOX' %>
-    <%= link_to 'SETTINGS', settings_path %>
-    <%= link_to 'LOGOUT', destroy_user_session_path %>
+    Welcome back <%= truncate current_user.username, :length => 15 %>
+    <div id="links">
+      <%= link_to 'INBOX' %>
+      <%= link_to 'SETTINGS', settings_path %>
+      <%= link_to 'LOGOUT', destroy_user_session_path %>
+    </div>
   </div>
 <% else %>
   <% form_tag :action => 'sign_in', :controller => 'users' do %>

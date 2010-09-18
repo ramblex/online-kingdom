@@ -29,9 +29,13 @@ div#flash-notice, div#flash-alert {
   padding: 10px;
 }
 
-div#flash-alert {
+div#flash-alert, #error {
   border: 1px solid #dc1313;
   background: #e5b6b6;
+}
+
+#error {
+  padding: 10px;
 }
 
 div#flash-notice {

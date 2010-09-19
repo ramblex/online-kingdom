@@ -3,21 +3,49 @@
   <div id="photos">
     <% @album.album_photos.each do |album_photo| %>
       <%= link_to image_tag(album_photo.photo.url(:mini)), album_photo.photo.url %>
-      <div class="hidden-slideshow">
+      <% div_for album_photo, :class => 'hidden-slideshow' do %>
         <%= link_to image_tag(album_photo.photo.url(:slideshow)), album_photo.photo.url %>
-      </div>
+      <% end %>
     <% end %>
   </div>
   <div id="current">
     <%= link_to image_tag(@album.album_photos.first.photo.url(:slideshow)), @album.album_photos.first.photo.url %>
   </div>
   <div class="clear"></div>
+  <div class="box">
+    <h1><span class="blue">COM</span>MENTS</h1>
+    <div id="comments">
+      <%= render :partial => @album.album_comments %>
+    </div>
+  </div>
+  <div class="box">
+    <% form_for :album_comments, :url => {:action => 'comment', :id => @album.id} do |f| %>
+      <%= f.hidden_field :album_photo_id, :value => @album.album_photos.first.id %>
+      <p>
+        <%= f.label :content, 'Comment' %><br />
+        <%= f.text_area :content %>
+      </p>
+      <%= f.submit 'Comment on photo' %>
+    <% end %>
+  </div>
 </div>
 
 <% content_for :extra_js do %>
 <script type="text/javascript">
+  // Show only the comments for the given photo ID - hide all others
+  function show_photo_comments(photo_id) {
+    $("#comments div[class^=photo_]").hide();
+    $("#comments div").filter(".photo_"+photo_id).show();
+  }
+
+  show_photo_comments(<%= @album.album_photos.first.id %>);
+
   $("#photos a").click(function() {
-    $("#current").html($(this).next('.hidden-slideshow').html());
+    var next = $(this).next('.hidden-slideshow');
+    var photo_id = next.attr('id').split('_').pop();
+    show_photo_comments(photo_id);
+    $("#album_comments_album_photo_id").attr('value', photo_id);
+    $("#current").html(next.html());
     return false;
   });
 </script>

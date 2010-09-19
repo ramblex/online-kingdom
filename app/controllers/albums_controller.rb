@@ -1,6 +1,13 @@
 class AlbumsController < ApplicationController
   load_and_authorize_resource
 
+  def comment
+    params[:album_comments]['user_id'] = current_user.id
+    Album.find(params[:id]).album_comments.create(params[:album_comments])
+    flash[:notice] = "Added your comment"
+    redirect_to :action => "show", :id => params[:id]
+  end
+
   # Enable users to rate a given article
   # /articles/1/rate/4
   def rate

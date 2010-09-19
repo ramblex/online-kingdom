@@ -1,4 +1,4 @@
-<%= admin_links match, 'match-admin-links' %>
+<%= admin_links match, 'match-admin-links', :controller => 'matches' %>
 <li>
 <% link_to match do %>
   <%= image_tag match.category.small_icon.url(:default) %>

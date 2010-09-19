@@ -23,7 +23,7 @@
           <td><%= @team.website %></td>
         </tr>
       </table>
-      <%= image_tag @team.logo.url, :class => 'matches-logo' %>
+      <%= image_tag @team.logo.url(:default), :class => 'matches-logo' %>
       <div class="matches-title">Players</div>
       <ul class="team-players">
         <% @team.players.each do |player| %>

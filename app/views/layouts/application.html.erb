@@ -4,6 +4,8 @@
     <title>ONLINE KINGDOM</title>
     <%= stylesheet_link_tag("screen") %>
     <%= javascript_include_tag("jquery") %>
+    <%= javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery? -%>
+    <%= javascript_include_tag 'application' %>
     <%= include_tiny_mce_if_needed %>
     <%= yield :head %>
   </head>

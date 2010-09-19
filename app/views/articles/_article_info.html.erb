@@ -1,8 +1,26 @@
-<div class="news-content">
+<% div_for article, :class => 'news-content' do %>
   <%= link_to article.title, article, :class => 'news-title' %>
   <%= admin_links article %>
-  <div class="news-rating"></div>
+  <div class="news-rating"><%= stars_for article %></div>
   <%= truncate(article.content, :length => 320) %>
-</div>
+<% end %>
 <%= image_tag article.image.url(:default), :class => 'news-picture' %>
-<hr />
+
+<% if user_signed_in? %>
+<script type="text/javascript">
+  $(".stars a").click(function() {
+    rating = $(this).attr('id');
+    article = $(this).closest('.news-content').attr('id').split('_')[1];
+    $(".stars a").removeClass('filled');
+    $(this).addClass('filled');
+    $(this).prevAll('a').addClass('filled');
+  });
+
+  $(".stars a").hover(function() {
+    $(this).addClass('prev-filled');
+    $(this).prevAll('a').addClass('prev-filled');
+  }, function() {
+    $(".stars a").removeClass('prev-filled');
+  });
+</script>
+<% end %>

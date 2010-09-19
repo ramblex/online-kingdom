@@ -6,6 +6,26 @@ class ArticlesController < ApplicationController
     @articles = Article.all
   end
 
+  # Enable users to rate a given article
+  # /articles/1/rate/4
+  def rate
+    @article = Article.find(params[:id])
+    authorize! :rate, @article
+    @article_rating = ArticleRating.new({
+      :user_id => current_user.id,
+      :article_id => params[:id],
+      :rating => params[:rating]
+    })
+
+    if @article_rating.save
+      flash[:notice] = 'Thanks for rating'
+    else
+      flash[:alert] = "Could not save your rating. You may have rated this already!"
+    end
+
+    redirect_to :back
+  end
+
   # GET /articles
   # GET /articles.xml
   def index

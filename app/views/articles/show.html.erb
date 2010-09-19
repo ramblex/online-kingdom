@@ -2,15 +2,26 @@
   <div class="box">
     <h1><span class="blue">NEWS</span> PAGE</h1>
     <%= render :partial => 'article_info', :locals => {:article => @article} %>
+    <hr />
     <%= @article.content %>
   </div>
   <div class="box">
     <div id="news-comments">
       <h1><span class="blue">COM</span>MENTS</h1>
+      <%= render :partial => @article.article_comments %>
     </div>
   </div>
-  <div class="box">
-  </div>
+  <% if user_signed_in? %>
+    <div class="box">
+      <% form_for :article_comments, :url => {:action => 'comment', :id => @article } do |f| %>
+        <p>
+          <%= f.label :content, 'Comment' %><br />
+          <%= f.text_area :content, :class => 'mceEditor' %>
+        </p>
+        <%= f.submit 'Add comment' %>
+      <% end %>
+    </div>
+  <% end %>
 </div>
 <div id="thin-right-col">
   <div class="box">
@@ -26,6 +37,10 @@
         <strong>Edited/Approved</strong>
       </div>
     <% end %>
+    <div class="news-stats">
+      <%= @article.article_comments.size %> comments<br />
+      Last update was <%= time_ago_in_words @article.updated_at %> ago
+    </div>
   </div>
 </div>
 

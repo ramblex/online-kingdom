@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100919113223) do
+ActiveRecord::Schema.define(:version => 20100919133818) do
 
   create_table "album_photos", :force => true do |t|
     t.datetime "created_at"
@@ -26,6 +26,14 @@ ActiveRecord::Schema.define(:version => 20100919113223) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+  end
+
+  create_table "article_comments", :force => true do |t|
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "article_id"
   end
 
   create_table "article_ratings", :force => true do |t|

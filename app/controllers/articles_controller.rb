@@ -1,9 +1,16 @@
 class ArticlesController < ApplicationController
   load_and_authorize_resource
-  uses_tiny_mce :only => [:new, :create, :edit, :update]
+  uses_tiny_mce :only => [:new, :create, :edit, :update, :show]
 
   def admin
     @articles = Article.all
+  end
+
+  def comment
+    params[:article_comments]['user_id'] = current_user.id
+    Article.find(params[:id]).article_comments.create(params[:article_comments])
+    flash[:notice] = "Added your comment"
+    redirect_to :action => "show", :id => params[:id]
   end
 
   # Enable users to rate a given article

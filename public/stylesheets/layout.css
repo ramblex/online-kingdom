@@ -333,6 +333,11 @@ ul#top-nav a {
   height: 139px;
 }
 
+.news-stats {
+  margin-top: 20px;
+  font-size: 90%;
+}
+
 .news-title {
   color: black;
   text-decoration: none;
@@ -550,7 +555,7 @@ div.comment-info {
   padding: 0 0 0 11px;
   color: #6e6f70;
   font-weight: bold;
-  margin: 0 -14px 0 -11px;
+  margin: 10px -14px 0 -11px;
 }
 
 #pagination {

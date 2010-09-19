@@ -7,6 +7,7 @@ class Article < ActiveRecord::Base
   belongs_to :user
   belongs_to :moderator, :class_name => 'User', :foreign_key => 'moderator_id'
   has_many :article_ratings
+  has_many :article_comments
 
   validates_presence_of :category_id, :title, :content, :user_id
   validates_presence_of :moderator_id, :if => :approved

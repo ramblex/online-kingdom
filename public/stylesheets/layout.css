@@ -342,12 +342,11 @@ ul#top-nav a {
 .news-left {
   float: left;
   width: 236px;
-  margin-top: 16px;
   height: 139px;
 }
 
 .news-author {
-  margin-bottom: 21px;
+  margin-top: 16px;
   width: 236px;
   height: 50px;
 }

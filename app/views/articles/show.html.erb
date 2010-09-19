@@ -14,6 +14,18 @@
 </div>
 <div id="thin-right-col">
   <div class="box">
+    <div class="box-title">
+      <span class="blue">CREDITS</span> TO
+    </div>
+    <div class="clear"></div>
+    <%= render :partial => 'author', :locals => {:user => @article.user} %>
+    <% if @article.moderator %>
+      <div class="news-author">
+        <%= image_tag @article.moderator.avatar.url(:default), :class => 'news-author-picture' %>
+        <%= link_to @article.moderator.username, @article.moderator %><br />
+        <strong>Edited/Approved</strong>
+      </div>
+    <% end %>
   </div>
 </div>
 

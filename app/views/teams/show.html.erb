@@ -8,7 +8,7 @@
       <table class="match-info">
         <tr class="odd">
           <td class="title">Established</td>
-          <td><%= @team.created_at %></td>
+          <td><%= @team.created_at.to_formatted_s :no_time %></td>
         </tr>
         <tr>
           <td class="title">Game</td>

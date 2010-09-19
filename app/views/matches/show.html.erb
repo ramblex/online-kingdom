@@ -11,7 +11,7 @@
       <table class="match-info">
         <tr class="odd">
           <td class="title">Date</td>
-          <td><%= @match.start_date %></td>
+          <td><%= @match.start_date.to_formatted_s :match %></td>
         </tr>
         <tr>
           <td class="title">Game</td>

@@ -1,7 +1,11 @@
-<% if match.team1_score > match.team2_score %>
-  <span class="win"><%= match.team1_score %></span> :
-  <span class="lose"><%= match.team2_score %></span>
+<% if match.has_happened %>
+  <% if match.team1_score > match.team2_score %>
+    <span class="win"><%= match.team1_score %></span> :
+    <span class="lose"><%= match.team2_score %></span>
+  <% else %>
+    <span class="lose"><%= match.team1_score %></span> :
+    <span class="win"><%= match.team2_score %></span>
+  <% end %>
 <% else %>
-  <span class="lose"><%= match.team1_score %></span> :
-  <span class="win"><%= match.team2_score %></span>
+  <span class="match-time"><%= match.start_date.to_formatted_s :time_only %></span>
 <% end %>

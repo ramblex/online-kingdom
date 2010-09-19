@@ -15,7 +15,7 @@ class ArticlesController < ApplicationController
 
   # Enable users to rate a given article
   # /articles/1/rate/4
-  def rate_album
+  def rate
     @article = Article.find(params[:id])
     authorize! :rate, @article
     @article_rating = ArticleRating.new({

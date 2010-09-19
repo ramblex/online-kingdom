@@ -429,6 +429,13 @@ img.flag {
   float: right;
 }
 
+.match-picture {
+  float: right;
+  margin: 16px 0 0 0;
+  width: 200px;
+  height: 100px;
+}
+
 #match-results {
   padding: 5px;
 }

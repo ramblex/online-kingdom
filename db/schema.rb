@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100919164627) do
+ActiveRecord::Schema.define(:version => 20100919183455) do
 
   create_table "album_comments", :force => true do |t|
     t.text     "content"
@@ -140,9 +140,13 @@ ActiveRecord::Schema.define(:version => 20100919164627) do
     t.integer  "category_id"
     t.integer  "event_id"
     t.integer  "user_id"
-    t.integer  "team1_score", :default => 0
-    t.integer  "team2_score", :default => 0
+    t.integer  "team1_score",              :default => 0
+    t.integer  "team2_score",              :default => 0
     t.text     "results"
+    t.string   "map_picture_file_name"
+    t.string   "map_picture_content_type"
+    t.integer  "map_picture_file_size"
+    t.datetime "map_picture_updated_at"
   end
 
   create_table "pages", :force => true do |t|

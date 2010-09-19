@@ -7,5 +7,7 @@ class Match < ActiveRecord::Base
   belongs_to :event
   belongs_to :user
 
+  has_attached_file :map_picture, :styles => {:default => '200x100'}
+
   validates_presence_of :team1, :team2, :category, :event, :start_date
 end

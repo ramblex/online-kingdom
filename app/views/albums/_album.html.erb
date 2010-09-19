@@ -4,5 +4,25 @@
   <div class="info">
     <%= admin_links album %>
     By: <%= link_to album.user.username, album.user %>
+    <%= stars_for album %>
   </div>
 </div>
+
+<% if user_signed_in? %>
+<script type="text/javascript">
+  $(".stars a").click(function() {
+    rating = $(this).attr('id');
+    article = $(this).closest('.news-content').attr('id').split('_')[1];
+    $(".stars a").removeClass('filled');
+    $(this).addClass('filled');
+    $(this).prevAll('a').addClass('filled');
+  });
+
+  $(".stars a").hover(function() {
+    $(this).addClass('prev-filled');
+    $(this).prevAll('a').addClass('prev-filled');
+  }, function() {
+    $(".stars a").removeClass('prev-filled');
+  });
+</script>
+<% end %>

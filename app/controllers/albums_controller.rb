@@ -1,6 +1,27 @@
 class AlbumsController < ApplicationController
   load_and_authorize_resource
 
+  # Enable users to rate a given article
+  # /articles/1/rate/4
+  def rate
+    @album = Album.find(params[:id])
+    authorize! :rate, @album
+    @album_rating = AlbumRating.new({
+      :user_id => current_user.id,
+      :album_id => params[:id],
+      :rating => params[:rating]
+    })
+
+    if @album_rating.save
+      flash[:notice] = 'Thanks for rating'
+    else
+      flash[:alert] = "Could not save your rating. You may have rated this already!"
+    end
+
+    redirect_to :back
+  end
+
+
   # GET /albums
   # GET /albums.xml
   def index

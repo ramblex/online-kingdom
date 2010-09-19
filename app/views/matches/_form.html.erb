@@ -31,18 +31,45 @@
     <%= link_to 'Add new team', new_team_path %>
   </p>
   <p><%= link_to 'Add a player' %></p>
-  <p>
-    <%= f.label :team1_score, 'Team 1 score' %><br />
-    <%= f.text_field :team1_score, :class => 'number' %>
-    <%= f.label :team2_score, 'Team 2 score' %><br />
-    <%= f.text_field :team2_score, :class => 'number' %>
-  </p>
-  <p>
-    <%= f.label :results, 'Result details' %><br />
-    <%= f.text_area :results, :class => 'mceEditor' %>
-  </p>
+  <div class="date_dependent">
+    <p>
+      <%= f.label :team1_score, 'Team 1 score' %><br />
+      <%= f.text_field :team1_score, :class => 'number' %>
+      <%= f.label :team2_score, 'Team 2 score' %><br />
+      <%= f.text_field :team2_score, :class => 'number' %>
+    </p>
+    <p>
+      <%= f.label :results, 'Result details' %><br />
+      <%= f.text_area :results, :class => 'mceEditor' %>
+    </p>
+  </div>
   <p>
     <%= f.submit 'Create' %>
   </p>
 <% end %>
 
+<% content_for :extra_js do %>
+  <script type="text/javascript">
+    function hide_or_show_date_dependent(column) {
+      var chosen_date = new Date(
+        $("#"+column+"_1i").val(),
+        $("#"+column+"_2i").val() - 1,
+        $("#"+column+"_3i").val(),
+        $("#"+column+"_4i").val(),
+        $("#"+column+"_5i").val(),
+        0);
+      var today = new Date();
+      if (chosen_date.getTime() < today.getTime()) {
+        $(".date_dependent").show();
+      } else {
+        $(".date_dependent").hide();
+      }
+    }
+
+    hide_or_show_date_dependent('match_start_date');
+
+    $("select[id^=match_start_date_]").change(function() {
+      hide_or_show_date_dependent('match_start_date');
+    });
+  </script>
+<% end %>

@@ -2,8 +2,8 @@
   <div class="news-left">
     <%= render :partial => 'author', :locals => {:user => article.user} %>
     <div class="news-author">
-      <%= image_tag article.user.avatar.url(:default), :class => 'news-author-picture' %>
-      <%= link_to article.user.username, article.user %><br />
+      <%= image_tag article.moderator.avatar.url(:default), :class => 'news-author-picture' %>
+      <%= link_to article.moderator.username, article.moderator %><br />
       <strong>Edited/Approved</strong>
     </div>
   </div>

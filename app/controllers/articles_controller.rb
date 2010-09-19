@@ -2,13 +2,17 @@ class ArticlesController < ApplicationController
   load_and_authorize_resource
   uses_tiny_mce :only => [:new, :create, :edit, :update]
 
+  def admin
+    @articles = Article.all
+  end
+
   # GET /articles
   # GET /articles.xml
   def index
     if params[:category].blank? or params[:category].eql? 'all'
-      @articles = Article.paginate :page => params[:page]
+      @articles = Article.approved.paginate :page => params[:page]
     else
-      @articles = Article.paginate :page => params[:page], :conditions => ['category_id = ?', params[:category]]
+      @articles = Article.approved.paginate :page => params[:page], :conditions => ['category_id = ?', params[:category]]
     end
 
     respond_to do |format|
@@ -51,6 +55,10 @@ class ArticlesController < ApplicationController
     @article = Article.new(params[:article])
     @article.user_id = current_user.id
 
+    if @article.approved
+      @article.moderator_id = current_user.id
+    end
+
     respond_to do |format|
       if @article.save
         flash[:notice] = 'Article was successfully created.'
@@ -67,6 +75,7 @@ class ArticlesController < ApplicationController
   # PUT /articles/1.xml
   def update
     @article = Article.find(params[:id])
+    @article.moderator_id = current_user.id
 
     respond_to do |format|
       if @article.update_attributes(params[:article])

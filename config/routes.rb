@@ -1,5 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
 
+  map.resources :articles, :collection => {:admin => :get}
   map.resources :videos
   map.resources :partners
   map.resources :awards
@@ -14,7 +15,6 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :matches
   map.resources :blogs
   map.resources :users
-  map.resources :articles
   map.resources :categories
 
   # The priority is based upon order of creation: first created -> highest priority.

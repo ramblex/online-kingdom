@@ -12,15 +12,19 @@ module ApplicationHelper
     return country_code
   end
 
-  def admin_links(obj, extra_class = nil)
-    html = %Q[ <div class="admin-links #{extra_class}"> ]
+  def admin_links(obj, extra_class = nil, options = {})
+    if extra_class.eql? :none
+      html = '<div>'
+    else
+      html = %Q[ <div class="admin-links #{extra_class}"> ]
+    end
     if can? :edit, obj
-      html << (link_to '[Edit]', :action => 'edit', :id => obj.id)
+      html << (link_to '[Edit]', options.merge(:id => obj.id, :action => 'edit'))
     end
 
     if can? :delete, obj
       html << ' '
-      html << (link_to '[Delete]', {:id => obj.id, :method => :delete}, :confirm => 'Are you sure you want to delete this?')
+      html << (link_to '[Delete]', obj, :method => :delete, :confirm => 'Are you sure you want to delete this?')
     end
 
     html << '</div>'

@@ -6,8 +6,7 @@
     <th>Author</th>
     <th>Approved?</th>
     <th>Date posted</th>
-    <th>Edit</th>
-    <th>Delete</th>
+    <th>Admin</th>
   </tr>
   <% @articles.each do |article| %>
     <tr class="<%= cycle 'even', 'odd' %>">
@@ -15,8 +14,7 @@
       <td><%= article.user.username %></td>
       <td><%= article.approved %></td>
       <td><%= article.created_at %></td>
-      <td><%= link_to 'Edit', edit_article_path(article) %></td>
-      <td></td>
+      <td><%= admin_links article, :none %></td>
     </tr>
   <% end %>
 </table>

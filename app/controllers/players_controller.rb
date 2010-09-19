@@ -3,9 +3,9 @@ class PlayersController < ApplicationController
 
   def index
     if params[:category].blank? or params[:category].eql? 'all'
-      @players = Player.paginate :page => params[:page]
+      @players = User.ok_players.paginate :page => params[:page]
     else
-      @players = Player.paginate :page => params[:page], :conditions => ['category_id = ?', params[:category]]
+      @players = User.ok_players.paginate :page => params[:page], :conditions => ['category_id = ?', params[:category]]
     end
 
     respond_to do |format|

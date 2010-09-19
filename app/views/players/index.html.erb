@@ -11,7 +11,7 @@
       <% end %>
     </ul>
     <div id="player-list">
-    <%= render :partial => @players %>
+      <%= render :partial => 'player', :collection => @players %>
     </div>
     <% if can? :create, Player %>
       <%= link_to 'Create player', new_player_path %>

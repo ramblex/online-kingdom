@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   # When adding roles, be sure to add them to the end of this array
-  ROLES = %w[admin editorial_staff events_staff]
+  ROLES = %w[admin editorial_staff events_staff ok_player ok_staff]
+
+  named_scope :ok_players, :conditions => "roles_mask & #{2**ROLES.index('ok_player')} != 0"
 
   validates_length_of :username, :within => 4..20
   validates_presence_of :username, :email

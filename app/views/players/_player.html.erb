@@ -1,10 +1,10 @@
 <div class="player <%= cycle('left', 'right') %>">
   <%= image_tag player.avatar.url(:default) %>
   <% link_to player do %>
-    &raquo; <%= "#{player.firstname} '#{player.nickname}' #{player.surname}" %>
+    &raquo; <%= "#{player.firstname} '#{player.username}' #{player.surname}" %>
   <% end %>
-  <%= admin_links player, 'player-admin-links' %>
+  <%= admin_links player, 'player-admin-links', :controller => 'users' %>
   <p class="description">
-    aslkdjalskdj
+    <%= player.description %>
   </p>
 </div>

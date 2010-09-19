@@ -19,11 +19,11 @@
         </tr>
         <tr class="odd">
           <td class="title">Event</td>
-          <td><%= @match.event.name %></td>
+          <td><%= link_to @match.event.name, @match.event %></td>
         </tr>
         <tr>
           <td class="title">Format</td>
-          <td></td>
+          <td><%= @match.format.name %></td>
         </tr>
       </table>
       <% if @match.map_picture %>

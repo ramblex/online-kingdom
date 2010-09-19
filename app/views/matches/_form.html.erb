@@ -31,6 +31,11 @@
     <%= link_to 'Add new team', new_team_path %>
   </p>
   <p><%= link_to 'Add a player' %></p>
+  <p>
+    <%= f.label :format_id, 'Format' %><br />
+    <%= f.collection_select :format_id, Format.all, :id, :name %>
+    <%= link_to 'Add a format', new_format_path %>
+  </p>
   <div class="date_dependent">
     <p>
       <%= f.label :team1_score, 'Team 1 score' %><br />

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100919183455) do
+ActiveRecord::Schema.define(:version => 20100919190938) do
 
   create_table "album_comments", :force => true do |t|
     t.text     "content"
@@ -116,6 +116,12 @@ ActiveRecord::Schema.define(:version => 20100919183455) do
     t.datetime "logo_updated_at"
   end
 
+  create_table "formats", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "maps", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -147,6 +153,7 @@ ActiveRecord::Schema.define(:version => 20100919183455) do
     t.string   "map_picture_content_type"
     t.integer  "map_picture_file_size"
     t.datetime "map_picture_updated_at"
+    t.integer  "format_id"
   end
 
   create_table "pages", :force => true do |t|

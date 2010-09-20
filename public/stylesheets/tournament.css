@@ -15,7 +15,7 @@
   background: gray;
 }
 
-.team {
+#tournament .team {
   height: 15px;
   line-height: 15px;
   display: block;

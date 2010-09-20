@@ -1,0 +1,51 @@
+/**
+ * Stylesheet for the tournament tree
+ */
+
+#team-select {
+  display: none;
+}
+
+.tournament-round {
+  float: left;
+  width: 150px;
+}
+
+.match {
+  background: gray;
+}
+
+.team {
+  height: 15px;
+  line-height: 15px;
+  display: block;
+  background: #efefef;
+}
+
+.team select {
+  width: 100%;
+}
+
+#round-1 .team {
+  margin: 15px 0;
+}
+
+#round-2 .team {
+  margin: 30px 0 45px 0;
+}
+
+#round-3 .team {
+  margin: 60px 0 105px 0;
+}
+
+#round-4 .team {
+  margin: 120px 0 215px 0;
+}
+
+#round-5 .team {
+  margin: 240px 0 445px 0;
+}
+
+#round-6 .team {
+  margin: 480px 0 0 0;
+}

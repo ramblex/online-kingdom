@@ -5,12 +5,28 @@
     <%= f.text_field :name %>
   </p>
   <p>
-    <%= f.label :category_id, 'Category' %><br />
-    <%= f.collection_select :category_id, Category.all, :id, :name %>
-  </p>
-  <p>
     <%= f.label :logo %><br />
     <%= f.file_field :logo %>
   </p>
+  <p>
+    <%= f.label :category_id, 'Category' %><br />
+    <%= f.collection_select :category_id, Category.all, :id, :name %>
+  </p>
+  <p><%= link_to 'Create a new team', new_team_path %></p>
+  <p> <%= link_to 'Add a team to the event', '#', :id => 'add-team' %> </p>
+  <div id="tournament">
+  </div>
+  <div id="team-select">
+    <%= select "tournament_team", "team_id", Team.all.collect {|p| [p.name, p.id]}, {:include_blank => ''} %>
+  </div>
+  <div class="clear"></div>
   <%= f.submit 'Submit' %>
+<% end %>
+
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'tournament' %>
+<% end %>
+
+<% content_for :extra_js do %>
+  <%= javascript_include_tag 'tournament' %>
 <% end %>

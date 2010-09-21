@@ -17,7 +17,9 @@
   <div id="tournament">
   </div>
   <div id="team-select">
-    <%= select "tournament_team", "team_id", Team.all.collect {|p| [p.name, p.id]}, {:include_blank => ''} %>
+    <% fields_for "event[event_teams_attributes][]", EventTeam.new do |builder| %>
+      <%= builder.collection_select :team_id, Team.all, :id, :name, {:include_blank => true} %>
+    <% end %>
   </div>
   <div class="clear"></div>
   <%= f.submit 'Submit' %>

@@ -1,0 +1,18 @@
+<h1>Event administration</h1>
+<%= link_to 'Add event', new_event_path %>
+<table class="admin-table">
+  <tr>
+    <th>Name</th>
+    <th>Start date</th>
+    <th>End date</th>
+    <th>Admin</th>
+  </tr>
+  <% @events.each do |event| %>
+    <tr class="<%= cycle 'even', 'odd' %>">
+      <td><%= event.name %></td>
+      <td><%= event.start_date %></td>
+      <td><%= event.end_date %></td>
+      <td><%= admin_links event, :none %></td>
+    </tr>
+  <% end %>
+</table>

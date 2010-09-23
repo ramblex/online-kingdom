@@ -2,6 +2,10 @@ class MatchesController < ApplicationController
   load_and_authorize_resource
   uses_tiny_mce :only => [:new, :create, :edit, :update]
 
+  def admin
+    @matches = Match.all
+  end
+
   # GET /matches
   # GET /matches.xml
   def index

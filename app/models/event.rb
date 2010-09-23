@@ -1,5 +1,5 @@
 class Event < ActiveRecord::Base
-  has_many :matches
+  has_many :matches, :dependent => :destroy
   has_many :event_teams
   belongs_to :category
   belongs_to :user

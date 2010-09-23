@@ -1,6 +1,10 @@
 class TeamsController < ApplicationController
   load_and_authorize_resource
 
+  def admin
+    @teams = Team.all
+  end
+
   # GET /teams/new
   # GET /teams/new.xml
   def new

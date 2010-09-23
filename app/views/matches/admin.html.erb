@@ -1,0 +1,20 @@
+<h1>Match administration</h1>
+<%= link_to 'Add match', new_match_path %>
+<table class="admin-table">
+  <tr>
+    <th>Team 1</th>
+    <th>Team 2</th>
+    <th></th>
+    <th>Date</th>
+    <th>Admin</th>
+  </tr>
+  <% @matches.each do |match| %>
+    <tr class="<%= cycle 'even', 'odd' %>">
+      <td><%= match.team1.name %></td>
+      <td><%= match.team2.name %></td>
+      <td></td>
+      <td><%= match.start_date %></td>
+      <td><%= admin_links match, :none %></td>
+    </tr>
+  <% end %>
+</table>

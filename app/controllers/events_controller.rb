@@ -1,6 +1,10 @@
 class EventsController < ApplicationController
   load_and_authorize_resource
 
+  def admin
+    @events = Event.all
+  end
+
   def show
     @event = Event.find(params[:id])
   end
@@ -62,7 +66,7 @@ class EventsController < ApplicationController
     @event.destroy
 
     respond_to do |format|
-      format.html { redirect_to(events_url) }
+      format.html { redirect_to(admin_events_path) }
       format.xml  { head :ok }
     end
   end

@@ -1,0 +1,14 @@
+<h1>Team administration</h1>
+<%= link_to 'Add team', new_team_path %>
+<table class="admin-table">
+  <tr>
+    <th>Name</th>
+    <th>Admin</th>
+  </tr>
+  <% @teams.each do |team| %>
+    <tr class="<%= cycle 'even', 'odd' %>">
+      <td><%= team.name %></td>
+      <td><%= admin_links team, :none %></td>
+    </tr>
+  <% end %>
+</table>

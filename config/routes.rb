@@ -23,9 +23,6 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :albums
   map.resources :maps
   map.resources :players
-  map.resources :teams, :has_many => :matches
-  map.resources :events
-  map.resources :matches
   map.resources :blogs
   map.resources :users
   map.resources :categories
@@ -34,6 +31,9 @@ ActionController::Routing::Routes.draw do |map|
   # Sample resource route with options:
   #   map.resources :products, :member => { :short => :get, :toggle => :post }, :collection => { :sold => :get }
   map.resources :articles, :collection => {:admin => :get}
+  map.resources :matches, :collection => {:admin => :get}
+  map.resources :events, :collection => {:admin => :get}
+  map.resources :teams, :collection => {:admin => :get}
 
   # Sample resource route with sub-resources:
   #   map.resources :products, :has_many => [ :comments, :sales ], :has_one => :seller

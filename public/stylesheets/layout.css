@@ -945,3 +945,12 @@ div.comment-info {
 .prev-filled {
   background-position: 0 -10px;
 }
+
+/** Events */
+#attending-teams {
+  list-style: none;
+}
+
+#attending-teams li {
+  padding: 5px 5px 0 5px;
+}

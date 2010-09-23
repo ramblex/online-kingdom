@@ -8,7 +8,7 @@
 
 .tournament-round {
   float: left;
-  width: 150px;
+  width: 120px;
 }
 
 .match {
@@ -24,6 +24,10 @@
   color: white;
 }
 
+.team img {
+  padding-top: 4px;
+}
+
 .team select {
   width: 100%;
 }
@@ -37,17 +41,17 @@
 }
 
 #round-3 .team {
-  margin: 80px 0 105px 0;
+  margin: 80px 0 140px 0;
 }
 
 #round-4 .team {
-  margin: 120px 0 215px 0;
+  margin: 160px 0 215px 0;
 }
 
 #round-5 .team {
-  margin: 240px 0 445px 0;
+  margin: 320px 0 445px 0;
 }
 
 #round-6 .team {
-  margin: 480px 0 0 0;
+  margin: 640px 0 0 0;
 }

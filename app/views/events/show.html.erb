@@ -2,26 +2,37 @@
   <%= stylesheet_link_tag 'tournament' %>
 <% end %>
 
-<div id="left-col">
+<div id="wide-left-col">
   <div class="box">
     <div class="box-title">
       <span class="blue">TOURNAMENT</span> PAGE
     </div>
 
     <div class="matches-title"><%= @event.name %></div>
+
+    <table class="match-info">
+      <tr class="odd">
+        <td class="title">Date</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="title">Game</td>
+        <td><%= @event.category.name %></td>
+      </tr>
+    </table>
     <div class="matches-title">Attending teams</div>
-    <ul>
+    <ul id="attending-teams">
       <% @event.attending_teams.each do |event_team| %>
         <li>
           <%= flag event_team.team.country %>
-          <%= event_team.team.name %>
+          <%= link_to event_team.team.name, event_team.team %>
         </li>
       <% end %>
     </ul>
     <div class="matches-title">Brackets</div>
     <div id="tournament">
       <%= render :partial => 'bracket', :locals => {:event => @event} %>
-      </div>
-      <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
   </div>
 </div>

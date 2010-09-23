@@ -9,6 +9,15 @@
     </div>
 
     <div class="matches-title"><%= @event.name %></div>
+    <div class="matches-title">Attending teams</div>
+    <ul>
+      <% @event.attending_teams.each do |event_team| %>
+        <li>
+          <%= flag event_team.team.country %>
+          <%= event_team.team.name %>
+        </li>
+      <% end %>
+    </ul>
     <div class="matches-title">Brackets</div>
     <div id="tournament">
       <%= render :partial => 'bracket', :locals => {:event => @event} %>

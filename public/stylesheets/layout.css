@@ -98,6 +98,10 @@ div#flash-notice {
   display: block;
 }
 
+#top-match-title a {
+  color: white;
+}
+
 #top-match-content .team a:hover {
   text-decoration: underline;
 }

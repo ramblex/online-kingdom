@@ -4,7 +4,7 @@
   <% if latest.event.logo? %>
     <%= image_tag latest.event.logo.url(:default), :class => 'logo' %>
   <% end %>
-  <span class="title"><%= latest.event.name %></span>
+  <span class="title"><%= link_to latest.event.name, latest.event %></span>
   <div class="rating"></div>
 </div>
 <div class="top-info">

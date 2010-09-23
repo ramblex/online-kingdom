@@ -17,12 +17,12 @@
   <div id="tournament">
     <%= render :partial => 'bracket', :locals => {:event => @event, :render_select => true} %>
   </div>
-  <div id="team-select">
-    <%= render :partial => 'select' %>
-  </div>
   <div class="clear"></div>
   <%= f.submit 'Submit' %>
 <% end %>
+<div id="team-select">
+  <%= render :partial => 'select' %>
+</div>
 
 <% content_for :head do %>
   <%= stylesheet_link_tag 'tournament' %>

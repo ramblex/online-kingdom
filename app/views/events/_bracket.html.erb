@@ -6,11 +6,7 @@
       <% end %>
         <div class="team">
           <% unless local_assigns[:render_select].nil? %>
-            <% if event_team.team %>
-              <%= render :partial => 'select', :locals => {:event_team => event_team} %>
-            <% else %>
-              <%= render :partial => 'select' %>
-            <% end %>
+            <%= render :partial => 'select', :locals => {:event_team => event_team} %>
           <% else %>
             <% if event_team.team %>
               <%= event_team.team.name %>

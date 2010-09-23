@@ -8,5 +8,6 @@ end
 %>
 
 <% fields_for "event[event_teams_attributes][]", event_team do |builder| %>
-  <%= builder.collection_select :team_id, Team.all, :id, :name, options %>
+  <%= builder.collection_select :team_id, Team.all, :id, :name, {:include_blank => true} %>
+  <%= builder.hidden_field :id, :value => event_team.id %>
 <% end %>

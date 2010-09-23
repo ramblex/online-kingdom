@@ -13,7 +13,7 @@
     <table class="match-info">
       <tr class="odd">
         <td class="title">Date</td>
-        <td></td>
+        <td><%= event_dates @event %></td>
       </tr>
       <tr>
         <td class="title">Game</td>
@@ -34,5 +34,14 @@
       <%= render :partial => 'bracket', :locals => {:event => @event} %>
     </div>
     <div class="clear"></div>
+  </div>
+</div>
+
+<div id="thin-right-col">
+  <div class="box">
+    <div class="box-title">
+      <span class="blue">CREDITS</span> TO
+    </div>
+    <%= render :partial => 'articles/author', :locals => {:user => @event.user} %>
   </div>
 </div>

@@ -2,6 +2,7 @@ class Event < ActiveRecord::Base
   has_many :matches
   has_many :event_teams
   belongs_to :category
+  belongs_to :user
 
   has_many :attending_teams, :class_name => 'EventTeam', :select => 'DISTINCT team_id', :conditions => 'team_id IS NOT NULL'
 

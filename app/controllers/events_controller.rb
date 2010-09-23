@@ -1,6 +1,10 @@
 class EventsController < ApplicationController
   load_and_authorize_resource
 
+  def show
+    @event = Event.find(params[:id])
+  end
+
   # GET /events/new
   # GET /events/new.xml
   def new

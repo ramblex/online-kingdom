@@ -1,0 +1,12 @@
+<% 
+if local_assigns[:event_team].nil?
+  event_team = EventTeam.new
+  options = {:include_blank => true}
+else
+  options = {}
+end
+%>
+
+<% fields_for "event[event_teams_attributes][]", event_team do |builder| %>
+  <%= builder.collection_select :team_id, Team.all, :id, :name, options %>
+<% end %>

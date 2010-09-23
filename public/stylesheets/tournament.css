@@ -12,14 +12,16 @@
 }
 
 .match {
-  background: gray;
+  background: #557a95;
 }
 
 #tournament .team {
-  height: 15px;
-  line-height: 15px;
+  padding-left: 5px;
+  height: 20px;
+  line-height: 20px;
   display: block;
-  background: #efefef;
+  background: #082c46;
+  color: white;
 }
 
 .team select {
@@ -27,15 +29,15 @@
 }
 
 #round-1 .team {
-  margin: 15px 0;
+  margin: 20px 0;
 }
 
 #round-2 .team {
-  margin: 30px 0 45px 0;
+  margin: 40px 0 60px 0;
 }
 
 #round-3 .team {
-  margin: 60px 0 105px 0;
+  margin: 80px 0 105px 0;
 }
 
 #round-4 .team {

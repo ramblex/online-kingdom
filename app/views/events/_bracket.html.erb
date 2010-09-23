@@ -1,0 +1,27 @@
+<% event.event_teams.group_by(&:round).each do |round, teams| %>
+  <div id="round-<%= round %>" class="tournament-round">
+    <% teams.each_with_index do |event_team, idx| %>
+      <% if (idx % 2) == 0 %>
+        <div class="match">
+      <% end %>
+        <div class="team">
+          <% unless local_assigns[:render_select].nil? %>
+            <% if event_team.team %>
+              <%= render :partial => 'select', :locals => {:event_team => event_team} %>
+            <% else %>
+              <%= render :partial => 'select' %>
+            <% end %>
+          <% else %>
+            <% if event_team.team %>
+              <%= event_team.team.name %>
+            <% else %>
+              Unknown
+            <% end %>
+          <% end %>
+        </div>
+      <% if (idx % 2) != 0 or idx == teams.size - 1 %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>

@@ -13,13 +13,12 @@
     <%= f.collection_select :category_id, Category.all, :id, :name %>
   </p>
   <p><%= link_to 'Create a new team', new_team_path %></p>
-  <p> <%= link_to 'Add a team to the event', '#', :id => 'add-team' %> </p>
+  <p> <%= link_to 'Add a match to the event', '#', :id => 'add-match' %> </p>
   <div id="tournament">
+    <%= render :partial => 'bracket', :locals => {:event => @event, :render_select => true} %>
   </div>
   <div id="team-select">
-    <% fields_for "event[event_teams_attributes][]", EventTeam.new do |builder| %>
-      <%= builder.collection_select :team_id, Team.all, :id, :name, {:include_blank => true} %>
-    <% end %>
+    <%= render :partial => 'select' %>
   </div>
   <div class="clear"></div>
   <%= f.submit 'Submit' %>

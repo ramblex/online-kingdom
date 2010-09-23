@@ -4,17 +4,12 @@
       <% if (idx % 2) == 0 %>
         <div class="match">
       <% end %>
-        <div class="team">
-          <% unless local_assigns[:render_select].nil? %>
-            <%= render :partial => 'select', :locals => {:event_team => event_team} %>
-          <% else %>
+          <div class="team">
             <% if event_team.team %>
+              <%= flag event_team.team.country %>
               <%= event_team.team.name %>
-            <% else %>
-              Unknown
             <% end %>
-          <% end %>
-        </div>
+          </div>
       <% if (idx % 2) != 0 or idx == teams.size - 1 %>
         </div>
       <% end %>

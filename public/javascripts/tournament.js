@@ -1,4 +1,10 @@
-var position = 0;
+var attributes = 'event_event_teams_attributes_';
+var position = $(".team").size();
+
+function team_input(id, col, value) {
+  return '<input id="'+attributes+id+'_position" name="event[event_teams_attributes]['+id+']['+col+']" type="hidden" value="'+value+'">';
+}
+
 // Add a team to the knockout tree. Return true if another team slot needs to be added
 // to the tree in order to make it complete.
 // Expects tree to be in #tournament and the code for each team to be in #team-select
@@ -8,8 +14,14 @@ function add_team() {
   while (true) {
     // div containing matches from current round
     var current = "#round-"+round;
+    // Generate a large unique ID for the event team
+    var id = Math.random().toString().split(".")[1];
     // HTML to insert for each team
-    var team_html = '<div class="team undo">'+$("#team-select").html()+'</div><input id="event_event_teams_attributes__position" name="event[event_teams_attributes][][position]" type="hidden" value="'+position+'"><input id="event_event_teams_attributes__position" name="event[event_teams_attributes][][round]" type="hidden" value="'+round+'">';
+    var team_html = '<div class="team undo"><select id="'+attributes+id+'" name="event[event_teams_attributes]['+id+'][team_id]">'+
+      $("#team-select select").html()+
+      '</select></div>'
+      +team_input(id, 'round', round)
+      +team_input(id, 'position', position);
 
     if ($(current).length == 0) {
       $("#tournament").append('<div class="tournament-round undo" id="round-'+round+'"></div>');

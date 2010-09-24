@@ -37,22 +37,18 @@ class GroupsController < ApplicationController
   # GET /groups/1/edit
   def edit
     @group = Group.find(params[:id])
-    @event = @group.event
   end
 
   # POST /groups
   # POST /groups.xml
   def create
-    @group = Group.new(params[:group])
+    @event = Event.find(params[:event_id])
+    @group = @event.groups.build(params[:group])
 
-    respond_to do |format|
-      if @group.save
-        format.html { redirect_to(@group, :notice => 'Group was successfully created.') }
-        format.xml  { render :xml => @group, :status => :created, :location => @group }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @group.errors, :status => :unprocessable_entity }
-      end
+    if @group.save
+      redirect_to(@event, :notice => 'Group was successfully created.')
+    else
+      render :action => "new"
     end
   end
 

@@ -1,4 +1,5 @@
 <%= render :partial => @group %>
 
 <%= link_to 'Edit', edit_group_path(@group) %> |
+<%= link_to 'Event', @group.event %> |
 <%= link_to 'Back', groups_path %>

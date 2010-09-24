@@ -22,6 +22,9 @@
     </table>
     <div class="matches-title">Attending teams</div>
     <div class="matches-title">Groups
+      <% if can? :edit, Group %>
+        <%= link_to 'Manage groups', event_groups_path(@event) %>
+      <% end %>
       <ul class="group-switcher switcher">
         <%= render :partial => 'group_links', :collection => @event.groups, :as => :group %>
       </ul>

@@ -2,8 +2,7 @@
   <%= stylesheet_link_tag 'tournament' %>
 <% end %>
 
-<% form_for @group do |f| %>
-  <%= f.hidden_field :event_id, :value => @event.id %>
+<% form_for [@event, @group] do |f| %>
   <%= f.error_messages %>
 
   <p>
@@ -13,7 +12,14 @@
 
   <%= add_team_link %>
   <table class="group" id="group">
-    <%= render :partial => 'team', :collection => @group.group_teams %>
+    <% f.fields_for :group_teams do |team_form| %>
+      <tr>
+        <td>
+          <%= team_form.collection_select :team_id, Team.all, :id, :name %>
+          <%= link_to_function '[Remove]', '$(this).closest("tr").remove();' %>
+        </td>
+      </tr>
+    <% end %>
   </table>
 
   <p>

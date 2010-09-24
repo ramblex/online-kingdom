@@ -15,8 +15,17 @@
   background: #557a95;
 }
 
+.bracket-match-link {
+  text-decoration: none;
+  display: block;
+}
+
+.bracket-match-link:hover {
+  background: #95cbf2;
+}
+
 #tournament .team {
-  padding-left: 5px;
+  padding: 0 5px;
   height: 20px;
   line-height: 20px;
   display: block;
@@ -30,6 +39,10 @@
 
 .team select {
   width: 100%;
+}
+
+.team span {
+  float: right;
 }
 
 #round-1 .team {

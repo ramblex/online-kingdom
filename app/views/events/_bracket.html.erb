@@ -1,18 +1,27 @@
 <% event.event_teams.group_by(&:round).each do |round, teams| %>
   <div id="round-<%= round %>" class="tournament-round">
-    <% teams.each_with_index do |event_team, idx| %>
-      <% if (idx % 2) == 0 %>
-        <div class="match">
-      <% end %>
-          <div class="team">
-            <% if event_team.team %>
-              <%= flag event_team.team.country %>
-              <%= event_team.team.name %>
-            <% end %>
-          </div>
-      <% if (idx % 2) != 0 or idx == teams.size - 1 %>
-        </div>
-      <% end %>
+    <% teams.each_slice(2) do |pair| %>
+      <div class="match">
+        <% link_to pair[0].match, :class => 'bracket-match-link' do %>
+          <% pair.each_with_index do |event_team, idx| %>
+            <div class="team">
+              <% if event_team.team %>
+                <%= flag event_team.team.country %>
+                <%= event_team.team.name %>
+                <% if event_team.match and event_team.match.has_happened %>
+                  <span>
+                  <% if idx == 0 %>
+                    <%= event_team.match.team1_score %>
+                  <% else %>
+                    <%= event_team.match.team2_score %>
+                  <% end %>
+                  </span>
+                <% end %>
+              <% end %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
     <% end %>
   </div>
 <% end %>

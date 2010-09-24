@@ -20,17 +20,27 @@
     <%= f.label :category_id, 'Category' %><br />
     <%= f.collection_select :category_id, Category.all, :id, :name %>
   </p>
+  <p>
+    <%= f.label :format_id, 'Format' %><br />
+    <%= f.collection_select :format_id, Format.all, :id, :name %>
+  </p>
   <p><%= link_to 'Create a new team', new_team_path %></p>
   <p> <%= link_to 'Add a match to the event', '#', :id => 'add-match' %> </p>
   <div id="tournament">
     <% @event.event_teams.group_by(&:round).each do |round, teams| %>
       <div class="tournament-round" id="round-<%= round %>">
+      <% idx = 0 %>
       <% f.fields_for :event_teams, teams do |team_form| %>
+        <% if (idx % 2) == 0 %>
         <div class="match">
+        <% end %>
           <div class="team">
             <%= team_form.collection_select :team_id, Team.all, :id, :name, {:include_blank => true} %>
           </div>
+        <% if (idx % 2) != 0 or idx == teams.size - 1 %>
         </div>
+        <% end %>
+        <% idx += 1 %>
       <% end %>
       </div>
     <% end %>

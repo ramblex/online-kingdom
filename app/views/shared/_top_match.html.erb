@@ -1,5 +1,5 @@
 <% latest = Match.find(:last) %>
-<% if latest %>
+<% if latest and latest.event %>
 <div id="top-match-title">
   <% if latest.event.logo? %>
     <%= image_tag latest.event.logo.url(:default), :class => 'logo' %>

@@ -1,0 +1,25 @@
+<div id="group">
+  <center><h1><%= group.name %></h1></center>
+  <table class="group">
+    <tr>
+      <th></th>
+      <th></th>
+      <th>P</th>
+      <th>W</th>
+      <th>D</th>
+      <th>L</th>
+      <th>Pts</th>
+    </tr>
+    <% group.group_teams.each_with_index do |group_team, idx| %>
+      <tr class="<%= cycle 'even', 'odd' %>">
+        <td class="pos"><%= idx + 1 %>.</td>
+        <td><%= flag group_team.team.country %><%= group_team.team.name %></td>
+        <td class="centered">0</td>
+        <td class="centered">0</td>
+        <td class="centered">0</td>
+        <td class="centered">0</td>
+        <td class="centered">0</td>
+      </tr>
+    <% end %>
+  </table>
+</div>

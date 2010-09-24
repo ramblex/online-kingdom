@@ -68,3 +68,36 @@
 #round-6 .team {
   margin: 640px 0 0 0;
 }
+
+/** Groups */
+table.group {
+  border-collapse: collapse;
+  margin: 10px;
+  width: 95%;
+}
+
+table.group .pos {
+  width: 5px;
+}
+
+table.group tr {
+  height: 25px;
+  border: 1px solid #d9d9d9;
+}
+
+table.group th, table.group .centered {
+  text-align: center;
+}
+
+table.group th {
+  font-weight: bold;
+}
+
+table.group .centered {
+  width: 30px;
+}
+
+table.group td {
+  padding: 5px;
+  border-bottom: 1px solid #d9d9d9;
+}

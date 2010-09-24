@@ -25,7 +25,25 @@
     <%= f.collection_select :format_id, Format.all, :id, :name %>
   </p>
   <p><%= link_to 'Create a new team', new_team_path %></p>
-  <p> <%= link_to 'Add a match to the event', '#', :id => 'add-match' %> </p>
+  <hr />
+
+  <h1>Group stages</h1>
+  <% f.fields_for :groups do |groups_form| %>
+    <p>
+      <%= groups_form.label :name %><br />
+      <%= groups_form.text_field :name %>
+    </p>
+    <%= add_team_link %>
+    <table class="group" id="group">
+      <% unless @event.new_record? %>
+        <%= render :partial => 'groups/team', :collection => @event.groups.group_teams %>
+      <% end %>
+    </table>
+  <% end %>
+
+  <hr />
+  <h1>Bracket</h1>
+  <%= link_to 'Add a match to the event bracket', '#', :id => 'add-match' %>
   <div id="tournament">
     <% @event.event_teams.group_by(&:round).each do |round, teams| %>
       <div class="tournament-round" id="round-<%= round %>">
@@ -46,6 +64,7 @@
     <% end %>
   </div>
   <div class="clear"></div>
+  <hr />
   <%= f.submit 'Submit' %>
 <% end %>
 <div id="team-select">

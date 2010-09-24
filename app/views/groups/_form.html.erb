@@ -1,0 +1,22 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'tournament' %>
+<% end %>
+
+<% form_for @group do |f| %>
+  <%= f.hidden_field :event_id, :value => @event.id %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+
+  <%= add_team_link %>
+  <table class="group" id="group">
+    <%= render :partial => 'team', :collection => @group.group_teams %>
+  </table>
+
+  <p>
+    <%= f.submit 'Submit' %>
+  </p>
+<% end %>

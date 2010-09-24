@@ -1,0 +1,8 @@
+<% fields_for 'group[group_teams_attributes][]', team do |team_form| %>
+  <tr>
+    <td>
+      <%= team_form.collection_select :team_id, Team.all, :id, :name %>
+      <%= link_to_function '[Remove]', '$(this).parent().remove();' %>
+    </td>
+  </tr>
+<% end %>

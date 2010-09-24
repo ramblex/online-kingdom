@@ -410,7 +410,7 @@ ul#top-nav a {
   clear: left;
   line-height: 11px;
   margin-top: 16px;
-  padding: 7px 51px 7px 9px;
+  padding: 7px;
   border: 1px solid #d9d9d9;
   height: 11px;
   background: #ededed;
@@ -468,7 +468,7 @@ table.match-info tr, table.match-info td {
   border-bottom: 1px solid #d9d9d9;
 }
 
-table.match-info tr.odd td {
+.odd {
   background: #ededed;
 }
 
@@ -951,10 +951,28 @@ div.comment-info {
 }
 
 /** Events */
-#attending-teams {
+.attending-teams {
   list-style: none;
+  float: left;
+  width: 160px;
+  margin: 10px 0;
 }
 
-#attending-teams li {
+.attending-teams li {
   padding: 5px 5px 0 5px;
+}
+
+#group {
+  margin-top: 20px;
+}
+
+.group-switcher {
+  float: right;
+  margin-top: -2px;
+}
+
+.group-switcher li a {
+  /* Set left and right explicitly as we don't want to override top or bottom padding */
+  padding-left: 10px;
+  padding-right: 10px;
 }

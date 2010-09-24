@@ -21,26 +21,18 @@
       </tr>
     </table>
     <div class="matches-title">Attending teams</div>
-    <% @event.attending_teams.each_slice(7) do |slice| %>
-      <ul class="attending-teams">
-        <% slice.each do |event_team| %>
-          <li>
-            <%= flag event_team.team.country %>
-            <%= link_to event_team.team.name, event_team.team %>
-          </li>
-        <% end %>
-      </ul>
-    <% end %>
     <div class="matches-title">Groups
       <ul class="group-switcher switcher">
         <%= render :partial => 'group_links', :collection => @event.groups, :as => :group %>
       </ul>
     </div>
     <%= render :partial => @event.groups.first %>
-    <div class="matches-title">Brackets</div>
-    <div id="tournament">
-      <%= render :partial => 'bracket', :locals => {:event => @event} %>
+    <div class="matches-title">Brackets
+      <% if can? :edit, Bracket %>
+        <%= link_to 'Manage brackets', event_brackets_path(@event) %>
+      <% end %>
     </div>
+    <%= render :partial => @event.brackets %>
     <div class="clear"></div>
   </div>
 </div>

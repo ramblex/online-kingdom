@@ -1,0 +1,35 @@
+<% form_for [@event, @bracket] do |f| %>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <%= link_to 'Add a match', '', :id => 'add-match' %>
+  <div id="tournament">
+    <% @bracket.event_teams.group_by(&:round).each do |round, teams| %>
+      <div class="tournament-round" id="round-<%= round %>">
+      <% idx = 0 %>
+      <% f.fields_for :event_teams, teams do |team_form| %>
+        <% if (idx % 2) == 0 %>
+        <div class="match">
+        <% end %>
+          <div class="team">
+            <%= team_form.collection_select :team_id, Team.all, :id, :name, {:include_blank => true} %>
+          </div>
+        <% if (idx % 2) != 0 or idx == teams.size - 1 %>
+        </div>
+        <% end %>
+        <% idx += 1 %>
+      <% end %>
+      </div>
+    <% end %>
+  </div>
+  <div class="clear"></div>
+  <%= f.submit 'Submit' %>
+<% end %>
+<div id="team-select">
+  <%= select('', '', Team.all.map {|team| [team.name, team.id]}, :include_blank => true) %>
+</div>
+
+<% content_for :extra_js do %>
+  <%= javascript_include_tag 'tournament' %>
+<% end %>

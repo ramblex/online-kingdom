@@ -1,8 +1,8 @@
-var attributes = 'event_event_teams_attributes_';
+var attributes = 'bracket_event_teams_attributes_';
 var position = $(".team").size();
 
 function team_input(id, col, value) {
-  return '<input id="'+attributes+id+'_position" name="event[event_teams_attributes]['+id+']['+col+']" type="hidden" value="'+value+'">';
+  return '<input id="'+attributes+id+'_position" name="bracket[event_teams_attributes]['+id+']['+col+']" type="hidden" value="'+value+'">';
 }
 
 // Add a team to the knockout tree. Return true if another team slot needs to be added
@@ -17,7 +17,7 @@ function add_team() {
     // Generate a large unique ID for the event team
     var id = Math.random().toString().split(".")[1];
     // HTML to insert for each team
-    var team_html = '<div class="team undo"><select id="'+attributes+id+'" name="event[event_teams_attributes]['+id+'][team_id]">'+
+    var team_html = '<div class="team undo"><select id="'+attributes+id+'" name="bracket[event_teams_attributes]['+id+'][team_id]">'+
       $("#team-select select").html()+
       '</select></div>'
       +team_input(id, 'round', round)

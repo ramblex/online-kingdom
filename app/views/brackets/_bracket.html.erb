@@ -1,4 +1,7 @@
-<% event.event_teams.group_by(&:round).each do |round, teams| %>
+<h1><%= bracket.name %></h1>
+<%= admin_links bracket, nil, :controller => 'brackets' %>
+<div id="tournament">
+<% bracket.event_teams.group_by(&:round).each do |round, teams| %>
   <div id="round-<%= round %>" class="tournament-round">
     <% teams.each_slice(2) do |pair| %>
       <div class="match">
@@ -25,3 +28,5 @@
     <% end %>
   </div>
 <% end %>
+</div>
+<div class="clear"></div>

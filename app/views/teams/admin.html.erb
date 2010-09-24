@@ -3,11 +3,13 @@
 <table class="admin-table">
   <tr>
     <th>Name</th>
+    <th>Game</th>
     <th>Admin</th>
   </tr>
   <% @teams.each do |team| %>
     <tr class="<%= cycle 'even', 'odd' %>">
       <td><%= team.name %></td>
+      <td><%= team.category.name %></td>
       <td><%= admin_links team, :none %></td>
     </tr>
   <% end %>

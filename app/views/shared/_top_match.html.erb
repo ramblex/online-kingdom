@@ -14,6 +14,8 @@
   <div class="team">
     <% if latest.team1.logo? %>
       <%= image_tag latest.team1.logo.url, :class => 'logo' %>
+    <% else %>
+      <div class="logo"></div>
     <% end %>
     <%= link_to latest.team1.name, latest.team1, :class => 'name' %>
   </div>

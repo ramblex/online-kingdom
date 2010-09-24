@@ -16,7 +16,7 @@ class Event < ActiveRecord::Base
 
   def create_matches
     event_teams.group_by(&:round).each do |round, round_teams|
-      round_teams.each_slice(2) do |event_team_pair|
+      round_teams.sort_by(&:position).each_slice(2) do |event_team_pair|
         if event_team_pair.size == 2
           # Assume we have just created this pair. Therefore, create a match
           if event_team_pair[0].match.nil?

@@ -2,6 +2,10 @@
  * Stylesheet for the tournament tree
  */
 
+#tournament {
+  margin: -20px 0 0 15px;
+}
+
 #team-select {
   display: none;
 }

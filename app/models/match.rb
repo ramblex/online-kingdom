@@ -18,6 +18,9 @@ class Match < ActiveRecord::Base
     start_date < DateTime.now
   end
 
+  def won
+  end
+
   after_update :update_event_teams
 
   # If we update an event match, make sure that the corresponding match in a bracket is

@@ -72,10 +72,11 @@ class GroupsController < ApplicationController
   # DELETE /groups/1.xml
   def destroy
     @group = Group.find(params[:id])
+    @event = @group.event
     @group.destroy
 
     respond_to do |format|
-      format.html { redirect_to(groups_url) }
+      format.html { redirect_to event_groups_path(@event) }
       format.xml  { head :ok }
     end
   end

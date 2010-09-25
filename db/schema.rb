@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100924221349) do
+ActiveRecord::Schema.define(:version => 20100924234140) do
 
   create_table "album_comments", :force => true do |t|
     t.text     "content"
@@ -198,6 +198,7 @@ ActiveRecord::Schema.define(:version => 20100924221349) do
     t.datetime "map_picture_updated_at"
     t.integer  "format_id"
     t.integer  "bracket_id"
+    t.integer  "group_id"
   end
 
   create_table "pages", :force => true do |t|

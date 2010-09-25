@@ -14,12 +14,15 @@
       <tr class="<%= cycle 'even', 'odd' %>">
         <td class="pos"><%= idx + 1 %>.</td>
         <td><%= flag group_team.team.country %><%= group_team.team.name %></td>
-        <td class="centered">0</td>
-        <td class="centered">0</td>
+        <td class="centered"><%= group_team.played %></td>
+        <td class="centered"><%= group_team.won %></td>
         <td class="centered">0</td>
         <td class="centered">0</td>
         <td class="centered">0</td>
       </tr>
     <% end %>
   </table>
+  <% group.matches.each do |match| %>
+    <%= match.team1.name %> vs. <%= match.team2.name %><br />
+  <% end %>
 </div>

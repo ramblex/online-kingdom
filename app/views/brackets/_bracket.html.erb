@@ -11,7 +11,7 @@
             <div class="team">
               <% if event_team.team %>
                 <%= flag event_team.team.country %>
-                <%= event_team.team.name %>
+                <%= truncate event_team.team.name, :length => 7 %>
                 <% if event_team.match and event_team.match.has_happened %>
                   <span>
                   <% if idx == 0 %>

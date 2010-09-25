@@ -422,6 +422,10 @@ ul#top-nav a {
   float: left;
 }
 
+.matches-title .right {
+  float: right;
+}
+
 img.flag {
   margin: 0 3px 0 0;
   height: 11px;
@@ -975,4 +979,8 @@ div.comment-info {
   /* Set left and right explicitly as we don't want to override top or bottom padding */
   padding-left: 10px;
   padding-right: 10px;
+}
+
+#group-matches {
+  margin: 20px;
 }

@@ -24,7 +24,7 @@ module ApplicationHelper
 
     if can? :delete, obj
       html << ' '
-      html << (link_to '[Delete]', obj, :method => :delete, :confirm => 'Are you sure you want to delete this?')
+      html << (link_to '[Delete]', obj, :method => :delete, :confirm => "Are you sure you want to delete this #{obj.class}?")
     end
 
     html << '</div>'

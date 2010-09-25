@@ -8,7 +8,10 @@
       <span class="blue">TOURNAMENT</span> PAGE
     </div>
 
-    <div class="matches-title"><%= @event.name %></div>
+    <div class="matches-title">
+      <%= @event.name %>
+      <span class="right"><%= admin_links @event %></span>
+    </div>
 
     <table class="match-info">
       <tr class="odd">

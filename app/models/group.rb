@@ -1,7 +1,7 @@
 class Group < ActiveRecord::Base
   has_many :group_teams, :dependent => :destroy
   belongs_to :event
-  has_many :matches
+  has_many :matches, :dependent => :destroy
 
   accepts_nested_attributes_for :group_teams, :allow_destroy => true,
     :reject_if => proc { |a| a.all? { |k, v| v.blank? }}

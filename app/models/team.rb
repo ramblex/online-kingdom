@@ -10,15 +10,15 @@ class Team < ActiveRecord::Base
   end
 
   def won
-    team1_matches.team1_wins + team2_matches.team2_wins
+    team1_matches.team1_wins.happened + team2_matches.team2_wins.happened
   end
 
   def drawn
-    matches.select {|match| match.team1_score == match.team2_score}
+    team1_matches.happened.drawn + team2_matches.happened.drawn
   end
 
   def lost
-    team1_matches.team2_wins + team2_matches.team1_wins
+    team1_matches.happened.team2_wins + team2_matches.happened.team1_wins
   end
 
   has_attached_file :logo, :styles => { :default => '100x100#' }

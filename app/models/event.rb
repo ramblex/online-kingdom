@@ -1,7 +1,7 @@
 class Event < ActiveRecord::Base
   has_many :matches, :dependent => :destroy
-  has_many :brackets
-  has_many :groups
+  has_many :brackets, :dependent => :destroy
+  has_many :groups, :dependent => :destroy
   belongs_to :category
   belongs_to :user
 

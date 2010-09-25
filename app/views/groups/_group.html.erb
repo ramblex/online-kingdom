@@ -22,7 +22,10 @@
       </tr>
     <% end %>
   </table>
-  <% group.matches.each do |match| %>
-    <%= match.team1.name %> vs. <%= match.team2.name %> <%= render :partial => 'matches/scores', :locals => {:match => match} %><br />
-  <% end %>
+  <div id="group-matches">
+    <% group.matches.each do |match| %>
+      <%= match.team1.name %> vs. <%= match.team2.name %> <%= render :partial => 'matches/scores', :locals => {:match => match} %>
+      <%= admin_links match, nil, :controller => 'matches' %><br />
+    <% end %>
+  </div>
 </div>

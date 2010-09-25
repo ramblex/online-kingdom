@@ -1,5 +1,5 @@
 class Bracket < ActiveRecord::Base
-  has_many :event_teams
+  has_many :event_teams, :dependent => :destroy
   belongs_to :event
   accepts_nested_attributes_for :event_teams
   after_save :create_matches

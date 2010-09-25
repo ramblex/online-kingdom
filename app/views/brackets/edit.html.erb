@@ -2,4 +2,4 @@
 
 <%= render :partial => 'form' %>
 <%= link_to 'Show', @bracket %> |
-<%= link_to 'Back', brackets_path %>
+<%= link_to 'Back', event_brackets_path(@bracket.event) %>

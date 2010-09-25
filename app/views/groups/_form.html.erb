@@ -15,7 +15,7 @@
     <% f.fields_for :group_teams do |team_form| %>
       <tr>
         <td>
-          <%= team_form.collection_select :team_id, Team.all, :id, :name %>
+          <%= team_form.collection_select :team_id, @group.event.category.teams, :id, :name %>
           <%= link_to_function '[Remove]', '$(this).closest("tr").remove();' %>
         </td>
       </tr>

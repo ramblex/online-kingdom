@@ -25,6 +25,11 @@ form br {
   display: none;
 }
 
+/** Brackets form */
+#bracket_submit {
+  margin-top: 30px;
+}
+
 /** Matches form */
 
 .match-team {

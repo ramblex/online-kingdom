@@ -3,7 +3,7 @@
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </p>
-  <%= link_to 'Add a match', '', :id => 'add-match' %>
+  <p><%= link_to 'Add a match', '', :id => 'add-match' %></p>
   <div id="tournament">
     <% @bracket.event_teams.group_by(&:round).each do |round, teams| %>
       <div class="tournament-round" id="round-<%= round %>">
@@ -13,7 +13,7 @@
         <div class="match">
         <% end %>
           <div class="team">
-            <%= team_form.collection_select :team_id, Team.all, :id, :name, {:include_blank => true} %>
+            <%= team_form.collection_select :team_id, @bracket.event.category.teams, :id, :name, {:include_blank => true} %>
           </div>
         <% if (idx % 2) != 0 or idx == teams.size - 1 %>
         </div>
@@ -27,7 +27,7 @@
   <%= f.submit 'Submit' %>
 <% end %>
 <div id="team-select">
-  <%= select('', '', Team.all.map {|team| [team.name, team.id]}, :include_blank => true) %>
+  <%= select('', '', @bracket.event.category.teams.map {|team| [team.name, team.id]}, :include_blank => true) %>
 </div>
 
 <% content_for :extra_js do %>

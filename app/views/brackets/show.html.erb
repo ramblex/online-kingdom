@@ -1,4 +1,4 @@
 <%= render :partial => @bracket %>
 
 <%= link_to 'Edit', edit_bracket_path(@bracket) %> |
-<%= link_to 'Back', brackets_path %>
+<%= link_to 'Back', event_brackets_path(@bracket.event) %>

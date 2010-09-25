@@ -5,14 +5,19 @@
     <th>Name</th>
     <th>Start date</th>
     <th>End date</th>
+    <th>Show</th>
     <th>Admin</th>
+    <th></th>
   </tr>
   <% @events.each do |event| %>
     <tr class="<%= cycle 'even', 'odd' %>">
       <td><%= event.name %></td>
       <td><%= event.start_date %></td>
       <td><%= event.end_date %></td>
+      <td><%= link_to 'Show', event %></td>
       <td><%= admin_links event, :none %></td>
+      <td><%= link_to '[Brackets]', event_brackets_path(event) if event.has_brackets %>
+      <%= link_to '[Groups]', event_groups_path(event) if event.has_groups %></td>
     </tr>
   <% end %>
 </table>

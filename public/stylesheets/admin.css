@@ -87,3 +87,36 @@ input {
 .group-match-admin-links {
   display: inline !important;
 }
+
+#admin-nav {
+  color: white;
+  position: fixed;
+  right: -1px;
+  top: 10px;
+  width: 100px;
+  padding: 10px;
+  background: black;
+  border: 1px solid gray;
+}
+
+#admin-nav a {
+  color: white;
+}
+
+#admin-nav a:hover {
+  text-decoration: underline;
+}
+
+#admin-nav li {
+  margin: 4px 0;
+  list-style: none;
+}
+
+#admin-nav li a {
+  text-decoration: none;
+}
+
+#admin-nav #hidden {
+  margin: 10px 0;
+  display: none;
+}

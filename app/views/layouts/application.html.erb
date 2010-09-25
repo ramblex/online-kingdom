@@ -10,6 +10,14 @@
     <%= yield :head %>
   </head>
   <body>
+    <% if can? :manage, :any %>
+      <div id="admin-nav">
+        <%= link_to_function 'Admin', 'toggle_admin()' %>
+        <div id="hidden">
+          <%= render :partial => 'settings/admin_settings' %>
+        </div>
+      </div>
+    <% end %>
     <% flash.each do |name, msg| %>
       <%= content_tag :div, msg, :id => "flash-#{name}" %>
       <% content_tag :script, :type => "text/javascript" do %>
@@ -66,6 +74,10 @@
   </body>
   <script type="text/javascript">
     $("#flash-notice").fadeOut(6000);
+    $("#admin-nav").css({opacity: 0.6});
+    function toggle_admin() {
+      $("#admin-nav #hidden").toggle();
+    }
   </script>
   <%= yield :extra_js %>
 </html>

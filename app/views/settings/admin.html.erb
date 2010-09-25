@@ -1,10 +1,5 @@
 <%= render :partial => 'nav' %>
 <ul id="admin-settings">
-  <li><%= link_to 'Manage users', users_path %></li>
-  <li><%= link_to 'Manage news', admin_articles_path %></li>
-  <li><%= link_to 'Manage matches', admin_matches_path %></li>
-  <li><%= link_to 'Manage events', admin_events_path %></li>
-  <li><%= link_to 'Manage teams', admin_teams_path %></li>
-  <li><%= link_to 'Add player', new_player_path %></li>
+  <%= render :partial => 'admin_settings' %>
 </ul>
 <div id="admin-content"></div>

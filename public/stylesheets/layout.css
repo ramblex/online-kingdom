@@ -374,6 +374,7 @@ ul#top-nav a {
   width: 367px;
   height: 123px;
   font-size: 110%;
+  overflow: hidden;
 }
 
 .news-rating {

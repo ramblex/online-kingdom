@@ -2,7 +2,7 @@
   <%= link_to article.title, article, :class => 'news-title' %>
   <%= admin_links article %>
   <div class="news-rating"><%= stars_for article %></div>
-  <%= truncate(article.content, :length => 320) %>
+  <%= truncate_html(article.content, :length => 320) %>
 <% end %>
 <%= image_tag article.image.url(:default), :class => 'news-picture' %>
 

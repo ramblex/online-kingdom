@@ -1,0 +1,16 @@
+<table class="admin-table">
+  <tr>
+    <th>Name</th>
+    <th>Has groups?</th>
+    <th>Has brackets?</th>
+    <th>Admin</th>
+  </tr>
+  <tr>
+    <% @formats.each do |format| %>
+      <td><%= format.name %></td>
+      <td><%= format.has_groups %></td>
+      <td><%= format.has_brackets %></td>
+      <td><%= admin_links format %></td>
+    <% end %>
+  </tr>
+</table>

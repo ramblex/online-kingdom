@@ -1,0 +1,17 @@
+<% form_for @format do |f| %>
+  <% f.error_messages %>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :has_groups %><br />
+    <%= f.check_box :has_groups %>
+  </p>
+  <p>
+    <%= f.label :has_brackets %><br />
+    <%= f.check_box :has_brackets %>
+  </p>
+  <%= f.submit 'Submit' %>
+<% end %>
+

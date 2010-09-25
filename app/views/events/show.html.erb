@@ -24,22 +24,26 @@
       </tr>
     </table>
     <div class="matches-title">Attending teams</div>
-    <div class="matches-title">Groups
-      <% if can? :edit, Group %>
-        <%= link_to 'Manage groups', event_groups_path(@event) %>
-      <% end %>
-      <ul class="group-switcher switcher">
-        <%= render :partial => 'group_links', :collection => @event.groups, :as => :group %>
-      </ul>
-    </div>
-    <%= render :partial => @event.groups.first %>
-    <div class="matches-title">Brackets
-      <% if can? :edit, Bracket %>
-        <%= link_to 'Manage brackets', event_brackets_path(@event) %>
-      <% end %>
-    </div>
-    <%= render :partial => @event.brackets %>
-    <div class="clear"></div>
+    <% if @event.format.has_groups %>
+      <div class="matches-title">Groups
+        <% if can? :edit, Group %>
+          <%= link_to 'Manage groups', event_groups_path(@event) %>
+        <% end %>
+        <ul class="group-switcher switcher">
+          <%= render :partial => 'group_links', :collection => @event.groups, :as => :group %>
+        </ul>
+      </div>
+      <%= render :partial => @event.groups.first %>
+    <% end %>
+    <% if @event.format.has_brackets %>
+      <div class="matches-title">Brackets
+        <% if can? :edit, Bracket %>
+          <%= link_to 'Manage brackets', event_brackets_path(@event) %>
+        <% end %>
+      </div>
+      <%= render :partial => @event.brackets %>
+      <div class="clear"></div>
+    <% end %>
   </div>
 </div>
 

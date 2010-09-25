@@ -10,15 +10,10 @@
     <%= f.text_field :name %>
   </p>
 
-  <%= add_team_link %>
-  <table class="group" id="group">
+  <%= add_child_link "Add another team", f, :group_teams %>
+  <table class="group" id="group_teams">
     <% f.fields_for :group_teams do |team_form| %>
-      <tr>
-        <td>
-          <%= team_form.collection_select :team_id, @group.event.category.teams, :id, :name %>
-          <%= link_to_function '[Remove]', '$(this).closest("tr").remove();' %>
-        </td>
-      </tr>
+      <%= render :partial => 'group_team', :locals => {:f => team_form} %>
     <% end %>
   </table>
 

@@ -4,6 +4,14 @@ module ApplicationHelper
     image_tag "/javascripts/tiny_mce/plugins/flags/img/#{country_code}.gif", :class => 'flag'
   end
 
+  def event_category_teams(event)
+    if event.team_event
+      event.category.teams.team_teams
+    else
+      event.category.teams.player_teams
+    end
+  end
+
   def country_name(country_code)
     # There's probably a better way of searching the array of countries
     ActionView::Helpers::FormOptionsHelper::COUNTRIES.each do |country|
@@ -28,5 +36,24 @@ module ApplicationHelper
     end
 
     html << '</div>'
+  end
+
+  def remove_child_link(name, f)
+    f.hidden_field(:_destroy) + link_to_function(name, "remove_fields(this)")
+  end
+
+  def add_child_link(name, f, method)
+    fields = new_child_fields(f, method)
+    Rails.logger.error(fields)
+    link_to_function(name, h("insert_fields(this, \"#{method}\", \"#{escape_javascript(fields)}\")"))
+  end
+
+  def new_child_fields(form_builder, method, options = {})
+    options[:object] ||= form_builder.object.class.reflect_on_association(method).klass.new
+    options[:partial] ||= method.to_s.singularize
+    options[:form_builder_local] ||= :f
+    form_builder.fields_for(method, options[:object], :child_index => "new_#{method}") do |f|
+      render(:partial => options[:partial], :locals => { options[:form_builder_local] => f })
+    end
   end
 end

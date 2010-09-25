@@ -13,7 +13,7 @@
         <div class="match">
         <% end %>
           <div class="team">
-            <%= team_form.collection_select :team_id, @bracket.event.category.teams, :id, :name, {:include_blank => true} %>
+            <%= team_form.collection_select :team_id, event_category_teams(@bracket.event), :id, :name, {:include_blank => true} %>
           </div>
         <% if (idx % 2) != 0 or idx == teams.size - 1 %>
         </div>
@@ -27,7 +27,7 @@
   <%= f.submit 'Submit' %>
 <% end %>
 <div id="team-select">
-  <%= select('', '', @bracket.event.category.teams.map {|team| [team.name, team.id]}, :include_blank => true) %>
+  <%= select('', '', event_category_teams(@bracket.event).map {|team| [team.name, team.id]}, :include_blank => true) %>
 </div>
 
 <% content_for :extra_js do %>

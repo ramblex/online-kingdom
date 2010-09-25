@@ -17,6 +17,10 @@
     <%= f.file_field :logo %>
   </p>
   <p>
+    <%= f.label :team_event, 'Teams or players?' %><br />
+    <%= f.select :team_event, [ ['Teams', true], ['Players', false] ] %>
+  </p>
+  <p>
     <%= f.label :category_id, 'Category' %><br />
     <%= f.collection_select :category_id, Category.all, :id, :name %>
   </p>

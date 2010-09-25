@@ -1,0 +1,6 @@
+<tr class="fields">
+  <td>
+    <%= f.collection_select :team_id, event_category_teams(@group.event), :id, :name %>
+    <%= remove_child_link "Remove", f %>
+  </td>
+</tr>

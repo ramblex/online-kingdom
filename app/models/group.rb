@@ -10,6 +10,7 @@ class Group < ActiveRecord::Base
 
   after_create :create_matches
 
+  # Sort teams with regards to the number of points they have
   def sorted_group_teams
     group_teams.sort {|a,b| a.points <=> b.points}.reverse
   end

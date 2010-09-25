@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100925142527) do
+ActiveRecord::Schema.define(:version => 20100925165335) do
 
   create_table "album_comments", :force => true do |t|
     t.text     "content"
@@ -137,6 +137,7 @@ ActiveRecord::Schema.define(:version => 20100925142527) do
     t.integer  "format_id"
     t.boolean  "has_groups",        :default => false
     t.boolean  "has_brackets",      :default => false
+    t.boolean  "team_event",        :default => true
   end
 
   create_table "formats", :force => true do |t|
@@ -270,6 +271,7 @@ ActiveRecord::Schema.define(:version => 20100925142527) do
     t.string   "logo_content_type"
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
+    t.integer  "player_id"
   end
 
   create_table "users", :force => true do |t|

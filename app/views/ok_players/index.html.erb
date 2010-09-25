@@ -1,0 +1,27 @@
+<div id="left-col">
+  <div class="box">
+    <div class="box-title">
+      <span class="blue">PLAYERS</span> SWITCH<br />
+      <span class="subtitle">CONTENT CHANGER</span>
+    </div>
+    <ul id="player-categories" class="switcher">
+      <li><%= link_to 'ALL', params.merge(:category => 'all'), :class => 'selected' %></li>
+      <% Category.all.each do |category| %>
+        <li><%= link_to category.name, params.merge(:category => category.id) %></li>
+      <% end %>
+    </ul>
+    <div id="player-list">
+      <%= render :partial => @ok_players %>
+    </div>
+    <% if can? :create, Player %>
+      <%= link_to 'Create player', new_ok_player_path %>
+    <% end %>
+  </div>
+</div>
+
+<% content_for :extra_js do %>
+  <%= javascript_include_tag 'switcher' %>
+  <script type="text/javascript">
+    switcher('#player-categories', '#player-list');
+  </script>
+<% end %>

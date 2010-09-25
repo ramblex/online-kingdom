@@ -1,0 +1,39 @@
+<div id="wide-left-col">
+  <div class="box">
+    <div class="box-title">
+      <span class="blue">PL</span>AYER
+    </div>
+    <div class="matches">
+      <div class="matches-title"><%= "#{@ok_player.firstname} #{@ok_player.surname}" %> (<%= @ok_player.nickname %>)</div>
+      <table class="match-info">
+        <tr class="odd">
+          <td class="title">Date of birth</td>
+          <td><%= @ok_player.birth_date %></td>
+        </tr>
+        <tr>
+          <td class="title">Country</td>
+          <td><%= flag @ok_player.country %><%= country_name @ok_player.country %></td>
+        </tr>
+        <tr class="odd">
+          <td class="title">Game</td>
+          <td><%= @ok_player.category.name %></td>
+        </tr>
+        <tr>
+          <td class="title">Team</td>
+          <td><%= link_to @ok_player.team.name, @ok_player.team %></td>
+        </tr>
+      </table>
+      <%= image_tag @ok_player.avatar.url, :class => 'matches-logo' %>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+
+<div id="thin-right-col">
+  <div class="box">
+    <div class="box-title">
+      <span class="blue">CREDITS</span> TO
+    </div>
+    <%= render :partial => 'articles/author', :locals => {:user => @ok_player.user} %>
+  </div>
+</div>

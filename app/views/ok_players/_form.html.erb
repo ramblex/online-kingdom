@@ -1,0 +1,40 @@
+<% form_for(@ok_player) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :firstname %><br />
+    <%= f.text_field :firstname %>
+  </p>
+  <p>
+    <%= f.label :surname %><br />
+    <%= f.text_field :surname %>
+  </p>
+  <p>
+    <%= f.label :nickname %><br />
+    <%= f.text_field :nickname %>
+  </p>
+  <p>
+    <%= f.label :category_id, 'Game' %><br />
+    <%= f.collection_select :category_id, Category.all, :id, :name %>
+  </p>
+  <p>
+    <%= f.label :role %><br />
+    <%= f.text_field :role %>
+  </p>
+  <p>
+    <%= f.label :profile_num, 'Profile number. e.g. if user profile is /users/5, enter 5' %><br />
+    <%= f.text_field :profile_num, :class => 'number' %>
+  </p>
+  <p>
+    <%= f.label :country %><br />
+    <%= f.country_select :country %>
+  </p>
+  <p>
+    <%= f.label :short_description %><br />
+    <%= f.text_area :short_description %>
+  </p>
+  <p>
+    <%= f.submit 'Submit' %>
+  </p>
+<% end %>
+

@@ -10,6 +10,10 @@ class Group < ActiveRecord::Base
 
   after_create :create_matches
 
+  def sorted_group_teams
+    group_teams.sort {|a,b| a.points <=> b.points}.reverse
+  end
+
 private
   def create_matches
     t = group_teams.map{ |t| t.team_id }

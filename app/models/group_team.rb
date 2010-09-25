@@ -3,10 +3,22 @@ class GroupTeam < ActiveRecord::Base
   belongs_to :group
 
   def played
-    team.matches.reject {|match| match.group_id != 19 or !match.has_happened}.count
+    team.matches.reject {|match| match.group_id != group_id or !match.has_happened}.count
   end
 
   def won
-    team.matches.collect {|match| match.won}.count
+    team.won.reject {|match| match.group_id != group_id}
+  end
+
+  def drawn
+    team.drawn.reject {|match| match.group_id != group_id}
+  end
+
+  def lost
+    team.lost.reject {|match| match.group_id != group_id}
+  end
+
+  def points
+    (won.count * 3) + drawn.count
   end
 end

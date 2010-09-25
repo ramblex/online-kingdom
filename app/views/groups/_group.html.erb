@@ -10,19 +10,19 @@
       <th>L</th>
       <th>Pts</th>
     </tr>
-    <% group.group_teams.each_with_index do |group_team, idx| %>
+    <% group.sorted_group_teams.each_with_index do |group_team, idx| %>
       <tr class="<%= cycle 'even', 'odd' %>">
         <td class="pos"><%= idx + 1 %>.</td>
         <td><%= flag group_team.team.country %><%= group_team.team.name %></td>
         <td class="centered"><%= group_team.played %></td>
-        <td class="centered"><%= group_team.won %></td>
-        <td class="centered">0</td>
-        <td class="centered">0</td>
-        <td class="centered">0</td>
+        <td class="centered"><%= group_team.won.count %></td>
+        <td class="centered"><%= group_team.drawn.count %></td>
+        <td class="centered"><%= group_team.lost.count %></td>
+        <td class="centered"><%= group_team.points %></td>
       </tr>
     <% end %>
   </table>
   <% group.matches.each do |match| %>
-    <%= match.team1.name %> vs. <%= match.team2.name %><br />
+    <%= match.team1.name %> vs. <%= match.team2.name %> <%= render :partial => 'matches/scores', :locals => {:match => match} %><br />
   <% end %>
 </div>

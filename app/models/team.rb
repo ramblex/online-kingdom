@@ -9,5 +9,17 @@ class Team < ActiveRecord::Base
     team1_matches + team2_matches
   end
 
+  def won
+    team1_matches.team1_wins + team2_matches.team2_wins
+  end
+
+  def drawn
+    matches.select {|match| match.team1_score == match.team2_score}
+  end
+
+  def lost
+    team1_matches.team2_wins + team2_matches.team1_wins
+  end
+
   has_attached_file :logo, :styles => { :default => '100x100#' }
 end

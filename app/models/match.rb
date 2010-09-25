@@ -10,15 +10,15 @@ class Match < ActiveRecord::Base
 
   has_many :event_teams
 
+  named_scope :team1_wins, :conditions => 'team1_score > team2_score'
+  named_scope :team2_wins, :conditions => 'team1_score < team2_score'
+
   has_attached_file :map_picture, :styles => {:default => '200x100'}
 
   validates_presence_of :team1, :team2, :category, :event, :start_date
 
   def has_happened
     start_date < DateTime.now
-  end
-
-  def won
   end
 
   after_update :update_event_teams

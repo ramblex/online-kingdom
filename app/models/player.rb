@@ -11,6 +11,7 @@ class Player < ActiveRecord::Base
   # In order to accommodate events for individual players, automatically create a team
   # for each player.
   after_create :create_team
+  after_update :update_team
 
 private
   def create_team
@@ -18,7 +19,17 @@ private
       :player_id => id,
       :name => nickname,
       :category_id => category_id,
-      :user_id => user_id
+      :user_id => user_id,
+      :country => country
+    })
+  end
+
+  def update_team
+    Team.find_by_player_id(id).update_attributes({
+      :name => nickname,
+      :category_id => category_id,
+      :user_id => user_id,
+      :country => country
     })
   end
 end

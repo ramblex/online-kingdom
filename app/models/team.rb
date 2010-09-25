@@ -1,6 +1,7 @@
 class Team < ActiveRecord::Base
   belongs_to :category
   belongs_to :user
+  belongs_to :player
   has_many :players
   has_many :team1_matches, :class_name => 'Match', :foreign_key => 'team1_id'
   has_many :team2_matches, :class_name => 'Match', :foreign_key => 'team2_id'

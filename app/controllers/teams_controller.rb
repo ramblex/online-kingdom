@@ -23,6 +23,7 @@ class TeamsController < ApplicationController
 
   def show
     @team = Team.find(params[:id])
+    redirect_to @team.player if @team.player
     @matches = @team.matches
   end
 

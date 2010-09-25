@@ -15,6 +15,16 @@
   background: #d4d4d4;
 }
 
+.group-match-link {
+  width: 200px;
+  text-decoration: none;
+  margin: 5px;
+}
+
+.group-match {
+  margin-bottom: 15px;
+}
+
 .bracket-match-link {
   text-decoration: none;
   display: block;

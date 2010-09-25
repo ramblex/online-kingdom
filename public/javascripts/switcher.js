@@ -4,6 +4,8 @@ function update_content(content_id, data) {
 }
 
 function switcher(switcher_id, content_id) {
+  $(switcher_id+" li a").first().addClass('selected');
+
   // Category links
   $(switcher_id+" li a").click(function() {
     var category_url = $(this).attr("href");

@@ -1,5 +1,5 @@
 <div id="group">
-  <center><h1>Group <%= group.name %></h1></center>
+  <h2>Group <%= group.name %><%= admin_links group, nil, :controller => 'groups' %></h2>
   <table class="group">
     <tr>
       <th></th>
@@ -24,8 +24,12 @@
   </table>
   <div id="group-matches">
     <% group.matches.each do |match| %>
-      <%= match.team1.name %> vs. <%= match.team2.name %> <%= render :partial => 'matches/scores', :locals => {:match => match} %>
-      <%= admin_links match, nil, :controller => 'matches' %><br />
+      <div class="group-match">
+        <% link_to match, :class => 'group-match-link' do %>
+          <%= match.team1.name %> vs. <%= match.team2.name %> 
+        <% end %><%= render :partial => 'matches/scores', :locals => {:match => match} %>
+        <%= admin_links match, 'group-match-admin-links', :controller => 'matches' %><br />
+      </div>
     <% end %>
   </div>
 </div>

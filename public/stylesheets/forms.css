@@ -24,3 +24,14 @@ input.number {
 form br {
   display: none;
 }
+
+/** Matches form */
+
+.match-team {
+  width: 300px;
+  float: left;
+  border: 1px solid gray;
+  background: #eee;
+  margin: 5px;
+  padding: 5px;
+}

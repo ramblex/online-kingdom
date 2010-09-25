@@ -1,10 +1,14 @@
-h1 {
+h1, h2 {
   font-size: 8pt;
   font-weight: bold;
 }
 
 h1#album-title {
   margin-bottom: 15px;
+}
+
+h2 {
+  margin: 15px;
 }
 
 .subtitle {

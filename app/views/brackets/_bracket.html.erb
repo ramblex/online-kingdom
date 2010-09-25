@@ -1,5 +1,6 @@
-<h1><%= bracket.name %></h1>
+<h2><%= bracket.name %>
 <%= admin_links bracket, nil, :controller => 'brackets' %>
+</h2>
 <div id="tournament">
 <% bracket.event_teams.group_by(&:round).each do |round, teams| %>
   <div id="round-<%= round %>" class="tournament-round">

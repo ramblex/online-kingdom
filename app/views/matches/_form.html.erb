@@ -20,29 +20,39 @@
     <%= link_to 'Add event', new_event_path %>
   </p>
   <p>
+    <%= f.label :group_id, 'Group (optional)' %>
+    <% if @match.event %>
+      <%= f.collection_select :group_id, @match.event.groups, :id, :name, {:include_blank => true} %>
+    <% else %>
+      <%= f.collection_select :group_id, Event.first.groups, :id, :name, {:include_blank => 'N/A'} %>
+    <% end %>
+  </p>
+  <p> <%= link_to 'Add new team', new_team_path %></p>
+  <div class="match-team">
     <%= f.label :team1_id, 'Team 1' %><br />
     <%= f.collection_select :team1_id, Team.all, :id, :name %>
-    <%= link_to 'Add new team', new_team_path %>
-  </p>
-  <p><%= link_to 'Add a player' %></p>
-  <p>
+    <p><%= link_to 'Add a player' %></p>
+    <div class="date_dependent">
+      <%= f.label :team1_score, 'Team 1 score' %><br />
+      <%= f.text_field :team1_score, :class => 'number' %>
+    </div>
+  </div>
+  <div class="match-team">
     <%= f.label :team2_id, 'Team 2' %><br />
     <%= f.collection_select :team2_id, Team.all, :id, :name %>
-    <%= link_to 'Add new team', new_team_path %>
-  </p>
-  <p><%= link_to 'Add a player' %></p>
+    <p><%= link_to 'Add a player' %></p>
+    <div class="date_dependent">
+      <%= f.label :team2_score, 'Team 2 score' %><br />
+      <%= f.text_field :team2_score, :class => 'number' %>
+    </div>
+  </div>
+  <div class="clear"></div>
   <p>
     <%= f.label :format_id, 'Format' %><br />
     <%= f.collection_select :format_id, Format.all, :id, :name %>
     <%= link_to 'Add a format', new_format_path %>
   </p>
   <div class="date_dependent">
-    <p>
-      <%= f.label :team1_score, 'Team 1 score' %><br />
-      <%= f.text_field :team1_score, :class => 'number' %>
-      <%= f.label :team2_score, 'Team 2 score' %><br />
-      <%= f.text_field :team2_score, :class => 'number' %>
-    </p>
     <p>
       <%= f.label :results, 'Result details' %><br />
       <%= f.text_area :results, :class => 'mceEditor' %>
@@ -54,6 +64,7 @@
 <% end %>
 
 <% content_for :extra_js do %>
+  <%= javascript_include_tag 'observe_field' %>
   <script type="text/javascript">
     function hide_or_show_date_dependent(column) {
       var chosen_date = new Date(
@@ -76,5 +87,21 @@
     $("select[id^=match_start_date_]").change(function() {
       hide_or_show_date_dependent('match_start_date');
     });
+
+    function toggle_group_dependent() {
+      var checked = $('#match_group_id:checked').val() != null;
+      if (checked) {
+        $('.group-dependent').show();
+      } else {
+        $('.group-dependent').hide();
+      }
+    }
+
+    toggle_group_dependent();
+
+    $('#match_group_id').change(function() {
+      toggle_group_dependent();
+    });
+
   </script>
 <% end %>

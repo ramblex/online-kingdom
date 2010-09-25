@@ -83,3 +83,7 @@ input {
 .user-admin-links a {
   color: #1a3f5a;
 }
+
+.group-match-admin-links {
+  display: inline !important;
+}

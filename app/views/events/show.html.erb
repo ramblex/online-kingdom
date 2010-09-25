@@ -24,7 +24,7 @@
       </tr>
     </table>
     <div class="matches-title">Attending teams</div>
-    <% if @event.format.has_groups %>
+    <% if @event.has_groups %>
       <div class="matches-title">Groups
         <% if can? :edit, Group %>
           <%= link_to 'Manage groups', event_groups_path(@event) %>
@@ -35,7 +35,7 @@
       </div>
       <%= render :partial => @event.groups.first %>
     <% end %>
-    <% if @event.format.has_brackets %>
+    <% if @event.has_brackets %>
       <div class="matches-title">Brackets
         <% if can? :edit, Bracket %>
           <%= link_to 'Manage brackets', event_brackets_path(@event) %>

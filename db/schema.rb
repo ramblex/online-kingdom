@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100925141311) do
+ActiveRecord::Schema.define(:version => 20100925142527) do
 
   create_table "album_comments", :force => true do |t|
     t.text     "content"
@@ -135,14 +135,14 @@ ActiveRecord::Schema.define(:version => 20100925141311) do
     t.date     "start_date"
     t.date     "end_date"
     t.integer  "format_id"
+    t.boolean  "has_groups",        :default => false
+    t.boolean  "has_brackets",      :default => false
   end
 
   create_table "formats", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "has_groups"
-    t.boolean  "has_brackets"
   end
 
   create_table "group_teams", :force => true do |t|

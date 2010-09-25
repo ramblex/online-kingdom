@@ -24,6 +24,14 @@
     <%= f.label :format_id, 'Format' %><br />
     <%= f.collection_select :format_id, Format.all, :id, :name %>
   </p>
+  <p>
+    <%= f.label :has_groups %><br />
+    <%= f.check_box :has_groups %>
+  </p>
+  <p>
+    <%= f.label :has_brackets %><br />
+    <%= f.check_box :has_brackets %>
+  </p>
   <hr />
   <%= f.submit 'Submit' %>
 <% end %>

@@ -8,7 +8,6 @@ class User < ActiveRecord::Base
   validates_presence_of :username, :email
   validates_uniqueness_of :username
   validates_format_of :username, :with => /^\w+$/i, :message => "can only contain letters and numbers."
-  validates_presence_of :country
 
   # Include default devise modules. Others available are:
   # :http_authenticatable, :token_authenticatable, :confirmable, :lockable, :timeoutable and :activatable

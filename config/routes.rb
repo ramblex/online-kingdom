@@ -21,11 +21,11 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :pages
   map.resources :albums
   map.resources :users
-  map.resources :ok_players
   map.resources :brackets
 
   # Sample resource route with options:
   #   map.resources :products, :member => { :short => :get, :toggle => :post }, :collection => { :sold => :get }
+  map.resources :ok_players, :collection => {:admin => :get}
   map.resources :players, :collection => {:admin => :get}
   map.resources :blogs, :collection => {:admin => :get}
   map.resources :categories, :collection => {:admin => :get}

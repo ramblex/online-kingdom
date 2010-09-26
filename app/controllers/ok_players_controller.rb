@@ -1,6 +1,10 @@
 class OkPlayersController < ApplicationController
   load_and_authorize_resource
 
+  def admin
+    @ok_players = OkPlayer.all
+  end
+
   # GET /ok_players
   # GET /ok_players.xml
   def index

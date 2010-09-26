@@ -26,8 +26,8 @@
     <%= f.text_field :role %>
   </p>
   <p>
-    <%= f.label :profile_num, 'Profile number. e.g. if user profile is /users/5, enter 5' %><br />
-    <%= f.text_field :profile_num, :class => 'number' %>
+    <%= f.label :user_id, 'User' %><br />
+    <%= f.collection_select :user_id, User.all, :id, :username %>
   </p>
   <p>
     <%= f.label :country %><br />

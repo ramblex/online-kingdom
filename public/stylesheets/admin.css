@@ -88,6 +88,10 @@ input {
   display: inline !important;
 }
 
+.ok-staff-admin {
+  display: inline !important;
+}
+
 #admin-nav {
   color: white;
   position: fixed;

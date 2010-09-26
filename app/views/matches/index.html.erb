@@ -13,6 +13,7 @@
     <ul id="match-ticker" class="matches">
       <%= render :partial => @matches %>
     </ul>
+    <div id="pagination"><%= will_paginate @matches %></div>
   </div>
 </div>
 

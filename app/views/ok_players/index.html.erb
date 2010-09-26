@@ -14,7 +14,7 @@
       <%= render :partial => @ok_players %>
     </div>
     <% if can? :create, Player %>
-      <%= link_to 'Create player', new_ok_player_path %>
+      <%= link_to 'Create player/staff', new_ok_player_path %>
     <% end %>
   </div>
 </div>
@@ -25,7 +25,9 @@
       <span class="blue">ST</span>AFF<br />
       <span class="subtitle">CONTENT <span>CHANGER</span></span>
     </div>
-    <%= render :partial => 'ok_staff', :collection => @ok_staff %>
+    <div id="ok_staff">
+      <%= render :partial => 'ok_staff', :collection => @ok_staff %>
+    </div>
     <div class="clear"></div>
   </div>
   <div class="box">
@@ -41,5 +43,10 @@
   <%= javascript_include_tag 'switcher' %>
   <script type="text/javascript">
     switcher('#player-categories', '#player-list');
+    function update_content(content_id, data) {
+      $(content_id).html($(content_id, data).html());
+      $("#pagination").html($("#pagination", data).html());
+      $("#ok_staff").html($("#ok_staff", data));
+    }
   </script>
 <% end %>

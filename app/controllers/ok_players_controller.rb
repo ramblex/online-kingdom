@@ -9,10 +9,11 @@ class OkPlayersController < ApplicationController
   # GET /ok_players.xml
   def index
     if params[:category].blank? or params[:category].eql? 'all'
-      @ok_players = OkPlayer.paginate :page => params[:page]
+      @ok_players = OkPlayer.non_staff
       @ok_staff = OkPlayer.staff
     else
-      @ok_players = OkPlayer.paginate :page => params[:page], :conditions => ['category_id = ?', params[:category]]
+      @ok_players = OkPlayer.non_staff.category(params[:category])
+      @ok_staff = OkPlayer.staff.category(params[:category])
     end
 
     respond_to do |format|
@@ -49,14 +50,11 @@ class OkPlayersController < ApplicationController
   def create
     @ok_player = OkPlayer.new(params[:ok_player])
 
-    respond_to do |format|
-      if @ok_player.save
-        format.html { redirect_to(@ok_player, :notice => 'OkPlayer was successfully created.') }
-        format.xml  { render :xml => @ok_player, :status => :created, :location => @ok_player }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @ok_player.errors, :status => :unprocessable_entity }
-      end
+    if @ok_player.save
+      flash[:notice] = 'Created OK player'
+      redirect_to ok_players_path
+    else
+      render :action => 'new'
     end
   end
 
@@ -65,14 +63,10 @@ class OkPlayersController < ApplicationController
   def update
     @ok_player = OkPlayer.find(params[:id])
 
-    respond_to do |format|
-      if @ok_player.update_attributes(params[:ok_player])
-        format.html { redirect_to(@ok_player, :notice => 'OkPlayer was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @ok_player.errors, :status => :unprocessable_entity }
-      end
+    if @ok_player.update_attributes(params[:ok_player])
+      redirect_to(ok_players_url, :notice => 'OkPlayer was successfully updated.')
+    else
+      render :action => "edit"
     end
   end
 

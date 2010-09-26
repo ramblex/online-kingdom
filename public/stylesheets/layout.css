@@ -879,6 +879,20 @@ div.comment-info {
 
 .ok-staff {
   clear: both;
+  margin-top: 20px;
+}
+
+.ok-staff img {
+  width: 50px;
+  height: 50px;
+  float: left;
+  margin-right: 10px;
+}
+
+.ok-staff .desc {
+  margin-top: 3px;
+  height: 2em;
+  overflow: hidden;
 }
 
 .left img {

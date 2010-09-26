@@ -1,0 +1,15 @@
+<h1>Format administration</h1>
+<%= link_to 'Add format', new_format_path %>
+<table class="admin-table">
+  <tr>
+    <th>Name</th>
+    <th>Admin</th>
+  </tr>
+  <% @formats.each do |format| %>
+    <tr class="<%= cycle 'even', 'odd' %>">
+      <td><%= format.name %></td>
+      <td><%= admin_links format, :none %></td>
+    </tr>
+  <% end %>
+</table>
+

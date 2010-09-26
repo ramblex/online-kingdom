@@ -1,6 +1,10 @@
 class FormatsController < ApplicationController
   load_and_authorize_resource
 
+  def admin
+    @formats = Format.all
+  end
+
   def index
     @formats = Format.all
   end

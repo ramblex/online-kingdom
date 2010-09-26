@@ -29,10 +29,10 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :blogs
   map.resources :users
   map.resources :categories
-  map.resources :formats
 
   # Sample resource route with options:
   #   map.resources :products, :member => { :short => :get, :toggle => :post }, :collection => { :sold => :get }
+  map.resources :formats, :collection => {:admin => :get}
   map.resources :articles, :collection => {:admin => :get}
   map.resources :matches, :collection => {:admin => :get}
   map.resources :events, :collection => {:admin => :get}, :shallow => true do |event|

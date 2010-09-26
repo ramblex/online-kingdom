@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100926201516) do
+ActiveRecord::Schema.define(:version => 20100926210650) do
 
   create_table "album_comments", :force => true do |t|
     t.text     "content"
@@ -244,6 +244,7 @@ ActiveRecord::Schema.define(:version => 20100926201516) do
     t.string   "white_logo_content_type"
     t.integer  "white_logo_file_size"
     t.datetime "white_logo_updated_at"
+    t.boolean  "featured"
   end
 
   create_table "players", :force => true do |t|

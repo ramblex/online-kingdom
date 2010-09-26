@@ -11,6 +11,10 @@
     <%= f.text_area :description, :class => 'mceEditor' %>
   </p>
   <p>
+    <%= f.label :featured %><br />
+    <%= f.check_box :featured %>
+  </p>
+  <p>
     <% if @partner.logo %>
       <%= image_tag @partner.logo.url(:default) %>
     <% end %>

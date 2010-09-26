@@ -10,6 +10,7 @@ class OkPlayersController < ApplicationController
   def index
     if params[:category].blank? or params[:category].eql? 'all'
       @ok_players = OkPlayer.paginate :page => params[:page]
+      @ok_staff = OkPlayer.staff
     else
       @ok_players = OkPlayer.paginate :page => params[:page], :conditions => ['category_id = ?', params[:category]]
     end

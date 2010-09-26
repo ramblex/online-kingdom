@@ -877,6 +877,10 @@ div.comment-info {
   width: 382px;
 }
 
+.ok-staff {
+  clear: both;
+}
+
 .left img {
   float: left;
   margin-right: 12px;

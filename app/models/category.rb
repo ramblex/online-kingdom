@@ -1,6 +1,6 @@
 class Category < ActiveRecord::Base
-  has_many :articles
-  has_many :teams
+  has_many :articles, :dependent => :nullify
+  has_many :teams, :dependent => :nullify
 
   validates_presence_of :name, :long_name
 

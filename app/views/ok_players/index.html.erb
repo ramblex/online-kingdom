@@ -38,6 +38,7 @@
     <div id="match-ticker">
       <%= render :partial => 'matches/match', :collection => @ok_matches, :locals => {:no_admin => true} %>
     </div>
+    <%= link_to '&raquo; all matches', matches_path, :class => 'all-matches' %>
     <div class="clear"></div>
   </div>
 </div>

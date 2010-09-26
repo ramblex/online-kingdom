@@ -5,8 +5,8 @@ class Team < ActiveRecord::Base
   has_many :players
   has_many :team1_matches, :class_name => 'Match', :foreign_key => 'team1_id'
   has_many :team2_matches, :class_name => 'Match', :foreign_key => 'team2_id'
-  named_scope :team_teams, :conditions => ['player_id IS NULL']
-  named_scope :player_teams, :conditions => ['player_id IS NOT NULL']
+  named_scope :team_teams, :conditions => ['player_id IS NULL'], :order => 'name ASC'
+  named_scope :player_teams, :conditions => ['player_id IS NOT NULL'], :order => 'name ASC'
 
   def matches
     team1_matches + team2_matches

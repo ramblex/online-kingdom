@@ -1,0 +1,19 @@
+<h1>Award administration</h1>
+<%= link_to 'Add award', new_award_path %>
+<table class="admin-table">
+  <tr>
+    <th>Name</th>
+    <th>Category</th>
+    <th>Admin</th>
+  </tr>
+  <% @awards.each do |award| %>
+    <tr class="<%= cycle 'even', 'odd' %>">
+      <td><%= award.name %></td>
+      <td><%= award.category.name %></td>
+      <td><%= admin_links award, :none %></td>
+    </tr>
+  <% end %>
+</table>
+
+
+

@@ -1,0 +1,17 @@
+<h1>Partner administration</h1>
+<%= link_to 'Add partner', new_partner_path %>
+<table class="admin-table">
+  <tr>
+    <th>Name</th>
+    <th></th>
+  </tr>
+  <% @partners.each do |partner| %>
+    <tr class="<%= cycle 'even', 'odd' %>">
+      <td><%= partner.name %></td>
+      <td><%= admin_links partner, :none %></td>
+    </tr>
+  <% end %>
+</table>
+
+
+

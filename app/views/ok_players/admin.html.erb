@@ -1,0 +1,21 @@
+<h1>OK Player administration</h1>
+<%= link_to 'Add ok_player', new_ok_player_path %>
+<table class="admin-table">
+  <tr>
+    <th>Name</th>
+    <th>Profile</th>
+    <th>Game</th>
+    <th>Admin</th>
+  </tr>
+  <% @ok_players.each do |ok_player| %>
+    <tr class="<%= cycle 'even', 'odd' %>">
+      <td><%= ok_player.nickname %></td>
+      <td><%= link_to 'Profile', ok_player %></td>
+      <td><%= ok_player.category.name %></td>
+      <td><%= admin_links ok_player, :none %></td>
+    </tr>
+  <% end %>
+</table>
+
+
+

@@ -1,0 +1,19 @@
+<h1>Blog administration</h1>
+<%= link_to 'Add blog', new_blog_path %>
+<table class="admin-table">
+  <tr>
+    <th>Title</th>
+    <th>Author</th>
+    <th>Date posted</th>
+    <th>Admin</th>
+  </tr>
+  <% @blogs.each do |blog| %>
+    <tr class="<%= cycle 'even', 'odd' %>">
+      <td><%= blog.title %></td>
+      <td><%= blog.user.username %></td>
+      <td><%= blog.created_at %></td>
+      <td><%= admin_links blog, :none %></td>
+    </tr>
+  <% end %>
+</table>
+

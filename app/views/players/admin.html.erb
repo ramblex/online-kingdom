@@ -1,0 +1,17 @@
+<h1>Player administration</h1>
+<%= link_to 'Add player', new_player_path %>
+<table class="admin-table">
+  <tr>
+    <th>Name</th>
+    <th>Admin</th>
+  </tr>
+  <% @players.each do |player| %>
+    <tr class="<%= cycle 'even', 'odd' %>">
+      <td><%= player.nickname %></td>
+      <td><%= player.category.name %></td>
+      <td><%= admin_links player, :none %></td>
+    </tr>
+  <% end %>
+</table>
+
+

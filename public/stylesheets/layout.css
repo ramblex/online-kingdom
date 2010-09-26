@@ -153,6 +153,8 @@ div#flash-notice {
 #top-news-content {
   float: left; /* Float left so that we can clear it */
   width: 100%;
+  overflow: hidden;
+  height: 108px;
 }
 
 .readmore {

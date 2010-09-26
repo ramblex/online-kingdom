@@ -1,6 +1,7 @@
 class Category < ActiveRecord::Base
   has_many :articles, :dependent => :nullify
   has_many :teams, :dependent => :nullify
+  belongs_to :ok_team, :class_name => 'Team', :foreign_key => 'ok_team_id'
 
   validates_presence_of :name, :long_name
 

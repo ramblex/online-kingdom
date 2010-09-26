@@ -10,6 +10,14 @@
     <%= f.text_field :long_name %>
   </p>
   <p>
+    <%= f.label :ok_team_id, 'OK team for this category' %><br />
+    <% if @category.new_record? %>
+      <%= f.collection_select :ok_team_id, Team.all, :id, :name %>
+    <% else %>
+      <%= f.collection_select :ok_team_id, @category.teams, :id, :name %>
+    <% end %>
+  </p>
+  <p>
     <% if @category.small_icon %>
       <%= image_tag @category.small_icon.url(:default) %>
     <% end %>

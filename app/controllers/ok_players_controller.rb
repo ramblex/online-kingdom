@@ -11,9 +11,15 @@ class OkPlayersController < ApplicationController
     if params[:category].blank? or params[:category].eql? 'all'
       @ok_players = OkPlayer.non_staff
       @ok_staff = OkPlayer.staff
+      @ok_matches = []
+      Category.all.each do |category|
+        @ok_matches += category.ok_team.matches if category.ok_team
+      end
     else
       @ok_players = OkPlayer.non_staff.category(params[:category])
       @ok_staff = OkPlayer.staff.category(params[:category])
+      category = Category.find(params[:category])
+      @ok_matches = category.ok_team.matches if category.ok_team
     end
 
     respond_to do |format|

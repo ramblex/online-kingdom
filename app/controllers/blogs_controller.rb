@@ -2,6 +2,10 @@ class BlogsController < ApplicationController
   load_and_authorize_resource
   uses_tiny_mce :only => [:new, :create, :edit, :update]
 
+  def admin
+    @blogs = Blog.all
+  end
+
   # GET /blogs
   # GET /blogs.xml
   def index

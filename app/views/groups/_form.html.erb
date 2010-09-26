@@ -10,6 +10,11 @@
     <%= f.text_field :name %>
   </p>
 
+  <p>
+    <%= f.label :stage, 'Stage name e.g. Stage 1' %><br />
+    <%= f.text_field :stage %>
+  </p>
+
   <%= add_child_link "Add another team", f, :group_teams %>
   <table class="group" id="group_teams">
     <% f.fields_for :group_teams do |team_form| %>

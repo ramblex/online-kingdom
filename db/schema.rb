@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100926210650) do
+ActiveRecord::Schema.define(:version => 20100926213829) do
 
   create_table "album_comments", :force => true do |t|
     t.text     "content"
@@ -159,6 +159,7 @@ ActiveRecord::Schema.define(:version => 20100926210650) do
     t.integer  "event_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "stage"
   end
 
   create_table "knockout_matches", :force => true do |t|

@@ -3,7 +3,11 @@ function update_content(content_id, data) {
   $("#pagination").html($("#pagination", data).html());
 }
 
-function switcher(switcher_id, content_id) {
+function switcher(switcher_id, content_id, func) {
+  if (func === undefined) {
+    func = function(data) {update_content(content_id, data)}
+  }
+
   $(switcher_id+" li a").first().addClass('selected');
 
   // Category links
@@ -17,7 +21,7 @@ function switcher(switcher_id, content_id) {
       url: category_url,
       type: 'get',
       datatype: 'html',
-      success: function(data) {update_content(content_id, data)}
+      success: func
     });
     return false;
   });

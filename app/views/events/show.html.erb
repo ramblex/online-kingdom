@@ -25,23 +25,31 @@
     </table>
     <div class="matches-title">Attending teams</div>
     <% if @event.has_groups %>
-      <div class="matches-title">Groups
-        <% if can? :edit, Group %>
-          <%= link_to 'Manage groups', event_groups_path(@event) %>
-        <% end %>
-        <ul class="group-switcher switcher">
-          <%= render :partial => 'group_links', :collection => @event.groups, :as => :group %>
-        </ul>
-      </div>
-      <%= render :partial => @event.groups.first %>
+      <% @event.groups.group_by(&:stage).each do |stage, groups| %>
+        <div class="stage">
+          <div id="groups-title" class="matches-title">
+            <%= stage %> Groups
+            <% if can? :edit, Group %>
+              <%= link_to 'Manage groups', event_groups_path(@event) %>
+            <% end %>
+            <ul class="group-switcher switcher" name="<%= stage %>">
+              <%= render :partial => 'group_links', :collection => groups, :as => :group %>
+            </ul>
+            <script type="text/javascript">
+              switcher('ul[name=<%= stage %>]', 'div[name=<%= stage %>]');
+            </script>
+          </div>
+          <%= render :partial => groups.first %>
+        </div>
+      <% end %>
     <% end %>
-    <% if @event.has_brackets %>
-      <div class="matches-title">Brackets
+
+      <% if @event.has_brackets %>
+        <div class="matches-title">Brackets</div>
         <% if can? :edit, Bracket %>
           <%= link_to 'Manage brackets', event_brackets_path(@event) %>
         <% end %>
-      </div>
-      <%= render :partial => @event.brackets %>
+        <%= render :partial => @event.brackets %>
       <div class="clear"></div>
     <% end %>
   </div>
@@ -56,9 +64,37 @@
   </div>
 </div>
 
-<% content_for :extra_js do %>
+<% content_for :head do %>
   <%= javascript_include_tag 'switcher' %>
+<% end %>
+
+<% content_for :extra_js do %>
   <script type="text/javascript">
-    switcher('.group-switcher', '#group');
+    // Hide all stages apart from the first
+  if ($('.stage').size() > 1) {
+    $('.stage #groups-title').after('<div class="stage-nav"></div>');
+    $('.stage .stage-nav:not(:first)').append('<a href="" id="prev-stage">Go To Previous Stage</a>');
+    $('.stage .stage-nav:not(:last)').append('<a href="" id="next-stage">Go To Next Stage</a>');
+    $('.stage').hide();
+    var current_stage = $('.stage').first();
+    var first = current_stage;
+    current_stage.show();
+
+    function switch_stage(new_stage) {
+      current_stage.hide();
+      current_stage = new_stage;
+      current_stage.show();
+    }
+
+    $('#next-stage').click(function() {
+      switch_stage(current_stage.next());
+      return false;
+    });
+
+    $("#prev-stage").click(function() {
+      switch_stage(current_stage.prev());
+      return false;
+    });
+  }
   </script>
 <% end %>

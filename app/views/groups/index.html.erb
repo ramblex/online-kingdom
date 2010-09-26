@@ -2,6 +2,8 @@
 
 <%= link_to 'New group', new_event_group_path %>
 
+<% @groups.group_by(&:stage).each do |stage, groups| %>
+  <h2>Groups for <%= stage %></h2>
 <table class="admin-table">
   <tr>
     <th>Name</th>
@@ -9,13 +11,14 @@
     <th></th>
   </tr>
 
-<% @groups.each do |group| %>
-  <tr class="<%= cycle 'even', 'odd' %>">
-    <td><%= group.name %></td>
-    <td><%= link_to 'Show group', group %></td>
-    <td><%= admin_links group %></td>
-  </tr>
-<% end %>
+  <% groups.each do |group| %>
+    <tr class="<%= cycle 'even', 'odd' %>">
+      <td><%= group.name %></td>
+      <td><%= link_to 'Show group', group %></td>
+      <td><%= admin_links group %></td>
+    </tr>
+  <% end %>
 </table>
+<% end %>
 
 <br />

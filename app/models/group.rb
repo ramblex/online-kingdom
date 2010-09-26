@@ -7,6 +7,7 @@ class Group < ActiveRecord::Base
     :reject_if => proc { |a| a.all? { |k, v| v.blank? }}
 
   default_scope :order => 'name ASC'
+  named_scope :stages, :select => 'DISTINCT stage', :conditions => 'stage IS NOT NULL'
 
   after_create :create_matches
 

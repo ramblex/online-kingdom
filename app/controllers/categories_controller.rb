@@ -1,4 +1,9 @@
 class CategoriesController < ApplicationController
+  load_and_authorize_resource
+
+  def admin
+    @categories = Category.all
+  end
 
   # GET /categories/new
   # GET /categories/new.xml

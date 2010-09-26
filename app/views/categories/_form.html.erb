@@ -2,14 +2,18 @@
   <%= f.error_messages %>
 
   <p>
-    <%= f.label :name %><br />
+    <%= f.label :name, 'Name e.g. COD4' %><br />
     <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :long_name, 'Long name e.g. Call of Duty 4' %><br />
+    <%= f.text_field :long_name %>
   </p>
   <p>
     <% if @category.small_icon %>
       <%= image_tag @category.small_icon.url(:default) %>
     <% end %>
-    <%= f.label :small_icon %><br />
+    <%= f.label :small_icon, 'Small icon (25x15)' %><br />
     <%= f.file_field :small_icon %>
   </p>
 

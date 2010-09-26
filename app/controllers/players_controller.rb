@@ -1,6 +1,10 @@
 class PlayersController < ApplicationController
   load_and_authorize_resource
 
+  def admin
+    @players = Player.all
+  end
+
   def index
     if params[:category].blank? or params[:category].eql? 'all'
       @players = User.ok_players.paginate :page => params[:page]

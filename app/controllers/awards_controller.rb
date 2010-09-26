@@ -2,6 +2,10 @@ class AwardsController < ApplicationController
   load_and_authorize_resource
   uses_tiny_mce :only => [:new, :create, :edit, :update]
 
+  def admin
+    @awards = Award.all
+  end
+
   # GET /awards
   # GET /awards.xml
   def index

@@ -2,6 +2,10 @@ class PartnersController < ApplicationController
   load_and_authorize_resource
   uses_tiny_mce :only => [:new, :create, :edit, :update]
 
+  def admin
+    @partners = Partner.all
+  end
+
   # GET /partners
   # GET /partners.xml
   def index

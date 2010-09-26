@@ -14,7 +14,6 @@ ActionController::Routing::Routes.draw do |map|
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   map.resources :products
   map.resources :videos
-  map.resources :partners
   map.devise_for :users
   map.resources :settings, :except => :show
   map.resources :pages
@@ -24,6 +23,7 @@ ActionController::Routing::Routes.draw do |map|
 
   # Sample resource route with options:
   #   map.resources :products, :member => { :short => :get, :toggle => :post }, :collection => { :sold => :get }
+  map.resources :partners, :collection => {:admin => :get}
   map.resources :awards, :collection => {:admin => :get}
   map.resources :ok_players, :collection => {:admin => :get}
   map.resources :players, :collection => {:admin => :get}

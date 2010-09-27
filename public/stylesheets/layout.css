@@ -316,15 +316,6 @@ ul#top-nav a {
   color: black;
 }
 
-.switcher {
-  list-style: none;
-}
-
-.switcher li {
-  float: left;
-  margin-right: 3px;
-}
-
 /* Full Column */
 #full-col {
   border: 1px solid #c4c4c4;
@@ -648,9 +639,9 @@ div.comment-info {
   line-height: 15px;
   color: white;
   text-decoration: none;
-  font-weight: "Arial Rounded MT Bold", Arial;
-  font-size: 8px;
-  font-weight: bold;
+  font-family: "Arial Rounded MT Bold", Arial;
+  font-weight: normal;
+  font-size: 10px;
   margin-bottom: 12px;
   padding: 0 7px;
   background: #1a3f5a;

@@ -20,6 +20,18 @@ module ApplicationHelper
     return country_code
   end
 
+  def stars_for(obj)
+    html = '<div class="stars">'
+    5.times.each_with_index do |idx, elem|
+      if idx < obj.rating
+        html << (link_to '', {:action => 'rate', :id => obj.id, :rating => idx + 1}, :class => 'star filled')
+      else
+        html << (link_to '', {:action => 'rate', :id => obj.id, :rating => idx + 1}, :class => 'star', :id => idx + 1)
+      end
+    end
+    html << "</div>"
+  end
+
   def admin_links(obj, extra_class = nil, options = {})
     if extra_class.eql? :none
       html = '<div>'

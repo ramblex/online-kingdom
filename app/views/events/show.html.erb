@@ -15,6 +15,12 @@
 
     <%= render :partial => 'event_info', :object => @event %>
     <div class="matches-title">Attending teams</div>
+    <ul class="attending-teams">
+      <% @event.attending_teams.each do |team| %>
+        <li><%= flag team.country %><%= team.name %></li>
+      <% end %>
+    </ul>
+
     <% if @event.has_groups %>
       <% @event.groups.group_by(&:stage).each do |stage, groups| %>
         <div class="stage">

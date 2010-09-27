@@ -2,7 +2,7 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    can :read, [Article, Match, Blog, Album, Player, Video, Award, Partner, Page, Team, Event]
+    can :read, [Article, Match, Blog, Album, Player, Video, Award, Partner, Page, Team, Event, OkPlayer]
     can :show, User
 
     if user.nil?

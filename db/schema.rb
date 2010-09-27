@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100926213829) do
+ActiveRecord::Schema.define(:version => 20100927193352) do
 
   create_table "album_comments", :force => true do |t|
     t.text     "content"
@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(:version => 20100926213829) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.text     "preamble"
   end
 
   create_table "awards", :force => true do |t|

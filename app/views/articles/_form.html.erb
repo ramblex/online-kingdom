@@ -10,6 +10,10 @@
     <%= f.collection_select :category_id, Category.all, :id, :name %>
   </p>
   <p>
+    <%= f.label :preamble %><br />
+    <%= f.text_area :preamble, :class => 'mceEditor' %>
+  </p>
+  <p>
     <%= f.label :content %><br />
     <%= f.text_area :content, :class => 'mceEditor' %>
   </p>

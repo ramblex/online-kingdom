@@ -21,6 +21,10 @@
     <%= f.label :image %><br />
     <%= f.file_field :image %>
   </p>
+  <p>
+    <%= f.label :featured %><br />
+    <%= f.check_box :featured %>
+  </p>
   <% if can? :approve, @article %>
     <p>
       <%= f.label :approved %><br />

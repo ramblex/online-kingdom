@@ -1,4 +1,4 @@
-<% latest = Article.find(:first) %>
+<% latest = Article.find(:first, :conditions => :featured) %>
 <% if latest %>
 <div id="top-news-title">
   <span class="title"><%= latest.title %></span>

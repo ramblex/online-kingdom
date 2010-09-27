@@ -10,7 +10,7 @@
 </div>
 <div id="top-news-content">
   <%= image_tag latest.image.url(:square), :class => 'image' %>
-  <span class="content"><%= truncate_html(latest.content, :length => 500) %></span>
+  <span class="content"><%= truncate_html(latest.preamble, :length => 500) %></span>
 </div>
 <%= link_to image_tag('readmore.png'), latest, :class => 'readmore' %>
 <% end %>

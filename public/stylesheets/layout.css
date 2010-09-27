@@ -728,6 +728,10 @@ div.comment-info {
   -webkit-border-radius: 5px;
 }
 
+.box p {
+  margin-bottom: 10px;
+}
+
 .box-title {
   font-weight: bold;
   float: left;

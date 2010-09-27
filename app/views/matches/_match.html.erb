@@ -4,8 +4,8 @@
 <li>
 <% link_to match do %>
   <%= image_tag match.category.small_icon.url(:default) %>
-  <span class="team1"><%= match.team1.name %></span> vs.
-  <span class="team2"><%= match.team2.name %></span>
+  <span class="team1"><%= truncate match.team1.name, :length => 16 %></span> vs.
+  <span class="team2"><%= truncate match.team2.name, :length => 16 %></span>
   <span class="scores"><%= render :partial => 'matches/scores', :locals => {:match => match} %></span>
 <% end %>
 </li>

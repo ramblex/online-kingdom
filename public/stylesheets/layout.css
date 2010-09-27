@@ -291,7 +291,7 @@ ul#top-nav li {
 ul#top-nav #news { left: 19px; }
 ul#top-nav #videos { left: 94px; background-position: -74px 0;}
 ul#top-nav #albums { left: 168px; background-position: -148px 0;}
-ul#top-nav #files { left: 242px; background-position: -222px 0;}
+ul#top-nav #events { left: 242px; background-position: -222px 0;}
 ul#top-nav #blogs { left: 316px; background-position: -296px 0;}
 ul#top-nav #matches { left: 390px; background-position: -370px 0;}
 
@@ -881,6 +881,10 @@ div.comment-info {
   width: 382px;
 }
 
+#ok_staff {
+  margin-top: 30px;
+}
+
 .ok-staff {
   clear: both;
   margin-top: 20px;
@@ -982,6 +986,11 @@ div.comment-info {
 }
 
 /** Events */
+#content #events {
+  clear: both;
+  margin-top: 40px;
+}
+
 .attending-teams {
   list-style: none;
   float: left;

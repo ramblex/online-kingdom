@@ -9,6 +9,10 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
   end
 
+  def index
+    @events = Event.all
+  end
+
   # GET /events/new
   # GET /events/new.xml
   def new

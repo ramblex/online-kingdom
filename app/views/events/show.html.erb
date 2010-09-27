@@ -13,16 +13,7 @@
       <span class="right"><%= admin_links @event %></span>
     </div>
 
-    <table class="match-info">
-      <tr class="odd">
-        <td class="title">Date</td>
-        <td><%= event_dates @event %></td>
-      </tr>
-      <tr>
-        <td class="title">Game</td>
-        <td><%= @event.category.name %></td>
-      </tr>
-    </table>
+    <%= render :partial => 'event_info', :object => @event %>
     <div class="matches-title">Attending teams</div>
     <% if @event.has_groups %>
       <% @event.groups.group_by(&:stage).each do |stage, groups| %>
@@ -45,10 +36,10 @@
     <% end %>
 
       <% if @event.has_brackets %>
-        <div class="matches-title">Brackets</div>
+        <div class="matches-title">Brackets
         <% if can? :edit, Bracket %>
           <%= link_to 'Manage brackets', event_brackets_path(@event) %>
-        <% end %>
+        <% end %></div>
         <%= render :partial => @event.brackets %>
       <div class="clear"></div>
     <% end %>

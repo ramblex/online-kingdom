@@ -1,0 +1,4 @@
+<li><%= link_to 'All', params.merge(:category => 'all', :page => 1), :class => 'selected' %></li>
+<% Category.all.each do |category| %>
+  <li><%= link_to category.name, params.merge(:category => category.id, :page => 1) %></li>
+<% end %>

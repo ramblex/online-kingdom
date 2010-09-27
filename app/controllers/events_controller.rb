@@ -10,7 +10,16 @@ class EventsController < ApplicationController
   end
 
   def index
-    @events = Event.all
+    if params[:category].blank? or params[:category].downcase.eql? 'all'
+      @events = Event.paginate :page => params[:page]
+    else
+      @events = Event.paginate :page => params[:page], :conditions => ['category_id = ?', params[:category]]
+    end
+
+    respond_to do |format|
+      format.html
+      format.js { render :partial => @events }
+    end
   end
 
   # GET /events/new

@@ -4,9 +4,20 @@
       <span class="blue">EVENTS</span> PAGE<br />
       <span class="subtitle">CONTENT <span>CHANGER</span></span>
     </div>
+    <ul id="event-category" class="switcher">
+      <%= render :partial => 'shared/switcher_list' %>
+    </ul>
     <div id="events">
       <%= render :partial => @events %>
     </div>
+    <div id="pagination"><%= will_paginate @events %></div>
     <div class="clear"></div>
   </div>
 </div>
+
+<% content_for :extra_js do %>
+  <%= javascript_include_tag 'switcher' %>
+  <script type="text/javascript">
+    switcher('#event-category', '#content #events');
+  </script>
+<% end %>

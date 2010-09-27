@@ -988,7 +988,11 @@ div.comment-info {
 /** Events */
 #content #events {
   clear: both;
-  margin-top: 40px;
+  margin-top: 20px;
+}
+
+#pagination {
+  clear: both;
 }
 
 .attending-teams {

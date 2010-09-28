@@ -18,6 +18,10 @@ class PagesController < ApplicationController
   def show
     if params[:permalink]
       @page = Page.find_by_permalink(params[:permalink])
+      if @page.permalink.eql? 'about'
+        @high_managers = Manager.high_management
+        @medium_managers = Manager.medium_management
+      end
       raise ActiveRecord::RecordNotFound, "Page not found" if @page.nil?
     else
       @page = Page.find(params[:id])

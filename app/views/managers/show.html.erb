@@ -1,0 +1,33 @@
+<p>
+  <b>Firstname:</b>
+  <%=h @manager.firstname %>
+</p>
+
+<p>
+  <b>Surname:</b>
+  <%=h @manager.surname %>
+</p>
+
+<p>
+  <b>Nickname:</b>
+  <%=h @manager.nickname %>
+</p>
+
+<p>
+  <b>Role:</b>
+  <%=h @manager.role %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%=h @manager.user_id %>
+</p>
+
+<p>
+  <b>Short description:</b>
+  <%=h @manager.short_description %>
+</p>
+
+
+<%= link_to 'Edit', edit_manager_path(@manager) %> |
+<%= link_to 'Back', managers_path %>

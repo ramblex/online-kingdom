@@ -1,0 +1,20 @@
+<h1>OK Manager administration</h1>
+<%= link_to 'Add manager', new_manager_path %>
+<table class="admin-table">
+  <tr>
+    <th>Name</th>
+    <th>Profile</th>
+    <th>Admin</th>
+  </tr>
+  <% @managers.each do |manager| %>
+    <tr class="<%= cycle 'even', 'odd' %>">
+      <td><%= manager.nickname %></td>
+      <td><%= link_to 'Profile', manager.user %></td>
+      <td><%= admin_links manager, :none %></td>
+    </tr>
+  <% end %>
+</table>
+
+
+
+

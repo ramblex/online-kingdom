@@ -1029,3 +1029,28 @@ div.comment-info {
 #group-matches {
   margin: 20px;
 }
+
+/** About page */
+.high-manager {
+  float: left;
+  width: 385px;
+  margin: 10px 58px 10px 10px;
+}
+
+.high-manager img {
+  float: left;
+  margin: 0 10px 5px 0;
+}
+
+.medium-manager {
+  float: left;
+  margin: 10px 5px 10px 10px;
+  width: 180px;
+}
+
+.medium-manager img {
+  float: left;
+  margin: 0 10px 5px 0;
+  width: 50px;
+  height: 50px;
+}

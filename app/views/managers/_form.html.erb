@@ -1,0 +1,47 @@
+<% form_for(@manager) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :firstname %><br />
+    <%= f.text_field :firstname %>
+  </p>
+  <p>
+    <%= f.label :surname %><br />
+    <%= f.text_field :surname %>
+  </p>
+  <p>
+    <%= f.label :nickname %><br />
+    <%= f.text_field :nickname %>
+  </p>
+  <p>
+    <%= f.label :role %><br />
+    <%= f.text_field :role %>
+  </p>
+  <p>
+    <%= f.label :user_id %><br />
+    <%= f.collection_select :user_id, User.all, :id, :username %>
+  </p>
+  <p>
+    <%= f.label :is_high_management, 'Management type' %><br />
+    <%= f.select :is_high_management, [['High management', true], ['Medium management', false]] %>
+  </p>
+  <p class="dependent">
+    <%= f.label :short_description %><br />
+    <%= f.text_area :short_description %>
+  </p>
+  <p>
+    <%= f.submit 'Submit' %>
+  </p>
+<% end %>
+
+<% content_for :extra_js do %>
+  <script type="text/javascript">
+    $("#manager_is_high_management").change(function() {
+      if ($(this).val() === 'true') {
+        $('.dependent').show();
+      } else {
+        $('.dependent').hide();
+      }
+    });
+  </script>
+<% end %>

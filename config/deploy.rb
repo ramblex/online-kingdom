@@ -27,7 +27,7 @@ namespace :deploy do
   end
 
   task :update_db do
-    run "rake db:migrate"
+    run "cd /home/alexd/public_html/#{application}/current rake db:migrate RAILS_ENV=production"
   end
 
   task :symlink_shared do

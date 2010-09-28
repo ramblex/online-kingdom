@@ -26,6 +26,10 @@ namespace :deploy do
     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
   end
 
+  task :update_db do
+    run "rake db:migrate"
+  end
+
   task :symlink_shared do
     run "ln -sfn /home/alexd/public_html/#{application}/shared/database.yml #{release_path}/config/database.yml"
   end
@@ -35,5 +39,5 @@ namespace :deploy do
     run "[ -d #{prev_dir} ] && cp -R #{prev_dir} #{latest_release}/public/ || echo 'No previous uploads'"
   end
 
-  after 'deploy:update_code', 'deploy:symlink_shared', "deploy:copy_uploads"
+  after 'deploy:update_code', 'deploy:symlink_shared', "deploy:copy_uploads", "deploy:update_db"
 end

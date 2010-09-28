@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100928115937) do
+ActiveRecord::Schema.define(:version => 20100928170354) do
 
   create_table "album_comments", :force => true do |t|
     t.text     "content"
@@ -226,6 +226,7 @@ ActiveRecord::Schema.define(:version => 20100928115937) do
     t.integer  "format_id"
     t.integer  "bracket_id"
     t.integer  "group_id"
+    t.boolean  "featured"
   end
 
   create_table "ok_players", :force => true do |t|

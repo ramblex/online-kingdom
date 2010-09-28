@@ -1,4 +1,4 @@
-<% latest = Match.find(:last) %>
+<% latest = Match.find(:last, :conditions => :featured) %>
 <% if latest and latest.event %>
 <div id="top-match-title">
   <% if latest.event.logo? %>

@@ -78,8 +78,14 @@ div#flash-notice {
   margin-bottom: 6px;
 }
 
-#top-news .num_comments {
+#top-news .num_comments a {
   float: right;
+  color: white;
+  text-decoration: none;
+}
+
+#top-news .num_comments a:hover {
+  text-decoration: underline;
 }
 
 .logo {

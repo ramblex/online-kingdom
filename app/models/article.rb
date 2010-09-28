@@ -12,7 +12,7 @@ class Article < ActiveRecord::Base
   validates_presence_of :category_id, :title, :content, :user_id, :preamble
 
   has_attached_file :image, :styles => {
-    :default => "202x139#",
+    :default => "202x139",
     :square => "128x128#",
     :slider => "275x180"
   }

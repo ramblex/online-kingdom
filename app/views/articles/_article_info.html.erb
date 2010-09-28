@@ -4,7 +4,7 @@
   <div class="news-rating"><%= stars_for article %></div>
   <%= truncate_html(article.preamble, :length => 320) %>
 <% end %>
-<%= image_tag article.image.url(:default), :class => 'news-picture' %>
+<%= image_tag article.image.url(:default), :class => 'news-picture' if article.image? %>
 
 <% if user_signed_in? %>
 <script type="text/javascript">

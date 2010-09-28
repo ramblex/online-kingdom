@@ -508,6 +508,16 @@ table.match-info td.title {
   background: #f2f2f2;
 }
 
+#user-albums {
+  clear: both;
+  margin-top: 25px;
+}
+
+#user-albums .album {
+  margin: 0 3px 0 0 !important;
+}
+
+
 #current {
   height: 300px;
   margin-bottom: 15px;
@@ -820,7 +830,12 @@ div.comment-info {
   float: right;
 }
 
+#user-blogs {
+  margin-top: 30px;
+}
+
 .blog-user-summary {
+  clear: both;
   font-weight: normal;
   margin: 10px 0 0 10px;
 }
@@ -830,6 +845,7 @@ div.comment-info {
 }
 
 .blog-summary {
+  clear: both;
   margin: 18px 0;
 }
 

@@ -41,6 +41,7 @@ class User < ActiveRecord::Base
   has_many :teams
   has_many :matches
   has_many :players
+  has_many :albums
 
   has_attached_file :avatar, :styles => {
     :default => "50x50#",

@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   load_and_authorize_resource
+  uses_tiny_mce :only => [:new, :create, :update, :edit]
 
   def index
     @users = User.all

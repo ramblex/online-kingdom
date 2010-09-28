@@ -9,11 +9,11 @@
     <table class="profile-details">
       <tr class="odd">
         <td class="title">Name</td>
-        <td><%= @user.username %></td>
+        <td><%= @user.firstname %> <%= @user.surname %></td>
       </tr>
       <tr>
         <td class="title">Age</td>
-        <td><%= Date.today.year - @user.birthdate.year %></td>
+        <td><%= Date.today.year - @user.birthdate.year %>; <%= @user.birthdate.strftime('%d-%m-%Y') %></td>
       </tr>
       <tr class="odd">
         <td class="title">City</td>
@@ -49,6 +49,8 @@
     <div class="box-title">
       <span class="blue">BL</span>OGS<br />
       <span class="subtitle">WRITTEN <span>IN PERSON</span></span>
+    </div>
+    <div id="user-blogs">
       <%= render :partial => 'blog', :collection => @user.blogs %>
     </div>
     <div class="clear"></div>
@@ -63,6 +65,10 @@
     <div class="box-title">
       <span class="blue">AL</span>BUMS<br />
     </div>
+    <div id="user-albums">
+      <%= render :partial => @user.albums %>
+    </div>
+    <%= link_to '&raquo; more albums', albums_path, :class => 'all-matches' %>
     <div class="clear"></div>
   </div>
 </div>

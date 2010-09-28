@@ -1,4 +1,5 @@
 class SettingsController < ApplicationController
+  uses_tiny_mce
 
   # GET /settings
   # GET /settings.xml

@@ -2,7 +2,7 @@
 <% if latest %>
 <div id="top-news-title">
   <span class="title"><%= latest.title %></span>
-  <div class="rating"></div>
+  <div class="rating"><%= stars_for latest %></div>
 </div>
 <div class="top-info">
   This news was posted by <span class="author"><%= latest.user.username %></span> on <%= latest.created_at.to_formatted_s :no_time %>

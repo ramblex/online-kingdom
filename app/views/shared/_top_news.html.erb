@@ -6,7 +6,7 @@
 </div>
 <div class="top-info">
   This news was posted by <span class="author"><%= latest.user.username %></span> on <%= latest.created_at.to_formatted_s :no_time %>
-  <span class="num_comments"></span>
+  <span class="num_comments"><%= pluralize latest.article_comments.size, 'comment' %></span>
 </div>
 <div id="top-news-content">
   <%= image_tag latest.image.url(:square), :class => 'image' if latest.image? %>

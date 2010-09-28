@@ -78,6 +78,10 @@ div#flash-notice {
   margin-bottom: 6px;
 }
 
+#top-news .num_comments {
+  float: right;
+}
+
 .logo {
   width: 61px;
   height: 24px;

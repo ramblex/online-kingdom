@@ -14,6 +14,8 @@
     </div>
 
     <%= render :partial => 'event_info', :object => @event %>
+    <%= image_tag @event.large_logo.url, :class => 'matches-logo' if @event.large_logo? %>
+
     <div class="matches-title">Attending teams</div>
     <% @event.attending_teams.each_slice(8) do |teams| %>
       <ul class="attending-teams">

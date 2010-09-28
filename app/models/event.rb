@@ -44,4 +44,5 @@ class Event < ActiveRecord::Base
   end
 
   has_attached_file :logo, :styles => {:default => '61x24#'}
+  has_attached_file :large_logo, :styles => {:default => '130x130'}, :default_style => :default
 end

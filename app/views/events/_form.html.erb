@@ -13,8 +13,12 @@
     <%= f.date_select :end_date, :order => [:day, :month, :year] %>
   </p>
   <p>
-    <%= f.label :logo %><br />
+    <%= f.label :logo, 'Small logo (61x24)' %><br />
     <%= f.file_field :logo %>
+  </p>
+  <p>
+    <%= f.label :large_logo, 'Large logo (130x130)' %><br />
+    <%= f.file_field :large_logo %>
   </p>
   <p>
     <%= f.label :team_event, 'Teams or players?' %><br />

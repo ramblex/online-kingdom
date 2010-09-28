@@ -401,7 +401,7 @@ ul#top-nav a {
 }
 
 .matches-title {
-  clear: left;
+  clear: both;
   line-height: 11px;
   margin-top: 16px;
   padding: 7px;

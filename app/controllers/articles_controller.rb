@@ -26,9 +26,15 @@ class ArticlesController < ApplicationController
 
   def comment
     params[:article_comments]['user_id'] = current_user.id
-    Article.find(params[:id]).article_comments.create(params[:article_comments])
-    flash[:notice] = "Added your comment"
-    redirect_to :action => "show", :id => params[:id]
+    @comment = Article.find(params[:id]).article_comments.build(params[:article_comments])
+
+    if @comment.save
+      flash[:notice] = "Added your comment"
+      redirect_to :action => "show", :id => params[:id]
+    else
+      flash[:alert] = "Could not add your comment"
+      redirect_to :back
+    end
   end
 
   # Enable users to rate a given article
@@ -66,17 +72,24 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def unapproved
+  end
+
   # GET /articles/1
   # GET /articles/1.xml
   def show
     @article = Article.find(params[:id])
-    @article.increment!(:click_count)
-    @editors = @article.article_editors.distinct
-    @num_edits = @article.article_editors.size
+    unless @article.approved
+      redirect_to :action => 'unapproved'
+    else
+      @article.increment!(:click_count)
+      @editors = @article.article_editors.distinct
+      @num_edits = @article.article_editors.size
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @article }
+      respond_to do |format|
+        format.html # show.html.erb
+        format.xml  { render :xml => @article }
+      end
     end
   end
 

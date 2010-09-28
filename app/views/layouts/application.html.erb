@@ -10,7 +10,7 @@
     <%= yield :head %>
   </head>
   <body>
-    <% if can? :manage, :any %>
+    <% if current_user and (current_user.is? :admin or current_user.is? :news_writer) %>
       <div id="admin-nav">
         <%= link_to_function 'Admin', 'toggle_admin()' %>
         <div id="hidden">

@@ -12,9 +12,10 @@
       <%= render :partial => @article.article_comments %>
     </div>
   </div>
-  <% if user_signed_in? %>
+  <% if can? :create, ArticleComment %>
     <div class="box">
       <% form_for :article_comments, :url => {:action => 'comment', :id => @article } do |f| %>
+        <% f.error_messages %>
         <p>
           <%= f.label :content, 'Comment' %><br />
           <%= f.text_area :content, :class => 'mceEditor' %>

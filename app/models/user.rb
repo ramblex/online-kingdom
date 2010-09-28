@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   # When adding roles, be sure to add them to the end of this array
-  ROLES = %w[admin editorial_staff events_staff]
+  ROLES = %w[admin news_writer insider]
 
   validates_length_of :username, :within => 4..20
   validates_presence_of :username, :email

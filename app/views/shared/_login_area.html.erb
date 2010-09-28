@@ -16,4 +16,5 @@
     <%= link_to(image_tag("pw-btn-bg.png"), '#', :class => 'pw') %>
   <% end -%>
   <span>Not a member? <%= link_to "JOIN NOW", new_user_registration_path %></span>
+  <span class="forgot"><%= link_to 'Forgot password?', new_user_password_path %></span>
 <% end %>

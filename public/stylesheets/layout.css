@@ -187,6 +187,12 @@ div#flash-notice {
   margin: 0 0 0 33px;
 }
 
+#login span.forgot {
+  display: block;
+  float: right;
+  margin: 20px;
+}
+
 #login span a {
   color: white;
 }

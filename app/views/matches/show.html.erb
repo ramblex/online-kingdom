@@ -27,7 +27,7 @@
         </tr>
       </table>
       <% if @match.map_picture %>
-        <%= image_tag @match.map_picture.url(:default), :class => 'match-picture' %>
+        <%= image_tag @match.map_picture.url(:default), :class => 'match-picture' if @match.map_picture? %>
       <% end %>
       <div class="matches-title">Results</div>
       <div id="match-results"><%= @match.results %></div>

@@ -20,10 +20,10 @@
         </tr>
         <tr>
           <td class="title">Website</td>
-          <td><%= @team.website %></td>
+          <td><%= link_to @team.website, @team.website, :target => '_blank' %></td>
         </tr>
       </table>
-      <%= image_tag @team.logo.url(:default), :class => 'matches-logo' %>
+      <%= image_tag @team.logo.url(:default), :class => 'matches-logo' if @team.logo? %>
       <div class="matches-title">Players</div>
       <ul class="team-players">
         <% @team.players.each do |player| %>

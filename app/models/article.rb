@@ -5,14 +5,13 @@ class Article < ActiveRecord::Base
   named_scope :approved, :conditions => ['approved = 1']
   belongs_to :category
   belongs_to :user
-  belongs_to :moderator, :class_name => 'User', :foreign_key => 'moderator_id'
   has_many :article_ratings
   has_many :article_comments
+  has_many :article_editors
 
-  validates_presence_of :category_id, :title, :content, :user_id
-  validates_presence_of :moderator_id, :if => :approved
+  validates_presence_of :category_id, :title, :content, :user_id, :preamble
 
-  has_attached_file :image, :styles => { 
+  has_attached_file :image, :styles => {
     :default => "202x139#",
     :square => "128x128#",
     :slider => "275x180"

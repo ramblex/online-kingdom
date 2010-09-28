@@ -1,11 +1,13 @@
 <div class="news-item">
   <div class="news-left">
     <%= render :partial => 'author', :locals => {:user => article.user} %>
-    <div class="news-author">
-      <%= image_tag article.moderator.avatar.url(:default), :class => 'news-author-picture' %>
-      <%= link_to article.moderator.username, article.moderator %><br />
-      <strong>Edited/Approved</strong>
-    </div>
+    <% if article.article_editors.size > 0 %>
+      <div class="news-author">
+        <%= image_tag article.article_editors.first.user.avatar.url(:default), :class => 'news-author-picture' %>
+        <%= link_to article.article_editors.first.user.username, article.article_editors.first.user %><br />
+        <strong>Edited/Approved</strong>
+      </div>
+    <% end %>
   </div>
   <%= render :partial => 'article_info', :locals => {:article => article} %>
 </div>

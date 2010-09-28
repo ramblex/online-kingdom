@@ -71,6 +71,8 @@ class ArticlesController < ApplicationController
   def show
     @article = Article.find(params[:id])
     @article.increment!(:click_count)
+    @editors = @article.article_editors.distinct
+    @num_edits = @article.article_editors.size
 
     respond_to do |format|
       format.html # show.html.erb
@@ -101,9 +103,9 @@ class ArticlesController < ApplicationController
     @article = Article.new(params[:article])
     @article.user_id = current_user.id
 
-    if @article.approved
-      @article.moderator_id = current_user.id
-    end
+    #if @article.approved
+      #@article.article_editors.create({:user_id => current_user.id})
+    #end
 
     respond_to do |format|
       if @article.save
@@ -121,7 +123,7 @@ class ArticlesController < ApplicationController
   # PUT /articles/1.xml
   def update
     @article = Article.find(params[:id])
-    @article.moderator_id = current_user.id
+    @article.article_editors.create({:user_id => current_user.id})
 
     respond_to do |format|
       if @article.update_attributes(params[:article])

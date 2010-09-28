@@ -12,7 +12,11 @@ class Article < ActiveRecord::Base
   validates_presence_of :category_id, :title, :content, :user_id
   validates_presence_of :moderator_id, :if => :approved
 
-  has_attached_file :image, :styles => { :default => "202x139#", :square => "128x128#"}
+  has_attached_file :image, :styles => { 
+    :default => "202x139#",
+    :square => "128x128#",
+    :slider => "275x180"
+  }
 
   def rating
     if article_ratings.size.eql? 0

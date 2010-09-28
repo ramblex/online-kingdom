@@ -2,6 +2,24 @@ class ArticlesController < ApplicationController
   load_and_authorize_resource
   uses_tiny_mce :only => [:new, :create, :edit, :update, :show]
 
+  # Home page - may be worth putting this in a separate controller but that seems
+  # overkill for now.
+  def home
+    if params[:match_category].blank? or params[:match_category].downcase.eql? 'all'
+      @matches = Match.all :limit => 15
+    else
+      @matches = Match.all :limit => 15, :conditions => ['category_id = ?', params[:match_category]]
+    end
+
+    if params[:category].blank? or params[:category].downcase.eql? 'all'
+      @articles = Article.all :limit => 5
+    else
+      @articles = Article.all :limit => 5, :conditions => ['category_id = ?', params[:category]]
+    end
+
+    @blogs = Blog.all :limit => 5
+  end
+
   def admin
     @articles = Article.all
   end

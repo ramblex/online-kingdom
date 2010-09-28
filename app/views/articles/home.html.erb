@@ -1,0 +1,109 @@
+<div id="left-col">
+  <div class="box">
+    <div class="box-title">
+      <span class="blue">NEWS</span> SWITCH<br />
+      <span class="subtitle">CONTENT <span>CHANGER</span></span>
+    </div>
+    <ul id="news-switcher" class="switcher">
+      <%= render :partial => 'shared/switcher_list' %>
+    </ul>
+    <div id="news-slider">
+      <div id="current">
+        <div id="image">
+          <%= link_to (image_tag @articles.first.image.url(:slider)), @articles.first %>
+        </div>
+        <div id="preamble">
+          <%= @articles.first.preamble %>
+        </div>
+      </div>
+      <ul>
+      <% @articles.each_with_index do |article, idx| %>
+        <li>
+          <%= link_to "&raquo; #{article.title}", article, :class => ('selected' if idx == 0) %>
+          <div class="image">
+            <%= link_to (image_tag article.image.url(:slider)), article %>
+          </div>
+          <div class="preamble">
+            <%= article.preamble %>
+          </div>
+        </li>
+      <% end %>
+      <%= link_to "&raquo; all news", articles_path, :class => 'all-matches' %>
+      </ul>
+      <div id="follow-us">
+        <div class="box-title">
+          <span class="blue">FOLLOW</span> US
+        </div>
+        <div class="clear"></div>
+        <%= image_tag 'twitter.gif' %>
+        <%= image_tag 'facebook.gif' %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="right-col">
+
+  <!-- Matches box -->
+  <div class="box">
+    <div class="box-title">
+      <span class="blue">MATCH</span> TICKER<br />
+      <span class="subtitle">CONTENT <span>CHANGER</span></span>
+    </div>
+    <ul id="matches-switcher" class="switcher">
+      <li><%= link_to 'ALL', params.merge(:match_category => 'all', :page => 1), :class => 'selected' %></li>
+      <% Category.all.each do |category| %>
+        <li><%= link_to category.name, params.merge(:match_category => category.id, :page => 1) %></li>
+      <% end %>
+    </ul>
+    <div id="match-ticker">
+      <%= render :partial => @matches, :locals => {:no_admin => true} %>
+    </div>
+    <%= link_to '&raquo; all matches', matches_url, :class => 'all-matches' %>
+    <div class="clear"></div>
+  </div>
+  <!-- End matches box -->
+
+  <!-- Blogs box -->
+  <div class="box">
+    <div class="box-title">
+      <span class="blue">BL</span>OGS<br />
+      <span class="subtitle">WRITTEN <span>IN PERSON</span></span>
+    </div>
+    <div id="home-page-blogs">
+      <% @blogs.each do |blog| %>
+        <div class="blog">
+          <%= image_tag blog.user.avatar.url(:default) %>
+          <%= link_to blog.title, blog %> by <%= link_to blog.user.username, blog.user %>
+          <%= admin_links blog, 'inline-admin', :controller => 'blogs' %>
+          <br />
+          <%= blog.preamble %>
+        </div>
+      <% end %>
+      <%= link_to '&raquo; More', blogs_url, :class => 'all-matches' %>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <!-- End blogs box -->
+
+
+</div>
+
+<% content_for :extra_js do %>
+  <%= javascript_include_tag 'switcher' %>
+  <script type="text/javascript">
+    switcher('#matches-switcher', '#match-ticker');
+    switcher('#news-switcher', '#news-slider');
+
+    // News slider
+    $("#news-slider ul a").click(function() {
+        $("#news-slider ul li a").removeClass('selected');
+        $(this).addClass('selected');
+        $("#news-slider #current").hide();
+        $("#news-slider #current #image").html($(this).parent().find('.image').html());
+        $("#news-slider #preamble").html($(this).parent().find('.preamble').html());
+        $("#news-slider #current").fadeIn(1000);
+        return false;
+    });
+  </script>
+<% end %>

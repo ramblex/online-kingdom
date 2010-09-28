@@ -4,7 +4,7 @@
     <%= admin_links @blog %>
     <div class="blog-show-info">
       <p><strong>By <%= @blog.user.username %></strong></p>
-      <%= truncate @blog.content, :length => 300 %>
+      <%= @blog.preamble %>
     </div>
     <hr />
     <%= @blog.content %>

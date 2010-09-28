@@ -5,7 +5,7 @@
     <span>by <%= link_to blog.user.username, blog.user %></span>
     <%= admin_links blog %>
   </div>
-  <p><%= truncate blog.content, :length => 200 %></p>
+  <p><%= blog.preamble %></p>
 </div>
 <hr />
 

@@ -3,7 +3,19 @@
     <div class="box-title">
       <span class="blue">AL</span>BUMS
     </div>
+    <div class="search">
+      <% form_tag albums_path, :method => 'get' do %>
+        <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag "Search", :name => nil %>
+      <% end %>
+    </div>
     <div class="clear"></div>
+    <% if params[:search] %>
+      <div class="info-msg">
+        Results for '<%= params[:search] %>'
+        <%= link_to 'Clear search', albums_path %>
+      </div>
+    <% end %>
     <%= render :partial => @albums %>
     <div class="clear"></div>
   </div>

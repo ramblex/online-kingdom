@@ -41,7 +41,7 @@ class Match < ActiveRecord::Base
   define_index do
     indexes team1.name
     indexes team2.name
-    indexes category_id
     indexes category.name
+    indexes event.name
   end
 end

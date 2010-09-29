@@ -13,4 +13,9 @@ class Album < ActiveRecord::Base
       album_ratings.inject(0) {|sum, x| sum += x.rating} / album_ratings.size
     end
   end
+
+  define_index do
+    indexes name
+    indexes user.username
+  end
 end

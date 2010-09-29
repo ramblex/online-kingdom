@@ -51,9 +51,12 @@ form br {
 }
 
 /** Search */
+#switcher-search {
+  margin-top: -20px;
+}
+
 .search {
   float: right;
-  margin-top: -20px;
 }
 
 .search input[type=text] {

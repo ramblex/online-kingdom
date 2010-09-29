@@ -621,7 +621,11 @@ div.comment-info {
 }
 
 .prev_page, .next_page {
-  display: none !important;
+}
+
+.pagination .gap {
+  color: black;
+  font-size: 12px;
 }
 
 .pagination span, .pagination a {
@@ -632,11 +636,14 @@ div.comment-info {
   display: block;
   float: left;
   text-decoration: none;
-  background: url(/images/pagination-link.png);
   text-align: center;
   line-height: 19px;
   color: white;
   margin-right: 2px;
+}
+
+.pagination a {
+  background: url(/images/pagination-link.png);
 }
 
 .pagination .current, .pagination a:hover {

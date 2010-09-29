@@ -9,7 +9,7 @@ class Article < ActiveRecord::Base
   belongs_to :news_category
   belongs_to :user
   has_many :article_ratings
-  has_many :article_comments
+  has_many :comments
   has_many :article_editors
 
   validates_presence_of :category_id, :title, :content, :user_id, :preamble, :news_category_id

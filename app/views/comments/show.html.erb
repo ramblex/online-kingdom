@@ -1,0 +1,28 @@
+<p>
+  <b>Content:</b>
+  <%=h @comment.content %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%=h @comment.user_id %>
+</p>
+
+<p>
+  <b>Album:</b>
+  <%=h @comment.album_id %>
+</p>
+
+<p>
+  <b>Article:</b>
+  <%=h @comment.article_id %>
+</p>
+
+<p>
+  <b>Match:</b>
+  <%=h @comment.match_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_comment_path(@comment) %> |
+<%= link_to 'Back', comments_path %>

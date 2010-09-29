@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100929084946) do
+ActiveRecord::Schema.define(:version => 20100929094621) do
 
   create_table "album_comments", :force => true do |t|
     t.text     "content"
@@ -122,6 +122,17 @@ ActiveRecord::Schema.define(:version => 20100929084946) do
     t.integer  "small_icon_file_size"
     t.datetime "small_icon_updated_at"
     t.integer  "ok_team_id"
+  end
+
+  create_table "comments", :force => true do |t|
+    t.string   "content"
+    t.integer  "user_id"
+    t.integer  "album_id"
+    t.integer  "article_id"
+    t.integer  "match_id"
+    t.integer  "parent_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "event_teams", :force => true do |t|

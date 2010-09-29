@@ -9,12 +9,12 @@
     <a name="comments"></a>
     <div id="news-comments">
       <h1><span class="blue">COM</span>MENTS</h1>
-      <%= render :partial => @article.article_comments %>
+      <%= render :partial => @article.comments %>
     </div>
   </div>
-  <% if can? :create, ArticleComment %>
+  <% if can? :create, Comment %>
     <div class="box">
-      <% form_for :article_comments, :url => {:action => 'comment', :id => @article } do |f| %>
+      <% form_for :comments, :url => {:action => 'comment', :id => @article } do |f| %>
         <% f.error_messages %>
         <p>
           <%= f.label :content, 'Comment' %><br />
@@ -41,7 +41,7 @@
     <% end %>
     <div class="news-stats">
       Article has been viewed <%= @article.click_count %> times<br />
-      <%= @article.article_comments.size %> comments<br />
+      <%= @article.comments.size %> comments<br />
       <%= @num_edits %> updates by <%= pluralize @editors.size, 'writer' %>.<br />
       Last update was <%= time_ago_in_words @article.updated_at %> ago
     </div>

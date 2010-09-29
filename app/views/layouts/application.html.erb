@@ -65,7 +65,7 @@
           <li><a href="/stream">STREAM</a></li>
           <% Page.all.each do |page| %>
             <% unless page.permalink.eql? 'about' %>
-              <li><%= link_to page.name.upcase, '/static/'+page.permalink %></li>
+              <li><%= link_to page.permalink.upcase, '/static/'+page.permalink %></li>
             <% end %>
           <% end %>
           <li><a href="/contact">CONTACT</a></li>

@@ -381,6 +381,14 @@ ul#top-nav a {
   height: 50px;
 }
 
+.news-author a {
+  text-decoration: none;
+}
+
+.news-author a:hover {
+  text-decoration: underline;
+}
+
 .news-author-picture {
   float: left;
   height: 50px;

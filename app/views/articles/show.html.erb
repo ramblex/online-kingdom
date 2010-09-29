@@ -36,7 +36,7 @@
     <% @editors.each do |editor| %>
       <div class="news-author">
   <%= image_tag editor.user.avatar.url(:default), :class => 'news-author-picture' %>
-  <%= link_to editor.user.username, editor.user %><br />
+  <%= link_to full_name(editor.user), editor.user %><br />
   <strong>Edited/Approved</strong>
       </div>
     <% end %>

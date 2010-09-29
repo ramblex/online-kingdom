@@ -18,6 +18,7 @@ class ArticlesController < ApplicationController
     end
 
     @blogs = Blog.all :limit => 5
+    @videos = Video.all :limit => 3
   end
 
   def admin

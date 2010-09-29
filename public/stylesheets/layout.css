@@ -553,7 +553,6 @@ table.match-info td.title {
 
 
 #current {
-  height: 300px;
   margin-bottom: 15px;
 }
 
@@ -1222,4 +1221,9 @@ div.comment-info {
   height: 50px;
   float: left;
   margin-right: 3px;
+}
+
+#home-page-videos {
+  width: 100%;
+  height: 200px;
 }

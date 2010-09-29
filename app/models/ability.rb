@@ -18,7 +18,7 @@ class Ability
       u && u.id == user.id
     end
 
-    can :create, [Blog, Album, Video, ArticleComment, Article]
+    can :create, [Blog, Album, Video, Comment, Article]
     can :comment, Article
     can :rate, Article
 

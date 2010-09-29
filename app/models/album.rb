@@ -2,7 +2,7 @@ class Album < ActiveRecord::Base
   belongs_to :user
   has_many :album_photos
   has_many :album_ratings
-  has_many :album_comments
+  has_many :comments
   accepts_nested_attributes_for :album_photos, :allow_destroy => true,
     :reject_if => proc { |attributes| attributes.all? {|k,v| v.blank?}}
 

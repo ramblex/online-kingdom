@@ -9,16 +9,16 @@
     <a name="comments"></a>
     <div id="news-comments">
       <h1><span class="blue">COM</span>MENTS</h1>
-      <%= render :partial => @article.comments %>
+      <%= render :partial => @article.comments.roots, :locals => {:obj => @article} %>
     </div>
   </div>
   <% if can? :create, Comment %>
     <div class="box">
       <% form_for :comments, :url => {:action => 'comment', :id => @article } do |f| %>
-        <% f.error_messages %>
+        <%= f.error_messages %>
         <p>
           <%= f.label :content, 'Comment' %><br />
-          <%= f.text_area :content, :class => 'mceEditor' %>
+          <%= f.text_area :content, :class => 'comment-area' %>
         </p>
         <%= f.submit 'Add comment' %>
       <% end %>

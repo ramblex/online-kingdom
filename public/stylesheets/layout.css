@@ -593,9 +593,11 @@ table.match-info td.title {
 
 div.comment {
   padding: 6px 11px;
+  clear: both;
 }
 
 div.comment-info {
+  clear: both;
   border-top: 1px solid #d9d9d9;
   border-bottom: 1px solid #d9d9d9;
   background: #ededed;
@@ -605,6 +607,19 @@ div.comment-info {
   color: #6e6f70;
   font-weight: bold;
   margin: 10px -14px 0 -11px;
+}
+
+.reply-form {
+  display: none;
+}
+
+.comment-children {
+  clear: both;
+  margin-left: 50px;
+}
+
+.comment-reply {
+  text-align:right;
 }
 
 #pagination {

@@ -1,4 +1,7 @@
 <div class="photo_<%= album_comment.album_photo.id %>">
-  <div class="comment-info"><%= album_comment.user.username %></div>
+  <div class="comment-info">
+    <%= flag album_comment.user.country %>
+    <%= full_name album_comment.user %>
+  </div>
   <div class="comment"><%= album_comment.content %></div>
 </div>

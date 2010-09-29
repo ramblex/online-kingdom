@@ -1,5 +1,19 @@
-<div class="comment-info">
-  <%= flag comment.user.country %>
-  <%= full_name comment.user %></div>
-<div class="comment"><%= comment.content %></div>
-
+<%= render :partial => 'comments/comment_content', :object => comment %>
+<div class="comment-children">
+  <%= render :partial => 'comments/comment_content', :collection => comment.children %>
+</div>
+<div class="comment-reply">
+  <%= link_to_function 'Reply', '$(this).next(".reply-form").slideDown()' %>
+</div>
+<div class="reply-form">
+  <% form_for :comments, :url => {:action => 'comment', :id => obj} do |f| %>
+    <%= f.error_messages %>
+    <%= f.hidden_field :parent_id, :value => comment.id %>
+    <p>
+      <%= f.label :content, 'Reply' %><br />
+      <%= f.text_area :content, :class => 'comment-area' %>
+    </p>
+    <%= f.submit 'Add comment' %>
+  <% end %>
+  <%= link_to_function 'Cancel', '$(this).parent().slideUp()' %>
+</div>

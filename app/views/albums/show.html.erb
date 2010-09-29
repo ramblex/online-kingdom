@@ -15,11 +15,11 @@
   <div class="box">
     <h1><span class="blue">COM</span>MENTS</h1>
     <div id="comments">
-      <%= render :partial => @album.album_comments %>
+      <%= render :partial => 'comments/album_comment', :collection => @album.comments %>
     </div>
   </div>
   <div class="box">
-    <% form_for :album_comments, :url => {:action => 'comment', :id => @album.id} do |f| %>
+    <% form_for :comments, :url => {:action => 'comment', :id => @album.id} do |f| %>
       <%= f.hidden_field :album_photo_id, :value => @album.album_photos.first.id %>
       <p>
         <%= f.label :content, 'Comment' %><br />
@@ -44,7 +44,7 @@
     var next = $(this).next('.hidden-slideshow');
     var photo_id = next.attr('id').split('_').pop();
     show_photo_comments(photo_id);
-    $("#album_comments_album_photo_id").attr('value', photo_id);
+    $("#comments_album_photo_id").attr('value', photo_id);
     $("#current").html(next.html());
     return false;
   });

@@ -1087,6 +1087,8 @@ div.comment-info {
 .high-manager img {
   float: left;
   margin: 0 10px 5px 0;
+  width: 90px;
+  height: 90px;
 }
 
 .medium-manager {

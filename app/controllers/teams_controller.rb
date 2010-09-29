@@ -24,7 +24,7 @@ class TeamsController < ApplicationController
   def show
     @team = Team.find(params[:id])
     redirect_to @team.player if @team.player
-    @matches = @team.matches[0..14]
+    @matches = @team.matches.sort_by(&:start_date).reverse[0..14]
   end
 
   # POST /teams

@@ -1,8 +1,7 @@
-<% if local_assigns[:comment_class].nil? %>
-  <div class="comment-info">
-<% else %>
-  <div class="<%= comment_class %>">
+<% if comment_content.album_photo_id? %>
+  <div class="photo_<%= comment_content.album_photo_id %>">
 <% end %>
+<div class="comment-info">
   <%= flag comment_content.user.country %>
   <%= full_name comment_content.user %>
   <% if can? :update, comment_content %>
@@ -10,3 +9,6 @@
   <% end %>
 </div>
 <div class="comment"><%= comment_content.content %></div>
+<% if comment_content.album_photo_id? %>
+  </div>
+<% end %>

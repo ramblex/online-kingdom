@@ -20,7 +20,7 @@
   <div class="box">
     <h1><span class="blue">BLOG</span> ARCHIVE</h1>
     <ul id="blog-archive">
-      <% Blog.all.each do |blog| %>
+      <% @blog.user.blogs.each do |blog| %>
         <li><%= link_to blog.title, blog %></li>
       <% end %>
     </ul>

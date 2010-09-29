@@ -2,9 +2,10 @@
   <div class="news-left">
     <%= render :partial => 'author', :locals => {:user => article.user} %>
     <% if article.article_editors.size > 0 %>
+      <% editor = article.article_editors.first.user %>
       <div class="news-author">
-        <%= image_tag article.article_editors.first.user.avatar.url(:default), :class => 'news-author-picture' %>
-        <%= link_to article.article_editors.first.user.username, article.article_editors.first.user %><br />
+        <%= image_tag editor.avatar.url(:default), :class => 'news-author-picture' %>
+        <%= link_to full_name(editor), editor %><br />
         <strong>Edited/Approved</strong>
       </div>
     <% end %>

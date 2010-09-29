@@ -24,12 +24,12 @@ class MatchesController < ApplicationController
   # GET /matches.xml
   def index
     if params[:category].blank? or params[:category] == 'all'
-      @matches = Match.search params[:search], :page => params[:page]
+      @matches = Match.search params[:search], :page => params[:page], :order => :start_date, :sort_mode => :desc
     else
       if params[:search]
-        @matches = Match.search params[:search], :conditions => {:category_id => params[:category]}, :page => params[:page]
+        @matches = Match.search params[:search], :conditions => {:category_id => params[:category]}, :page => params[:page], :order => :start_date, :sort_mode => :desc
       else
-        @matches = Match.paginate :page => params[:pages], :conditions => {:category_id => params[:category]}
+        @matches = Match.paginate :page => params[:page], :conditions => {:category_id => params[:category]}, :order => :start_date, :sort_mode => :desc
       end
     end
 

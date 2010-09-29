@@ -1,10 +1,11 @@
   <li><%= link_to 'Users', users_path if can? :manage, User %></li>
   <li><%= link_to 'News', admin_articles_path if can? :manage, Article %></li>
+  <li><%= link_to 'News categories', admin_news_categories_path if can? :manage, NewsCategory %></li>
   <li><%= link_to 'Matches', admin_matches_path if can? :manage, Match %></li>
   <li><%= link_to 'Events', admin_events_path if can? :manage, Event %></li>
   <li><%= link_to 'Teams', admin_teams_path if can? :manage, Team %></li>
   <li><%= link_to 'Formats', admin_formats_path if can? :manage, Format %></li>
-  <li><%= link_to 'Categories/Games', admin_categories_path if can? :manage, Category %></li>
+  <li><%= link_to 'Games', admin_categories_path if can? :manage, Category %></li>
   <li><%= link_to 'Blogs', admin_blogs_path if can? :manage, Blog %></li>
   <li><%= link_to 'Players', admin_players_path if can? :manage, Player %></li>
   <li><%= link_to 'OK Players', admin_ok_players_path if can? :manage, OkPlayer %></li>

@@ -6,8 +6,12 @@
     <%= f.text_field :title %>
   </p>
   <p>
-    <%= f.label :category, "Category" %><br />
+    <%= f.label :category, 'Game' %><br />
     <%= f.collection_select :category_id, Category.all, :id, :name %>
+  </p>
+  <p>
+    <%= f.label :news_category_id, 'Category' %><br />
+    <%= f.collection_select :news_category_id, NewsCategory.all, :id, :name %>
   </p>
   <p>
     <%= f.label :preamble %><br />

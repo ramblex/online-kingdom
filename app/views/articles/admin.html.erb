@@ -11,6 +11,7 @@
     <th>Title</th>
     <th>Author</th>
     <th>Category</th>
+    <th>Game</th>
     <th>Date posted</th>
     <th>Admin</th>
   </tr>
@@ -18,6 +19,7 @@
     <tr class="<%= cycle 'even', 'odd' %>">
       <td><%= article.title %></td>
       <td><%= article.user.username %></td>
+      <td><%= article.news_category.name %></td>
       <td><%= article.category.name %></td>
       <td><%= article.created_at %></td>
       <td><%= admin_links article, :none %></td>

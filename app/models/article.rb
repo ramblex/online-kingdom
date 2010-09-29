@@ -4,12 +4,13 @@ class Article < ActiveRecord::Base
   default_scope :order => 'created_at DESC'
   named_scope :approved, :conditions => ['approved = 1']
   belongs_to :category
+  belongs_to :news_category
   belongs_to :user
   has_many :article_ratings
   has_many :article_comments
   has_many :article_editors
 
-  validates_presence_of :category_id, :title, :content, :user_id, :preamble
+  validates_presence_of :category_id, :title, :content, :user_id, :preamble, :news_category_id
 
   has_attached_file :image, :styles => {
     :default => "202x139",

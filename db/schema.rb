@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100928184714) do
+ActiveRecord::Schema.define(:version => 20100929083159) do
 
   create_table "album_comments", :force => true do |t|
     t.text     "content"
@@ -84,6 +84,7 @@ ActiveRecord::Schema.define(:version => 20100928184714) do
     t.datetime "image_updated_at"
     t.text     "preamble"
     t.integer  "click_count",        :default => 0
+    t.integer  "news_category_id"
   end
 
   create_table "awards", :force => true do |t|
@@ -235,6 +236,12 @@ ActiveRecord::Schema.define(:version => 20100928184714) do
     t.integer  "bracket_id"
     t.integer  "group_id"
     t.boolean  "featured"
+  end
+
+  create_table "news_categories", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "ok_players", :force => true do |t|

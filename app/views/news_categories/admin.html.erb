@@ -1,16 +1,17 @@
-<h1>Games administration</h1>
-<%= link_to 'Add game', new_category_path %>
+<h1>News categories administration</h1>
+<%= link_to 'Add category', new_news_category_path %>
 <table class="admin-table">
   <tr>
     <th>Name</th>
     <th>Admin</th>
   </tr>
-  <% @categories.each do |category| %>
+  <% @news_categories.each do |category| %>
     <tr class="<%= cycle 'even', 'odd' %>">
       <td><%= category.name %></td>
       <td><%= admin_links category, :none %></td>
     </tr>
   <% end %>
 </table>
+
 
 

@@ -1,0 +1,36 @@
+<% form_for(@stream) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :on_at, 'When is the stream happening?' %><br />
+    <%= f.datetime_select :on_at %>
+  </p>
+  <p>
+    <%= f.label :category_id, 'Game' %><br />
+    <%= f.collection_select :category_id, Category.all, :id, :name %>
+  </p>
+  <p>
+    <%= f.label :event_id %><br />
+    <%= f.collection_select :event_id, Event.all, :id, :name %>
+  </p>
+  <p>
+    <%= f.label :channel %><br />
+    <%= f.select :channel, [['CHANNEL ONE', 'CHANNEL ONE'], ['CHANNEL TWO', 'CHANNEL TWO']] %>
+  </p>
+  <p>
+    <%= f.label :details, 'Embed the stream here' %><br />
+    <%= f.text_area :details, :class => 'mceEditor' %>
+  </p>
+  <p>
+    <%= f.label :comments %><br />
+    <%= f.text_field :comments %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+

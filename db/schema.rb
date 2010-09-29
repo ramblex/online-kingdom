@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100929111338) do
+ActiveRecord::Schema.define(:version => 20100929201320) do
 
   create_table "album_comments", :force => true do |t|
     t.text     "content"
@@ -328,6 +328,18 @@ ActiveRecord::Schema.define(:version => 20100929111338) do
     t.string   "permalink"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "streams", :force => true do |t|
+    t.string   "title"
+    t.integer  "event_id"
+    t.string   "channel"
+    t.text     "details"
+    t.integer  "category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "comments"
+    t.datetime "on_at"
   end
 
   create_table "teams", :force => true do |t|

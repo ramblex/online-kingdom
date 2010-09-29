@@ -1,0 +1,16 @@
+<div class="matches-title"><%= stream.channel.upcase %>: <%= stream.title %></div>
+<div class="stream"><%= stream.details %></div>
+<table class="match-info">
+  <tr class="odd">
+    <td class="title">Event</td>
+    <td><%= stream.event.name %></td>
+  </tr>
+  <tr>
+    <td class="title">Game</td>
+    <td><%= stream.category.name %></td>
+  </tr>
+  <tr class="odd">
+    <td class="title">Comments</td>
+    <td><%= stream.comments %></td>
+  </tr>
+</table>

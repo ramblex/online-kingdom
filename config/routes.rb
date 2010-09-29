@@ -1,8 +1,4 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :comments
-
-
-
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
@@ -23,9 +19,11 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :albums
   map.resources :users
   map.resources :brackets
+  map.resources :comments
 
   # Sample resource route with options:
   #   map.resources :products, :member => { :short => :get, :toggle => :post }, :collection => { :sold => :get }
+  map.resources :streams, :collection => {:admin => :get}
   map.resources :pages, :collection => {:admin => :get}
   map.resources :news_categories, :collection => {:admin => :get}
   map.resources :managers, :collection => {:admin => :get}

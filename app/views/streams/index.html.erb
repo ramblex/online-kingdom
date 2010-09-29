@@ -1,0 +1,35 @@
+<div id="wide-left-col">
+  <div class="box">
+    <div class="box-title">
+      <span class="blue">STREAM</span> PAGE<br />
+    </div>
+    <%= render :partial => @ch1_stream unless @ch1_stream.nil? %>
+    <%= render :partial => @ch2_stream unless @ch2_stream.nil? %>
+    <div class="clear"></div>
+  </div>
+</div>
+
+<div id="thin-right-col">
+  <div class="box">
+    <div class="box-title">
+      <span class="blue">WHAT'S</span> NEXT ON CHANNEL 1
+    </div>
+    <div class="clear"></div>
+    <ul class="next-streams">
+      <% @ch1_next.each do |stream| %>
+        <li><%= link_to stream.title, stream %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="box">
+    <div class="box-title">
+      <span class="blue">WHAT'S</span> NEXT ON CHANNEL 2
+    </div>
+    <div class="clear"></div>
+    <ul class="next-streams">
+      <% @ch2_next.each do |stream| %>
+        <li><%= link_to stream.title, stream %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>

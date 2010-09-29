@@ -1,0 +1,20 @@
+<h1>Stream administration</h1>
+<%= link_to 'Add stream', new_stream_path %>
+<table class="admin-table">
+  <tr>
+    <th>Title</th>
+    <th>Game</th>
+    <th>Event</th>
+    <th>Admin</th>
+  </tr>
+  <% @streams.each do |stream| %>
+    <tr class="<%= cycle 'even', 'odd' %>">
+      <td><%= stream.title %></td>
+      <td><%= stream.category.name %></td>
+      <td><%= stream.event.name %></td>
+      <td><%= admin_links stream, :none %></td>
+    </tr>
+  <% end %>
+</table>
+
+

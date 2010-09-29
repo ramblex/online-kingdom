@@ -62,7 +62,7 @@
           DESIGN BY DSGF DESIGNS - COPYRIGHT &copy; BY ONLINE KINGDOM
         </span>
         <ul>
-          <li><a href="/stream">STREAM</a></li>
+          <li><a href="/streams">STREAM</a></li>
           <% Page.all.each do |page| %>
             <% unless page.permalink.eql? 'about' %>
               <li><%= link_to page.permalink.upcase, '/static/'+page.permalink %></li>

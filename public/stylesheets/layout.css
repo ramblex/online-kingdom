@@ -1227,3 +1227,12 @@ div.comment-info {
   width: 100%;
   height: 200px;
 }
+
+/** Streams */
+.stream {
+  margin-top: 20px;
+}
+
+.next-streams {
+  margin-top: 10px;
+}

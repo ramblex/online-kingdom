@@ -12,9 +12,9 @@ class ArticlesController < ApplicationController
     end
 
     if params[:category].blank? or params[:category].downcase.eql? 'all'
-      @articles = Article.approved :limit => 5
+      @articles = Article.approved.front_page.news_category(NewsCategory.first.id)
     else
-      @articles = Article.approved :limit => 5, :conditions => ['category_id = ?', params[:category]]
+      @articles = Article.approved.front_page.news_category(params[:category])
     end
 
     @blogs = Blog.all :limit => 5

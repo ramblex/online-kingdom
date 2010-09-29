@@ -5,21 +5,27 @@
       <span class="subtitle">CONTENT <span>CHANGER</span></span>
     </div>
     <ul id="news-switcher" class="switcher">
-      <%= render :partial => 'shared/switcher_list' %>
+      <% NewsCategory.all.each do |category| %>
+        <li><%= link_to category.name, params.merge(:category => category.id, :page => 1) %></li>
+      <% end %>
     </ul>
     <div id="news-slider">
       <div id="current">
-        <div id="image">
-          <%= link_to (image_tag @articles.first.image.url(:slider)), @articles.first %>
-        </div>
-        <div id="preamble">
-          <%= @articles.first.preamble %>
-        </div>
+        <% if @articles.size > 0 %>
+          <div id="image">
+            <%= link_to (image_tag @articles.first.image.url(:slider)), @articles.first %>
+          </div>
+          <div id="preamble">
+            <%= truncate_html @articles.first.preamble, :length => 250 %>
+          </div>
+        <% else %>
+          No news stories
+        <% end %>
       </div>
       <ul>
       <% @articles.each_with_index do |article, idx| %>
         <li>
-          <%= link_to "&raquo; #{article.title}", article, :class => ('selected' if idx == 0) %>
+          <%= link_to "&raquo; #{truncate article.title, :length => 30}", article, :class => ('selected' if idx == 0) %>
           <div class="image">
             <%= link_to (image_tag article.image.url(:slider)), article %>
           </div>

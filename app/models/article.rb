@@ -3,6 +3,8 @@ class Article < ActiveRecord::Base
   @@per_page = 5
   default_scope :order => 'created_at DESC'
   named_scope :approved, :conditions => ['approved = 1']
+  named_scope :front_page, :limit => 5
+  named_scope :news_category, lambda {|id| {:conditions => ['news_category_id = ? ', id]}}
   belongs_to :category
   belongs_to :news_category
   belongs_to :user

@@ -27,9 +27,9 @@ class MatchesController < ApplicationController
       @matches = Match.search params[:search], :page => params[:page], :order => :start_date, :sort_mode => :desc
     else
       if params[:search]
-        @matches = Match.search params[:search], :conditions => {:category_id => params[:category]}, :page => params[:page], :order => :start_date, :sort_mode => :desc
+        @matches = Match.search params[:search], :page => params[:page], :order => :start_date, :sort_mode => :desc, :conditions => {:category_id => params[:category]}
       else
-        @matches = Match.paginate :page => params[:page], :conditions => {:category_id => params[:category]}, :order => :start_date, :sort_mode => :desc
+        @matches = Match.paginate :page => params[:page], :conditions => {:category_id => params[:category]}
       end
     end
 

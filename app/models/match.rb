@@ -42,6 +42,7 @@ class Match < ActiveRecord::Base
     indexes team1.name
     indexes team2.name
     indexes start_date, :sortable => true
+    indexes category_id
     indexes category.name
     indexes event.name
   end

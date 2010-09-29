@@ -24,9 +24,9 @@ class MatchesController < ApplicationController
   # GET /matches.xml
   def index
     if params[:category].blank? or params[:category] == 'all'
-      @matches = Match.paginate :page => params[:page]
+      @matches = Match.search params[:search], :page => params[:page]
     else
-      @matches = Match.paginate :page => params[:page], :conditions => ['category_id = ?', params[:category]]
+      @matches = Match.search params[:search], :conditions => {:category_id => params[:category]}, :page => params[:page]
     end
 
     respond_to do |format|

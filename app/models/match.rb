@@ -37,4 +37,11 @@ class Match < ActiveRecord::Base
       event_teams[1].update_attributes({:team_id => self.team2.id})
     end
   end
+
+  define_index do
+    indexes team1.name
+    indexes team2.name
+    indexes category_id
+    indexes category.name
+  end
 end

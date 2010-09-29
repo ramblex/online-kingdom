@@ -22,6 +22,12 @@ hr {
   clear: both;
 }
 
+.info-msg {
+  clear: both;
+  margin: 20px;
+  text-align: center;
+}
+
 ul {
   margin-left: 20px;
 }

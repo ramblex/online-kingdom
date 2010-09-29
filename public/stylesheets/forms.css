@@ -17,6 +17,11 @@ input[type=text], input[type=password] {
   padding-left: 5px;
 }
 
+input[type=submit] {
+  background: black;
+  color: white;
+}
+
 form p {
   margin-top: 15px;
 }
@@ -43,4 +48,25 @@ form br {
   background: #eee;
   margin: 5px;
   padding: 5px;
+}
+
+/** Search */
+.search {
+  float: right;
+  margin-top: -20px;
+}
+
+.search input[type=text] {
+  width: 150px;
+  height: 18px;
+  line-height: 18px;
+  margin: 0;
+  padding-right: 53px;
+  float: left;
+}
+
+.search input[type=submit] {
+  float: left;
+  margin: 1px 0 0 -51px;
+  width: 50px;
 }

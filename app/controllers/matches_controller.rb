@@ -26,7 +26,11 @@ class MatchesController < ApplicationController
     if params[:category].blank? or params[:category] == 'all'
       @matches = Match.search params[:search], :page => params[:page]
     else
-      @matches = Match.search params[:search], :conditions => {:category_id => params[:category]}, :page => params[:page]
+      if params[:search]
+        @matches = Match.search params[:search], :conditions => {:category_id => params[:category]}, :page => params[:page]
+      else
+        @matches = Match.paginate :page => params[:pages], :conditions => {:category_id => params[:category]}
+      end
     end
 
     respond_to do |format|

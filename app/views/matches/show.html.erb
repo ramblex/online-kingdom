@@ -37,6 +37,27 @@
       </div>
     </div>
   </div>
+  <div class="box">
+    <a name="comments"></a>
+    <div id="news-comments">
+      <h1><span class="blue">COM</span>MENTS</h1>
+      <%= render :partial => @match.comments.roots, :locals => {:obj => @match} %>
+    </div>
+  </div>
+  <% if can? :create, Comment %>
+    <div class="box">
+      <% form_for :comments, :url => {:action => 'comment', :id => @match } do |f| %>
+        <%= f.error_messages %>
+        <p>
+          <%= f.label :content, 'Comment' %><br />
+          <%= f.text_area :content, :class => 'comment-area', :maxlength => 1000 %>
+          <p class="charRemaining"></p>
+        </p>
+        <%= f.submit 'Add comment' %>
+      <% end %>
+    </div>
+  <% end %>
+
 </div>
 
 <div id="thin-right-col">

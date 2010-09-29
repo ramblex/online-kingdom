@@ -2,6 +2,20 @@ class MatchesController < ApplicationController
   load_and_authorize_resource
   uses_tiny_mce :only => [:new, :create, :edit, :update]
 
+  def comment
+    params[:comments]['user_id'] = current_user.id
+    @comment = Match.find(params[:id]).comments.build(params[:comments])
+
+    if @comment.save
+      flash[:notice] = "Added your comment"
+      redirect_to :action => "show", :id => params[:id]
+    else
+      flash[:alert] = "Could not add your comment"
+      redirect_to :back
+    end
+  end
+
+
   def admin
     @matches = Match.all
   end

@@ -11,6 +11,7 @@ class Match < ActiveRecord::Base
   belongs_to :format
 
   has_many :event_teams
+  has_many :comments
 
   named_scope :team1_wins, :conditions => 'team1_score > team2_score'
   named_scope :team2_wins, :conditions => 'team1_score < team2_score'

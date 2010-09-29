@@ -5,16 +5,18 @@
 <div class="comment-reply">
   <%= link_to_function 'Reply', '$(this).parent().next(".reply-form").slideDown()' %>
 </div>
-<div class="reply-form">
-  <% form_for :comments, :url => {:action => 'comment', :id => obj} do |f| %>
-    <%= f.error_messages %>
-    <%= f.hidden_field :parent_id, :value => comment.id %>
-    <p>
-      <%= f.label :content, 'Reply' %><br />
-      <%= f.text_area :content, :class => 'comment-area', :maxlength => 1000 %>
-      <p class="charRemaining">asdklj</p>
-    </p>
-    <%= f.submit 'Add comment' %>
-  <% end %>
-  <%= link_to_function 'Cancel', '$(this).parent().slideUp()' %>
-</div>
+<% if can? :create, Comment %>
+  <div class="reply-form">
+    <% form_for :comments, :url => {:action => 'comment', :id => obj} do |f| %>
+      <%= f.error_messages %>
+      <%= f.hidden_field :parent_id, :value => comment.id %>
+      <p>
+        <%= f.label :content, 'Reply' %><br />
+        <%= f.text_area :content, :class => 'comment-area', :maxlength => 1000 %>
+        <p class="charRemaining">asdklj</p>
+      </p>
+      <%= f.submit 'Add comment' %>
+    <% end %>
+    <%= link_to_function 'Cancel', '$(this).parent().slideUp()' %>
+  </div>
+<% end %>

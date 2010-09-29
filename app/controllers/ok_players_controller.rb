@@ -20,7 +20,7 @@ class OkPlayersController < ApplicationController
       @ok_players = OkPlayer.non_staff.category(params[:category])
       @ok_staff = OkPlayer.staff.category(params[:category])
       category = Category.find(params[:category])
-      @ok_matches = category.ok_team.matches.sort_by(&:start_date)[0..14] if category.ok_team
+      @ok_matches = category.ok_team.matches.sort_by(&:start_date).reverse[0..14] if category.ok_team
     end
 
     respond_to do |format|

@@ -17,7 +17,7 @@
     <% else %>
       <div class="logo"></div>
     <% end %>
-    <%= link_to latest.team1.name, latest.team1, :class => 'name' %>
+    <%= link_to truncate(latest.team1.name, :length => 16), latest.team1, :class => 'name' %>
   </div>
   <div class="versus">VERSUS</div>
   <div class="team">
@@ -26,7 +26,7 @@
     <% else %>
       <div class="logo"></div>
     <% end %>
-    <%= link_to latest.team2.name, latest.team2, :class => 'name' %>
+    <%= link_to truncate(latest.team2.name, :length => 16), latest.team2, :class => 'name' %>
   </div>
   <%= link_to image_tag('match-link.gif'), latest, :class => 'readmore' %>
 </div>

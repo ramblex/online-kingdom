@@ -449,6 +449,10 @@ img.flag {
   float: left;
 }
 
+.comment-info .flag {
+  margin-top: 7px;
+}
+
 .matches-title .team2 {
   float: right;
 }

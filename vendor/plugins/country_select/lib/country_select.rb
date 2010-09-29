@@ -14,10 +14,15 @@ module ActionView
       def country_options_for_select(selected = nil, priority_countries = nil)
         country_options = ""
 
-        if priority_countries
-          country_options += options_for_select(priority_countries, selected)
-          country_options += "<option value=\"\" disabled=\"disabled\">-------------</option>\n"
+        unless priority_countries
+          priority_countries = [
+            ['Portugal','pt'],
+            ['United Kingdom', 'gb']
+          ]
         end
+
+        country_options += options_for_select(priority_countries, selected)
+        country_options += "<option value=\"\" disabled=\"disabled\">-------------</option>\n"
 
         return country_options + options_for_select(COUNTRIES, selected)
       end

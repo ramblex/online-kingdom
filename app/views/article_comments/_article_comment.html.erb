@@ -1,2 +1,4 @@
-<div class="comment-info"><%= article_comment.user.username %></div>
+<div class="comment-info">
+  <%= flag article_comment.user.country %>
+  <%= full_name article_comment.user %></div>
 <div class="comment"><%= article_comment.content %></div>

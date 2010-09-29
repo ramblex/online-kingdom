@@ -28,6 +28,10 @@
   <%= f.text_field :city %>
 </p>
 <p>
+  <%= f.label :country %><br />
+  <%= f.country_select :country %>
+</p>
+<p>
   <%= f.label :birthdate %><br />
   <%= f.date_select :birthdate, :order => [:day, :month, :year], :start_year => Time.now.year - 50 %>
 </p>

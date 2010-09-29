@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100929083159) do
+ActiveRecord::Schema.define(:version => 20100929084946) do
 
   create_table "album_comments", :force => true do |t|
     t.text     "content"
@@ -372,6 +372,7 @@ ActiveRecord::Schema.define(:version => 20100929083159) do
     t.string   "memory"
     t.string   "hdd"
     t.string   "gamepad"
+    t.string   "country"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true

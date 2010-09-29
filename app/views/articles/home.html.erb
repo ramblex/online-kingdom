@@ -83,7 +83,7 @@
           <%= link_to blog.title, blog %> by <%= link_to blog.user.username, blog.user %>
           <%= admin_links blog, 'inline-admin', :controller => 'blogs' %>
           <br />
-          <%= blog.preamble %>
+          <%= truncate_html blog.preamble, :length => 200 %>
         </div>
       <% end %>
       <%= link_to '&raquo; More', blogs_url, :class => 'all-matches' %>

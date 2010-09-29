@@ -68,4 +68,8 @@ module ApplicationHelper
       render(:partial => options[:partial], :locals => { options[:form_builder_local] => f })
     end
   end
+
+  def full_name(obj)
+    "#{obj.firstname} '#{obj.username}' #{obj.surname}"
+  end
 end

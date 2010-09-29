@@ -21,6 +21,7 @@ class User < ActiveRecord::Base
     :roles,
     :avatar,
     :city,
+    :country,
     :firstname,
     :surname,
     :birthdate,

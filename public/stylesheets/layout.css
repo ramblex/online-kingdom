@@ -28,7 +28,7 @@ hr {
   text-align: center;
 }
 
-ul {
+ul, ol {
   margin-left: 20px;
 }
 

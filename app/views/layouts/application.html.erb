@@ -63,9 +63,11 @@
         </span>
         <ul>
           <li><a href="/stream">STREAM</a></li>
-          <li><a href="/static/faq">FAQ</a></li>
-          <li><a href="/static/logos">LOGOS</a></li>
-          <li><a href="/static/jobs">JOBS</a></li>
+          <% Page.all.each do |page| %>
+            <% unless page.permalink.eql? 'about' %>
+              <li><%= link_to page.name.upcase, '/static/'+page.permalink %></li>
+            <% end %>
+          <% end %>
           <li><a href="/contact">CONTACT</a></li>
           <li><a href="/">ONLINE GAMING</a></li>
         </ul>

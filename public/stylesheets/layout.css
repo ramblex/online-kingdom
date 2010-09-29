@@ -22,6 +22,10 @@ hr {
   clear: both;
 }
 
+ul {
+  margin-left: 20px;
+}
+
 div#flash-notice, div#flash-alert {
   position: absolute;
   top: 0;

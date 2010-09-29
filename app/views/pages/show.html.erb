@@ -12,7 +12,7 @@
     <div class="clear"></div>
     <% pair.each do |high_manager| %>
       <div class="high-manager">
-        <%= image_tag high_manager.avatar.url %>
+        <%= image_tag high_manager.user.avatar.url %>
         <%= link_to "#{high_manager.firstname} '#{high_manager.nickname}' #{high_manager.surname}", high_manager.user %>
         <%= admin_links high_manager, 'inline-admin', :controller => 'managers' %><br />
         <strong><%= high_manager.role %></strong><br />
@@ -23,7 +23,7 @@
   <div class="clear"></div>
   <% @medium_managers.each do |manager| %>
     <div class="medium-manager">
-      <%= image_tag manager.avatar.url(:mini) %>
+      <%= image_tag manager.user.avatar.url(:default) %>
       <%= link_to "#{manager.firstname} '#{manager.nickname}' #{manager.surname}", manager.user %>
       <%= admin_links manager, 'inline-admin', :controller => 'managers' %><br />
       <%= manager.role %><br />

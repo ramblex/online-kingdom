@@ -3,7 +3,7 @@
   <%= render :partial => 'comments/comment_content', :collection => comment.children %>
 </div>
 <div class="comment-reply">
-  <%= link_to_function 'Reply', '$(this).next(".reply-form").slideDown()' %>
+  <%= link_to_function 'Reply', '$(this).parent().next(".reply-form").slideDown()' %>
 </div>
 <div class="reply-form">
   <% form_for :comments, :url => {:action => 'comment', :id => obj} do |f| %>
@@ -11,7 +11,8 @@
     <%= f.hidden_field :parent_id, :value => comment.id %>
     <p>
       <%= f.label :content, 'Reply' %><br />
-      <%= f.text_area :content, :class => 'comment-area' %>
+      <%= f.text_area :content, :class => 'comment-area', :maxlength => 1000 %>
+      <p class="charRemaining">asdklj</p>
     </p>
     <%= f.submit 'Add comment' %>
   <% end %>

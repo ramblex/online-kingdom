@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100929100142) do
+ActiveRecord::Schema.define(:version => 20100929111338) do
 
   create_table "album_comments", :force => true do |t|
     t.text     "content"
@@ -125,7 +125,7 @@ ActiveRecord::Schema.define(:version => 20100929100142) do
   end
 
   create_table "comments", :force => true do |t|
-    t.string   "content"
+    t.text     "content"
     t.integer  "user_id"
     t.integer  "album_id"
     t.integer  "article_id"

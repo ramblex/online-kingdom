@@ -15,7 +15,7 @@
   <div class="box">
     <h1><span class="blue">COM</span>MENTS</h1>
     <div id="comments">
-      <%= render :partial => 'comments/album_comment', :collection => @album.comments %>
+      <%= render :partial => @album.comments.roots, :locals => {:obj => @album} %>
     </div>
   </div>
   <div class="box">
@@ -23,7 +23,7 @@
       <%= f.hidden_field :album_photo_id, :value => @album.album_photos.first.id %>
       <p>
         <%= f.label :content, 'Comment' %><br />
-        <%= f.text_area :content %>
+        <%= f.text_area :content, :class => 'comment-area', :maxlength => 1000 %>
       </p>
       <%= f.submit 'Comment on photo' %>
     <% end %>

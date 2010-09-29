@@ -7,11 +7,10 @@ class AlbumsController < ApplicationController
 
     if @comment.save
       flash[:notice] = "Added your comment"
-      redirect_to :action => "show", :id => params[:id]
     else
       flash[:alert] = "Could not add your comment"
-      redirect_to :back
     end
+    redirect_to :action => "show", :id => params[:id]
   end
 
   # Enable users to rate a given article

@@ -15,12 +15,13 @@
   <% if can? :create, Comment %>
     <div class="box">
       <% form_for :comments, :url => {:action => 'comment', :id => @article } do |f| %>
-        <%= f.error_messages %>
-        <p>
-          <%= f.label :content, 'Comment' %><br />
-          <%= f.text_area :content, :class => 'comment-area' %>
-        </p>
-        <%= f.submit 'Add comment' %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :content, 'Comment' %><br />
+    <%= f.text_area :content, :class => 'comment-area', :maxlength => 1000 %>
+    <p class="charRemaining"></p>
+  </p>
+  <%= f.submit 'Add comment' %>
       <% end %>
     </div>
   <% end %>
@@ -34,9 +35,9 @@
     <%= render :partial => 'author', :locals => {:user => @article.user} %>
     <% @editors.each do |editor| %>
       <div class="news-author">
-        <%= image_tag editor.user.avatar.url(:default), :class => 'news-author-picture' %>
-        <%= link_to editor.user.username, editor.user %><br />
-        <strong>Edited/Approved</strong>
+  <%= image_tag editor.user.avatar.url(:default), :class => 'news-author-picture' %>
+  <%= link_to editor.user.username, editor.user %><br />
+  <strong>Edited/Approved</strong>
       </div>
     <% end %>
     <div class="news-stats">
@@ -47,4 +48,3 @@
     </div>
   </div>
 </div>
-

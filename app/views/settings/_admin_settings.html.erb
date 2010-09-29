@@ -12,4 +12,5 @@
   <li><%= link_to 'Awards', admin_awards_path if can? :manage, Award %></li>
   <li><%= link_to 'Partners', admin_partners_path if can? :manage, Partner %></li>
   <li><%= link_to 'Managers', admin_managers_path if can? :manage, Manager %></li>
+  <li><%= link_to 'Pages', admin_pages_path if can? :manage, Page %></li>
   <li><%= link_to 'About', '/pages/1/edit' if can? :manage, Page %></li>

@@ -1,0 +1,17 @@
+<h1>Page administration</h1>
+<%= link_to 'Add page', new_page_path %>
+<table class="admin-table">
+  <tr>
+    <th>Name</th>
+    <th>Permalink</th>
+    <th>Admin</th>
+  </tr>
+  <% @pages.each do |page| %>
+    <tr class="<%= cycle 'even', 'odd' %>">
+      <td><%= page.name %></td>
+      <td><%= page.permalink %></td>
+      <td><%= admin_links page, :none %></td>
+    </tr>
+  <% end %>
+</table>
+

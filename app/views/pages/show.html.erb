@@ -1,5 +1,5 @@
-<% if @page.permalink.eql? 'about' %>
 <div id="full-col">
+<% if @page.permalink.eql? 'about' %>
   <h1><span class="blue">OUR</span> HISTORY</h1>
   <span class="subtitle">ABOUT <span>ONLINE KINGDOM</span></span>
   <%= admin_links @page %>
@@ -30,5 +30,9 @@
     </div>
   <% end %>
   <div class="clear"></div>
-</div>
+<% else %>
+  <h1><span class="blue"><%= @page.name %></span></h1>
+  <hr />
+  <%= @page.content %>
 <% end %>
+</div>

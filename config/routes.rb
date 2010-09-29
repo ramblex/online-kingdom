@@ -20,13 +20,13 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :videos
   map.devise_for :users
   map.resources :settings, :except => :show
-  map.resources :pages
   map.resources :albums
   map.resources :users
   map.resources :brackets
 
   # Sample resource route with options:
   #   map.resources :products, :member => { :short => :get, :toggle => :post }, :collection => { :sold => :get }
+  map.resources :pages, :collection => {:admin => :get}
   map.resources :news_categories, :collection => {:admin => :get}
   map.resources :managers, :collection => {:admin => :get}
   map.resources :partners, :collection => {:admin => :get}

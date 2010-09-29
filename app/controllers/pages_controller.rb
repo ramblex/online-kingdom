@@ -2,6 +2,10 @@ class PagesController < ApplicationController
   load_and_authorize_resource
   uses_tiny_mce :only => [:new, :create, :edit, :update]
 
+  def admin
+    @pages = Page.all
+  end
+
   # GET /pages
   # GET /pages.xml
   def index
@@ -47,11 +51,9 @@ class PagesController < ApplicationController
     respond_to do |format|
       if @page.save
         flash[:notice] = 'Page was successfully created.'
-        format.html { redirect_to(@page) }
-        format.xml  { render :xml => @page, :status => :created, :location => @page }
+        format.html { redirect_to '/static/'+@page.permalink }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @page.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -64,8 +66,7 @@ class PagesController < ApplicationController
     respond_to do |format|
       if @page.update_attributes(params[:page])
         flash[:notice] = 'Page was successfully updated.'
-        format.html { redirect_to(@page) }
-        format.xml  { head :ok }
+        format.html { redirect_to '/static/'+@page.permalink }
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @page.errors, :status => :unprocessable_entity }
@@ -80,7 +81,7 @@ class PagesController < ApplicationController
     @page.destroy
 
     respond_to do |format|
-      format.html { redirect_to(pages_url) }
+      format.html { redirect_to(admin_pages_url) }
       format.xml  { head :ok }
     end
   end

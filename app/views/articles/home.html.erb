@@ -41,8 +41,8 @@
           <span class="blue">FOLLOW</span> US
         </div>
         <div class="clear"></div>
-        <%= image_tag 'twitter.gif' %>
-        <%= image_tag 'facebook.gif' %>
+        <%= link_to image_tag('twitter.gif'), 'http://twitter.com/OnlineKingdom' %>
+        <%= link_to image_tag('facebook.gif'), 'http://www.facebook.com/group.php?gid=148816079320' %>
       </div>
     </div>
   </div>
@@ -124,17 +124,24 @@
   <%= javascript_include_tag 'switcher' %>
   <script type="text/javascript">
     switcher('#matches-switcher', '#match-ticker');
-    switcher('#news-switcher', '#news-slider');
+    // Seem to have to setup the slider javascript after changing the slider's category
+    switcher('#news-switcher', '#news-slider', function(data) {
+        update_content('#news-slider', data);
+        setup_slider();
+        });
+    setup_slider();
 
     // News slider
-    $("#news-slider ul a").click(function() {
-        $("#news-slider ul li a").removeClass('selected');
-        $(this).addClass('selected');
-        $("#news-slider #current").hide();
-        $("#news-slider #current #image").html($(this).parent().find('.image').html());
-        $("#news-slider #preamble").html($(this).parent().find('.preamble').html());
-        $("#news-slider #current").fadeIn(1000);
-        return false;
-    });
+    function setup_slider() {
+      $("#news-slider ul li a").click(function() {
+          $("#news-slider ul li a").removeClass('selected');
+          $(this).addClass('selected');
+          $("#news-slider #current").hide();
+          $("#news-slider #current #image").html($(this).parent().find('.image').html());
+          $("#news-slider #preamble").html($(this).parent().find('.preamble').html());
+          $("#news-slider #current").fadeIn(1000);
+          return false;
+      });
+    }
   </script>
 <% end %>

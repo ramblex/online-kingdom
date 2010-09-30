@@ -54,8 +54,8 @@ module ApplicationHelper
     f.hidden_field(:_destroy) + link_to_function(name, "remove_fields(this)")
   end
 
-  def add_child_link(name, f, method)
-    fields = new_child_fields(f, method)
+  def add_child_link(name, f, method, locals = {})
+    fields = new_child_fields(f, method, locals)
     Rails.logger.error(fields)
     link_to_function(name, h("insert_fields(this, \"#{method}\", \"#{escape_javascript(fields)}\")"))
   end
@@ -63,9 +63,8 @@ module ApplicationHelper
   def new_child_fields(form_builder, method, options = {})
     options[:object] ||= form_builder.object.class.reflect_on_association(method).klass.new
     options[:partial] ||= method.to_s.singularize
-    options[:form_builder_local] ||= :f
     form_builder.fields_for(method, options[:object], :child_index => "new_#{method}") do |f|
-      render(:partial => options[:partial], :locals => { options[:form_builder_local] => f })
+      render(:partial => options[:partial], :locals => options.merge(:f => f))
     end
   end
 

@@ -12,6 +12,11 @@ class Match < ActiveRecord::Base
 
   has_many :event_teams
   has_many :comments
+  has_many :team1_players, :class_name => 'MatchPlayer', :foreign_key => 'match_id', :conditions => {:team_id => 1}
+  has_many :team2_players, :class_name => 'MatchPlayer', :foreign_key => 'match_id', :conditions => {:team_id => 2}
+
+  accepts_nested_attributes_for :team1_players, :allow_destroy => true
+  accepts_nested_attributes_for :team2_players, :allow_destroy => true
 
   named_scope :team1_wins, :conditions => 'team1_score > team2_score'
   named_scope :team2_wins, :conditions => 'team1_score < team2_score'

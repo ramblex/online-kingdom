@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100929201320) do
+ActiveRecord::Schema.define(:version => 20100930132719) do
 
   create_table "album_comments", :force => true do |t|
     t.text     "content"
@@ -226,6 +226,14 @@ ActiveRecord::Schema.define(:version => 20100929201320) do
     t.integer  "team2_id"
     t.integer  "match_id"
     t.integer  "map_id"
+  end
+
+  create_table "match_players", :force => true do |t|
+    t.integer  "player_id"
+    t.integer  "match_id"
+    t.integer  "team_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "matches", :force => true do |t|

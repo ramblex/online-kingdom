@@ -35,6 +35,13 @@
         <span class="team1"><%= @match.team1.name %></span>
         <span class="team2"><%= @match.team2.name %></span>
       </div>
+      <ul id="team1-roster">
+        <%= render :partial => 'team_player', :collection => @match.team1_players %>
+      </ul>
+      <ul id="team2-roster">
+        <%= render :partial => 'team_player', :collection => @match.team2_players %>
+      </ul>
+      <div class="clear"></div>
     </div>
   </div>
   <div class="box">

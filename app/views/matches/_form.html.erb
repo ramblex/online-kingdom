@@ -31,7 +31,12 @@
   <div class="match-team">
     <%= f.label :team1_id, 'Team 1' %><br />
     <%= f.collection_select :team1_id, Team.all, :id, :name %>
-    <p><%= link_to 'Add a player' %></p>
+    <p><%= add_child_link 'Add a player', f, :team1_players, {:partial => 'match_player'} %></p>
+    <div id="team1_players">
+      <% f.fields_for :team1_players do |player_form| %>
+        <%= render :partial => 'match_player', :locals => {:f => player_form, :team_id => 1} %>
+      <% end %>
+    </div>
     <div class="date_dependent">
       <%= f.label :team1_score, 'Team 1 score' %><br />
       <%= f.text_field :team1_score, :class => 'number' %>
@@ -40,7 +45,12 @@
   <div class="match-team">
     <%= f.label :team2_id, 'Team 2' %><br />
     <%= f.collection_select :team2_id, Team.all, :id, :name %>
-    <p><%= link_to 'Add a player' %></p>
+    <p><%= add_child_link 'Add a player', f, :team2_players, {:partial => 'match_player'} %></p>
+    <div id="team2_players">
+      <% f.fields_for :team2_players do |player_form| %>
+        <%= render :partial => 'match_player', :locals => {:f => player_form, :team_id => 2} %>
+      <% end %>
+    </div>
     <div class="date_dependent">
       <%= f.label :team2_score, 'Team 2 score' %><br />
       <%= f.text_field :team2_score, :class => 'number' %>

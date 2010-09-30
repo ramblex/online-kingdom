@@ -460,6 +460,25 @@ ul#top-nav a {
   float: left;
 }
 
+#team1-roster, #team2-roster {
+  margin-top: 10px;
+  width: 120px;
+  text-align:left;
+  list-style: none;
+}
+
+#team1-roster li, #team2-roster li {
+  margin-top: 3px;
+}
+
+#team1-roster {
+  float: left;
+}
+
+#team2-roster {
+  float: right;
+}
+
 img.flag {
   margin: 0 3px 0 0;
   height: 11px;

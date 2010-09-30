@@ -36,10 +36,10 @@
         <span class="team2"><%= @match.team2.name %></span>
       </div>
       <ul id="team1-roster">
-        <%= render :partial => 'team_player', :collection => @match.team1_players %>
+        <%= render :partial => 'team_player', :collection => @match.team1.players %>
       </ul>
       <ul id="team2-roster">
-        <%= render :partial => 'team_player', :collection => @match.team2_players %>
+        <%= render :partial => 'team_player', :collection => @match.team2.players %>
       </ul>
       <div class="clear"></div>
     </div>

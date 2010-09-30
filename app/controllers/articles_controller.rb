@@ -137,7 +137,11 @@ class ArticlesController < ApplicationController
   # PUT /articles/1.xml
   def update
     @article = Article.find(params[:id])
-    @article.article_editors.create({:user_id => current_user.id})
+    if !@article.approved and params[:article][:approved]
+      editor = @article.article_editors.create({:user_id => current_user.id, :update_type => 'Edited/Approved'})
+    else
+      editor = @article.article_editors.create({:user_id => current_user.id, :update_type => 'Edited'})
+    end
 
     respond_to do |format|
       if @article.update_attributes(params[:article])

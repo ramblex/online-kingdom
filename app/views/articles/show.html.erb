@@ -35,9 +35,9 @@
     <%= render :partial => 'author', :locals => {:user => @article.user} %>
     <% @editors.each do |editor| %>
       <div class="news-author">
-  <%= image_tag editor.user.avatar.url(:default), :class => 'news-author-picture' %>
-  <%= link_to full_name(editor.user), editor.user %><br />
-  <strong>Edited/Approved</strong>
+        <%= image_tag editor.user.avatar.url(:default), :class => 'news-author-picture' %>
+        <%= link_to full_name(editor.user), editor.user %><br />
+        <strong><%= editor.update_type %></strong>
       </div>
     <% end %>
     <div class="news-stats">

@@ -3,6 +3,8 @@ class Player < ActiveRecord::Base
   belongs_to :user
   belongs_to :category
 
+  default_scope :order => 'nickname ASC'
+
   validates_presence_of :nickname
 
   has_attached_file :avatar, :styles => {:default => "100x100#", :mini => "50x50#"},

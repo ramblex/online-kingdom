@@ -8,6 +8,8 @@ class Team < ActiveRecord::Base
   named_scope :team_teams, :conditions => ['player_id IS NULL'], :order => 'name ASC'
   named_scope :player_teams, :conditions => ['player_id IS NOT NULL'], :order => 'name ASC'
 
+  default_scope :order => 'name ASC'
+
   def matches
     team1_matches + team2_matches
   end

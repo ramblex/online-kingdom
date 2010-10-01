@@ -45,4 +45,11 @@ class Event < ActiveRecord::Base
 
   has_attached_file :logo, :styles => {:default => '61x24#'}
   has_attached_file :large_logo, :styles => {:default => '130x130'}, :default_style => :default
+
+  define_index do
+    indexes name
+    indexes start_date, :sortable => true
+    indexes category_id
+    indexes category.name
+  end
 end

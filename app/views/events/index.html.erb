@@ -7,6 +7,18 @@
     <ul id="event-category" class="switcher">
       <%= render :partial => 'shared/switcher_list' %>
     </ul>
+    <div class="search" id="switcher-search">
+      <% form_tag events_path, :method => 'get' do %>
+        <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag "Search", :name => nil %>
+      <% end %>
+    </div>
+    <% if params[:search] %>
+      <div class="info-msg">
+        Results for '<%= params[:search] %>'
+        <%= link_to 'Clear search', events_url %>
+      </div>
+    <% end %>
     <div id="events">
       <%= render :partial => @events %>
     </div>

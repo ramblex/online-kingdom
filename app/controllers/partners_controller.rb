@@ -9,7 +9,7 @@ class PartnersController < ApplicationController
   # GET /partners
   # GET /partners.xml
   def index
-    @partners = Partner.all
+    @partners = Partner.prime
 
     respond_to do |format|
       format.html # index.html.erb

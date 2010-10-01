@@ -623,6 +623,22 @@ table.match-info td.title {
   margin-top: 10px;
 }
 
+#official-partners {
+  margin: 20px;
+  clear: both;
+}
+
+.official-partner {
+  float: left;
+  width: 50%;
+  height: 120px;
+}
+
+.official-partner .title {
+  margin: 5px 0;
+  color: gray;
+}
+
 div.comment {
   padding: 6px 11px;
   clear: both;
@@ -811,6 +827,7 @@ div.comment-info {
 }
 
 .box {
+  clear: both;
   border: 1px solid #c4c4c4;
   padding: 9px 14px 7px 11px;
   margin-bottom: 6px;

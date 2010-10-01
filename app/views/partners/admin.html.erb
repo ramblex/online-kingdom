@@ -3,11 +3,14 @@
 <table class="admin-table">
   <tr>
     <th>Name</th>
+    <th>Type</th>
     <th></th>
   </tr>
   <% @partners.each do |partner| %>
     <tr class="<%= cycle 'even', 'odd' %>">
       <td><%= partner.name %></td>
+      <td><%= 'Prime sponsor' if partner.prime %>
+          <%= 'Official partner' unless partner.prime %></td>
       <td><%= admin_links partner, :none %></td>
     </tr>
   <% end %>

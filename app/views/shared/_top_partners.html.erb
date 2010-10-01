@@ -1,4 +1,4 @@
 <% top = Partner.all :limit => 3, :conditions => :featured, :order => 'RAND()' %>
 <% top.each do |partner| %>
-  <%= image_tag partner.white_logo.url(:default) %>
+  <%= link_to image_tag(partner.white_logo.url(:default)), partner.website, :target => :_blank %>
 <% end %>

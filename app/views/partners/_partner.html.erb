@@ -1,5 +1,5 @@
 <div class="partner">
-  <%= image_tag partner.logo.url(:default), :class => 'partner-logo' %>
+  <%= link_to image_tag(partner.logo.url(:default), :class => 'partner-logo'), partner.website, :target => :_blank %>
   <div class="partner-description">
     <%= admin_links partner %>
     <%= partner.description %>

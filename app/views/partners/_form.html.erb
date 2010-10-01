@@ -7,13 +7,30 @@
     <%= f.text_field :name %>
   </p>
   <p>
-    <%= f.label :description %><br />
-    <%= f.text_area :description, :class => 'mceEditor' %>
+    <%= f.label :prime, 'Type' %><br />
+    <%= f.select :prime, [['Prime sponsor', true], ['Official partner', false]] %>
   </p>
   <p>
-    <%= f.label :featured %><br />
-    <%= f.check_box :featured %>
+    <%= f.label :website %><br />
+    <%= f.text_field :website %>
   </p>
+  <div class="prime-sponsor">
+    <p>
+      <%= f.label :description %><br />
+      <%= f.text_area :description, :class => 'mceEditor' %>
+    </p>
+    <p>
+      <%= f.label :featured %><br />
+      <%= f.check_box :featured %>
+    </p>
+    <p>
+      <% if @partner.white_logo %>
+        <%= image_tag @partner.white_logo.url(:default), :style => 'background: gray;' %>
+      <% end %>
+      <%= f.label :white_logo %><br />
+      <%= f.file_field :white_logo %>
+    </p>
+  </div>
   <p>
     <% if @partner.logo %>
       <%= image_tag @partner.logo.url(:default) %>
@@ -22,14 +39,25 @@
     <%= f.file_field :logo %>
   </p>
   <p>
-    <% if @partner.white_logo %>
-      <%= image_tag @partner.white_logo.url(:default), :style => 'background: gray;' %>
-    <% end %>
-    <%= f.label :white_logo %><br />
-    <%= f.file_field :white_logo %>
-  </p>
-  <p>
     <%= f.submit 'Submit' %>
   </p>
 <% end %>
 
+<% content_for :extra_js do %>
+  <script type="text/javascript">
+    function toggle_prime_sponsor(show_prime) {
+      if (show_prime) {
+        $(".prime-sponsor").show();
+      } else {
+        $(".prime-sponsor").hide();
+      }
+    }
+
+    toggle_prime_sponsor(($("#partner_prime").val() === 'true'));
+
+    $("#partner_prime").change(function() {
+      var show_prime = ($(this).val() === 'true');
+      toggle_prime_sponsor(show_prime);
+    });
+  </script>
+<% end %>

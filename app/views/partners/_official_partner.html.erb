@@ -1,0 +1,7 @@
+<div class="official-partner">
+  <div class="title">
+    <strong><%= official_partner.name %></strong><br />
+    <%= link_to official_partner.website, official_partner.website %><br />
+  </div>
+  <%= link_to image_tag(official_partner.logo.url(:official)), official_partner.website %>
+</div>

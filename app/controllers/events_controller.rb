@@ -7,6 +7,14 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @event.increment!(:click_count)
+    @editors = @event.event_editors.distinct
+    @num_edits = @event.event_editors.count
+    if @num_edits > 0
+      @last_update = @event.event_editors.last.created_at
+    else
+      @last_update = @event.created_at
+    end
   end
 
   def index
@@ -72,6 +80,7 @@ class EventsController < ApplicationController
   # PUT /events/1.xml
   def update
     @event = Event.find(params[:id])
+    @event.event_editors.create({:user_id => current_user.id})
 
     respond_to do |format|
       if @event.update_attributes(params[:event])

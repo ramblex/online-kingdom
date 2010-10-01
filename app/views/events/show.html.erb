@@ -62,6 +62,12 @@
       <span class="blue">CREDITS</span> TO
     </div>
     <%= render :partial => 'articles/author', :locals => {:user => @event.user} %>
+    <%= render :partial => @editors %>
+    <div class="news-stats">
+      Event has been viewed <%= pluralize @event.click_count, 'time' %><br />
+      <%= @num_edits %> updates by <%= pluralize @editors.size, 'writer' %>.<br />
+      Last update was <%= time_ago_in_words @last_update %> ago
+    </div>
   </div>
 </div>
 
@@ -74,7 +80,7 @@
     // Hide all stages apart from the first
   if ($('.stage').size() > 1) {
     $('.stage #groups-title').after('<div class="stage-nav"></div>');
-    $('.stage .stage-nav:not(:first)').append('<a href="" id="prev-stage">Go To Previous Stage</a>');
+    $('.stage .stage-nav:not(:first)').append('<a href="" id="prev-stage">Go To Previous Stage</a> ');
     $('.stage .stage-nav:not(:last)').append('<a href="" id="next-stage">Go To Next Stage</a>');
     $('.stage').hide();
     var current_stage = $('.stage').first();

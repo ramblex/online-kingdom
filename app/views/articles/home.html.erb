@@ -54,13 +54,20 @@
       <span class="subtitle"><span>SPECIAL</span> PLAN</span>
     </div>
     <ul class="switcher" id="insider-switcher">
-      <li><%= link_to_function 'PRIZES', 'insider_show()' %></li>
-      <li><%= link_to_function 'EVENTS', 'insider_show()' %></li>
-      <li><%= link_to_function 'FILES', 'insider_show()' %></li>
+      <li><%= link_to 'PRIZES', insiders_path, :class => 'selected' %></li>
+      <li><%= link_to 'EVENTS', insiders_path %></li>
+      <li><%= link_to 'FILES', insiders_path %></li>
     </ul>
-    <div id="insider_events">
+    <div id="insider_prizes" class="insider-page">
+      <%= render :partial => Insider.first.insider_prizes %>
     </div>
-    <%= link_to '&raquo; Become an OK insider!', '/static/insider', :class => 'all-matches' %>
+    <div id="insider_events" class="insider-page">
+      <%= render :partial => Insider.first.insider_events %>
+    </div>
+    <div id="insider_files" class="insider-page">
+      <%= render :partial => Insider.first.insider_files %>
+    </div>
+    <%= link_to '&raquo; Become an OK insider!', insiders_path, :class => 'all-matches' %>
     <div class="clear"></div>
   </div>
 
@@ -152,5 +159,18 @@
           return false;
       });
     }
+
+    $(".insider-page").hide();
+    $('#insider_prizes').show();
+
+    $('#insider-switcher a').click(function() {
+      $('#insider-switcher a').removeClass('selected');
+      $(this).addClass('selected');
+      $(".insider-page").hide();
+      $('#insider_'+$(this).text().toLowerCase()).fadeIn();
+
+
+      return false;
+    });
   </script>
 <% end %>

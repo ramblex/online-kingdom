@@ -53,6 +53,13 @@
       <span class="blue">INSIDER</span> PAGE<br />
       <span class="subtitle"><span>SPECIAL</span> PLAN</span>
     </div>
+    <ul class="switcher" id="insider-switcher">
+      <li><%= link_to_function 'PRIZES', 'insider_show()' %></li>
+      <li><%= link_to_function 'EVENTS', 'insider_show()' %></li>
+      <li><%= link_to_function 'FILES', 'insider_show()' %></li>
+    </ul>
+    <div id="insider_events">
+    </div>
     <%= link_to '&raquo; Become an OK insider!', '/static/insider', :class => 'all-matches' %>
     <div class="clear"></div>
   </div>

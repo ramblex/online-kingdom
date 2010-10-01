@@ -4,6 +4,6 @@ class InsiderFile < ActiveRecord::Base
   before_post_process :image?
 
   def image?
-    !(data_content_type =~ /^image.*/).nil?
+    !(file_content_type =~ /^image.*/).nil?
   end
 end

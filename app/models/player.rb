@@ -8,7 +8,8 @@ class Player < ActiveRecord::Base
   validates_presence_of :nickname
 
   has_attached_file :avatar, :styles => {:default => "100x100#", :mini => "50x50#"},
-    :default_url => '/images/default-user.png'
+    :default_url => '/images/default-user.png',
+    :default_style => :default
 
   # In order to accommodate events for individual players, automatically create a team
   # for each player.

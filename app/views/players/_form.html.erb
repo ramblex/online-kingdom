@@ -1,4 +1,4 @@
-<% form_for @player do |f| %>
+<% form_for @player, :html => {:multipart => true} do |f| %>
   <%= f.error_messages %>
   <p>
     <%= f.label :firstname, 'First name' %><br />
@@ -13,6 +13,10 @@
     <%= f.text_field :nickname %>
   </p>
   <p>
+    <%= f.label :birth_date %><br />
+    <%= f.date_select :birth_date, :order => [:day, :month, :year], :start_year => Time.now.year - 50 %>
+  </p>
+  <p>
     <%= f.label :country %><br />
     <%= f.country_select :country %>
   </p>
@@ -25,6 +29,10 @@
     <%= f.label :team_id, 'Team' %><br />
     <%= f.collection_select :team_id, Team.all, :id, :name %>
     <%= link_to 'Add a team', new_team_path %>
+  </p>
+  <p>
+    <%= f.label :avatar %><br />
+    <%= f.file_field :avatar %>
   </p>
   <%= f.submit 'Submit' %>
 <% end %>

@@ -47,7 +47,7 @@ class PlayersController < ApplicationController
     respond_to do |format|
       if @player.save
         flash[:notice] = 'Player was successfully created.'
-        format.html { redirect_to(players_url) }
+        format.html { redirect_to @player }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @player.errors, :status => :unprocessable_entity }

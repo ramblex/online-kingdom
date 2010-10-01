@@ -1255,3 +1255,24 @@ div.comment-info {
 .next-streams {
   margin-top: 10px;
 }
+
+/** Awards */
+.award {
+  margin-top: 10px;
+}
+
+.award .title {
+  font-weight: bold;
+  font-size: 110%;
+  color: #484848;
+}
+
+.award .title img {
+  margin-right: 3px;
+}
+
+.award .place {
+  height: 20px;
+  color: gray;
+  font-weight: bold;
+}

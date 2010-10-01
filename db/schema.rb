@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101001100156) do
+ActiveRecord::Schema.define(:version => 20101001102111) do
 
   create_table "album_comments", :force => true do |t|
     t.text     "content"
@@ -95,6 +95,7 @@ ActiveRecord::Schema.define(:version => 20101001100156) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "category_id"
+    t.string   "place"
   end
 
   create_table "blogs", :force => true do |t|

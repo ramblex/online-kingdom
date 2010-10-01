@@ -1,3 +1,9 @@
-<%= award.name %>
-<hr />
-<%= award.description %>
+<div class="award">
+  <div class="title">
+    <%= image_tag award.category.small_icon.url %><%= award.name %>
+    <%= admin_links award, 'inline-admin' %>
+  </div>
+  <hr />
+  <div class="place"><%= award.place %></div>
+  <%= award.description %>
+</div>

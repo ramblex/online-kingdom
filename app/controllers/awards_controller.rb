@@ -56,7 +56,7 @@ class AwardsController < ApplicationController
     respond_to do |format|
       if @award.save
         flash[:notice] = 'Award was successfully created.'
-        format.html { redirect_to(@award) }
+        format.html { redirect_to awards_path }
         format.xml  { render :xml => @award, :status => :created, :location => @award }
       else
         format.html { render :action => "new" }
@@ -73,7 +73,7 @@ class AwardsController < ApplicationController
     respond_to do |format|
       if @award.update_attributes(params[:award])
         flash[:notice] = 'Award was successfully updated.'
-        format.html { redirect_to(@award) }
+        format.html { redirect_to(awards_path) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

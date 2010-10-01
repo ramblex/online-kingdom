@@ -1319,3 +1319,7 @@ ul.insider {
   margin: 20px;
   clear: both;
 }
+
+.insider-content {
+  margin-top: 10px;
+}

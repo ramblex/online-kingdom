@@ -73,3 +73,25 @@ form br {
   margin: 1px 0 0 -51px;
   width: 50px;
 }
+
+/** Insider */
+#insider_prizes .fields, #insider_events .fields, #insider_files .fields {
+  background: #eee;
+  border: 1px solid gray;
+  margin: 10px;
+  padding: 5px;
+}
+
+#insider_prizes .fields {
+  float: left;
+}
+
+#insider_events .fields, #insider_files .fields {
+  width: 300px;
+}
+
+form h1 {
+  margin-top: 20px;
+  font-size: 110%;
+  clear: both;
+}

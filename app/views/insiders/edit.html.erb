@@ -1,0 +1,50 @@
+<h1>Editing insider</h1>
+
+<% form_for(@insider, :html => {:multipart => true}) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description, :class => 'mceEditor' %>
+  </p>
+  <p>
+    <%= f.label :faq %><br />
+    <%= f.text_area :faq , :class => 'mceEditor'%>
+  </p>
+
+  <h1>Insider prizes</h1>
+  <%= add_child_link 'Add a prize', f, :insider_prizes %>
+  <div id="insider_prizes">
+    <% f.fields_for :insider_prizes do |insider_form| %>
+      <%= render :partial => 'insider_prize', :locals => {:f => insider_form} %>
+    <% end %>
+  </div>
+
+  <h1>Insider events</h1>
+  <%= add_child_link 'Add an event', f, :insider_events %>
+  <div id="insider_events">
+    <% f.fields_for :insider_events do |insider_form| %>
+      <%= render :partial => 'insider_event', :locals => {:f => insider_form} %>
+    <% end %>
+  </div>
+
+  <h1>Insider files</h1>
+  <%= add_child_link 'Add a file', f, :insider_files %>
+  <div id="insider_files">
+    <% f.fields_for :insider_files do |file_form| %>
+      <%= render :partial => 'insider_file', :locals => {:f => file_form} %>
+    <% end %>
+    <% @insider.insider_files.each do |insider_file| %>
+      <div class="fields">
+        <%= link_to insider_file.file_file_name, insider_file.file.url %>(<%= insider_file.file.content_type %>)
+      </div>
+    <% end %>
+    </div>
+
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @insider %> |
+<%= link_to 'Back', insiders_path %>

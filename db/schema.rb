@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101001102712) do
+ActiveRecord::Schema.define(:version => 20101001170545) do
 
   create_table "album_comments", :force => true do |t|
     t.text     "content"
@@ -199,6 +199,40 @@ ActiveRecord::Schema.define(:version => 20101001102712) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "stage"
+  end
+
+  create_table "insider_events", :force => true do |t|
+    t.integer  "event_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "insider_id"
+  end
+
+  create_table "insider_files", :force => true do |t|
+    t.integer  "category_id"
+    t.integer  "insider_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+  end
+
+  create_table "insider_prizes", :force => true do |t|
+    t.string   "name"
+    t.string   "company"
+    t.string   "product_link"
+    t.integer  "insider_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "insiders", :force => true do |t|
+    t.text     "description"
+    t.text     "faq"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "knockout_matches", :force => true do |t|

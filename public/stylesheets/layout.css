@@ -1313,3 +1313,9 @@ div.comment-info {
   overflow: hidden;
   margin: 10px -14px 0 -11px;
 }
+
+/** Insider */
+ul.insider {
+  margin: 20px;
+  clear: both;
+}

@@ -3,8 +3,10 @@
   <div class="name"><%= truncate album.name, :length => 40 %></div>
   <div class="info">
     <%= admin_links album %>
+    <%= stars_for album %><br />
     By: <%= link_to album.user.username, album.user %>
-    <%= stars_for album %>
+    Views: <%= album.click_count %>
+    Comments: <%= album.comments.count %>
   </div>
 </div>
 

@@ -1,0 +1,3 @@
+    notempty  db/migrate
+    notempty  db
+          rm  db/migrate/20101001091631_add_click_count_to_albums.rb

@@ -49,6 +49,7 @@ class AlbumsController < ApplicationController
   # GET /albums/1.xml
   def show
     @album = Album.find(params[:id])
+    @album.increment!(:click_count)
 
     respond_to do |format|
       format.html # show.html.erb

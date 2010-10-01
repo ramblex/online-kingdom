@@ -654,7 +654,7 @@ div.comment-info {
   padding: 0 0 0 11px;
   color: #6e6f70;
   font-weight: bold;
-  margin: 10px -14px 0 -11px;
+  margin-top: 10px;
 }
 
 .reply-form {
@@ -668,6 +668,7 @@ div.comment-info {
 
 .comment-reply {
   text-align:right;
+  padding-right: 10px;
 }
 
 #pagination {
@@ -683,6 +684,12 @@ div.comment-info {
   position: relative;
 }
 
+.swControls {
+  position: relative;
+  float: right;
+  margin-top: -15px;
+}
+
 .prev_page, .next_page {
 }
 
@@ -691,9 +698,8 @@ div.comment-info {
   font-size: 12px;
 }
 
-.pagination span, .pagination a {
+.pagination span, .pagination a, .swControls a {
   position: relative;
-  right: 50%;
   width: 32px;
   height: 19px;
   display: block;
@@ -705,11 +711,15 @@ div.comment-info {
   margin-right: 2px;
 }
 
-.pagination a {
+.pagination span, .pagination a {
+  right: 50%;
+}
+
+.pagination a, .swControls a {
   background: url(/images/pagination-link.png);
 }
 
-.pagination .current, .pagination a:hover {
+.pagination .current, .pagination a:hover, .swControls a.current, .swControls a:hover {
   background: url(/images/pagination-hover.png);
 }
 
@@ -826,7 +836,7 @@ div.comment-info {
   float: right;
 }
 
-.box {
+.box  {
   clear: both;
   border: 1px solid #c4c4c4;
   padding: 9px 14px 7px 11px;
@@ -1292,4 +1302,14 @@ div.comment-info {
   height: 20px;
   color: gray;
   font-weight: bold;
+}
+
+/** Jquery pagination */
+.swPage {
+}
+
+#holder {
+  clear: both;
+  overflow: hidden;
+  margin: 10px -14px 0 -11px;
 }

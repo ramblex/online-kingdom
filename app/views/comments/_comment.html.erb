@@ -1,4 +1,6 @@
-<%= render :partial => 'comments/comment_content', :object => comment, :locals => {:obj => obj, :comment => comment} %>
-<div class="comment-children">
-  <%= render :partial => 'comments/comment_content', :collection => comment.children, :locals => {:obj => obj, :comment => comment} %>
+<div class="comment-container">
+  <%= render :partial => 'comments/comment_content', :object => comment, :locals => {:obj => obj, :comment => comment} %>
+  <div class="comment-children">
+    <%= render :partial => 'comments/comment_content', :collection => comment.children, :locals => {:obj => obj, :comment => comment} %>
+  </div>
 </div>

@@ -5,10 +5,10 @@
     <hr />
     <%= @article.content %>
   </div>
-  <div class="box">
+  <div id="comments-box" class="box">
     <a name="comments"></a>
-    <div id="news-comments">
-      <h1><span class="blue">COM</span>MENTS</h1>
+    <div id="comments-title"><h1><span class="blue">COM</span>MENTS</h1></div>
+    <div id="holder">
       <%= render :partial => @article.comments.roots, :locals => {:obj => @article} %>
     </div>
   </div>
@@ -26,6 +26,7 @@
     </div>
   <% end %>
 </div>
+
 <div id="thin-right-col">
   <div class="box">
     <div class="box-title">
@@ -48,3 +49,11 @@
     </div>
   </div>
 </div>
+
+<% content_for :extra_js do %>
+  <script type="text/javascript">
+    $("#holder").sweetPages({perPage:14});
+    var controls = $('.swControls').detach();
+    controls.appendTo("#comments-title");
+  </script>
+<% end %>

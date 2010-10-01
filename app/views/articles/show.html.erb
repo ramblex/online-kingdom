@@ -44,7 +44,7 @@
       Article has been viewed <%= @article.click_count %> times<br />
       <%= @article.comments.size %> comments<br />
       <%= @num_edits %> updates by <%= pluralize @editors.size, 'writer' %>.<br />
-      Last update was <%= time_ago_in_words @article.updated_at %> ago
+      Last update was <%= time_ago_in_words @last_update %> ago
     </div>
   </div>
 </div>

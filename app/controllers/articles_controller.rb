@@ -86,6 +86,12 @@ class ArticlesController < ApplicationController
       @article.increment!(:click_count)
       @editors = @article.article_editors.distinct
       @num_edits = @article.article_editors.size
+      if @num_edits > 0
+        @last_update = @article.article_editors.last.created_at
+      else
+        @last_update = @article.created_at
+      end
+
 
       respond_to do |format|
         format.html # show.html.erb

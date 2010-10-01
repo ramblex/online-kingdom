@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101001094613) do
+ActiveRecord::Schema.define(:version => 20101001100156) do
 
   create_table "album_comments", :force => true do |t|
     t.text     "content"
@@ -230,6 +230,13 @@ ActiveRecord::Schema.define(:version => 20101001094613) do
     t.datetime "updated_at"
   end
 
+  create_table "match_editors", :force => true do |t|
+    t.integer  "match_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "match_maps", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -267,6 +274,7 @@ ActiveRecord::Schema.define(:version => 20101001094613) do
     t.integer  "bracket_id"
     t.integer  "group_id"
     t.boolean  "featured"
+    t.integer  "click_count"
   end
 
   create_table "news_categories", :force => true do |t|

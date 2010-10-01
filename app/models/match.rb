@@ -14,6 +14,7 @@ class Match < ActiveRecord::Base
   has_many :comments
   has_many :team1_players, :class_name => 'MatchPlayer', :foreign_key => 'match_id', :conditions => {:team_id => 1}
   has_many :team2_players, :class_name => 'MatchPlayer', :foreign_key => 'match_id', :conditions => {:team_id => 2}
+  has_many :match_editors
 
   accepts_nested_attributes_for :team1_players, :allow_destroy => true
   accepts_nested_attributes_for :team2_players, :allow_destroy => true

@@ -43,6 +43,14 @@ class MatchesController < ApplicationController
   # GET /matches/1.xml
   def show
     @match = Match.find(params[:id])
+    @match.increment!(:click_count)
+    @editors = @match.match_editors.distinct
+    @num_edits = @match.match_editors.count
+    if @num_edits > 0
+      @last_update = @match.match_editors.last.created_at
+    else
+      @last_update = @match.created_at
+    end
 
     respond_to do |format|
       format.html # show.html.erb
@@ -88,6 +96,7 @@ class MatchesController < ApplicationController
   # PUT /matches/1.xml
   def update
     @match = Match.find(params[:id])
+    @match.match_editors.create({:user_id => current_user.id})
 
     respond_to do |format|
       if @match.update_attributes(params[:match])

@@ -74,5 +74,12 @@
     </div>
     <div class="clear"></div>
     <%= render :partial => 'articles/author', :locals => {:user => @match.user} %>
+    <%= render :partial => 'event_editors/event_editor', :collection => @editors %>
+    <div class="news-stats">
+      Match has been viewed <%= pluralize @match.click_count, 'time' %><br />
+      <%= @match.comments.count %> comments<br />
+      <%= @num_edits %> updates by <%= pluralize @editors.size, 'writer' %>.<br />
+      Last updated <%= time_ago_in_words @last_update %> ago
+    </div>
   </div>
 </div>

@@ -8,7 +8,7 @@
       <table class="match-info">
         <tr class="odd">
           <td class="title">Date of birth</td>
-          <td><%= @player.birth_date.strftime('%d-%m-%Y') %></td>
+          <td><%= @player.birth_date.strftime('%d-%m-%Y') if @player.birth_date? %></td>
         </tr>
         <tr>
           <td class="title">Country</td>

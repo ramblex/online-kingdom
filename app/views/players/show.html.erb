@@ -20,7 +20,7 @@
         </tr>
         <tr>
           <td class="title">Team</td>
-          <td><%= link_to @player.team.name, @player.team %></td>
+          <td><%= link_to @player.team.name, @player.team if @player.team %></td>
         </tr>
       </table>
       <%= image_tag @player.avatar.url, :class => 'matches-logo' %>

@@ -5,6 +5,19 @@ class EventsController < ApplicationController
     @events = Event.all
   end
 
+  def comment
+    params[:comments]['user_id'] = current_user.id
+    @comment = Event.find(params[:id]).comments.build(params[:comments])
+
+    if @comment.save
+      flash[:notice] = "Added your comment"
+      redirect_to :action => "show", :id => params[:id]
+    else
+      flash[:alert] = "Could not add your comment"
+      redirect_to :back
+    end
+  end
+
   def show
     @event = Event.find(params[:id])
     @event.increment!(:click_count)

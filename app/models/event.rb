@@ -3,6 +3,7 @@ class Event < ActiveRecord::Base
   has_many :brackets, :dependent => :destroy
   has_many :groups, :dependent => :destroy
   has_many :event_editors, :dependent => :destroy
+  has_many :comments, :dependent => :destroy
   belongs_to :category
   belongs_to :user
   belongs_to :format

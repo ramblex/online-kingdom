@@ -45,7 +45,7 @@ class EventsController < ApplicationController
                                 :conditions => {:category_id => params[:category]}
       else
         @events = Event.paginate :page => params[:page], 
-                                  :conditions => {:category_id => params[:category]}
+                                :conditions => {:category_id => params[:category]}
       end
     end
 

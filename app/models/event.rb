@@ -11,6 +11,8 @@ class Event < ActiveRecord::Base
   @@per_page = 10
   cattr_reader :per_page
 
+  default_scope :order => 'start_date DESC'
+
   #has_many :attending_teams, :class_name => 'EventTeam', :select => 'DISTINCT team_id', :conditions => 'team_id IS NOT NULL'
 
   def attending_teams

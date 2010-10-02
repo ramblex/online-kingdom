@@ -1,11 +1,10 @@
 /**
- * form_utils.js
+ * $Id: form_utils.js 614 2008-02-20 17:57:57Z spocke $
  *
- * Copyright 2009, Moxiecode Systems AB
- * Released under LGPL License.
+ * Various form utilitiy functions.
  *
- * License: http://tinymce.moxiecode.com/license
- * Contributing: http://tinymce.moxiecode.com/contributing
+ * @author Moxiecode
+ * @copyright Copyright © 2004-2008, Moxiecode Systems AB, All rights reserved.
  */
 
 var themeBaseURL = tinyMCEPopup.editor.baseURI.toAbsolute('themes/' + tinyMCEPopup.getParam("theme"));
@@ -14,7 +13,7 @@ function getColorPickerHTML(id, target_form_element) {
 	var h = "";
 
 	h += '<a id="' + id + '_link" href="javascript:;" onclick="tinyMCEPopup.pickColor(event,\'' + target_form_element +'\');" onmousedown="return false;" class="pickcolor">';
-	h += '<span id="' + id + '" title="' + tinyMCEPopup.getLang('browse') + '">&nbsp;</span></a>';
+	h += '<span id="' + id + '" title="' + tinyMCEPopup.getLang('browse') + '"></span></a>';
 
 	return h;
 }
@@ -51,7 +50,7 @@ function getBrowserHTML(id, target_form_element, type, prefix) {
 
 	html = "";
 	html += '<a id="' + id + '_link" href="javascript:openBrowser(\'' + id + '\',\'' + target_form_element + '\', \'' + type + '\',\'' + option + '\');" onmousedown="return false;" class="browse">';
-	html += '<span id="' + id + '" title="' + tinyMCEPopup.getLang('browse') + '">&nbsp;</span></a>';
+	html += '<span id="' + id + '" title="' + tinyMCEPopup.getLang('browse') + '"></span></a>';
 
 	return html;
 }
@@ -93,7 +92,7 @@ function selectByValue(form_obj, field_name, value, add_custom, ignore_case) {
 function getSelectValue(form_obj, field_name) {
 	var elm = form_obj.elements[field_name];
 
-	if (elm == null || elm.options == null || elm.selectedIndex === -1)
+	if (elm == null || elm.options == null)
 		return "";
 
 	return elm.options[elm.selectedIndex].value;
@@ -171,7 +170,7 @@ function convertHexToRGB(col) {
 }
 
 function trimSize(size) {
-	return size.replace(/([0-9\.]+)px|(%|in|cm|mm|em|ex|pt|pc)/, '$1$2');
+	return size.replace(new RegExp('[^0-9%]', 'gi'), '');
 }
 
 function getCSSSize(size) {
@@ -180,11 +179,7 @@ function getCSSSize(size) {
 	if (size == "")
 		return "";
 
-	// Add px
-	if (/^[0-9]+$/.test(size))
-		size += 'px';
-
-	return size;
+	return size.indexOf('%') != -1 ? size : size + "px";
 }
 
 function getStyle(elm, attrib, style) {

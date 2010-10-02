@@ -1,11 +1,10 @@
 /**
- * validate.js
+ * $Id: validate.js 520 2008-01-07 16:30:32Z spocke $
  *
- * Copyright 2009, Moxiecode Systems AB
- * Released under LGPL License.
+ * Various form validation methods.
  *
- * License: http://tinymce.moxiecode.com/license
- * Contributing: http://tinymce.moxiecode.com/contributing
+ * @author Moxiecode
+ * @copyright Copyright © 2004-2008, Moxiecode Systems AB, All rights reserved.
  */
 
 /**
@@ -32,7 +31,7 @@ var Validator = {
 	},
 
 	isSize : function(s) {
-		return this.test(s, '^[0-9]+(%|in|cm|mm|em|ex|pt|pc|px)?$');
+		return this.test(s, '^[0-9]+(px|%)?$');
 	},
 
 	isId : function(s) {
@@ -111,7 +110,7 @@ var AutoValidator = {
 	},
 
 	reset : function(e) {
-		var t = ['label', 'input', 'select', 'textarea'];
+		var t = new Array('label', 'input', 'select', 'textarea');
 		var i, j, nl, s = this.settings;
 
 		if (e == null)

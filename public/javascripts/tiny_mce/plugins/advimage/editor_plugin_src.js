@@ -1,11 +1,8 @@
 /**
- * editor_plugin_src.js
+ * $Id: editor_plugin_src.js 520 2008-01-07 16:30:32Z spocke $
  *
- * Copyright 2009, Moxiecode Systems AB
- * Released under LGPL License.
- *
- * License: http://tinymce.moxiecode.com/license
- * Contributing: http://tinymce.moxiecode.com/contributing
+ * @author Moxiecode
+ * @copyright Copyright © 2004-2008, Moxiecode Systems AB, All rights reserved.
  */
 
 (function() {
@@ -13,8 +10,10 @@
 		init : function(ed, url) {
 			// Register commands
 			ed.addCommand('mceAdvImage', function() {
+				var e = ed.selection.getNode();
+
 				// Internal image object like a flash placeholder
-				if (ed.dom.getAttrib(ed.selection.getNode(), 'class').indexOf('mceItem') != -1)
+				if (ed.dom.getAttrib(e, 'class').indexOf('mceItem') != -1)
 					return;
 
 				ed.windowManager.open({

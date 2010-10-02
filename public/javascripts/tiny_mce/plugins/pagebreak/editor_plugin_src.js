@@ -1,11 +1,8 @@
 /**
- * editor_plugin_src.js
+ * $Id: editor_plugin_src.js 201 2007-02-12 15:56:56Z spocke $
  *
- * Copyright 2009, Moxiecode Systems AB
- * Released under LGPL License.
- *
- * License: http://tinymce.moxiecode.com/license
- * Contributing: http://tinymce.moxiecode.com/contributing
+ * @author Moxiecode
+ * @copyright Copyright © 2004-2008, Moxiecode Systems AB, All rights reserved.
  */
 
 (function() {
@@ -24,8 +21,7 @@
 			ed.addButton('pagebreak', {title : 'pagebreak.desc', cmd : cls});
 
 			ed.onInit.add(function() {
-				if (ed.settings.content_css !== false)
-					ed.dom.loadCSS(url + "/css/content.css");
+				ed.dom.loadCSS(url + "/css/content.css");
 
 				if (ed.theme.onResolveName) {
 					ed.theme.onResolveName.add(function(th, o) {

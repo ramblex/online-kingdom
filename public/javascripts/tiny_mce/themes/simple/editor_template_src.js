@@ -1,11 +1,11 @@
 /**
- * editor_template_src.js
+ * $Id: editor_template_src.js 520 2008-01-07 16:30:32Z spocke $
  *
- * Copyright 2009, Moxiecode Systems AB
- * Released under LGPL License.
+ * This file is meant to showcase how to create a simple theme. The advanced
+ * theme is more suitable for production use.
  *
- * License: http://tinymce.moxiecode.com/license
- * Contributing: http://tinymce.moxiecode.com/contributing
+ * @author Moxiecode
+ * @copyright Copyright © 2004-2008, Moxiecode Systems AB, All rights reserved.
  */
 
 (function() {
@@ -30,13 +30,13 @@
 				ed.dom.loadCSS(url + "/skins/" + s.skin + "/content.css");
 			});
 
-			DOM.loadCSS((s.editor_css ? ed.documentBaseURI.toAbsolute(s.editor_css) : '') || url + "/skins/" + s.skin + "/ui.css");
+			DOM.loadCSS(url + "/skins/" + s.skin + "/ui.css");
 		},
 
 		renderUI : function(o) {
 			var t = this, n = o.targetNode, ic, tb, ed = t.editor, cf = ed.controlManager, sc;
 
-			n = DOM.insertAfter(DOM.create('span', {id : ed.id + '_container', 'class' : 'mceEditor ' + ed.settings.skin + 'SimpleSkin'}), n);
+			n = DOM.insertAfter(DOM.create('div', {id : ed.id + '_container', 'class' : 'mceEditor ' + ed.settings.skin + 'SimpleSkin'}), n);
 			n = sc = DOM.add(n, 'table', {cellPadding : 0, cellSpacing : 0, 'class' : 'mceLayout'});
 			n = tb = DOM.add(n, 'tbody');
 
@@ -45,7 +45,7 @@
 			n = ic = DOM.add(DOM.add(n, 'td'), 'div', {'class' : 'mceIframeContainer'});
 
 			// Create toolbar container
-			n = DOM.add(DOM.add(tb, 'tr', {'class' : 'last'}), 'td', {'class' : 'mceToolbar mceLast', align : 'center'});
+			n = DOM.add(DOM.add(tb, 'tr', {'class' : 'last'}), 'td', {'class' : 'mceToolbar last', align : 'center'});
 
 			// Create toolbar
 			tb = t.toolbar = cf.createToolbar("tools1");

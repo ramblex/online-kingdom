@@ -1,11 +1,8 @@
 /**
- * editor_plugin_src.js
+ * $Id: editor_plugin_src.js 592 2008-02-12 18:09:06Z spocke $
  *
- * Copyright 2009, Moxiecode Systems AB
- * Released under LGPL License.
- *
- * License: http://tinymce.moxiecode.com/license
- * Contributing: http://tinymce.moxiecode.com/contributing
+ * @author Moxiecode
+ * @copyright Copyright © 2004-2008, Moxiecode Systems AB, All rights reserved.
  */
 
 (function() {
@@ -83,9 +80,9 @@
 			tinymce.each(dom.select('div,p', e), function(e) {
 				if (/^(absolute|relative|static)$/i.test(e.style.position)) {
 					if (s)
-						dom.addClass(e, 'mceItemVisualAid');
+						dom.addClass(e, 'mceVisualAid');
 					else
-						dom.removeClass(e, 'mceItemVisualAid');	
+						dom.removeClass(e, 'mceVisualAid');	
 				}
 			});
 		},
@@ -163,7 +160,7 @@
 					width : 100,
 					height : 100
 				},
-				'class' : 'mceItemVisualAid'
+				'class' : 'mceVisualAid'
 			}, ed.selection.getContent() || ed.getLang('layer.content'));
 		},
 
@@ -183,7 +180,7 @@
 						height : ''
 					});
 
-					ed.dom.removeClass(le, 'mceItemVisualAid');
+					ed.dom.removeClass(le, 'mceVisualAid');
 				} else {
 					if (le.style.left == "")
 						le.style.left = 20 + 'px';

@@ -5,6 +5,82 @@ var oldWidth, oldHeight, ed, url;
 if (url = tinyMCEPopup.getParam("media_external_list_url"))
 	document.write('<script language="javascript" type="text/javascript" src="' + tinyMCEPopup.editor.documentBaseURI.toAbsolute(url) + '"></script>');
 
+function select_image(element){
+  $('.attachment_list li').removeClass("selected")
+    element = $(element);
+    element.parent().addClass("selected")
+}
+
+function select_thumb(element) {
+  element = $(element);
+  //size = element.attr('href').split('#')[1];
+  img =  element.parents(".selected").removeClass("selected").find("img")
+  //src = img.attr('src').replace(element.attr('href'));
+  insert_attachment(element.attr('href') );
+}
+
+function upload_callback(channel){
+    //$('#dynamic_images_list').html('');
+    $.ajax({type: "GET", url: "/attachments/manage?media=video&page=1", dataType: "script"});
+}
+
+function insert_attachment(path){
+  //alert("You are inside insert_uploaded_url()");
+  formElement().src.value = path;
+  mcTabs.displayTab('general_tab','general_panel');
+  switchType(path);
+  generatePreview();
+    //~ var formObj = formElement();
+    //~ formObj.src.value = url;
+    //~ //formObj.alt.value = alt_text;
+    //~ mcTabs.displayTab('general_tab','general_panel');
+    //~ ImageDialog.showPreviewImage(url);
+}
+
+function testonload() {
+  $('#dynamic_images_list').html("Uploading...<br /><img src='/images/tiny_mce/spinner.gif'>");
+  mcTabs.displayTab('dynamic_select_tab','dynamic_select_panel');
+  //alert("You are in testonload()");
+  var iframe1 = ce('iframe','html_editor_media_upload_frame');
+  //alert(12);
+  iframe1.setAttribute('src','about:blank');
+  iframe1.style.border = "0px none";
+  iframe1.style.position = "absolute";
+  iframe1.style.width = "1px";
+  //alert(12);
+  iframe1.style.height = "1px";
+  iframe1.style.visibility = "hidden";
+  iframe1.setAttribute('id','html_editor_media_upload_frame');
+  //alert(12);
+  $('#media-upload').append(iframe1);
+  //alert(13);
+  $('#media_upload_form').attr("action",upload_media_path());
+}
+
+function ce(tag, name) {
+  //alert("You are in ce()");
+  if (name && window.activeXObject) {
+    element = document.createElement('<' + tag + ' name="' + name + '">');
+  } else {
+    element = document.createElement(tag);
+    element.setAttribute('name', name);
+  }
+
+  return element;
+}
+
+function upload_media_path() {
+  //alert("You are in upload_media_path()");
+  to_path = "/attachments/create?media=video";
+  //to_path = baseURL + "/simple_cms_media/create";
+  return to_path;
+}
+
+
+function formElement() {
+  return document.forms[1];
+}
+
 function init() {
 	var pl = "", f, val;
 	var type = "flash", fe, i;
@@ -12,7 +88,7 @@ function init() {
 	ed = tinyMCEPopup.editor;
 
 	tinyMCEPopup.resizeToInnerSize();
-	f = document.forms[0]
+	f = document.forms[1]
 
 	fe = ed.selection.getNode();
 	if (/mceItem(Flash|ShockWave|WindowsMedia|QuickTime|RealMedia)/.test(ed.dom.getAttrib(fe, 'class'))) {
@@ -44,7 +120,7 @@ function init() {
 				break;
 		}
 
-		document.forms[0].insert.value = ed.getLang('update', 'Insert', true); 
+		document.forms[1].insert.value = ed.getLang('update', 'Insert', true); 
 	}
 
 	document.getElementById('filebrowsercontainer').innerHTML = getBrowserHTML('filebrowser','src','media','media');
@@ -178,12 +254,10 @@ function init() {
 }
 
 function insertMedia() {
-	var fe, f = document.forms[0], h;
-
-	tinyMCEPopup.restoreSelection();
+	var fe, f = document.forms[1], h;
 
 	if (!AutoValidator.validate(f)) {
-		tinyMCEPopup.alert(ed.getLang('invalid_data'));
+		alert(ed.getLang('invalid_data'));
 		return false;
 	}
 
@@ -218,7 +292,7 @@ function insertMedia() {
 				break;
 		}
 
-		if (fe.width != f.width.value || fe.height != f.height.value)
+		if (fe.width != f.width.value || fe.height != f.height.height)
 			ed.execCommand('mceRepaint');
 
 		fe.title = serializeParameters();
@@ -270,7 +344,7 @@ function insertMedia() {
 }
 
 function updatePreview() {
-	var f = document.forms[0], type;
+	var f = formElement(), type;
 
 	f.width.value = f.width.value || '320';
 	f.height.value = f.height.value || '240';
@@ -300,12 +374,12 @@ function getMediaListHTML() {
 }
 
 function getType(v) {
-	var fo, i, c, el, x, f = document.forms[0];
+	var fo, i, c, el, x, f = formElement();
 
 	fo = ed.getParam("media_types", "flash=swf;flv=flv;shockwave=dcr;qt=mov,qt,mpg,mp3,mp4,mpeg;shockwave=dcr;wmp=avi,wmv,wm,asf,asx,wmx,wvx;rmp=rm,ra,ram").split(';');
 
 	// YouTube
-	if (v.match(/watch\?v=(.+)(.*)/)) {
+	if (v.match(/v=(.+)(.*)/)) {
 		f.width.value = '425';
 		f.height.value = '350';
 		f.src.value = 'http://www.youtube.com/v/' + v.match(/v=(.*)(.*)/)[0].split('=')[1];
@@ -333,12 +407,12 @@ function getType(v) {
 }
 
 function switchType(v) {
-	var t = getType(v), d = document, f = d.forms[0];
+	var t = getType(v), d = document, f = formElement();
 
 	if (!t)
 		return;
 
-	selectByValue(d.forms[0], 'media_type', t);
+	selectByValue(formElement(), 'media_type', t);
 	changedType(t);
 
 	// Update qtsrc also
@@ -359,13 +433,11 @@ function changedType(t) {
 	d.getElementById('shockwave_options').style.display = 'none';
 	d.getElementById('wmp_options').style.display = 'none';
 	d.getElementById('rmp_options').style.display = 'none';
-
-	if (t)
-		d.getElementById(t + '_options').style.display = 'block';
+	d.getElementById(t + '_options').style.display = 'block';
 }
 
 function serializeParameters() {
-	var d = document, f = d.forms[0], s = '';
+	var d = document, f = formElement(), s = '';
 
 	switch (f.media_type.options[f.media_type.selectedIndex].value) {
 		case "flash":
@@ -469,11 +541,11 @@ function setBool(pl, p, n) {
 	if (typeof(pl[n]) == "undefined")
 		return;
 
-	document.forms[0].elements[p + "_" + n].checked = pl[n] != 'false';
+	formElement().elements[p + "_" + n].checked = pl[n];
 }
 
 function setStr(pl, p, n) {
-	var f = document.forms[0], e = f.elements[(p != null ? p + "_" : '') + n];
+	var f = formElement(), e = f.elements[(p != null ? p + "_" : '') + n];
 
 	if (typeof(pl[n]) == "undefined")
 		return;
@@ -485,26 +557,23 @@ function setStr(pl, p, n) {
 }
 
 function getBool(p, n, d, tv, fv) {
-	var v = document.forms[0].elements[p + "_" + n].checked;
+	var v = formElement().elements[p + "_" + n].checked;
 
 	tv = typeof(tv) == 'undefined' ? 'true' : "'" + jsEncode(tv) + "'";
 	fv = typeof(fv) == 'undefined' ? 'false' : "'" + jsEncode(fv) + "'";
 
-	return (v == d) ? '' : n + (v ? ':' + tv + ',' : ":\'" + fv + "\',");
+	return (v == d) ? '' : n + (v ? ':' + tv + ',' : ':' + fv + ',');
 }
 
 function getStr(p, n, d) {
-	var e = document.forms[0].elements[(p != null ? p + "_" : "") + n];
+	var e = formElement().elements[(p != null ? p + "_" : "") + n];
 	var v = e.type == "text" ? e.value : e.options[e.selectedIndex].value;
-
-	if (n == 'src')
-		v = tinyMCEPopup.editor.convertURL(v, 'src', null);
 
 	return ((n == d || v == '') ? '' : n + ":'" + jsEncode(v) + "',");
 }
 
 function getInt(p, n, d) {
-	var e = document.forms[0].elements[(p != null ? p + "_" : "") + n];
+	var e = formElement().elements[(p != null ? p + "_" : "") + n];
 	var v = e.type == "text" ? e.value : e.options[e.selectedIndex].value;
 
 	return ((n == d || v == '') ? '' : n + ":" + v.replace(/[^0-9]+/g, '') + ",");
@@ -519,7 +588,7 @@ function jsEncode(s) {
 }
 
 function generatePreview(c) {
-	var f = document.forms[0], p = document.getElementById('prev'), h = '', cls, pl, n, type, codebase, wp, hp, nw, nh;
+	var f = formElement(), p = document.getElementById('prev'), h = '', cls, pl, n, type, codebase, wp, hp, nw, nh;
 
 	p.innerHTML = '<!-- x --->';
 
@@ -600,17 +669,14 @@ function generatePreview(c) {
 	pl.name = !pl.name ? 'eobj' : pl.name;
 	pl.align = !pl.align ? '' : pl.align;
 
-	// Avoid annoying warning about insecure items
-	if (!tinymce.isIE || document.location.protocol != 'https:') {
-		h += '<object classid="' + cls + '" codebase="' + codebase + '" width="' + pl.width + '" height="' + pl.height + '" id="' + pl.id + '" name="' + pl.name + '" align="' + pl.align + '">';
+	h += '<object classid="clsid:' + cls + '" codebase="' + codebase + '" width="' + pl.width + '" height="' + pl.height + '" id="' + pl.id + '" name="' + pl.name + '" align="' + pl.align + '">';
 
-		for (n in pl) {
-			h += '<param name="' + n + '" value="' + pl[n] + '">';
+	for (n in pl) {
+		h += '<param name="' + n + '" value="' + pl[n] + '">';
 
-			// Add extra url parameter if it's an absolute URL
-			if (n == 'src' && pl[n].indexOf('://') != -1)
-				h += '<param name="url" value="' + pl[n] + '" />';
-		}
+		// Add extra url parameter if it's an absolute URL
+		if (n == 'src' && pl[n].indexOf('://') != -1)
+			h += '<param name="url" value="' + pl[n] + '" />';
 	}
 
 	h += '<embed type="' + type + '" ';
@@ -618,11 +684,7 @@ function generatePreview(c) {
 	for (n in pl)
 		h += n + '="' + pl[n] + '" ';
 
-	h += '></embed>';
-
-	// Avoid annoying warning about insecure items
-	if (!tinymce.isIE || document.location.protocol != 'https:')
-		h += '</object>';
+	h += '></embed></object>';
 
 	p.innerHTML = "<!-- x --->" + h;
 }

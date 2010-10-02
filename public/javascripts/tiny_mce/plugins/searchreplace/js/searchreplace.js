@@ -7,9 +7,6 @@ var SearchReplaceDialog = {
 		this.switchMode(m);
 
 		f[m + '_panel_searchstring'].value = tinyMCEPopup.getWindowArg("search_string");
-
-		// Focus input field
-		f[m + '_panel_searchstring'].focus();
 	},
 
 	switchMode : function(m) {
@@ -42,9 +39,6 @@ var SearchReplaceDialog = {
 		ca = f[m + '_panel_casesensitivebox'].checked;
 		rs = f['replace_panel_replacestring'].value;
 
-		if (s == '')
-			return;
-
 		function fix() {
 			// Correct Firefox graphics glitches
 			r = se.getRng().cloneRange();
@@ -65,20 +59,12 @@ var SearchReplaceDialog = {
 
 		switch (a) {
 			case 'all':
-				// Move caret to beginning of text
-				ed.execCommand('SelectAll');
-				ed.selection.collapse(true);
-
 				if (tinymce.isIE) {
 					while (r.findText(s, b ? -1 : 1, fl)) {
 						r.scrollIntoView();
 						r.select();
 						replace();
 						fo = 1;
-
-						if (b) {
-							r.moveEnd("character", -(rs.length)); // Otherwise will loop forever
-						}
 					}
 
 					tinyMCEPopup.storeSelection();
@@ -90,37 +76,31 @@ var SearchReplaceDialog = {
 				}
 
 				if (fo)
-					tinyMCEPopup.alert(ed.getLang('searchreplace_dlg.allreplaced'));
+					wm.alert(ed.getLang('searchreplace_dlg.allreplaced'));
 				else
-					tinyMCEPopup.alert(ed.getLang('searchreplace_dlg.notfound'));
+					wm.alert(ed.getLang('searchreplace_dlg.notfound'));
 
 				return;
 
 			case 'current':
-				if (!ed.selection.isCollapsed())
-					replace();
-
+				replace();
 				break;
 		}
 
 		se.collapse(b);
 		r = se.getRng();
 
-		// Whats the point
-		if (!s)
-			return;
-
 		if (tinymce.isIE) {
 			if (r.findText(s, b ? -1 : 1, fl)) {
 				r.scrollIntoView();
 				r.select();
 			} else
-				tinyMCEPopup.alert(ed.getLang('searchreplace_dlg.notfound'));
+				wm.alert(ed.getLang('searchreplace_dlg.notfound'));
 
 			tinyMCEPopup.storeSelection();
 		} else {
 			if (!w.find(s, ca, b, false, false, false, false))
-				tinyMCEPopup.alert(ed.getLang('searchreplace_dlg.notfound'));
+				wm.alert(ed.getLang('searchreplace_dlg.notfound'));
 			else
 				fix();
 		}

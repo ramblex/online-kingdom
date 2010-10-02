@@ -1,27 +1,28 @@
 tinyMCEPopup.requireLangPack();
 
-var MergeCellsDialog = {
-	init : function() {
-		var f = document.forms[0];
+function init() {
+	tinyMCEPopup.resizeToInnerSize();
 
-		f.numcols.value = tinyMCEPopup.getWindowArg('cols', 1);
-		f.numrows.value = tinyMCEPopup.getWindowArg('rows', 1);
-	},
+	var formObj = document.forms[0];
 
-	merge : function() {
-		var func, f = document.forms[0];
+	formObj.numcols.value = tinyMCEPopup.getWindowArg('numcols', 1);
+	formObj.numrows.value = tinyMCEPopup.getWindowArg('numrows', 1);
+}
 
-		tinyMCEPopup.restoreSelection();
+function mergeCells() {
+	var args = new Array();
+	var formObj = document.forms[0];
 
-		func = tinyMCEPopup.getWindowArg('onaction');
-
-		func({
-			cols : f.numcols.value,
-			rows : f.numrows.value
-		});
-
-		tinyMCEPopup.close();
+	if (!AutoValidator.validate(formObj)) {
+		alert(tinyMCEPopup.getLang('invalid_data'));
+		return false;
 	}
-};
 
-tinyMCEPopup.onInit.add(MergeCellsDialog.init, MergeCellsDialog);
+	args["numcols"] = formObj.numcols.value;
+	args["numrows"] = formObj.numrows.value;
+
+	tinyMCEPopup.execCommand("mceTableMergeCells", false, args);
+	tinyMCEPopup.close();
+}
+
+tinyMCEPopup.onInit.add(init);

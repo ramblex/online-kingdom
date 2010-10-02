@@ -34,7 +34,7 @@ ul, ol {
 
 div#flash-notice, div#flash-alert {
   position: fixed;
-  top: 20px;
+  top: 10px;
   left: -1px;
   color: black;
   padding: 10px;

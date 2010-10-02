@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show, :home]
   load_and_authorize_resource
-  uses_tiny_mce :only => [:new, :create, :edit, :update, :show]
+  uses_tiny_mce :options => AppConfig.default_mce_options, :only => [:new, :create, :edit, :update, :show]
 
   # Home page - may be worth putting this in a separate controller but that seems
   # overkill for now.

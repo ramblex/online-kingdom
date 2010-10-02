@@ -25,7 +25,7 @@
       });
 
       // Register buttons
-      ed.addButton('flags', {title : 'Flags', cmd : 'mceFlag', label : 'flags'});
+      ed.addButton('flags', {title : 'Flags', cmd : 'mceFlag', image : '/javascripts/tiny_mce/plugins/flags/img/icon.png'});
     },
 
     getInfo : function() {

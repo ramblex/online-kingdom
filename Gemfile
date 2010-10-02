@@ -2,7 +2,6 @@ source :gemcutter
 gem 'rails', '2.3.9'
 gem 'mysql', '2.7'
 gem "devise", '1.0.8'
-gem 'tiny_mce', '0.1.4'
 gem 'paperclip'
 gem 'jrails'
 gem 'cancan'

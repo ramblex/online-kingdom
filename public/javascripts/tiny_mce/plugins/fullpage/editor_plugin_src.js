@@ -1,11 +1,8 @@
 /**
- * editor_plugin_src.js
+ * $Id: editor_plugin_src.js 593 2008-02-13 13:00:12Z spocke $
  *
- * Copyright 2009, Moxiecode Systems AB
- * Released under LGPL License.
- *
- * License: http://tinymce.moxiecode.com/license
- * Contributing: http://tinymce.moxiecode.com/contributing
+ * @author Moxiecode
+ * @copyright Copyright © 2004-2008, Moxiecode Systems AB, All rights reserved.
  */
 
 (function() {
@@ -54,23 +51,21 @@
 			if (attr && attr[1]) {
 				bdattr = attr[1].match(/\s*(\w+\s*=\s*".*?"|\w+\s*=\s*'.*?'|\w+\s*=\s*\w+|\w+)\s*/g);
 
-				if (bdattr) {
-					for(i = 0, len = bdattr.length; i < len; i++) {
-						kv = bdattr[i].split('=');
-						k = kv[0].replace(/\s/,'');
-						v = kv[1];
+				for(i = 0, len = bdattr.length; i < len; i++) {
+					kv = bdattr[i].split('=');
+					k = kv[0].replace(/\s/,'');
+					v = kv[1];
 
-						if (v) {
-							v = v.replace(/^\s+/,'').replace(/\s+$/,'');
-							t = v.match(/^["'](.*)["']$/);
+					if (v) {
+						v = v.replace(/^\s+/,'').replace(/\s+$/,'');
+						t = v.match(/^["'](.*)["']$/);
 
-							if (t)
-								v = t[1];
-						} else
-							v = k;
+						if (t)
+							v = t[1];
+					} else
+						v = k;
 
-						ed.dom.setAttrib(ed.getBody(), 'style', v);
-					}
+					ed.dom.setAttrib(ed.getBody(), 'style', v);
 				}
 			}
 		},
@@ -83,10 +78,7 @@
 		},
 
 		_setContent : function(ed, o) {
-			var t = this, sp, ep, c = o.content, v, st = '';
-
-			if (o.source_view && ed.getParam('fullpage_hide_in_source_view'))
-				return;
+			var t = this, sp, ep, c = o.content;
 
 			// Parse out head, body and footer
 			c = c.replace(/<(\/?)BODY/gi, '<$1body');
@@ -112,26 +104,8 @@
 				t.head = low(t.head);
 				t.foot = low(t.foot);
 			} else {
-				t.head = '';
-				if (ed.getParam('fullpage_default_xml_pi'))
-					t.head += '<?xml version="1.0" encoding="' + ed.getParam('fullpage_default_encoding', 'ISO-8859-1') + '" ?>\n';
-
-				t.head += ed.getParam('fullpage_default_doctype', '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">');
-				t.head += '\n<html>\n<head>\n<title>' + ed.getParam('fullpage_default_title', 'Untitled document') + '</title>\n';
-
-				if (v = ed.getParam('fullpage_default_encoding'))
-					t.head += '<meta http-equiv="Content-Type" content="' + v + '" />\n';
-
-				if (v = ed.getParam('fullpage_default_font_family'))
-					st += 'font-family: ' + v + ';';
-
-				if (v = ed.getParam('fullpage_default_font_size'))
-					st += 'font-size: ' + v + ';';
-
-				if (v = ed.getParam('fullpage_default_text_color'))
-					st += 'color: ' + v + ';';
-
-				t.head += '</head>\n<body' + (st ? ' style="' + st + '"' : '') + '>\n';
+				t.head = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">';
+				t.head += '\n<html>\n<head>\n<title>Untitled document</title>\n</head>\n<body>\n';
 				t.foot = '\n</body>\n</html>';
 			}
 		},
@@ -139,8 +113,7 @@
 		_getContent : function(ed, o) {
 			var t = this;
 
-			if (!o.source_view || !ed.getParam('fullpage_hide_in_source_view'))
-				o.content = tinymce.trim(t.head) + '\n' + tinymce.trim(o.content) + '\n' + tinymce.trim(t.foot);
+			o.content = tinymce.trim(t.head) + '\n' + tinymce.trim(o.content) + '\n' + tinymce.trim(t.foot);
 		}
 	});
 

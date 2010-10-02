@@ -1,6 +1,6 @@
 class InsidersController < ApplicationController
   load_and_authorize_resource
-  uses_tiny_mce :only => [:edit, :update]
+  uses_tiny_mce :options => AppConfig.default_mce_options, :only => [:edit, :update]
 
   # GET /insiders
   # GET /insiders.xml

@@ -1,6 +1,6 @@
 class MatchesController < ApplicationController
   load_and_authorize_resource
-  uses_tiny_mce :only => [:new, :create, :edit, :update]
+  uses_tiny_mce :options => AppConfig.default_mce_options, :only => [:new, :create, :edit, :update, :show]
 
   def comment
     params[:comments]['user_id'] = current_user.id

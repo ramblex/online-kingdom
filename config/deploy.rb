@@ -18,16 +18,26 @@ role :db,  "178.79.132.38", :primary => true # This is where Rails migrations wi
 # If you are using Passenger mod_rails uncomment this:
 # if you're still using the script/reapear helper you will need
 # these http://github.com/rails/irs_process_scripts
+namespace :bundler do
+  task :create_symlink, :roles => :app do
+    shared_dir = File.join(shared_path, 'bundle')
+    release_dir = File.join(current_release, '.bundle')
+    run("mkdir -p #{shared_dir} && ln -s #{shared_dir} #{release_dir}")
+  end
+ 
+  task :bundle_new_release, :roles => :app do
+    bundler.create_symlink
+    run "cd #{release_path} && bundle install --without test"
+  end
+end
+ 
+after 'deploy:update_code', 'bundler:bundle_new_release'
 
 namespace :deploy do
   task :start do ; end
   task :stop do ; end
   task :restart, :roles => :app, :except => { :no_release => true } do
     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
-  end
-
-  task :update_db do
-    run "cd /home/alexd/public_html/#{application}/current; rake db:migrate RAILS_ENV=production"
   end
 
   task :symlink_shared do
@@ -44,5 +54,5 @@ namespace :deploy do
     run "[ -d #{prev_dir} ] && cp -R #{prev_dir} #{latest_release}/ || echo 'No previous insider files'"
   end
 
-  after 'deploy:update_code', 'deploy:symlink_shared', "deploy:copy_uploads", "deploy:copy_insider_files", "deploy:update_db"
+  after 'deploy:update_code', 'deploy:symlink_shared', "deploy:copy_uploads", "deploy:copy_insider_files"
 end

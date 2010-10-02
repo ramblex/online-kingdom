@@ -8,7 +8,7 @@ default_run_options[:pty] = true
 set :deploy_to, "/home/alexd/public_html/#{application}"
 set :deploy_via, :remote_cache
 
-set :default_environment {
+set :default_environment, {
   'PATH' => '/var/lib/gems/1.8/bin:$PATH'
 }
 

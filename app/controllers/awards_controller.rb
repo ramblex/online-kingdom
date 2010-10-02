@@ -12,7 +12,7 @@ class AwardsController < ApplicationController
     if params[:category].nil? or params[:category] == 'all'
       @awards = Award.all
     else
-      @awards = Award.find_by_category_id(params[:category])
+      @awards = Award.all :conditions => {:category_id => params[:category]}
     end
 
     respond_to do |format|

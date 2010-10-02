@@ -1,11 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :insiders
-
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
   #   map.connect 'products/:id', :controller => 'catalog', :action => 'view'
   # Keep in mind you can assign values other than :controller and :action
+  map.connect 'insider_files/:id/:style.:format', :controller => 'insider_files', :action => 'download', :conditions => {:method => :get}
 
   # Sample of named route:
   #   map.purchase 'products/:id/purchase', :controller => 'catalog', :action => 'purchase'
@@ -22,6 +21,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :users
   map.resources :brackets
   map.resources :comments
+  map.resources :insiders
 
   # Sample resource route with options:
   #   map.resources :products, :member => { :short => :get, :toggle => :post }, :collection => { :sold => :get }

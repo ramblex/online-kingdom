@@ -8,3 +8,4 @@ tmp/**/*
 *.xml.gz
 db/sphinx
 log/*
+assets

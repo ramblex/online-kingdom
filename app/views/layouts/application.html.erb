@@ -3,6 +3,7 @@
   <head>
     <title>ONLINE KINGDOM</title>
     <%= stylesheet_link_tag("screen") %>
+    <%= formtastic_stylesheet_link_tag %>
     <%= javascript_include_tag("jquery") %>
     <%= javascript_include_tag("application") %>
     <%= javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery? -%>

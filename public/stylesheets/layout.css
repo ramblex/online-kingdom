@@ -1049,11 +1049,13 @@ div.comment-info {
   color: #c7c7c7;
 }
 
-#footer span {
+#footer .copyright {
   float: left;
 }
 
-#footer p {
+#footer .copyright span {
+  display: block;
+  float: none;
   margin-bottom: 12px;
 }
 
@@ -1111,7 +1113,7 @@ div.comment-info {
 }
 
 /** Events */
-#content #events {
+#events-list {
   clear: both;
   margin-top: 20px;
 }

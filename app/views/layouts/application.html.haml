@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 %html
   %head
+    %meta{:"http-equiv" => "Content-Type", :content  => "text/html; charset=utf-8"}
     %title ONLINE KINGDOM
     = stylesheet_link_tag 'screen'
     = formtastic_stylesheet_link_tag
@@ -15,33 +16,23 @@
     #wrapper
       = render :partial => 'shared/head'
       %ul#top-nav
-        %li#news
-          =link_to '', articles_path
-        %li#videos
-          =link_to '', videos_path
-        %li#albums
-          =link_to '', albums_path
-        %li#events
-          =link_to '', events_path
-        %li#blogs
-          =link_to '', blogs_path
-        %li#matches
-          =link_to '', matches_path
-        %li#players
-          =link_to '', ok_players_path
-        %li#awards
-          =link_to '', awards_path
-        %li#partners
-          =link_to '', partners_path
-        %li#about
-          =link_to '', '/static/about'
+        %li#news= link_to '', articles_path
+        %li#videos= link_to '', videos_path
+        %li#albums= link_to '', albums_path
+        %li#events= link_to '', events_path
+        %li#blogs= link_to '', blogs_path
+        %li#matches= link_to '', matches_path
+        %li#players= link_to '', ok_players_path
+        %li#awards= link_to '', awards_path
+        %li#partners= link_to '', partners_path
+        %li#about= link_to '', '/static/about'
       #content
         = yield
         .clear
       #footer
         %span.copyright
-          %p 2010 ONLINE KINGDOM - ALL RIGHTS RESERVED
-          DESIGN BY DSGF DESIGNS - COPYRIGHT &copy; BY ONLINE KINGDOM
+          %span 2010 ONLINE KINGDOM - ALL RIGHTS RESERVED
+          %span DESIGN BY DSGF DESIGNS - COPYRIGHT &copy; BY ONLINE KINGDOM
         %ul
           %li= link_to 'STREAM', streams_path
           - Page.all.each do |page|
@@ -49,4 +40,4 @@
           %li= link_to 'INSIDER', insiders_path
           %li= link_to 'CONTACT', 'mailto:info@onlinekingdom.org'
           %li= link_to 'ESPORTSM', 'http://www.esportsm.pt', :target => :_blank
-  = yield :extra_js
+    = yield :extra_js

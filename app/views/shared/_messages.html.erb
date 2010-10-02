@@ -1,9 +1,9 @@
 <% if current_user and (current_user.is? :admin or current_user.is? :news_writer) %>
   <div id="admin-nav">
     <%= link_to_function 'Admin', 'toggle_admin()' %>
-    <div id="hidden">
+    <ul id="hidden">
       <%= render :partial => 'settings/admin_settings' %>
-    </div>
+    </ul>
   </div>
 <% end %>
 <% flash.each do |name, msg| %>

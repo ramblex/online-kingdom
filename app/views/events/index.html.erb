@@ -19,7 +19,7 @@
         <%= link_to 'Clear search', events_url %>
       </div>
     <% end %>
-    <div id="events">
+    <div id="events-list">
       <%= render :partial => @events %>
     </div>
     <div id="pagination"><%= will_paginate @events %></div>

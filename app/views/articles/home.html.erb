@@ -101,9 +101,9 @@
         <li><%= link_to category.name, params.merge(:match_category => category.id, :page => 1) %></li>
       <% end %>
     </ul>
-    <div id="match-ticker">
+    <ul id="match-ticker">
       <%= render :partial => @matches, :locals => {:no_admin => true} %>
-    </div>
+    </ul>
     <%= link_to '&raquo; all matches', matches_url, :class => 'all-matches' %>
     <div class="clear"></div>
   </div>
@@ -136,8 +136,11 @@
 
 </div>
 
-<% content_for :extra_js do %>
+<% content_for :head do %>
   <%= javascript_include_tag 'switcher' %>
+<% end %>
+
+<% content_for :extra_js do %>
   <script type="text/javascript">
     switcher('#matches-switcher', '#match-ticker');
     // Seem to have to setup the slider javascript after changing the slider's category

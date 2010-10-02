@@ -26,7 +26,7 @@ module ApplicationHelper
       if idx < obj.rating
         html << (link_to '', {:action => 'rate', :id => obj.id, :rating => idx + 1}, :class => 'star filled')
       else
-        html << (link_to '', {:action => 'rate', :id => obj.id, :rating => idx + 1}, :class => 'star', :id => idx + 1)
+        html << (link_to '', {:action => 'rate', :id => obj.id, :rating => idx + 1}, :class => 'star')
       end
     end
     html << "</div>"
@@ -34,9 +34,9 @@ module ApplicationHelper
 
   def admin_links(obj, extra_class = nil, options = {})
     if extra_class.eql? :none
-      html = '<div>'
+      html = '<span>'
     else
-      html = %Q[ <div class="admin-links #{extra_class}"> ]
+      html = %Q[ <span class="admin-links #{extra_class}"> ]
     end
     if can? :edit, obj
       html << (link_to '[Edit]', options.merge(:id => obj.id, :action => 'edit'))
@@ -47,7 +47,7 @@ module ApplicationHelper
       html << (link_to '[Delete]', obj, :method => :delete, :confirm => "Are you sure you want to delete this #{obj.class}?")
     end
 
-    html << '</div>'
+    html << '</span>'
   end
 
   def remove_child_link(name, f)

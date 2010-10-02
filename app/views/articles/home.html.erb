@@ -34,8 +34,8 @@
           </div>
         </li>
       <% end %>
-      <%= link_to "&raquo; all news", articles_path, :class => 'all-matches' %>
       </ul>
+      <%= link_to "&raquo; all news", articles_path, :class => 'all-matches' %>
       <div id="follow-us">
         <div class="box-title">
           <span class="blue">FOLLOW</span> US
@@ -58,15 +58,15 @@
       <li><%= link_to 'EVENTS', insiders_path %></li>
       <li><%= link_to 'FILES', insiders_path %></li>
     </ul>
-    <div id="insider_prizes" class="insider-page">
+    <ul id="insider_prizes" class="insider-page">
       <%= render :partial => Insider.first.insider_prizes %>
-    </div>
-    <div id="insider_events" class="insider-page">
+    </ul>
+    <ul id="insider_events" class="insider-page">
       <%= render :partial => Insider.first.insider_events %>
-    </div>
-    <div id="insider_files" class="insider-page">
+    </ul>
+    <ul id="insider_files" class="insider-page">
       <%= render :partial => Insider.first.insider_files %>
-    </div>
+    </ul>
     <%= link_to '&raquo; Become an OK insider!', insiders_path, :class => 'all-matches' %>
     <div class="clear"></div>
   </div>

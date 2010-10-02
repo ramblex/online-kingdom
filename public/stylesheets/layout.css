@@ -1320,10 +1320,15 @@ ul.insider {
   clear: both;
 }
 
+.insider li, .insider-page li {
+  height: 20px;
+  line-height: 1.5;
+}
+
 .insider-content {
   margin-top: 10px;
 }
 
-.insider {
-
+.insider-page {
+  margin: 10px;
 }

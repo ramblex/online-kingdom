@@ -1,4 +1,10 @@
 <div class="fields">
-  <%= f.file_field :file %>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.file_field :file %>
+  </p>
   <%= remove_child_link 'Remove', f %>
 </div>

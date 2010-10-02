@@ -34,12 +34,7 @@
     <% f.fields_for :insider_files do |file_form| %>
       <%= render :partial => 'insider_file', :locals => {:f => file_form} %>
     <% end %>
-    <% @insider.insider_files.each do |insider_file| %>
-      <div class="fields">
-        <%= link_to insider_file.file_file_name, insider_file.file.url %>(<%= insider_file.file.content_type %>)
-      </div>
-    <% end %>
-    </div>
+  </div>
 
   <p>
     <%= f.submit 'Update' %>

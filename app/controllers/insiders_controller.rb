@@ -1,4 +1,5 @@
 class InsidersController < ApplicationController
+  load_and_authorize_resource
   uses_tiny_mce :only => [:edit, :update]
 
   # GET /insiders

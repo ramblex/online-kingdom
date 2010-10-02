@@ -1,0 +1,14 @@
+<% if current_user and (current_user.is? :admin or current_user.is? :news_writer) %>
+  <div id="admin-nav">
+    <%= link_to_function 'Admin', 'toggle_admin()' %>
+    <div id="hidden">
+      <%= render :partial => 'settings/admin_settings' %>
+    </div>
+  </div>
+<% end %>
+<% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, :id => "flash-#{name}" %>
+  <% content_tag :script, :type => "text/javascript" do %>
+    $("#flash_notice").fadeOut(6000);
+  <% end %>
+<% end %>

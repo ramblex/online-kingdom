@@ -78,8 +78,15 @@ $(document).ready(function() {
     $('textarea[maxlength]').limitMaxlength({
       onEdit: onEditCallback,
       onLimit: onLimitCallback
-  });
+    });
+
+    $("#flash-notice").fadeOut(6000);
+    $("#admin-nav").css({opacity: 0.6});
 });
+
+function toggle_admin() {
+  $("#admin-nav #hidden").toggle();
+}
 
 (function($){
 

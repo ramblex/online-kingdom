@@ -6,8 +6,6 @@ class InsiderFilesController < ApplicationController
     path = dl.file.path(params[:style])
     head(:bad_request) and return unless File.exist?(path) && params[:format].to_s == File.extname(path).gsub(/^\.+/, '')
 
-    send_file_options = { :type => dl.file.content_type }
-    send_file_options[:x_sendfile] = true
-    send_file(path, send_file_options)
+    send_file path
   end
 end

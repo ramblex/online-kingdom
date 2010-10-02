@@ -1,0 +1,12 @@
+source :gemcutter
+gem 'rails', '2.3.9'
+gem 'mysql', '2.7'
+gem "devise", '1.0.8'
+gem 'tiny_mce', '0.1.4'
+gem 'paperclip'
+gem 'jrails'
+gem 'cancan'
+gem 'will_paginate', '2.3.11'
+gem 'truncate_html', '0.3.2'
+gem 'acts_as_tree'
+gem 'thinking-sphinx', '1.3.18', :require => 'thinking_sphinx'

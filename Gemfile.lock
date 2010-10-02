@@ -1,0 +1,59 @@
+GEM
+  remote: http://rubygems.org/
+  specs:
+    actionmailer (2.3.9)
+      actionpack (= 2.3.9)
+    actionpack (2.3.9)
+      activesupport (= 2.3.9)
+      rack (~> 1.1.0)
+    activerecord (2.3.9)
+      activesupport (= 2.3.9)
+    activeresource (2.3.9)
+      activesupport (= 2.3.9)
+    activesupport (2.3.9)
+    acts_as_tree (0.1.1)
+    after_commit (1.0.8)
+      activerecord (< 3.0.0)
+    cancan (1.3.4)
+    devise (1.0.8)
+      warden (~> 0.10.3)
+    jrails (0.6.0)
+    mysql (2.7)
+    paperclip (2.3.3)
+      activerecord
+      activesupport
+    rack (1.1.0)
+    rails (2.3.9)
+      actionmailer (= 2.3.9)
+      actionpack (= 2.3.9)
+      activerecord (= 2.3.9)
+      activeresource (= 2.3.9)
+      activesupport (= 2.3.9)
+      rake (>= 0.8.3)
+    rake (0.8.7)
+    riddle (1.1.0)
+    thinking-sphinx (1.3.18)
+      activerecord (>= 1.15.6)
+      after_commit (>= 1.0.6)
+      riddle (>= 1.0.10)
+    tiny_mce (0.1.4)
+    truncate_html (0.3.2)
+    warden (0.10.7)
+      rack (>= 1.0.0)
+    will_paginate (2.3.11)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  acts_as_tree
+  cancan
+  devise (= 1.0.8)
+  jrails
+  mysql (= 2.7)
+  paperclip
+  rails (= 2.3.9)
+  thinking-sphinx (= 1.3.18)
+  tiny_mce (= 0.1.4)
+  truncate_html (= 0.3.2)
+  will_paginate (= 2.3.11)

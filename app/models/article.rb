@@ -12,7 +12,9 @@ class Article < ActiveRecord::Base
   has_many :comments
   has_many :article_editors
 
-  validates_presence_of :category_id, :title, :content, :user_id, :preamble, :news_category_id
+  validates_presence_of :category, :title, :content, :user, :preamble, :news_category
+
+  attr_protected :user
 
   has_attached_file :image, :styles => {
     :default => "202x139",

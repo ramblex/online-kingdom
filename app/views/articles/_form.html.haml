@@ -1,0 +1,11 @@
+- semantic_form_for @article, :html => {:multipart => true} do |f|
+  - f.inputs do
+    = f.input :title
+    = f.input :category, :label => 'Game'
+    = f.input :news_category, :label => 'Category'
+    = f.input :image
+    = f.input :preamble, :input_html => {:class => 'comment-area'}
+    = f.input :content, :input_html => {:class => 'mceEditor'}
+    = f.input :featured
+    = f.input :approved if can? :approve, @article
+  = f.buttons

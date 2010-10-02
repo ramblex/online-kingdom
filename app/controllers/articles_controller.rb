@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_filter :authenticate_user!, :except => [:index, :show]
+  before_filter :authenticate_user!, :except => [:index, :show, :home]
   load_and_authorize_resource
   uses_tiny_mce :only => [:new, :create, :edit, :update, :show]
 

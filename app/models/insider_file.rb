@@ -1,7 +1,7 @@
 class InsiderFile < ActiveRecord::Base
   has_attached_file :file,
-                    :url => '/:class/:id/:style.:extension',
-                    :path => ':rails_root/assets/:class/:id_partition/:style.:extension'
+                    :url => '/:class/:id/:basename-:style.:extension',
+                    :path => ':rails_root/assets/:class/:id_partition/:basename-:style.:extension'
 
   before_post_process :image?
 

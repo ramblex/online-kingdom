@@ -39,5 +39,10 @@ namespace :deploy do
     run "[ -d #{prev_dir} ] && cp -R #{prev_dir} #{latest_release}/public/ || echo 'No previous uploads'"
   end
 
-  after 'deploy:update_code', 'deploy:symlink_shared', "deploy:copy_uploads", "deploy:update_db"
+  task :copy_insider_files do
+    prev_dir = "#{previous_release}/assets"
+    run "[ -d #{prev_dir} ] && cp -R #{prev_dir} #{latest_release}/ || echo 'No previous insider files'"
+  end
+
+  after 'deploy:update_code', 'deploy:symlink_shared', "deploy:copy_uploads", "deploy:copy_insider_files", "deploy:update_db"
 end

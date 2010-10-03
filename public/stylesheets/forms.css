@@ -75,7 +75,8 @@ form br {
 }
 
 /** Insider */
-#insider_prizes .fields, #insider_events .fields, #insider_files .fields {
+#insider_prizes .fields, #insider_events .fields, #insider_files .fields,
+#insider_servers .fields {
   background: #eee;
   border: 1px solid gray;
   margin: 10px;
@@ -86,7 +87,7 @@ form br {
   float: left;
 }
 
-#insider_events .fields, #insider_files .fields {
+#insider_events .fields, #insider_files .fields, #insider_servers .fields {
   width: 300px;
 }
 

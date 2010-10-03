@@ -1,0 +1,5 @@
+%li.server
+  = flag insider_server.country
+  %span.name= insider_server.name
+  %span.ip= insider_server.ip
+  = link_to 'JOIN', 'steam://connect/'+insider_server.ip

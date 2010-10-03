@@ -36,6 +36,14 @@
     <% end %>
   </div>
 
+  <h1>Insider servers</h1>
+  <%= add_child_link 'Add a server', f, :insider_servers %>
+  <div id="insider_servers">
+    <% f.fields_for :insider_servers do |file_form| %>
+      <%= render :partial => 'insider_server', :locals => {:f => file_form} %>
+    <% end %>
+  </div>
+
   <p>
     <%= f.submit 'Update' %>
   </p>

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101002092040) do
+ActiveRecord::Schema.define(:version => 20101003174202) do
 
   create_table "album_comments", :force => true do |t|
     t.text     "content"
@@ -227,6 +227,15 @@ ActiveRecord::Schema.define(:version => 20101002092040) do
     t.integer  "insider_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "insider_servers", :force => true do |t|
+    t.string   "country"
+    t.string   "name"
+    t.string   "ip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "insider_id"
   end
 
   create_table "insiders", :force => true do |t|

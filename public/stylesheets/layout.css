@@ -1334,3 +1334,24 @@ ul.insider {
 .insider-page {
   margin: 10px;
 }
+
+.server {
+  list-style: none;
+}
+
+.server .name {
+  display: block;
+  float: left;
+  width: 200px;
+}
+
+.server .ip {
+  display: block;
+  float: left;
+  width: 150px;
+}
+
+.server a {
+  display: block;
+  float: right;
+}

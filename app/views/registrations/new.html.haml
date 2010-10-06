@@ -8,6 +8,6 @@
       = f.input :password
       = f.input :password_confirmation
       = f.input :country
-      = f.input :birthdate, :order => [:day, :month, :year], :start_year => DateTime.now.year - 70
+      = f.input :birthdate, :order => [:day, :month, :year], :start_year => Time.now.year - 70
     - f.buttons do
       = f.commit_button :label => 'Sign up'

@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   ROLES = %w[admin news_writer insider]
 
   validates_length_of :username, :within => 4..20
-  validates_presence_of :username, :email
+  validates_presence_of :username, :email, :country, :birthdate
   validates_uniqueness_of :username
   validates_format_of :username, :with => /^\w+$/i, :message => "can only contain letters and numbers."
 

@@ -129,6 +129,7 @@ module ActionView
               ['Lebanon','lb'],
               ['Liberia','lr'],
               ['Liechtenstein','li'],
+              ['Lithuania', 'lt'],
               ['Luxembourg','lu'],
               ['Lybia','ly'],
               ['Macedonia','mk'],

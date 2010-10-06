@@ -15,8 +15,8 @@
     = render :partial => 'shared/messages'
     #wrapper
       = render :partial => 'shared/head'
-      = link_to '', root_path, :id => 'home-btn'
       %ul#top-nav
+        %li#home= link_to '', root_path, :id => 'home-btn'
         %li#news= link_to '', articles_path
         %li#videos= link_to '', videos_path
         %li#albums= link_to '', albums_path

@@ -302,9 +302,8 @@ div#flash-notice {
   width: 23px;
   height: 20px;
   background: url(../images/home_button.png) 0 0 no-repeat;
-  position: absolute;
-  top: 490px;
-  left: 165px;
+  float: left;
+  margin-left: -40px;
 }
 
 #top-nav {
@@ -324,6 +323,10 @@ ul#top-nav li {
   width: 68px;
   display: block;
   top: 28px;
+}
+
+ul#top-nav li#home {
+  background: none;
 }
 
 ul#top-nav #news { left: 19px; }

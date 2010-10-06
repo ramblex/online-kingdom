@@ -297,6 +297,16 @@ div#flash-notice {
 }
 
 /* Navigation */
+#home-btn {
+  display: block;
+  width: 23px;
+  height: 20px;
+  background: url(../images/home_button.png) 0 0 no-repeat;
+  position: absolute;
+  top: 490px;
+  left: 135px;
+}
+
 #top-nav {
   margin: 0 0 6px 64px;
   float: left;

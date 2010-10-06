@@ -44,5 +44,9 @@ namespace :deploy do
     run "[ -d #{prev_dir} ] && cp -R #{prev_dir} #{latest_release}/ || echo 'No previous insider files'"
   end
 
-  after 'deploy:update_code', 'deploy:symlink_shared', "deploy:copy_uploads", "deploy:copy_insider_files"
+  task :upload_environment do
+    upload "config/environment.rb", "#{latest_release}/config/"
+  end
+
+  after 'deploy:update_code', 'deploy:symlink_shared', "deploy:copy_uploads", "deploy:copy_insider_files", "deploy:upload_environment"
 end

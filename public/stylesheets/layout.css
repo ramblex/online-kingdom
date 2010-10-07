@@ -1207,7 +1207,7 @@ div.comment-info {
 /* News slider */
 #news-slider {
   margin-top: 10px;
-  height: 250px;
+  padding-bottom: 100px;
   position: relative;
 }
 
@@ -1245,6 +1245,10 @@ div.comment-info {
 
 #news-slider #preamble {
   color: #1a3f5a;
+}
+
+#news-slider a.all-matches {
+  clear: both;
 }
 
 #news-slider ul li .preamble, #news-slider ul li .image {

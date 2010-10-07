@@ -23,16 +23,7 @@ class MatchesController < ApplicationController
   # GET /matches
   # GET /matches.xml
   def index
-    if params[:category].blank? or params[:category] == 'all'
-      @matches = Match.search params[:search], :page => params[:page], :order => :start_date, :sort_mode => :desc
-    else
-      if params[:search]
-        @matches = Match.search params[:search], :page => params[:page], :order => :start_date, :sort_mode => :desc, :conditions => {:category_id => params[:category]}
-      else
-        @matches = Match.paginate :page => params[:page], :conditions => {:category_id => params[:category]}
-      end
-    end
-
+    @matches = search_all(Match)
     respond_to do |format|
       format.html # index.html.erb
       format.js { render :partial => @matches }

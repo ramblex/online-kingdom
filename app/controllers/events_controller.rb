@@ -32,27 +32,7 @@ class EventsController < ApplicationController
   end
 
   def index
-    if params[:category].blank? or params[:category] == 'all'
-      if params[:search]
-        @events = Event.search params[:search],
-                                :page => params[:page],
-                                :order => :start_date,
-                                :sort_mode => :desc
-      else
-        @events = Event.paginate :page => params[:page]
-      end
-    else
-      if params[:search]
-        @events = Event.search params[:search], 
-                                :page => params[:page],
-                                :order => :start_date,
-                                :sort_mode => :desc,
-                                :conditions => {:category_id => params[:category]}
-      else
-        @events = Event.paginate :page => params[:page], 
-                                :conditions => {:category_id => params[:category]}
-      end
-    end
+    @events = search_all(Event)
 
     respond_to do |format|
       format.html

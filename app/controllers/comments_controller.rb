@@ -9,6 +9,10 @@ class CommentsController < ApplicationController
       flash[:notice] = "Updated comment"
       if @comment.article_id?
         redirect_to @comment.article
+      elsif @comment.blog_id?
+        redirect_to @comment.blog
+      elsif
+        redirect_to @comment.match
       elsif @comment.album_id?
         redirect_to @comment.album
       end

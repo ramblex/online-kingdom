@@ -11,4 +11,28 @@ class ApplicationController < ActionController::Base
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to '/unauth'
   end
+
+  def search_all(model)
+    if params[:category].blank? or params[:category] == 'all'
+      if params[:search]
+        return model.search params[:search],
+                                :page => params[:page],
+                                :order => :start_date,
+                                :sort_mode => :desc
+      else
+        return model.paginate :page => params[:page]
+      end
+    else
+      if params[:search]
+        return model.search params[:search],
+                            :page => params[:page],
+                            :order => :start_date,
+                            :sort_mode => :desc,
+                            :conditions => {:category_id => params[:category]}
+      else
+       return model.paginate :page => params[:page],
+                             :conditions => {:category_id => params[:category]}
+      end
+    end
+  end
 end

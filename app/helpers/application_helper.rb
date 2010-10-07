@@ -32,17 +32,17 @@ module ApplicationHelper
     html << "</div>"
   end
 
-  def admin_links(obj, extra_class = nil, options = {})
+  def admin_links(obj, extra_class = nil, options = {}, show_options = {})
     if extra_class.eql? :none
       html = '<span>'
     else
       html = %Q[ <span class="admin-links #{extra_class}"> ]
     end
-    if can? :edit, obj
+    if can? :edit, obj and show_options[:no_edit].nil?
       html << (link_to '[Edit]', options.merge(:id => obj.id, :action => 'edit'))
     end
 
-    if can? :delete, obj
+    if can? :delete, obj and show_options[:no_delete].nil?
       html << ' '
       html << (link_to '[Delete]', obj, :method => :delete, :confirm => "Are you sure you want to delete this #{obj.class}?")
     end

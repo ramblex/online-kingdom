@@ -1,6 +1,7 @@
 <div id="left-col">
   <div class="box-title">
     <span class="blue">PRO</span>FILE
+    <%= admin_links @user, nil, {}, {:no_delete => true} %>
   </div>
   <div class="profile-info">
     <%= image_tag @user.avatar.url(:profile), :class => 'profile-picture' %>

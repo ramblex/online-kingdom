@@ -45,7 +45,7 @@
           %span DESIGN BY DSGF DESIGNS - COPYRIGHT &copy; BY ONLINE KINGDOM
         %ul
           %li= link_to 'STREAM', streams_path
-          - Page.all.each do |page|
+          - Page.all(:conditions => :show_link).each do |page|
             %li= link_to page.permalink.upcase, '/static/'+page.permalink unless page.permalink.eql? 'about'
           %li= link_to 'INSIDER', insiders_path
           %li= link_to 'CONTACT', 'mailto:info@onlinekingdom.org'

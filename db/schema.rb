@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101007133942) do
+ActiveRecord::Schema.define(:version => 20101007185938) do
 
   create_table "album_comments", :force => true do |t|
     t.text     "content"
@@ -353,6 +353,7 @@ ActiveRecord::Schema.define(:version => 20101007133942) do
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "show_link"
   end
 
   create_table "partners", :force => true do |t|

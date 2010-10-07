@@ -1,0 +1,7 @@
+- semantic_form_for(@page) do |f|
+  - f.inputs do
+    = f.input :name
+    = f.input :permalink
+    = f.input :show_link, :label => 'Show in bottom links'
+    = f.input :content, :input_html => {:class => 'mceEditor'}
+  = f.buttons

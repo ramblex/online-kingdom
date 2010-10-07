@@ -3,8 +3,8 @@ class MatchesController < ApplicationController
   uses_tiny_mce :options => AppConfig.default_mce_options, :only => [:new, :create, :edit, :update, :show]
 
   def comment
-    params[:comments]['user_id'] = current_user.id
     @comment = Match.find(params[:id]).comments.build(params[:comments])
+    @comment.user_id = current_user.id
 
     if @comment.save
       flash[:notice] = "Added your comment"

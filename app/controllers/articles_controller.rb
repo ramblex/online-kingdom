@@ -27,8 +27,8 @@ class ArticlesController < ApplicationController
   end
 
   def comment
-    params[:comments]['user_id'] = current_user.id
     @comment = Article.find(params[:id]).comments.build(params[:comments])
+    @comment.user_id = current_user.id
 
     if @comment.save
       flash[:notice] = "Added your comment"

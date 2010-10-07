@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101003174202) do
+ActiveRecord::Schema.define(:version => 20101007133942) do
 
   create_table "album_comments", :force => true do |t|
     t.text     "content"
@@ -138,6 +138,7 @@ ActiveRecord::Schema.define(:version => 20101003174202) do
     t.datetime "updated_at"
     t.integer  "album_photo_id"
     t.integer  "event_id"
+    t.integer  "blog_id"
   end
 
   create_table "event_editors", :force => true do |t|

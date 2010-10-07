@@ -2,6 +2,19 @@ class BlogsController < ApplicationController
   load_and_authorize_resource
   uses_tiny_mce :options => AppConfig.default_mce_options, :only => [:new, :create, :edit, :update, :show]
 
+  def comment
+    @comment = Blog.find(params[:id]).comments.build(params[:comments])
+    @comment.user_id = current_user.id
+
+    if @comment.save
+      flash[:notice] = "Added your comment"
+      redirect_to :action => "show", :id => params[:id]
+    else
+      flash[:alert] = "Could not add your comment"
+      redirect_to :back
+    end
+  end
+
   def admin
     @blogs = Blog.all
   end

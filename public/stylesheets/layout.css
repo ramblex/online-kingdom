@@ -908,6 +908,7 @@ div.comment-info {
   width: 30%;
   display: block;
   float: left;
+  overflow: hidden;
 }
 
 #match-ticker img {
@@ -920,6 +921,7 @@ div.comment-info {
 #match-ticker .team2 {
   margin-left: 16px;
   width: 150px;
+  overflow: hidden;
 }
 
 #match-ticker .scores {

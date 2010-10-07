@@ -16,7 +16,7 @@
             <%= link_to (image_tag @articles.first.image.url(:slider)), @articles.first %>
           </div>
           <div id="preamble">
-            <%= truncate_html @articles.first.preamble, :length => 250 %>
+            <%= truncate_html @articles.first.preamble, :length => 550 %>
           </div>
         <% else %>
           No news stories
@@ -30,13 +30,12 @@
             <%= link_to (image_tag article.image.url(:slider)), article %>
           </div>
           <div class="preamble">
-            <%= article.preamble %>
+            <%= truncate_html article.preamble, :length => 550 %>
           </div>
         </li>
       <% end %>
       </ul>
       <%= link_to "&raquo; all news", articles_path, :class => 'all-matches' %>
-      <div class="clear"></div>
       <div id="follow-us">
         <div class="box-title">
           <span class="blue">FOLLOW</span> US
@@ -45,6 +44,7 @@
         <%= link_to image_tag('twitter.gif'), 'http://twitter.com/OnlineKingdom' %>
         <%= link_to image_tag('facebook.gif'), 'http://www.facebook.com/group.php?gid=148816079320' %>
       </div>
+      <div class="clear"></div>
     </div>
   </div>
 

@@ -1206,8 +1206,7 @@ div.comment-info {
 
 /* News slider */
 #news-slider {
-  margin-top: 10px;
-  padding-bottom: 100px;
+  margin: 10px 0 -8px 0;
   position: relative;
 }
 
@@ -1245,10 +1244,12 @@ div.comment-info {
 
 #news-slider #preamble {
   color: #1a3f5a;
+  text-align: justify;
+  text-justify: newspaper;
 }
 
 #news-slider a.all-matches {
-  clear: both;
+  clear: right;
 }
 
 #news-slider ul li .preamble, #news-slider ul li .image {
@@ -1256,12 +1257,12 @@ div.comment-info {
 }
 
 #follow-us {
-  position: absolute;
-  bottom: -8px;
-  right: -15px;
+  clear: right;
+  float: right;
   width: 200px;
   height: 86px;
   padding: 9px 0 0 12px;
+  margin: 10px -15px 0 0;
   border-left: 1px solid #c4c4c4;
   border-top: 1px solid #c4c4c4;
   border-right: 1px solid white;

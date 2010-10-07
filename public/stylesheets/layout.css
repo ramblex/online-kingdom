@@ -259,15 +259,18 @@ div#flash-notice {
   padding-left: 70px;
 }
 
+#logged-in a {
+  color: white;
+}
+
 #logged-in #links {
   float: right;
   width: 200px;
 }
 
-#logged-in a {
-  color: white;
-  text-decoration: none;
+#logged-in #links a {
   margin-left: 15px;
+  text-decoration: none;
 }
 
 #logged-in a:hover {

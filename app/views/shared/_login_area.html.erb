@@ -1,7 +1,7 @@
 <% if user_signed_in? %>
   <%= image_tag current_user.avatar.url(:default), :class => 'news-author-picture' %>
   <div id="logged-in">
-    Welcome back <%= truncate current_user.username, :length => 15 %>
+    Welcome back <%= link_to (truncate current_user.username, :length => 15), current_user %>
     <div id="links">
       <%= link_to 'INBOX' %>
       <%= link_to 'SETTINGS', settings_path %>
@@ -13,8 +13,7 @@
     <%= text_field :user, :username, :id => 'login-username' %><br />
     <%= password_field :user, :password, :id => 'login-password' %>
     <%= image_submit_tag "login-btn-bg.png", :id => 'login-btn', :alt => 'login' %>
-    <%= link_to(image_tag("pw-btn-bg.png"), '#', :class => 'pw') %>
+    <%= link_to(image_tag("pw-btn-bg.png"), new_user_password_path, :class => 'pw') %>
   <% end -%>
   <span>Not a member? <%= link_to "JOIN NOW", new_user_registration_path %></span>
-  <span class="forgot"><%= link_to 'Forgot password?', new_user_password_path %></span>
 <% end %>

@@ -882,9 +882,9 @@ div.comment-info {
 }
 
 #match-ticker {
+  margin: 10px 0 0 0;
   clear: both;
   list-style: none;
-  font-size: 90%;
 }
 
 #match-ticker li {
@@ -896,10 +896,12 @@ div.comment-info {
   text-decoration: none;
   display: block;
   color: black;
+  padding: 0 3px;
 }
 
 #match-ticker li a:hover {
-  background: #e3e3e3;
+  background: #E5ECF9;
+  font-weight: bold;
 }
 
 #match-ticker .team1 {

@@ -63,9 +63,9 @@ class ArticlesController < ApplicationController
   # GET /articles.xml
   def index
     if params[:category].blank? or params[:category].eql? 'all'
-      @articles = Article.approved.paginate :page => params[:page]
+      @articles = Article.approved.with_related.paginate :page => params[:page]
     else
-      @articles = Article.approved.paginate :page => params[:page], :conditions => ['category_id = ?', params[:category]]
+      @articles = Article.approved.with_related.paginate :page => params[:page], :conditions => ['category_id = ?', params[:category]]
     end
 
     respond_to do |format|

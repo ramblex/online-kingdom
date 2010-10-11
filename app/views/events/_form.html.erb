@@ -33,6 +33,10 @@
     <%= f.collection_select :format_id, Format.all, :id, :name %>
   </p>
   <p>
+    <%= f.label :information, 'Information' %>
+    <%= f.text_area :information, :class => 'mceEditor' %>
+  </p>
+  <p>
     <%= f.label :has_groups %><br />
     <%= f.check_box :has_groups %>
   </p>

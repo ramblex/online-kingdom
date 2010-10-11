@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101010172615) do
+ActiveRecord::Schema.define(:version => 20101011132959) do
 
   create_table "album_comments", :force => true do |t|
     t.text     "content"
@@ -179,6 +179,7 @@ ActiveRecord::Schema.define(:version => 20101010172615) do
     t.integer  "large_logo_file_size"
     t.datetime "large_logo_updated_at"
     t.integer  "click_count"
+    t.text     "information"
   end
 
   create_table "formats", :force => true do |t|

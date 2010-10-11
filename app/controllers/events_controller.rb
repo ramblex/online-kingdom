@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
   load_and_authorize_resource
+  uses_tiny_mce :options => AppConfig.default_mce_options, :only => [:new, :create, :edit, :update]
 
   def admin
     @events = Event.all

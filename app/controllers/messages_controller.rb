@@ -28,7 +28,7 @@ class MessagesController < ApplicationController
 
   def new
     @message = Message.new
-    @valid_recipients = User.all :conditions => ['id != ?', current_user.id]
+    @valid_recipients = User.all :conditions => ['id != ?', current_user.id], :order => 'username ASC'
   end
 
   def create

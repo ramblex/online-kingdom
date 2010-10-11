@@ -1,0 +1,6 @@
+- semantic_form_for @message do |f|
+  - f.inputs do
+    = f.input :recipient, :label => 'To', :as => :select, :collection => @valid_recipients
+    = f.input :title
+    = f.input :content, :label => 'Message'
+  = f.buttons

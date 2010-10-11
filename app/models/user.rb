@@ -43,6 +43,8 @@ class User < ActiveRecord::Base
   has_many :matches
   has_many :players
   has_many :albums
+  has_many :received_messages, :class_name => 'Message', :foreign_key => 'receiver_id'
+  has_many :sent_messages, :class_name => 'Message', :foreign_key => 'from_id'
 
   has_attached_file :avatar, :styles => {
     :default => "50x50#",

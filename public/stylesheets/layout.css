@@ -269,7 +269,7 @@ div#flash-notice {
 }
 
 #logged-in #links a {
-  margin-left: 15px;
+  margin-left: 10px;
   text-decoration: none;
 }
 
@@ -545,7 +545,7 @@ table.match-info tr, table.match-info td {
   border-bottom: 1px solid #d9d9d9;
 }
 
-.odd {
+.odd, .unread {
   background: #ededed;
 }
 
@@ -1379,4 +1379,15 @@ ul.insider {
 .server a {
   display: block;
   float: right;
+}
+
+.message-box {
+  padding: 7px;
+  border: 1px solid #d9d9d9;
+  background: #ededed;
+  margin-bottom: 10px;
+}
+
+.read {
+  color: gray;
 }

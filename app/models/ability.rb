@@ -18,7 +18,16 @@ class Ability
       u && u.id == user.id
     end
 
-    can :create, [Blog, Album, Video, Comment, Article]
+    can [:read, :update], Message do |m|
+      m && (m.from_id == user.id or m.receiver_id == user.id)
+    end
+
+    # Users can reply to messages that they receive
+    can :reply, Message do |m|
+      m && (m.receiver_id == user.id)
+    end
+
+    can :create, [Blog, Album, Video, Comment, Article, Message]
     can :comment, Article
     can :rate, Article
 

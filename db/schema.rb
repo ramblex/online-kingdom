@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101007185938) do
+ActiveRecord::Schema.define(:version => 20101010172615) do
 
   create_table "album_comments", :force => true do |t|
     t.text     "content"
@@ -321,6 +321,17 @@ ActiveRecord::Schema.define(:version => 20101007185938) do
     t.integer  "group_id"
     t.boolean  "featured"
     t.integer  "click_count"
+  end
+
+  create_table "messages", :force => true do |t|
+    t.integer  "from_id"
+    t.integer  "receiver_id"
+    t.string   "title"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "read",        :default => false
+    t.integer  "parent_id"
   end
 
   create_table "news_categories", :force => true do |t|

@@ -1,0 +1,9 @@
+#full-col
+  = render :partial => @message
+
+  %p
+    = link_to 'Original message', @message.parent unless @message.parent.nil?
+
+  %p
+    = link_to 'Reply', reply_to_message_path(@message) if can? :reply, @message
+    = link_to "My messages", messages_path

@@ -3,7 +3,7 @@
   <div id="logged-in">
     Welcome back <%= link_to (truncate current_user.username, :length => 15), current_user %>
     <div id="links">
-      <%= link_to 'INBOX' %>
+      <%= link_to "INBOX (#{current_user.received_messages.unread.size})", messages_path %>
       <%= link_to 'SETTINGS', settings_path %>
       <%= link_to 'LOGOUT', destroy_user_session_path %>
     </div>

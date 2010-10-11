@@ -1,0 +1,15 @@
+.message-box
+  Message from
+  - if message.sender.id == current_user.id
+    %strong you
+  - else
+    %strong=h message.sender.username
+  to
+  - if message.recipient.id == current_user.id
+    %strong you
+  - else
+    %strong=h message.recipient.username
+  %hr
+  %p
+    %strong=h message.title
+  =h message.content

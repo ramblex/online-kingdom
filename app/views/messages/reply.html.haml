@@ -1,0 +1,10 @@
+#full-col
+  %h2 Reply to #{@message.recipient.username}
+  = render :partial => @parent
+  - semantic_form_for @message do |f|
+    - f.inputs do
+      = f.input :receiver_id, :as => :hidden
+      = f.input :parent_id, :as => :hidden
+      = f.input :title
+      = f.input :content, :label => 'Reply message'
+    = f.buttons

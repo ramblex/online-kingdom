@@ -4,6 +4,7 @@
     <%= f.text_field :name %>
   </p>
   <p><%= link_to 'Add a match', '', :id => 'add-match' %></p>
+  <div id="num-teams">0</div>
   <div id="tournament">
     <% @bracket.event_teams.group_by(&:round).each do |round, teams| %>
       <div class="tournament-round" id="round-<%= round %>">

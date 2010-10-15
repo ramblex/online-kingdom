@@ -11,9 +11,11 @@
             <div class="team">
               <% if event_team.team %>
                 <%= flag event_team.team.country %>
-                <%= truncate event_team.team.name, :length => 10 %>
+                <span class="name">
+                  <%= truncate event_team.team.name, :length => 10 %>
+                </span>
                 <% if event_team.match and event_team.match.has_happened %>
-                  <span>
+                  <span class="score">
                   <% if idx == 0 %>
                     <%= event_team.match.team1_score %>
                   <% else %>

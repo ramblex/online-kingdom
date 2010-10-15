@@ -4,6 +4,8 @@
 
 #tournament {
   padding: -20px 0 -20px 15px;
+  white-space: nowrap;
+  overflow-x: scroll;
 }
 
 #team-select {
@@ -11,8 +13,10 @@
 }
 
 .tournament-round {
-  float: left;
+  display: inline-block;
   width: 120px;
+  vertical-align: top;
+  margin: 0 -1px 0 -2px;
 }
 
 .match {
@@ -55,8 +59,14 @@
   width: 100%;
 }
 
-.team span {
+.team span.name {
+  float: left;
+  display: block;
+}
+
+.team span.score {
   float: right;
+  display: block;
 }
 
 #round-1 .team {
@@ -72,11 +82,11 @@
 }
 
 #round-4 .team {
-  margin: 160px 0 215px 0;
+  margin: 160px 0 300px 0;
 }
 
 #round-5 .team {
-  margin: 320px 0 445px 0;
+  margin: 320px 0 620px 0;
 }
 
 #round-6 .team {

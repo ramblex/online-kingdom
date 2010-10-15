@@ -39,8 +39,16 @@ function add_team() {
   }
 }
 
+
+function update_num_teams() {
+  $("#num-teams").html("Number of teams in round 1: " + $("#round-1 .team").size());
+}
+
 $('#add-match').click(function() {
   add_team();
   add_team();
+  update_num_teams();
   return false;
 });
+
+update_num_teams();

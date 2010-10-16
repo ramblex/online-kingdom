@@ -772,8 +772,8 @@ div.comment-info {
   color: white;
   text-decoration: none;
   font-family: "Arial Rounded MT Bold", Arial;
-  font-weight: normal;
-  font-size: 10px;
+  font-weight: bold;
+  font-size: 8px;
   margin-bottom: 12px;
   padding: 0 7px;
   background: #1a3f5a;

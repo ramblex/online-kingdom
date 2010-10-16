@@ -90,7 +90,11 @@
 }
 
 #round-6 .team {
-  margin: 640px 0 0 0;
+  margin: 640px 0 1260px 0;
+}
+
+#round-7 .team {
+  margin: 1280px 0 0 0;
 }
 
 /** Groups */

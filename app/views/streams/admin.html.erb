@@ -11,7 +11,7 @@
     <tr class="<%= cycle 'even', 'odd' %>">
       <td><%= stream.title %></td>
       <td><%= stream.category.name %></td>
-      <td><%= stream.event.name %></td>
+      <td><%= stream.event.name unless stream.event.nil? %></td>
       <td><%= admin_links stream, :none %></td>
     </tr>
   <% end %>

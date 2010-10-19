@@ -9,6 +9,7 @@
     = javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery?
     = javascript_include_tiny_mce_if_used
     = tiny_mce if using_tiny_mce?
+    <link rel="shortcut icon" href="/favicon.ico" />
     = yield :head
     :javascript
       var _gaq = _gaq || [];

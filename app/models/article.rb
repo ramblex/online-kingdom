@@ -6,6 +6,7 @@ class Article < ActiveRecord::Base
   named_scope :front_page, :limit => 12
   named_scope :news_category, lambda {|id| {:conditions => ['news_category_id = ? ', id]}}
   named_scope :with_related, :include => [:article_editors, :article_ratings, :user]
+  named_scope :get_lang, lambda {|lang| {:conditions => ['lang = ?', lang]}}
   belongs_to :category
   belongs_to :news_category
   belongs_to :user
@@ -13,7 +14,7 @@ class Article < ActiveRecord::Base
   has_many :comments
   has_many :article_editors
 
-  validates_presence_of :category, :title, :content, :user, :preamble, :news_category
+  validates_presence_of :category, :title, :content, :user, :preamble, :news_category, :lang
 
   attr_protected :user
 

@@ -1,6 +1,7 @@
 - semantic_form_for @article, :html => {:multipart => true} do |f|
   - f.inputs do
     = f.input :title
+    = f.input :lang, :as => :select, :collection => ['English', 'Portuguese'], :label => 'Language'
     = f.input :category, :label => 'Game'
     = f.input :news_category, :label => 'Category'
     = f.input :image

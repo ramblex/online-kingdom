@@ -1391,3 +1391,33 @@ ul.insider {
 .read {
   color: gray;
 }
+
+#lang {
+  background: url(../images/lang.png) no-repeat;
+  height: 56px;
+  width: 26px;
+  float: left;
+  margin-left: -32px;
+  list-style: none;
+}
+
+#lang li {
+  width: 26px;
+  height: 27px;
+  margin-bottom: 3px;
+}
+
+#lang a {
+  display: block;
+  width: 26px;
+  height: 27px;
+  text-indent: -3000px;
+}
+
+#lang #english a:hover, #lang #english.selected {
+  background: url(../images/lang.png) -25px 0;
+}
+
+#lang #portuguese a:hover, #lang #portuguese.selected {
+  background: url(../images/lang.png) -25px 26px;
+}

@@ -37,7 +37,11 @@ class AlbumsController < ApplicationController
   # GET /albums
   # GET /albums.xml
   def index
-    @albums = Album.search params[:search]
+    if params[:search].blank?
+      @albums = Album.all
+    else
+      @albums = Album.search params[:search]
+    end
 
     respond_to do |format|
       format.html # index.html.erb

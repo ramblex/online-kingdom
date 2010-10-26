@@ -6,6 +6,7 @@ class ArticlesController < ApplicationController
   # Home page - may be worth putting this in a separate controller but that seems
   # overkill for now.
   def home
+    params[:lang] ||= 'English'
     if params[:match_category].blank? or params[:match_category].downcase.eql? 'all'
       @matches = Match.all :limit => 15
     else
@@ -13,9 +14,9 @@ class ArticlesController < ApplicationController
     end
 
     if params[:category].blank? or params[:category].downcase.eql? 'all'
-      @articles = Article.approved.front_page.news_category(NewsCategory.first.id)
+      @articles = Article.approved.front_page.get_lang(params[:lang]).news_category(NewsCategory.first.id)
     else
-      @articles = Article.approved.front_page.news_category(params[:category])
+      @articles = Article.approved.front_page.get_lang(params[:lang]).news_category(params[:category])
     end
 
     @blogs = Blog.all :limit => 5

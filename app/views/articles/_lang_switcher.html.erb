@@ -1,0 +1,9 @@
+<% params[:lang] ||= 'English' %>
+<ul id="lang">
+  <li id="english" <%= 'class="selected"' if params[:lang].eql? 'English' %>>
+    <%= link_to 'English', params.merge(:lang => 'English') %>
+  </li>
+  <li id="portuguese" <%= 'class="selected"' if params[:lang].eql? 'Portuguese' %>>
+    <%= link_to 'Portuguese', params.merge(:lang => 'Portuguese') %>
+  </li>
+</ul>

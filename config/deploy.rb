@@ -1,11 +1,11 @@
 set :application, "online-kingdom"
 set :repository,  "ssh://git@178.79.132.38/home/git/online-kingdom.git"
-set :user, "alexd"
+set :user, "onlinek"
 ssh_options[:forward_agent] = true
 
 default_run_options[:pty] = true
 
-set :deploy_to, "/home/alexd/public_html/#{application}"
+set :deploy_to, "/home/onlinek/public_html/#{application}"
 set :deploy_via, :remote_cache
 
 set :default_environment, {
@@ -15,9 +15,9 @@ set :default_environment, {
 set :scm, :git
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 
-role :web, "178.79.132.38"                          # Your HTTP server, Apache/etc
-role :app, "178.79.132.38"                          # This may be the same as your `Web` server
-role :db,  "178.79.132.38", :primary => true # This is where Rails migrations will run
+role :web, "94.46.15.116"                          # Your HTTP server, Apache/etc
+role :app, "94.46.15.116"                          # This may be the same as your `Web` server
+role :db,  "94.46.15.116", :primary => true # This is where Rails migrations will run
 
 # If you are using Passenger mod_rails uncomment this:
 # if you're still using the script/reapear helper you will need
@@ -31,7 +31,7 @@ namespace :deploy do
   end
 
   task :symlink_shared do
-    run "ln -sfn /home/alexd/public_html/#{application}/shared/database.yml #{release_path}/config/database.yml"
+    run "ln -sfn /home/onlinek/public_html/#{application}/shared/database.yml #{release_path}/config/database.yml"
   end
 
   task :copy_uploads do

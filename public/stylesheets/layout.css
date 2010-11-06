@@ -428,6 +428,11 @@ ul#top-nav a {
   overflow: hidden;
 }
 
+.news-content .date {
+  font-size: 90%;
+  color: #5d5d5d;
+}
+
 .news-rating {
   width: 60px;
   height: 12px;

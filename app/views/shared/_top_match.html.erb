@@ -11,23 +11,9 @@
   <%= latest.start_date.to_formatted_s :match %>
 </div>
 <div id="top-match-content">
-  <div class="team">
-    <% if latest.team1.logo? %>
-      <%= image_tag latest.team1.logo.url, :class => 'logo' %>
-    <% else %>
-      <div class="logo"></div>
-    <% end %>
-    <%= link_to truncate(latest.team1.name, :length => 16), latest.team1, :class => 'name' %>
-  </div>
+  <%= render :partial => 'shared/team_logo', :locals => {:team => latest.team1} %>
   <div class="versus">VERSUS</div>
-  <div class="team">
-    <% if latest.team2.logo? %>
-      <%= image_tag latest.team2.logo.url, :class => 'logo' %>
-    <% else %>
-      <div class="logo"></div>
-    <% end %>
-    <%= link_to truncate(latest.team2.name, :length => 16), latest.team2, :class => 'name' %>
-  </div>
+  <%= render :partial => 'shared/team_logo', :locals => {:team => latest.team2} %>
   <%= link_to image_tag('match-link.gif'), latest, :class => 'readmore' %>
 </div>
 <% end %>

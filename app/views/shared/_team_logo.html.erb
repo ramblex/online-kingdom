@@ -1,0 +1,10 @@
+<div class="team">
+  <% if team.logo? %>
+    <%= image_tag team.logo.url, :class => 'logo' %>
+  <% elsif !team.player.nil? %>
+    <%= image_tag team.player.avatar.url, :class => 'logo' %>
+  <% else %>
+    <div class="logo"></div>
+  <% end %>
+  <%= link_to truncate(team.name, :length => 16), team, :class => 'name' %>
+</div>

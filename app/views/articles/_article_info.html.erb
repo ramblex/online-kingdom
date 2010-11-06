@@ -1,6 +1,6 @@
 <% div_for article, :class => 'news-content' do %>
   <%= link_to article.title, article, :class => 'news-title' %><br />
-  <div class="date">Posted on <%= article.created_at.strftime "%d %B %Y" %></div>
+  <div class="date">Posted on <%= article.created_at.strftime "%d %B %Y at %H:%M %Z" %></div>
   <%= admin_links article %>
   <div class="news-rating"><%= stars_for article %></div>
   <%= truncate_html(article.preamble, :length => 320) %>

@@ -12,6 +12,7 @@
   <% form_tag :action => 'sign_in', :controller => 'users' do %>
     <%= text_field :user, :username, :id => 'login-username' %><br />
     <%= password_field :user, :password, :id => 'login-password' %>
+    <p><%= check_box :user, :remember_me %> Remember me</p>
     <%= image_submit_tag "login-btn-bg.png", :id => 'login-btn', :alt => 'login' %>
     <%= link_to(image_tag("pw-btn-bg.png"), new_user_password_path, :class => 'pw') %>
   <% end -%>

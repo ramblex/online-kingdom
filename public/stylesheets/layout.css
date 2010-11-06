@@ -220,6 +220,12 @@ div#flash-notice {
   float: left;
 }
 
+#login form p {
+  position: absolute;
+  right: -122px;
+  bottom: 0;
+}
+
 #login-username, #login-password {
   width: 184px;
   height: 20px;

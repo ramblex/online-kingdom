@@ -16,3 +16,4 @@
   <li><%= link_to 'Streams', admin_streams_path if can? :manage, Stream %></li>
   <li><%= link_to 'Insider page', edit_insider_path(1) if can? :update, Insider %></li>
   <li><%= link_to 'About', '/pages/1/edit' if can? :manage, Page %></li>
+  <li><%= link_to 'Videos', admin_videos_path if can? :manage, Video %></li>

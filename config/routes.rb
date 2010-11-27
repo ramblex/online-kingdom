@@ -16,7 +16,6 @@ ActionController::Routing::Routes.draw do |map|
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   map.resources :products
-  map.resources :videos
   map.devise_for :users
   map.resources :settings, :except => :show
   map.resources :albums
@@ -41,6 +40,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :formats, :collection => {:admin => :get}
   map.resources :articles, :collection => {:admin => :get, :unapproved => :get}
   map.resources :matches, :collection => {:admin => :get}
+  map.resources :videos, :collection => {:admin => :get}
   map.resources :events, :collection => {:admin => :get}, :shallow => true do |event|
     event.resources :groups
     event.resources :brackets

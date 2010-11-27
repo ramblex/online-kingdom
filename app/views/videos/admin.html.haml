@@ -1,0 +1,12 @@
+%h1 Video administration
+=link_to 'Add video', new_video_path
+%table.admin-table
+  %tr
+    %th Name
+    %th Uploader
+    %th Admin
+  - @videos.each do |video|
+    %tr
+      %td= video.name
+      %td= video.user.username
+      %td= admin_links video, :none, {}, {:no_edit => true}

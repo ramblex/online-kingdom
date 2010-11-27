@@ -578,6 +578,10 @@ table.match-info td.title {
   margin: 27px 52px 0 0;
 }
 
+#home-page-videos .album {
+  margin-right: 48px;
+}
+
 .album .name {
   height: 38px;
 }

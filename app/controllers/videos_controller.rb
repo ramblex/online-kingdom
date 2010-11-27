@@ -1,6 +1,10 @@
 class VideosController < ApplicationController
   load_and_authorize_resource
 
+  def admin
+    @videos = Video.all
+  end
+
   # GET /videos
   # GET /videos.xml
   def index
@@ -72,7 +76,7 @@ class VideosController < ApplicationController
     @video.destroy
 
     respond_to do |format|
-      format.html { redirect_to(videos_url) }
+      format.html { redirect_to(admin_videos_url) }
       format.xml  { head :ok }
     end
   end

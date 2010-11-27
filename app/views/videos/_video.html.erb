@@ -1,5 +1,5 @@
 <div class="album">
-  <%= link_to image_tag(video.source.url(:small)), video.source.url %>
+  <%= link_to image_tag(video.source.url(:thumb)), video.source.url %>
   <div class="name"><%= truncate video.name, :length => 40 %></div>
   <div class="info">
     By: <%= link_to video.user.username, video.user %>

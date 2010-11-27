@@ -1,5 +1,11 @@
 <h1>New video</h1>
 
+<%= render_uploadify(:id => 'video_source',
+                     :url => videos_path,
+                     :allowed_extensions => [:mov, :avi, :swf, :wmv],
+                     :fields => ['video_name'],
+                     :allow_multiple_files => false) %>
+
 <% form_for @video, :html => { :multipart => true } do |f| %>
   <%= f.error_messages %>
 
@@ -12,7 +18,7 @@
     <%= f.file_field :source %>
   </p>
   <p>
-    <%= f.submit 'Create' %>
+    <%= uploadify_submit('Upload') %>
   </p>
 <% end %>
 

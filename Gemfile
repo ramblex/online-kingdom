@@ -12,3 +12,6 @@ gem 'thinking-sphinx', '1.3.18', :require => 'thinking_sphinx'
 gem 'formtastic'
 gem 'validation_reflection', '0.3.8'
 gem 'haml'
+
+# Videos
+gem 'mime-types', :require => 'mime/types'

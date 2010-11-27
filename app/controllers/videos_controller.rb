@@ -38,9 +38,11 @@ class VideosController < ApplicationController
       if @video.save
         flash[:notice] = 'Video was successfully created.'
         format.html { redirect_to(@video) }
+        format.json { render :json => {:result => 'success', :video => @video} }
         format.xml  { render :xml => @video, :status => :created, :location => @video }
       else
         format.html { render :action => "new" }
+        format.json { render :json => {:result => 'error', :error => @video.errors.full_messages.to_sentence}}
         format.xml  { render :xml => @video.errors, :status => :unprocessable_entity }
       end
     end

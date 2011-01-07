@@ -19,7 +19,7 @@
     <tr class="<%= cycle 'even', 'odd' %>">
       <td><%= article.title %></td>
       <td><%= article.user.username %></td>
-      <td><%= article.news_category.name %></td>
+      <td><%= article.news_category.name unless article.news_category.nil? %></td>
       <td><%= article.category.name %></td>
       <td><%= article.created_at %></td>
       <td><%= admin_links article, :none %></td>

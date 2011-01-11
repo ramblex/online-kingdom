@@ -1,0 +1,24 @@
+Try to create an independent "boxing" system. The idea is to create, on the admin page, a "temporary box" on main page. That temporary box would show between NEWS SWTICH BOX & INSIDER PLAN BOX.
+
+So the admin page would have:
+
+- > Create temporary box -> Name (ie: NEWS SWITCH) / Subtitle (ie: Content Changer) a box where we can writter wtv we want
+
+-> Layout: Event Box / Special Video Box  / Speacial Albums Box
+
+If you pick Event Box you get:
+
+IMAGE + Headlines (like in the news switch)
+So this could work, you would just have to make possible when writting an article (on new/edit templates) add a box with "special box" and a drop down with none (so that's the default, you select none it just appears on the normal news headlidnes position), and the names of special boxes. It's quite tricky, but do you get what I mean? I will try to design that special box tonight.
+and under:
+
+Title of EVENT "clickable" so it would redirect to the event page.
+Use the same idea used for news
+
+and under that the possibility of insering just text (so a normal text field).
+
+-----
+
+Special Video Box / Albums:
+
+Here it's pretty simple. It would just have the Name / Subtitle + show thumbs of certain videos (selected on the admin page with "Videos" and "albums" [btw please create an admin page where we can see all albuns and all vids, so we can control them, edit, add, or delete), and select the same system as for Event Box

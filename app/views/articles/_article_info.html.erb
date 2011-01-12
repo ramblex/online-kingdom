@@ -1,5 +1,5 @@
 <% div_for article, :class => 'news-content' do %>
-  <%= link_to article.title, article, :class => 'news-title' %><br />
+  <h1><%= link_to article.title, article, :class => 'news-title' %></h1>
   <div class="date">Posted on <%= article.created_at.strftime "%d %B %Y at %H:%M %Z" %></div>
   <%= admin_links article %>
   <div class="news-rating"><%= stars_for article %></div>

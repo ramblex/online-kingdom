@@ -1,13 +1,13 @@
 <div id="wide-left-col">
   <div class="box">
-    <h1><span class="blue">NEWS</span> PAGE</h1>
+    <%= title 'NEWS PAGE' %>
     <%= render :partial => 'article_info', :locals => {:article => @article} %>
     <hr />
     <%= @article.content %>
   </div>
   <div id="comments-box" class="box">
     <a name="comments"></a>
-    <div id="comments-title"><h1><span class="blue">COM</span>MENTS</h1></div>
+    <div id="comments-title"><%= title 'COMMENTS' %></div>
     <div id="holder">
       <%= render :partial => @article.comments.roots, :locals => {:obj => @article} %>
     </div>
@@ -30,7 +30,7 @@
 <div id="thin-right-col">
   <div class="box">
     <div class="box-title">
-      <span class="blue">CREDITS</span> TO
+      <%= title 'CREDITS TO' %>
     </div>
     <div class="clear"></div>
     <%= render :partial => 'author', :locals => {:user => @article.user} %>

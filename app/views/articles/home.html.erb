@@ -127,8 +127,8 @@
       <% @blogs.each do |blog| %>
         <div class="blog">
           <%= image_tag blog.user.avatar.url(:default) %>
-          <%= link_to blog.title, blog %><br />
-          <em>posted on <%= blog.created_at.strftime "%d %B %Y at %H:%M %Z" %></em> by <%= link_to blog.user.username, blog.user %>
+          <%= link_to blog.title, blog %> by <%= link_to blog.user.username, blog.user %><br />
+          <div class="date">posted on <%= blog.created_at.strftime "%d %B %Y at %H:%M %Z" %></div>
           <%= admin_links blog, 'inline-admin', :controller => 'blogs' %>
           <br />
           <%= truncate_html blog.preamble, :length => 200 %>

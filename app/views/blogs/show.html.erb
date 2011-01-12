@@ -2,7 +2,7 @@
   <div class="box" id="blog">
     <%= title 'BLOG' %>
     <%= admin_links @blog %>
-    <h2><strong><%= @blog.title %></strong></h2>
+    <h1><strong><%= @blog.title %></strong></h1>
     <div class="date">Posted on <%= @blog.created_at.strftime "%d %B %Y at %H:%M %Z" %></div>
     <div class="preamble">
       <%= @blog.preamble %>

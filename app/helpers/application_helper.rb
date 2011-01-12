@@ -75,10 +75,10 @@ module ApplicationHelper
   def title(title)
     if title.split.length > 1
       words = title.split
-      html = %Q[<h1><span class="blue">#{words[0]}</span> #{words[1..-1]}</h1>]
+      html = %Q[<div class="title"><span class="blue">#{words[0]}</span> #{words[1..-1]}</div>]
     else
       mid = (title.length / 2) - 1
-      html = %Q[<h1><span class="blue">#{title[0..mid]}</span>#{title[mid+1..-1]}</h1>]
+      html = %Q[<div class="title"><span class="blue">#{title[0..mid]}</span>#{title[mid+1..-1]}</div>]
     end
     html
   end

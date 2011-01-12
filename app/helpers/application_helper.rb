@@ -71,4 +71,15 @@ module ApplicationHelper
   def full_name(obj)
     "#{obj.firstname} '#{obj.username}' #{obj.surname}"
   end
+
+  def title(title)
+    if title.split.length > 1
+      words = title.split
+      html = %Q[<h1><span class="blue">#{words[0]}</span> #{words[1..-1]}</h1>]
+    else
+      mid = (title.length / 2) - 1
+      html = %Q[<h1><span class="blue">#{title[0..mid]}</span>#{title[mid+1..-1]}</h1>]
+    end
+    html
+  end
 end

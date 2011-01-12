@@ -428,7 +428,7 @@ ul#top-nav a {
   overflow: hidden;
 }
 
-.news-content .date {
+.date {
   font-size: 90%;
   color: #5d5d5d;
 }
@@ -1010,6 +1010,10 @@ div.comment-info {
 .blog-show-info p {
   font-size: 120%;
   margin: 16px 0;
+}
+
+#blog .preamble {
+  margin-top: 15px;
 }
 
 .player {

@@ -1,9 +1,10 @@
 <div id="wide-left-col">
-  <div class="box">
-    <h1><span class="blue">BL</span>OG</h1>
+  <div class="box" id="blog">
+    <%= title 'BLOG' %>
     <%= admin_links @blog %>
-    <div class="blog-show-info">
-      <p><strong>By <%= @blog.user.username %></strong></p>
+    <h2><strong><%= @blog.title %></strong></h2>
+    <div class="date">Posted on <%= @blog.created_at.strftime "%d %B %Y at %H:%M %Z" %></div>
+    <div class="preamble">
       <%= @blog.preamble %>
     </div>
     <hr />
@@ -11,7 +12,7 @@
   </div>
   <div id="comments-box" class="box">
     <a name="comments"></a>
-    <div id="comments-title"><h1><span class="blue">COM</span>MENTS</h1></div>
+    <div id="comments-title"><%= title 'COMMENTS' %></div>
     <div id="holder">
       <%= render :partial => @blog.comments.roots, :locals => {:obj => @blog} %>
     </div>
@@ -33,12 +34,12 @@
 
 <div id="thin-right-col">
   <div class="box">
-    <h1><span class="blue">BLO</span>GGER</h1>
+    <%= title 'BLOGGER' %>
     <%= render :partial => 'articles/author', :locals => {:user => @blog.user} %>
     <div class="clear"></div>
   </div>
   <div class="box">
-    <h1><span class="blue">BLOG</span> ARCHIVE</h1>
+    <%= title 'BLOG ARCHIVE' %>
     <ul id="blog-archive">
       <% @blog.user.blogs.each do |blog| %>
         <li><%= link_to blog.title, blog %></li>

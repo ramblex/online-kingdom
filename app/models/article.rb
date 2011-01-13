@@ -1,7 +1,7 @@
 class Article < ActiveRecord::Base
   cattr_reader :per_page
   @@per_page = 5
-  default_scope :order => 'created_at DESC'
+  default_scope :order => 'articles.created_at DESC'
   named_scope :approved, :conditions => ['approved = 1']
   named_scope :front_page, :limit => 12
   named_scope :news_category, lambda {|id| {:conditions => ['news_category_id = ? ', id]}}
@@ -17,6 +17,8 @@ class Article < ActiveRecord::Base
   validates_presence_of :category, :title, :content, :user, :preamble, :news_category, :lang
 
   attr_protected :user
+
+  has_friendly_id :title, :use_slug => true
 
   has_attached_file :image, :styles => {
     :default => "202x139",

@@ -13,6 +13,8 @@ class Event < ActiveRecord::Base
 
   default_scope :order => 'start_date DESC'
 
+  has_friendly_id :name, :use_slug => true
+
   #has_many :attending_teams, :class_name => 'EventTeam', :select => 'DISTINCT team_id', :conditions => 'team_id IS NOT NULL'
 
   def attending_teams

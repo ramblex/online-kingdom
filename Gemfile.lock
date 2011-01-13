@@ -14,6 +14,7 @@ GEM
     acts_as_tree (0.1.1)
     after_commit (1.0.8)
       activerecord (< 3.0.0)
+    babosa (0.2.0)
     cancan (1.4.0)
     devise (1.0.8)
       warden (~> 0.10.3)
@@ -21,6 +22,8 @@ GEM
       actionpack (>= 2.3.0)
       activesupport (>= 2.3.0)
       i18n (>= 0.4.0)
+    friendly_id (3.1.7)
+      babosa (~> 0.2.0)
     haml (3.0.21)
     i18n (0.4.1)
     jrails (0.6.0)
@@ -57,6 +60,7 @@ DEPENDENCIES
   cancan
   devise (= 1.0.8)
   formtastic
+  friendly_id
   haml
   jrails
   mime-types

@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :username
   validates_format_of :username, :with => /^\w+$/i, :message => "can only contain letters and numbers."
 
+  has_friendly_id :username, :use_slug => true
+
   # Include default devise modules. Others available are:
   # :http_authenticatable, :token_authenticatable, :confirmable, :lockable, :timeoutable and :activatable
   devise :registerable, :database_authenticatable, :recoverable,

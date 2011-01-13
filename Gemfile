@@ -13,5 +13,7 @@ gem 'formtastic'
 gem 'validation_reflection', '0.3.8'
 gem 'haml'
 
+gem 'friendly_id'
+
 # Videos
 gem 'mime-types', :require => 'mime/types'

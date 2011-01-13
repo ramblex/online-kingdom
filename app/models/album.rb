@@ -6,6 +6,8 @@ class Album < ActiveRecord::Base
   accepts_nested_attributes_for :album_photos, :allow_destroy => true,
     :reject_if => proc { |attributes| attributes.all? {|k,v| v.blank?}}
 
+  has_friendly_id :name, :use_slug => true
+
   def rating
     if album_ratings.size.eql? 0
       0

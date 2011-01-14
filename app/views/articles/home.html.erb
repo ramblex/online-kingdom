@@ -130,8 +130,7 @@
           <%= link_to blog.title, blog %> by <%= link_to blog.user.username, blog.user %><br />
           <div class="date">posted on <%= blog.created_at.strftime "%d %B %Y at %H:%M %Z" %></div>
           <%= admin_links blog, 'inline-admin', :controller => 'blogs' %>
-          <br />
-          <%= truncate_html blog.preamble, :length => 150 %>
+          <%= truncate_html blog.preamble, :length => 100 %>
         </div>
       <% end %>
       <%= link_to '&raquo; More', blogs_url, :class => 'all-matches' %>

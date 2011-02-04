@@ -15,30 +15,6 @@ class User < ActiveRecord::Base
          :rememberable, :trackable, :validatable, :confirmable,
          :authentication_keys => [:username]
 
-  # Setup accessible (or protected) attributes for your model
-  attr_accessible :email,
-    :password,
-    :password_confirmation,
-    :username,
-    :roles,
-    :avatar,
-    :city,
-    :country,
-    :firstname,
-    :surname,
-    :birthdate,
-    :description,
-    :headset,
-    :mousepad,
-    :keyboard,
-    :mouse,
-    :motherboard,
-    :cpu,
-    :graphicscard,
-    :memory,
-    :hdd,
-    :gamepad
-
   has_many :articles
   has_many :blogs
   has_many :teams

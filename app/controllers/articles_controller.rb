@@ -19,8 +19,8 @@ class ArticlesController < ApplicationController
       @articles = Article.approved.front_page.get_lang(params[:lang]).news_category(params[:category])
     end
 
-    @blogs = Blog.all :limit => 5
-    @videos = Video.all :limit => 3
+    @blogs = Blog.all :limit => 5, :include => [:user, :slug]
+    @videos = Video.all :limit => 3, :include => :user
   end
 
   def admin

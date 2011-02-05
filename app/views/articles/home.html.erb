@@ -11,27 +11,15 @@
       <% end %>
     </ul>
     <div id="news-slider">
-      <div id="current">
-        <% if @articles.size > 0 %>
-          <div id="image">
-            <%= link_to (image_tag @articles.first.image.url(:slider)), @articles.first %>
-          </div>
-          <div id="preamble">
-            <%= truncate_html @articles.first.preamble, :length => 550 %>
-          </div>
-        <% else %>
-          No news stories
-        <% end %>
-      </div>
       <ul>
-      <% @articles.each_with_index do |article, idx| %>
+      <% @articles.each do |article| %>
         <li>
-          <%= link_to "&raquo; #{truncate article.title, :length => 30}", article, :class => ('selected' if idx == 0) %>
-          <div class="image">
+          <%= link_to "&raquo; #{truncate article.title, :length => 30}", article %>
+          <div class="content">
             <%= link_to (image_tag article.image.url(:slider)), article %>
-          </div>
-          <div class="preamble">
-            <%= truncate_html article.preamble, :length => 550 %>
+            <p><%= truncate_html article.preamble, :length => 550 %></p>
+            <hr />
+            <strong><%= link_to '&raquo; read more', :class => 'all-matches' %></strong>
           </div>
         </li>
       <% end %>
@@ -152,21 +140,23 @@
     // Seem to have to setup the slider javascript after changing the slider's category
     switcher('#news-switcher', '#news-slider', function(data) {
         update_content('#news-slider', data);
-        setup_slider();
-        });
-    setup_slider();
+        bind_slider_links();
+    });
+    bind_slider_links();
 
-    // News slider
-    function setup_slider() {
+    function bind_slider_links() {
+      $('<div id="current"></div>').insertBefore("#news-slider ul");
+      select_news_item($("#news-slider ul li a:first"));
       $("#news-slider ul li a").click(function() {
-          $("#news-slider ul li a").removeClass('selected');
-          $(this).addClass('selected');
-          $("#news-slider #current").hide();
-          $("#news-slider #current #image").html($(this).parent().find('.image').html());
-          $("#news-slider #preamble").html($(this).parent().find('.preamble').html());
-          $("#news-slider #current").fadeIn(1000);
+          select_news_item($(this));
           return false;
       });
+    }
+
+    function select_news_item(item) {
+      $("#news-slider ul li a").removeClass('selected');
+      item.addClass('selected');
+      $("#news-slider #current").html(item.parent().find('.content').html());
     }
 
     $(".insider-page").hide();

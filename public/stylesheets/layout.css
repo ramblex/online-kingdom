@@ -19,7 +19,14 @@ body {
 }
 
 hr {
+  border: 0;
+  height: 1px;
+  background: #c4c4c4;
   clear: both;
+}
+
+p {
+  line-height: 1.5
 }
 
 .info-msg {
@@ -1273,7 +1280,7 @@ div.comment-info {
   clear: right;
 }
 
-#news-slider ul li .preamble, #news-slider ul li .image {
+#news-slider ul li .content {
   display: none;
 }
 

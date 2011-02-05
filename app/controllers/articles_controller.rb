@@ -8,9 +8,9 @@ class ArticlesController < ApplicationController
   def home
     params[:lang] ||= 'English'
     if params[:match_category].blank? or params[:match_category].downcase.eql? 'all'
-      @matches = Match.all :limit => 15
+      @matches = Match.all :limit => 15, :include => [:team1, :team2, :category]
     else
-      @matches = Match.all :limit => 15, :conditions => ['category_id = ?', params[:match_category]]
+      @matches = Match.all :limit => 15, :conditions => ['category_id = ?', params[:match_category]], :include => [:team1, :team2, :category]
     end
 
     if params[:category].blank? or params[:category].downcase.eql? 'all'

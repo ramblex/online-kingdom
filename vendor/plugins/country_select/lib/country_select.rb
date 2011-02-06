@@ -87,6 +87,7 @@ module ActionView
               ['Eritrea','er'],
               ['Estonia','ee'],
               ['Ethiopia','et'],
+              ['Europe', 'europeanunion'],
               ['Faroe Islands','fo'],
               ['Fiji','fj'],
               ['Finland','fi'],

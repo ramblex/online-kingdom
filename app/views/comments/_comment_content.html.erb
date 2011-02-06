@@ -9,7 +9,7 @@
   <% end %>
   <span class="date">Posted on <%= comment_content.created_at.strftime("%d %B %Y %H:%M %Z") %></span>
 </div>
-<div class="comment"><%= comment_content.content %></div>
+<div class="comment"><%= simple_format comment_content.content %></div>
 <div class="comment-reply">
   <%= link_to_function 'Reply', '$(this).parent().next(".reply-form").slideDown()' %>
 </div>

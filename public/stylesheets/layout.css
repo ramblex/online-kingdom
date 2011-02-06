@@ -694,6 +694,11 @@ div.comment-info {
   margin-top: 10px;
 }
 
+div.comment-info .date {
+  float: right;
+  margin-right: 10px;
+}
+
 .reply-form {
   display: none;
 }

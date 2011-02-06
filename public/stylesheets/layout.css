@@ -29,6 +29,10 @@ p {
   line-height: 1.5
 }
 
+em {
+  font-style: italic;
+}
+
 .info-msg {
   clear: both;
   margin: 20px;

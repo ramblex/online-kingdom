@@ -12,6 +12,7 @@ gem 'thinking-sphinx', '1.3.18', :require => 'thinking_sphinx'
 gem 'formtastic'
 gem 'validation_reflection', '0.3.8'
 gem 'haml'
+gem 'responds_to_parent'
 
 gem 'friendly_id'
 

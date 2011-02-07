@@ -13,6 +13,7 @@ gem 'formtastic'
 gem 'validation_reflection', '0.3.8'
 gem 'haml'
 gem 'responds_to_parent'
+gem 'compass', '>= 0.10.6'
 
 gem 'friendly_id'
 

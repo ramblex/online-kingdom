@@ -16,6 +16,8 @@ GEM
       activerecord (< 3.0.0)
     babosa (0.2.0)
     cancan (1.4.0)
+    compass (0.10.6)
+      haml (>= 3.0.4)
     devise (1.0.8)
       warden (~> 0.10.3)
     formtastic (1.1.0)
@@ -59,6 +61,7 @@ PLATFORMS
 DEPENDENCIES
   acts_as_tree
   cancan
+  compass (>= 0.10.6)
   devise (= 1.0.8)
   formtastic
   friendly_id

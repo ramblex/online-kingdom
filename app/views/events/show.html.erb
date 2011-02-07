@@ -86,7 +86,7 @@
     <div class="box-title">
       <span class="blue">CREDITS</span> TO
     </div>
-    <%= render :partial => 'articles/author', :locals => {:user => @event.user} %>
+    <%= render :partial => @event.user %>
     <%= render :partial => @editors %>
     <div class="news-stats">
       Event has been viewed <%= pluralize @event.click_count, 'time' %><br />

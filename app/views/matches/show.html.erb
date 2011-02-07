@@ -73,7 +73,7 @@
       <span class="blue">CREDITS</span> TO
     </div>
     <div class="clear"></div>
-    <%= render :partial => 'articles/author', :locals => {:user => @match.user} %>
+    <% render :partial => @match.user %>
     <%= render :partial => 'event_editors/event_editor', :collection => @editors %>
     <div class="news-stats">
       Match has been viewed <%= pluralize @match.click_count, 'time' %><br />

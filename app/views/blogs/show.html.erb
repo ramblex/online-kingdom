@@ -35,8 +35,7 @@
 <div id="thin-right-col">
   <div class="box">
     <%= title 'BLOGGER' %>
-    <%= render :partial => 'articles/author', :locals => {:user => @blog.user} %>
-    <div class="clear"></div>
+    <%= render :partial => @blog.user %>
   </div>
   <div class="box">
     <%= title 'BLOG ARCHIVE' %>

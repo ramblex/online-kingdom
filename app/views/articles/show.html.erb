@@ -34,13 +34,9 @@
       <%= title 'CREDITS TO' %>
     </div>
     <div class="clear"></div>
-    <%= render :partial => 'author', :locals => {:user => @article.user} %>
+    <%= render :partial => @article.user %>
     <% @editors.each do |editor| %>
-      <div class="news-author">
-        <%= image_tag editor.user.avatar.url(:default), :class => 'news-author-picture' %>
-        <%= link_to full_name(editor.user), editor.user %><br />
-        <strong><%= editor.update_type %></strong>
-      </div>
+      <%= render :partial => editor.user, :locals => {:role => editor.update_type } %>
     <% end %>
     <div class="news-stats">
       Article has been viewed <%= @article.click_count %> times<br />

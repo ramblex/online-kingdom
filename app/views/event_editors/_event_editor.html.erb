@@ -1,5 +1,1 @@
-<div class="news-author">
-  <%= image_tag event_editor.user.avatar.url(:default), :class => 'news-author-picture' %>
-  <%= link_to full_name(event_editor.user), event_editor.user %><br />
-  <strong>Edited</strong>
-</div>
+<%= render :partial => event_editor.user, :locals => {:role => 'Edited'} %>

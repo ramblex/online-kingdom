@@ -12,6 +12,7 @@
  *  - Article ratings
 
 @import "compass/reset"
+@import "compass/utilities/general/clearfix"
 
 @import "formtastic"
 @import "formtastic_changes"
@@ -366,7 +367,6 @@ ul#top-nav
 .news-left
   float: left
   width: 236px
-  height: 139px
 
 .news-author
   margin-top: 16px
@@ -384,7 +384,7 @@ ul#top-nav
   margin-right: 3px
 
 .news-content
-  padding: 16px 28px 0 0
+  padding: 12px 28px 0 0
   float: left
   margin-bottom: 16px
   width: 367px
@@ -405,6 +405,7 @@ ul#top-nav
   width: 202px
   height: 139px
   border: 1px solid gray
+  margin-top: 12px
 
 #settings-current
   clear: both
@@ -787,6 +788,7 @@ div
   float: right
 
 .box
+  @include clearfix
   clear: both
   border: 1px solid #c4c4c4
   padding: 9px 14px 7px 11px

@@ -1,7 +1,15 @@
-/* Welcome to Compass.
- * In this file you should write your main styles. (or centralize your imports)
- * Import this file using the following HTML or equivalent:
- * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/*
+ * Layout stylesheet for Online Kingdom
+ * Author: Alex Duller
+ * Contents:
+ *  - Header
+ *  - Navigation
+ *  - Content
+ *    - Right column
+ *    - Left column
+ *  - Footer
+ *  - Misc
+ *  - Article ratings */
 /* line 14, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -60,4 +68,2408 @@ q:before, q:after, blockquote:before, blockquote:after {
 /* line 27, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
+}
+
+/* -------------------------------------------------------------------------------------------------
+ *
+ *It's *strongly* suggested that you don't modify this file.  Instead, load a new stylesheet after
+ *this one in your layouts (eg formtastic_changes.css) and override the styles to suit your needs.
+ *This will allow you to update formtastic.css with new releases without clobbering your own changes.
+ *
+ *This stylesheet forms part of the Formtastic Rails Plugin
+ *(c) 2008 Justin French
+ *
+ *-------------------------------------------------------------------------------------------------- */
+/* NORMALIZE AND RESET - obviously inspired by Yahoo's reset.css, but scoped to just form.formtastic
+ *-------------------------------------------------------------------------------------------------- */
+/* line 15, sass/formtastic.sass */
+form.formtastic {
+  margin: 0;
+  padding: 0;
+}
+/* line 18, sass/formtastic.sass */
+form.formtastic ul, form.formtastic ol, form.formtastic li, form.formtastic fieldset, form.formtastic legend, form.formtastic input, form.formtastic textarea, form.formtastic select, form.formtastic p {
+  margin: 0;
+  padding: 0;
+}
+/* line 21, sass/formtastic.sass */
+form.formtastic fieldset {
+  border: 0;
+}
+/* line 23, sass/formtastic.sass */
+form.formtastic em, form.formtastic strong {
+  font-style: normal;
+  font-weight: normal;
+}
+/* line 26, sass/formtastic.sass */
+form.formtastic ol, form.formtastic ul {
+  list-style: none;
+}
+/* line 28, sass/formtastic.sass */
+form.formtastic abbr, form.formtastic acronym {
+  border: 0;
+  font-variant: normal;
+}
+/* line 31, sass/formtastic.sass */
+form.formtastic input, form.formtastic textarea, form.formtastic select {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+/* line 35, sass/formtastic.sass */
+form.formtastic input, form.formtastic textarea, form.formtastic select {
+  font-size: 100%;
+}
+/* line 37, sass/formtastic.sass */
+form.formtastic legend {
+  white-space: normal;
+  color: black;
+}
+/* line 40, sass/formtastic.sass */
+form.formtastic ul.errors {
+  color: #cc0000;
+  margin: 0.5em 0 1.5em 25%;
+  list-style: square;
+}
+/* line 44, sass/formtastic.sass */
+form.formtastic ul.errors li {
+  padding: 0;
+  border: none;
+  display: list-item;
+}
+/* line 48, sass/formtastic.sass */
+form.formtastic fieldset {
+  overflow: auto;
+}
+/* line 51, sass/formtastic.sass */
+form.formtastic fieldset.buttons {
+  padding-left: 25%;
+}
+/* line 54, sass/formtastic.sass */
+form.formtastic fieldset.buttons li {
+  float: left;
+  padding-right: 0.5em;
+}
+/* line 57, sass/formtastic.sass */
+form.formtastic fieldset > ol > li {
+  margin-bottom: 1.5em;
+  overflow: auto;
+}
+/* line 61, sass/formtastic.sass */
+form.formtastic fieldset > ol > li label {
+  display: block;
+  width: 25%;
+  float: left;
+  padding-top: 0.2em;
+}
+/* line 66, sass/formtastic.sass */
+form.formtastic fieldset > ol > li > li label {
+  line-height: 100%;
+  padding-top: 0;
+}
+/* line 69, sass/formtastic.sass */
+form.formtastic fieldset > ol > li > li label input {
+  line-height: 100%;
+  vertical-align: middle;
+  margin-top: -0.1em;
+}
+/* line 73, sass/formtastic.sass */
+form.formtastic fieldset > ol > li fieldset {
+  position: relative;
+}
+/* line 75, sass/formtastic.sass */
+form.formtastic fieldset > ol > li fieldset legend {
+  position: absolute;
+  width: 95%;
+  padding-top: 0.1em;
+  left: 0px;
+}
+/* line 80, sass/formtastic.sass */
+form.formtastic fieldset > ol > li fieldset legend span, form.formtastic fieldset > ol > li fieldset legend.label label {
+  position: absolute;
+}
+/* line 82, sass/formtastic.sass */
+form.formtastic fieldset > ol > li fieldset ol {
+  float: left;
+  width: 74%;
+  margin: 0;
+  padding: 0 0 0 25%;
+}
+/* line 87, sass/formtastic.sass */
+form.formtastic fieldset > ol > li fieldset ol li {
+  padding: 0;
+  border: 0;
+}
+/* line 91, sass/formtastic.sass */
+form.formtastic fieldset > ol > li p.inline-hints {
+  color: #666666;
+  margin: 0.5em 0 0 25%;
+}
+/* line 94, sass/formtastic.sass */
+form.formtastic fieldset > ol > li p.inline-errors {
+  color: #cc0000;
+  margin: 0.5em 0 0 25%;
+}
+/* line 97, sass/formtastic.sass */
+form.formtastic fieldset > ol > li ul.errors {
+  color: #cc0000;
+  margin: 0.5em 0 0 25%;
+  list-style: square;
+}
+/* line 101, sass/formtastic.sass */
+form.formtastic fieldset > ol > li ul.errors li {
+  padding: 0;
+  border: none;
+  display: list-item;
+}
+/* line 105, sass/formtastic.sass */
+form.formtastic fieldset > ol > li.string input {
+  max-width: 74%;
+}
+/* line 107, sass/formtastic.sass */
+form.formtastic fieldset > ol > li.password input {
+  max-width: 13em;
+}
+/* line 109, sass/formtastic.sass */
+form.formtastic fieldset > ol > li.numeric input {
+  max-width: 74%;
+}
+/* line 111, sass/formtastic.sass */
+form.formtastic fieldset > ol > li.text textarea {
+  width: 74%;
+}
+/* line 113, sass/formtastic.sass */
+form.formtastic fieldset ol li.hidden {
+  display: none;
+}
+/* line 116, sass/formtastic.sass */
+form.formtastic fieldset > ol > li.boolean label {
+  padding-left: 25%;
+  width: auto;
+}
+/* line 119, sass/formtastic.sass */
+form.formtastic fieldset > ol > li.boolean label input {
+  margin: 0 0.5em 0 0.2em;
+}
+/* line 121, sass/formtastic.sass */
+form.formtastic fieldset > ol > li.radio fieldset ol, form.formtastic fieldset > ol > li.check_boxes fieldset ol {
+  margin-bottom: -0.6em;
+}
+/* line 123, sass/formtastic.sass */
+form.formtastic fieldset > ol > li.radio fieldset ol li, form.formtastic fieldset > ol > li.check_boxes fieldset ol li {
+  margin: 0.1em 0 0.5em 0;
+}
+/* line 125, sass/formtastic.sass */
+form.formtastic fieldset > ol > li.radio fieldset ol li label, form.formtastic fieldset > ol > li.check_boxes fieldset ol li label {
+  float: none;
+  width: 100%;
+}
+/* line 128, sass/formtastic.sass */
+form.formtastic fieldset > ol > li.radio fieldset ol li label input, form.formtastic fieldset > ol > li.check_boxes fieldset ol li label input {
+  margin-right: 0.2em;
+}
+/* line 130, sass/formtastic.sass */
+form.formtastic fieldset > ol > li.date fieldset ol li, form.formtastic fieldset > ol > li.time fieldset ol li, form.formtastic fieldset > ol > li.datetime fieldset ol li {
+  float: left;
+  width: auto;
+  margin: 0 0.3em 0 0;
+}
+/* line 134, sass/formtastic.sass */
+form.formtastic fieldset > ol > li.date fieldset ol li label, form.formtastic fieldset > ol > li.time fieldset ol li label, form.formtastic fieldset > ol > li.datetime fieldset ol li label {
+  display: none;
+}
+/* line 136, sass/formtastic.sass */
+form.formtastic fieldset > ol > li.date fieldset ol li label input, form.formtastic fieldset > ol > li.time fieldset ol li label input, form.formtastic fieldset > ol > li.datetime fieldset ol li label input {
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+
+/* SEMANTIC ERRORS
+ *-------------------------------------------------------------------------------------------------- */
+/* FIELDSETS & LISTS
+ *-------------------------------------------------------------------------------------------------- */
+/* clearing contained floats */
+/* INPUT LIs
+ *-------------------------------------------------------------------------------------------------- */
+/* clearing contained floats */
+/* LABELS
+ *-------------------------------------------------------------------------------------------------- */
+/* NESTED FIELDSETS AND LEGENDS (radio, check boxes and date/time inputs use nested fieldsets)
+ *-------------------------------------------------------------------------------------------------- */
+/* INLINE HINTS
+ *-------------------------------------------------------------------------------------------------- */
+/* INLINE ERRORS
+ *-------------------------------------------------------------------------------------------------- */
+/* STRING & NUMERIC OVERRIDES
+ *-------------------------------------------------------------------------------------------------- */
+/* TEXTAREA OVERRIDES
+ *-------------------------------------------------------------------------------------------------- */
+/* HIDDEN OVERRIDES
+ *-------------------------------------------------------------------------------------------------- */
+/* BOOLEAN OVERRIDES
+ *-------------------------------------------------------------------------------------------------- */
+/* RADIO OVERRIDES
+ *-------------------------------------------------------------------------------------------------- */
+/* CHECK BOXES (COLLECTION) OVERRIDES
+ *-------------------------------------------------------------------------------------------------- */
+/* DATE & TIME OVERRIDES
+ *-------------------------------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------------------------------
+ *
+ *Load this stylesheet after formtastic.css in your layouts to override the CSS to suit your needs.
+ *This will allow you to update formtastic.css with new releases without clobbering your own changes.
+ *
+ *For example, to make the inline hint paragraphs a little darker in color than the standard #666:
+ *
+ *form.formtastic fieldset > ol > li p.inline-hints { color:#333; }
+ *
+ *HINT:
+ *The following style may be *conditionally* included for improved support on older versions of IE(<8)
+ *form.formtastic fieldset ol li fieldset legend { margin-left: -6px;}
+ *
+ *-------------------------------------------------------------------------------------------------- */
+/* line 16, sass/formtastic_changes.sass */
+form.formtastic {
+  margin: 15px;
+}
+/* line 19, sass/formtastic_changes.sass */
+form.formtastic input[type=submit] {
+  padding: 5px;
+}
+/* line 21, sass/formtastic_changes.sass */
+form.formtastic input[type=text] {
+  width: 200px;
+}
+
+/* line 19, sass/screen.sass */
+body {
+  background: url(/images/background.png) #5a7f9a;
+  font: 11px Arial;
+  color: white;
+}
+
+/* line 24, sass/screen.sass */
+hr {
+  border: 0;
+  height: 1px;
+  background: #c4c4c4;
+  clear: both;
+}
+
+/* line 30, sass/screen.sass */
+p {
+  line-height: 1.5;
+}
+
+/* line 33, sass/screen.sass */
+em {
+  font-style: italic;
+}
+
+/* line 36, sass/screen.sass */
+.info-msg {
+  clear: both;
+  margin: 20px;
+  text-align: center;
+}
+
+/* line 41, sass/screen.sass */
+ul, ol {
+  margin-left: 20px;
+}
+
+/* line 45, sass/screen.sass */
+div#flash-notice {
+  position: fixed;
+  top: 10px;
+  left: -1px;
+  color: black;
+  padding: 10px;
+}
+/* line 51, sass/screen.sass */
+div#flash-alert {
+  position: fixed;
+  top: 10px;
+  left: -1px;
+  color: black;
+  padding: 10px;
+  border: 1px solid #dc1313;
+  background: #e5b6b6;
+}
+
+/* line 60, sass/screen.sass */
+#error {
+  border: 1px solid #dc1313;
+  background: #e5b6b6;
+  padding: 10px;
+}
+
+/* line 65, sass/screen.sass */
+div#flash-notice {
+  border: 1px solid #558108;
+  background: #bcdd9f;
+}
+
+/* line 69, sass/screen.sass */
+#loading {
+  line-height: 40px;
+  clear: left;
+  left: 40%;
+  position: relative;
+}
+/* line 74, sass/screen.sass */
+#loading img {
+  width: 30px !important;
+  height: 30px !important;
+  float: left;
+}
+
+/* Header */
+/* line 81, sass/screen.sass */
+#wrapper {
+  margin: 26px auto 0 auto;
+  width: 953px;
+  height: 545px;
+  background: url(../images/header.png) no-repeat;
+}
+
+/* line 87, sass/screen.sass */
+#top-news {
+  width: 466px;
+  height: 187px;
+  float: left;
+  padding: 11px;
+}
+
+/* line 93, sass/screen.sass */
+#top-news-title, #top-match-title {
+  height: 24px;
+  line-height: 24px;
+  margin-bottom: 6px;
+}
+
+/* line 98, sass/screen.sass */
+#top-news .num_comments a {
+  float: right;
+  color: white;
+  text-decoration: none;
+}
+/* line 102, sass/screen.sass */
+#top-news .num_comments a:hover {
+  text-decoration: underline;
+}
+
+/* line 105, sass/screen.sass */
+.logo {
+  width: 61px;
+  height: 24px;
+  margin-right: 11px;
+  float: left;
+}
+
+/* line 111, sass/screen.sass */
+#top-match-content .team {
+  float: left;
+  margin-bottom: 10px;
+}
+/* line 114, sass/screen.sass */
+#top-match-content .team .name {
+  width: 100px;
+  text-align: center;
+  margin-top: 5px;
+  color: white;
+  text-decoration: none;
+  display: block;
+}
+
+/* line 122, sass/screen.sass */
+#top-match-title a {
+  color: white;
+}
+
+/* line 126, sass/screen.sass */
+#top-match-content .team a:hover {
+  text-decoration: underline;
+}
+/* line 128, sass/screen.sass */
+#top-match-content .versus {
+  width: 89px;
+  text-align: center;
+  line-height: 100px;
+  float: left;
+  font-size: 80%;
+}
+/* line 134, sass/screen.sass */
+#top-match-content .logo {
+  width: 100px;
+  height: 100px;
+  display: block;
+  padding: 0;
+  margin: 0;
+  float: none;
+}
+
+/* line 143, sass/screen.sass */
+#top-news-title .title {
+  font-weight: bold;
+}
+/* line 145, sass/screen.sass */
+#top-news-title .rating {
+  float: right;
+  width: 55px;
+  height: 24px;
+  margin-top: 5px;
+}
+
+/* line 151, sass/screen.sass */
+#top-match-title .rating {
+  float: right;
+  width: 55px;
+  height: 24px;
+  margin-top: 5px;
+}
+
+/* line 157, sass/screen.sass */
+.top-info {
+  color: #c3c3c3;
+  margin-bottom: 12px;
+}
+/* line 160, sass/screen.sass */
+.top-info .author {
+  color: white;
+}
+
+/* line 163, sass/screen.sass */
+#top-news-content {
+  float: left;
+  /* Float left so that we can clear it */
+  width: 100%;
+  overflow: hidden;
+  height: 108px;
+}
+/* line 164, sass/screen.sass */
+#top-news-content .image {
+  width: 108px;
+  height: 108px;
+  float: left;
+  background: gray;
+  margin-right: 9px;
+}
+
+/* line 176, sass/screen.sass */
+.readmore {
+  clear: both;
+  float: right;
+}
+
+/* line 180, sass/screen.sass */
+#top-advert {
+  margin: 0 0 24px 0;
+  width: 455px;
+  height: 117px;
+  float: right;
+}
+
+/* Login */
+/* line 188, sass/screen.sass */
+#login {
+  padding: 10px 0 0 27px;
+  width: 428px;
+  height: 59px;
+  float: right;
+}
+/* line 193, sass/screen.sass */
+#login span {
+  margin: 0 0 0 33px;
+}
+/* line 195, sass/screen.sass */
+#login span.forgot {
+  display: block;
+  float: right;
+  margin: 20px;
+}
+/* line 199, sass/screen.sass */
+#login span a {
+  color: white;
+}
+/* line 201, sass/screen.sass */
+#login form {
+  margin: 0;
+  width: 242px;
+  position: relative;
+  float: left;
+}
+/* line 206, sass/screen.sass */
+#login form p {
+  position: absolute;
+  right: -122px;
+  bottom: 0;
+}
+
+/* line 211, sass/screen.sass */
+#login-username, #login-password {
+  width: 184px;
+  height: 20px;
+  padding: 0 0 0 23px;
+  margin: 0;
+  border: 0;
+  background: none;
+  float: left;
+  color: white;
+}
+
+/* line 221, sass/screen.sass */
+#login-username {
+  background: url(../images/username-bg.png);
+}
+
+/* line 224, sass/screen.sass */
+#login-password {
+  background: url(../images/password-bg.png);
+  margin-top: 9px;
+}
+
+/* line 228, sass/screen.sass */
+#login-btn {
+  position: absolute;
+  top: -5px;
+  right: 0;
+  border: 0;
+}
+
+/* line 234, sass/screen.sass */
+#login .pw {
+  position: absolute;
+  bottom: -3px;
+  right: 0;
+}
+
+/* line 239, sass/screen.sass */
+#logged-in {
+  line-height: 50px;
+  height: 50px;
+  padding-left: 70px;
+}
+/* line 243, sass/screen.sass */
+#logged-in a {
+  color: white;
+}
+/* line 245, sass/screen.sass */
+#logged-in #links {
+  float: right;
+  width: 200px;
+}
+/* line 248, sass/screen.sass */
+#logged-in #links a {
+  margin-left: 10px;
+  text-decoration: none;
+}
+/* line 251, sass/screen.sass */
+#logged-in a:hover {
+  color: gray;
+}
+
+/* line 254, sass/screen.sass */
+#top-match {
+  margin: 10px 0 0 0;
+  padding: 11px;
+  float: left;
+  width: 289px;
+  height: 194px;
+  clear: both;
+}
+
+/* line 262, sass/screen.sass */
+#sponsors {
+  margin: 10px 0 0 10px;
+  float: left;
+  width: 631px;
+  height: 217px;
+}
+/* line 267, sass/screen.sass */
+#sponsors img {
+  position: relative;
+  top: 33px;
+  margin-left: 40px;
+}
+
+/* Navigation */
+/* line 274, sass/screen.sass */
+#home-btn {
+  display: block;
+  width: 23px;
+  height: 20px;
+  background: url(../images/home_button.png) 0 0 no-repeat;
+  float: left;
+  margin-left: -40px;
+}
+
+/* line 282, sass/screen.sass */
+#top-nav {
+  margin: 0 0 6px 64px;
+  float: left;
+  width: 808px;
+  height: 56px;
+  clear: both;
+  position: relative;
+}
+
+/* line 291, sass/screen.sass */
+ul#top-nav li {
+  background: url(../images/top-nav-bg.png) 0 0 no-repeat;
+  list-style: none;
+  position: absolute;
+  height: 20px;
+  width: 68px;
+  display: block;
+  top: 28px;
+}
+/* line 299, sass/screen.sass */
+ul#top-nav li#home {
+  background: none;
+}
+/* line 301, sass/screen.sass */
+ul#top-nav #news {
+  left: 19px;
+}
+/* line 303, sass/screen.sass */
+ul#top-nav #videos {
+  left: 94px;
+  background-position: -74px 0;
+}
+/* line 306, sass/screen.sass */
+ul#top-nav #albums {
+  left: 168px;
+  background-position: -148px 0;
+}
+/* line 309, sass/screen.sass */
+ul#top-nav #events {
+  left: 242px;
+  background-position: -222px 0;
+}
+/* line 312, sass/screen.sass */
+ul#top-nav #blogs {
+  left: 316px;
+  background-position: -296px 0;
+}
+/* line 315, sass/screen.sass */
+ul#top-nav #matches {
+  left: 390px;
+  background-position: -370px 0;
+}
+/* line 318, sass/screen.sass */
+ul#top-nav #players {
+  left: 497px;
+  background-position: -477px 0;
+}
+/* line 321, sass/screen.sass */
+ul#top-nav #awards {
+  left: 571px;
+  background-position: -551px 0;
+}
+/* line 324, sass/screen.sass */
+ul#top-nav #partners {
+  left: 645px;
+  background-position: -625px 0;
+}
+/* line 327, sass/screen.sass */
+ul#top-nav #about {
+  left: 719px;
+  background-position: -699px 0;
+}
+/* line 330, sass/screen.sass */
+ul#top-nav a {
+  width: 68px;
+  height: 20px;
+  display: block;
+}
+
+/* Content */
+/* line 337, sass/screen.sass */
+#content {
+  padding: 6px;
+  width: 940px;
+  background: white;
+  clear: both;
+  color: black;
+}
+
+/* Full Column */
+/* line 346, sass/screen.sass */
+#full-col {
+  border: 1px solid #c4c4c4;
+  padding: 10px 13px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+
+/* line 352, sass/screen.sass */
+.news-item {
+  clear: both;
+  padding: 16px 0;
+  height: 139px;
+}
+
+/* line 357, sass/screen.sass */
+.news-stats {
+  margin-top: 20px;
+  font-size: 90%;
+}
+
+/* line 361, sass/screen.sass */
+.news-title {
+  color: black;
+  text-decoration: none;
+}
+
+/* line 365, sass/screen.sass */
+.news-left {
+  float: left;
+  width: 236px;
+  height: 139px;
+}
+
+/* line 370, sass/screen.sass */
+.news-author {
+  margin-top: 16px;
+  width: 236px;
+  height: 50px;
+}
+/* line 374, sass/screen.sass */
+.news-author a {
+  text-decoration: none;
+}
+/* line 376, sass/screen.sass */
+.news-author a:hover {
+  text-decoration: underline;
+}
+
+/* line 379, sass/screen.sass */
+.news-author-picture {
+  float: left;
+  height: 50px;
+  width: 50px;
+  margin-right: 3px;
+}
+
+/* line 385, sass/screen.sass */
+.news-content {
+  padding: 16px 28px 0 0;
+  float: left;
+  margin-bottom: 16px;
+  width: 367px;
+  font-size: 110%;
+  overflow: hidden;
+}
+
+/* line 393, sass/screen.sass */
+.date {
+  font-size: 90%;
+  color: #5d5d5d;
+}
+
+/* line 397, sass/screen.sass */
+.news-rating {
+  width: 60px;
+  height: 12px;
+  margin: 5px 0 10px 0;
+}
+
+/* line 402, sass/screen.sass */
+.news-picture {
+  float: left;
+  width: 202px;
+  height: 139px;
+  border: 1px solid gray;
+}
+
+/* line 408, sass/screen.sass */
+#settings-current {
+  clear: both;
+}
+
+/* Wide left column */
+/* Most pages have a wider left column and a thinner right-hand column */
+/* line 414, sass/screen.sass */
+#wide-left-col {
+  margin: 0 5px 0 0;
+  width: 628px;
+  float: left;
+}
+
+/* line 419, sass/screen.sass */
+.matches {
+  padding: 10px 41px 0 41px;
+}
+
+/* line 422, sass/screen.sass */
+.matches-title {
+  clear: both;
+  line-height: 11px;
+  margin-top: 16px;
+  padding: 7px;
+  border: 1px solid #d9d9d9;
+  height: 11px;
+  background: #ededed;
+}
+/* line 430, sass/screen.sass */
+.matches-title .team1 {
+  width: 209px;
+  display: block;
+  float: left;
+}
+/* line 434, sass/screen.sass */
+.matches-title .right {
+  float: right;
+}
+/* line 436, sass/screen.sass */
+.matches-title .left {
+  float: left;
+}
+
+/* line 439, sass/screen.sass */
+#team1-roster, #team2-roster {
+  margin-top: 10px;
+  width: 120px;
+  text-align: left;
+  list-style: none;
+}
+
+/* line 445, sass/screen.sass */
+#team1-roster li, #team2-roster li {
+  margin-top: 3px;
+}
+
+/* line 448, sass/screen.sass */
+#team1-roster {
+  float: left;
+}
+
+/* line 451, sass/screen.sass */
+#team2-roster {
+  float: right;
+}
+
+/* line 454, sass/screen.sass */
+img.flag {
+  margin: 0 3px 0 0;
+  height: 11px;
+  line-height: 11px;
+  /*Set the line-height in case the image is missing and text is displayed */
+  float: left;
+}
+
+/* line 461, sass/screen.sass */
+.comment-info .flag {
+  margin-top: 7px;
+}
+
+/* line 464, sass/screen.sass */
+.matches-title .team2 {
+  float: right;
+}
+
+/* line 467, sass/screen.sass */
+.match-picture {
+  float: right;
+  margin: 16px 0 0 0;
+  width: 200px;
+  height: 100px;
+}
+
+/* line 473, sass/screen.sass */
+#match-results {
+  padding: 5px;
+}
+
+/* line 476, sass/screen.sass */
+.team-players {
+  margin: 10px;
+  list-style: none;
+}
+/* line 479, sass/screen.sass */
+.team-players li {
+  margin: 10px 3px;
+  height: 11px;
+  clear: left;
+}
+
+/* line 484, sass/screen.sass */
+table.match-info {
+  border: 1px solid #d9d9d9;
+  width: 275px;
+  margin: 15px 0;
+  border-collapse: collapse;
+  float: left;
+}
+/* line 490, sass/screen.sass */
+table.match-info tr, table.match-info td {
+  height: 25px;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+/* line 494, sass/screen.sass */
+.odd, .unread {
+  background: #ededed;
+}
+
+/* line 497, sass/screen.sass */
+table.match-info td.title {
+  padding-left: 9px;
+  width: 63px;
+}
+
+/* line 501, sass/screen.sass */
+.matches-logo {
+  float: right;
+  margin: 15px 0;
+}
+
+/*Albums */
+/* line 507, sass/screen.sass */
+.album {
+  float: left;
+  width: 120px;
+  height: 184px;
+  margin: 27px 52px 0 0;
+}
+
+/* line 513, sass/screen.sass */
+#home-page-videos .album {
+  margin-right: 48px;
+}
+
+/* line 517, sass/screen.sass */
+.album .name {
+  height: 38px;
+}
+/* line 519, sass/screen.sass */
+.album .info {
+  width: 73px;
+  height: 41px;
+  background: #f2f2f2;
+}
+
+/* line 524, sass/screen.sass */
+#user-albums {
+  clear: both;
+  margin-top: 25px;
+}
+/* line 527, sass/screen.sass */
+#user-albums .album {
+  margin: 0 3px 0 0 !important;
+}
+
+/* line 530, sass/screen.sass */
+#current {
+  margin-bottom: 15px;
+}
+/* line 532, sass/screen.sass */
+#current img {
+  padding: 3px;
+  border: 1px solid gray;
+  background: #efefef;
+}
+
+/* line 537, sass/screen.sass */
+#photos {
+  width: 150px;
+  float: left;
+  padding: 0 5px;
+}
+/* line 541, sass/screen.sass */
+#photos img {
+  width: 50px;
+  height: 50px;
+  margin: 1px 1px 0 0;
+  border: 1px solid gray;
+  padding: 1px;
+}
+
+/* line 548, sass/screen.sass */
+.hidden-slideshow, #album-links {
+  display: none;
+}
+
+/*Partners */
+/* line 553, sass/screen.sass */
+.partner {
+  clear: both;
+  margin-top: 25px;
+}
+
+/* line 557, sass/screen.sass */
+.partner-logo {
+  float: left;
+  margin-right: 15px;
+}
+
+/* line 561, sass/screen.sass */
+.partner-description {
+  float: right;
+  width: 300px;
+}
+/* line 564, sass/screen.sass */
+.partner-description p {
+  margin-top: 10px;
+}
+
+/* line 567, sass/screen.sass */
+#official-partners {
+  margin: 20px;
+  clear: both;
+}
+
+/* line 571, sass/screen.sass */
+.official-partner {
+  float: left;
+  width: 50%;
+  height: 120px;
+}
+/* line 575, sass/screen.sass */
+.official-partner .title {
+  margin: 5px 0;
+  color: gray;
+}
+
+/* line 580, sass/screen.sass */
+div.comment {
+  padding: 6px 11px;
+  clear: both;
+}
+/* line 583, sass/screen.sass */
+div.comment-info {
+  clear: both;
+  border-top: 1px solid #d9d9d9;
+  border-bottom: 1px solid #d9d9d9;
+  background: #ededed;
+  height: 25px;
+  line-height: 25px;
+  padding: 0 0 0 11px;
+  color: #6e6f70;
+  font-weight: bold;
+  margin-top: 10px;
+}
+/* line 594, sass/screen.sass */
+div.comment-info .date {
+  float: right;
+  margin-right: 10px;
+}
+
+/* line 598, sass/screen.sass */
+.reply-form {
+  display: none;
+}
+
+/* line 601, sass/screen.sass */
+.comment-children {
+  clear: both;
+  margin-left: 50px;
+}
+
+/* line 605, sass/screen.sass */
+.comment-reply {
+  text-align: right;
+  padding-right: 10px;
+}
+
+/* line 609, sass/screen.sass */
+#pagination {
+  margin-top: 10px;
+  height: 19px;
+}
+
+/* line 613, sass/screen.sass */
+.pagination {
+  height: 19px;
+  text-align: center;
+  float: left;
+  left: 50%;
+  position: relative;
+}
+
+/* line 620, sass/screen.sass */
+.swControls {
+  position: relative;
+  float: right;
+  margin-top: -15px;
+}
+
+/* line 628, sass/screen.sass */
+.pagination .gap {
+  color: black;
+  font-size: 12px;
+}
+/* line 631, sass/screen.sass */
+.pagination span, .pagination a {
+  position: relative;
+  width: 32px;
+  height: 19px;
+  display: block;
+  float: left;
+  text-decoration: none;
+  text-align: center;
+  line-height: 19px;
+  color: white;
+  margin-right: 2px;
+}
+
+/* line 643, sass/screen.sass */
+.swControls a {
+  position: relative;
+  width: 32px;
+  height: 19px;
+  display: block;
+  float: left;
+  text-decoration: none;
+  text-align: center;
+  line-height: 19px;
+  color: white;
+  margin-right: 2px;
+}
+
+/* line 656, sass/screen.sass */
+.pagination span {
+  right: 50%;
+}
+/* line 658, sass/screen.sass */
+.pagination a {
+  right: 50%;
+  background: url(/images/pagination-link.png);
+}
+
+/* line 662, sass/screen.sass */
+.swControls a {
+  background: url(/images/pagination-link.png);
+}
+
+/* line 666, sass/screen.sass */
+.pagination .current, .pagination a:hover {
+  background: url(/images/pagination-hover.png);
+}
+
+/* line 670, sass/screen.sass */
+.swControls a.current, .swControls a:hover {
+  background: url(/images/pagination-hover.png);
+}
+
+/* Left Column */
+/* line 675, sass/screen.sass */
+#left-col {
+  margin: 0 5px 0 0;
+  width: 535px;
+  float: left;
+}
+
+/* line 680, sass/screen.sass */
+#roller {
+  height: 292px;
+}
+
+/* line 683, sass/screen.sass */
+.switcher {
+  height: 19px;
+}
+/* line 685, sass/screen.sass */
+.switcher li {
+  list-style: none;
+  float: left;
+  margin: -2px 1px 0 1px;
+  border: 1px solid #525252;
+  height: 17px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+/* line 693, sass/screen.sass */
+.switcher li a {
+  text-align: center;
+  display: block;
+  height: 15px;
+  line-height: 15px;
+  color: white;
+  text-decoration: none;
+  font-family: "Arial Rounded MT Bold", Arial;
+  font-weight: bold;
+  font-size: 8px;
+  margin-bottom: 12px;
+  padding: 0 7px;
+  background: #1a3f5a;
+  border: 1px solid white;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+}
+/* line 709, sass/screen.sass */
+.switcher li a:hover {
+  background-color: black;
+  background-image: -moz-linear-gradient(100% 100% 90deg, #110f0f, #322f30);
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, to(#110f0f), from(#322f30));
+}
+/* line 713, sass/screen.sass */
+.switcher .selected {
+  background-color: black;
+  background-image: -moz-linear-gradient(100% 100% 90deg, #110f0f, #322f30);
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, to(#110f0f), from(#322f30));
+}
+
+/* line 718, sass/screen.sass */
+#news-picture {
+  clear: both;
+  width: 270px;
+  height: 179px;
+  border: 1px solid #888888;
+}
+
+/* line 724, sass/screen.sass */
+.profile-picture {
+  width: 128px;
+  height: 128px;
+  float: left;
+  margin-right: 11px;
+}
+
+/* line 730, sass/screen.sass */
+.profile-info {
+  margin-top: 32px;
+  clear: left;
+}
+
+/* line 734, sass/screen.sass */
+.profile-details {
+  width: 374px;
+}
+
+/* line 737, sass/screen.sass */
+.profile-username {
+  margin: 10px 0 0 139px;
+  color: #797979;
+  padding-left: 3px;
+  width: 371px;
+}
+
+/* line 743, sass/screen.sass */
+.profile-description {
+  margin-top: 30px;
+  clear: both;
+}
+
+/* line 747, sass/screen.sass */
+.profile-details tr, .profile-username {
+  background: #ebebeb;
+  height: 23px;
+  line-height: 23px;
+}
+
+/* line 753, sass/screen.sass */
+.profile-details tr.odd {
+  background: #e0e0e0;
+}
+/* line 755, sass/screen.sass */
+.profile-details td {
+  padding-left: 10px;
+}
+/* line 757, sass/screen.sass */
+.profile-details td.title {
+  width: 65%;
+}
+
+/* Thin right column */
+/* line 762, sass/screen.sass */
+#thin-right-col {
+  width: 305px;
+  float: right;
+}
+
+/* Right Column */
+/* line 768, sass/screen.sass */
+#right-col {
+  width: 397px;
+  float: right;
+}
+
+/* line 772, sass/screen.sass */
+.box {
+  clear: both;
+  border: 1px solid #c4c4c4;
+  padding: 9px 14px 7px 11px;
+  margin-bottom: 6px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+/* line 779, sass/screen.sass */
+.box p {
+  margin-bottom: 10px;
+}
+
+/* line 782, sass/screen.sass */
+.box-title {
+  position: relative;
+  font-weight: bold;
+  float: left;
+  margin-right: 10px;
+  line-height: 9px;
+}
+
+/* line 789, sass/screen.sass */
+#matchticker-switcher {
+  list-style: none;
+}
+/* line 791, sass/screen.sass */
+#matchticker-switcher li {
+  float: left;
+}
+
+/* line 794, sass/screen.sass */
+#match-ticker {
+  margin: 10px 0 0 0;
+  clear: both;
+  list-style: none;
+}
+/* line 798, sass/screen.sass */
+#match-ticker li {
+  line-height: 25px;
+  border-bottom: 1px dotted #e3e3e3;
+}
+/* line 801, sass/screen.sass */
+#match-ticker li a {
+  text-decoration: none;
+  display: block;
+  color: black;
+  padding: 0 3px;
+}
+/* line 806, sass/screen.sass */
+#match-ticker li a:hover {
+  background: #e5ecf9;
+}
+/* line 808, sass/screen.sass */
+#match-ticker .team1 {
+  width: 30%;
+  display: block;
+  float: left;
+  overflow: hidden;
+}
+/* line 813, sass/screen.sass */
+#match-ticker img {
+  width: 27px;
+  height: 15px;
+  margin: 6px 5px 0 0;
+  float: left;
+}
+/* line 818, sass/screen.sass */
+#match-ticker .team2 {
+  margin-left: 16px;
+  width: 150px;
+  overflow: hidden;
+}
+/* line 822, sass/screen.sass */
+#match-ticker .scores {
+  float: right;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* line 827, sass/screen.sass */
+.all-matches {
+  padding-top: 5px;
+  font-weight: bold;
+  float: right;
+  text-decoration: none;
+}
+
+/* line 833, sass/screen.sass */
+#user-hardware {
+  clear: both;
+  list-style: none;
+  margin: 0 10px;
+}
+/* line 837, sass/screen.sass */
+#user-hardware li {
+  border-bottom: 1px dotted #e3e3e3;
+  padding: 10px 5px;
+}
+/* line 840, sass/screen.sass */
+#user-hardware span {
+  float: right;
+}
+
+/* line 843, sass/screen.sass */
+#user-blogs {
+  margin-top: 30px;
+}
+
+/* line 846, sass/screen.sass */
+.blog-user-summary {
+  clear: both;
+  font-weight: normal;
+  margin: 10px 0 0 10px;
+}
+/* line 850, sass/screen.sass */
+.blog-user-summary p {
+  margin-top: 5px;
+}
+
+/* line 853, sass/screen.sass */
+.blog-summary {
+  clear: both;
+  margin: 18px 0;
+}
+/* line 856, sass/screen.sass */
+.blog-summary .news-author-picture {
+  margin-right: 14px;
+}
+
+/* line 859, sass/screen.sass */
+.blog-info {
+  font-size: 110%;
+  margin-bottom: 10px;
+}
+/* line 862, sass/screen.sass */
+.blog-info a {
+  text-decoration: none;
+}
+/* line 864, sass/screen.sass */
+.blog-info span {
+  color: black;
+}
+/* line 866, sass/screen.sass */
+.blog-info span a {
+  color: black;
+  text-decoration: underline;
+}
+
+/* line 870, sass/screen.sass */
+.blog-show-info p {
+  font-size: 120%;
+  margin: 16px 0;
+}
+
+/* line 874, sass/screen.sass */
+#blog .preamble {
+  margin-top: 15px;
+}
+
+/* line 877, sass/screen.sass */
+.player {
+  height: 100px;
+  margin: 15px 0;
+}
+/* line 880, sass/screen.sass */
+.player img {
+  width: 90px;
+  height: 90px;
+}
+/* line 883, sass/screen.sass */
+.player a.name {
+  text-decoration: none;
+  font-size: 110%;
+  margin-right: 10px;
+  font-weight: bold;
+}
+/* line 888, sass/screen.sass */
+.player .description {
+  border: 2px solid #cccccc;
+  -mozilla-border-radius: 7px;
+  -webkit-border-radius: 7px;
+  margin-top: 5px;
+  padding: 10px;
+  display: block;
+  float: right;
+  width: 382px;
+}
+
+/* line 898, sass/screen.sass */
+#ok_staff {
+  margin-top: 30px;
+}
+
+/* line 901, sass/screen.sass */
+.ok-staff {
+  clear: both;
+  margin-top: 20px;
+}
+/* line 904, sass/screen.sass */
+.ok-staff img {
+  width: 50px;
+  height: 50px;
+  float: left;
+  margin-right: 10px;
+}
+/* line 909, sass/screen.sass */
+.ok-staff .desc {
+  margin-top: 3px;
+  height: 2.5em;
+  line-height: 1.2em;
+  overflow: hidden;
+}
+
+/* line 915, sass/screen.sass */
+.left img {
+  float: left;
+  margin-right: 12px;
+}
+
+/* line 919, sass/screen.sass */
+.right img {
+  float: right;
+  margin-left: 12px;
+}
+
+/* Footer */
+/* line 925, sass/screen.sass */
+#footer {
+  padding: 66px 0 100px 170px;
+  width: 782px;
+  height: 54px;
+  clear: both;
+  background: url(/images/footer.png) no-repeat;
+  font-size: 80%;
+  color: #c7c7c7;
+}
+/* line 933, sass/screen.sass */
+#footer .copyright {
+  float: left;
+}
+/* line 935, sass/screen.sass */
+#footer .copyright span {
+  display: block;
+  float: none;
+  margin-bottom: 12px;
+}
+/* line 939, sass/screen.sass */
+#footer ul {
+  margin: 13px 15px 0 0;
+  float: right;
+}
+/* line 942, sass/screen.sass */
+#footer ul li {
+  float: left;
+  margin: 0 0 0 12px;
+  list-style: none;
+}
+/* line 946, sass/screen.sass */
+#footer ul li a {
+  color: #c7c7c7;
+  text-decoration: none;
+}
+/* line 949, sass/screen.sass */
+#footer ul li a:hover {
+  color: white;
+}
+
+/* Misc */
+/* line 954, sass/screen.sass */
+.clear {
+  clear: both;
+}
+
+/* line 957, sass/screen.sass */
+.settings-avatar {
+  height: 50px;
+  border: 1px solid #cccccc;
+  width: 50px;
+  padding: 5px;
+}
+/* line 962, sass/screen.sass */
+.settings-avatar img {
+  width: 50px;
+  height: 50px;
+}
+
+/*Article ratings */
+/* line 968, sass/screen.sass */
+.star {
+  width: 10px;
+  height: 10px;
+  background: url(/images/star_small.png);
+  display: block;
+  float: left;
+}
+
+/* line 975, sass/screen.sass */
+.filled {
+  background-position: 0 -20px;
+}
+
+/* line 978, sass/screen.sass */
+.prev-filled {
+  background-position: 0 -10px;
+}
+
+/*Events */
+/* line 983, sass/screen.sass */
+#events-list {
+  clear: both;
+  margin-top: 20px;
+}
+
+/* line 987, sass/screen.sass */
+#pagination {
+  clear: both;
+}
+
+/* line 990, sass/screen.sass */
+.attending-teams {
+  list-style: none;
+  float: left;
+  width: 160px;
+  margin: 10px 0;
+}
+/* line 995, sass/screen.sass */
+.attending-teams li {
+  padding: 5px 5px 0 5px;
+}
+
+/* line 998, sass/screen.sass */
+#group {
+  margin-top: 20px;
+}
+
+/* line 1001, sass/screen.sass */
+.stage-nav {
+  text-align: center;
+  border: 1px solid #dfdfdf;
+  padding: 5px;
+  margin-top: 3px;
+}
+
+/* line 1007, sass/screen.sass */
+.group-switcher {
+  float: right;
+  margin-top: -2px;
+}
+/* line 1010, sass/screen.sass */
+.group-switcher li a {
+  /* Set left and right explicitly as we don't want to override top or bottom padding */
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/* line 1015, sass/screen.sass */
+#group-matches {
+  margin: 20px;
+}
+
+/*About page */
+/* line 1020, sass/screen.sass */
+.high-manager {
+  float: left;
+  width: 385px;
+  margin: 10px 58px 10px 10px;
+}
+/* line 1024, sass/screen.sass */
+.high-manager img {
+  float: left;
+  margin: 0 10px 5px 0;
+  width: 90px;
+  height: 90px;
+}
+
+/* line 1030, sass/screen.sass */
+.medium-manager {
+  float: left;
+  margin: 10px 5px 10px 10px;
+  width: 180px;
+}
+/* line 1034, sass/screen.sass */
+.medium-manager img {
+  float: left;
+  margin: 0 10px 5px 0;
+  width: 50px;
+  height: 50px;
+}
+
+/*Home page */
+/* News slider */
+/* line 1044, sass/screen.sass */
+#news-slider {
+  margin: 10px 0 -8px 0;
+  position: relative;
+}
+/* line 1047, sass/screen.sass */
+#news-slider #current {
+  float: left;
+  width: 275px;
+}
+/* line 1050, sass/screen.sass */
+#news-slider #current img {
+  width: 275px;
+  height: 180px;
+}
+/* line 1053, sass/screen.sass */
+#news-slider ul {
+  float: right;
+  width: 200px;
+  list-style: none;
+  border-top: 1px dashed #dadada;
+}
+/* line 1058, sass/screen.sass */
+#news-slider ul li a {
+  border-bottom: 1px dashed #dadada;
+  height: 25px;
+  line-height: 25px;
+  display: block;
+  text-decoration: none;
+  font-weight: bold;
+  color: #6e6f70;
+}
+/* line 1066, sass/screen.sass */
+#news-slider ul li a:hover, #news-slider ul li a.selected {
+  background: #ebebeb;
+  color: #1a3f5a;
+}
+/* line 1069, sass/screen.sass */
+#news-slider #preamble {
+  color: #1a3f5a;
+  text-align: justify;
+  text-justify: newspaper;
+}
+/* line 1073, sass/screen.sass */
+#news-slider a.all-matches {
+  clear: right;
+}
+/* line 1075, sass/screen.sass */
+#news-slider ul li .content {
+  display: none;
+}
+
+/* line 1078, sass/screen.sass */
+#follow-us {
+  clear: right;
+  float: right;
+  width: 200px;
+  height: 86px;
+  padding: 9px 0 0 12px;
+  margin: 10px -15px 0 0;
+  border-left: 1px solid #c4c4c4;
+  border-top: 1px solid #c4c4c4;
+  border-right: 1px solid white;
+  border-bottom: 1px solid white;
+  background: white;
+}
+/* line 1090, sass/screen.sass */
+#follow-us img {
+  margin: 5px;
+}
+
+/*Home page blogs */
+/* line 1095, sass/screen.sass */
+#home-page-blogs {
+  margin-top: 30px;
+}
+
+/* line 1098, sass/screen.sass */
+.blog {
+  clear: both;
+  height: 50px;
+  margin-top: 25px;
+}
+/* line 1102, sass/screen.sass */
+.blog img {
+  width: 50px;
+  height: 50px;
+  float: left;
+  margin-right: 3px;
+}
+
+/* line 1108, sass/screen.sass */
+#home-page-videos {
+  width: 100%;
+  height: 200px;
+}
+
+/*Streams */
+/* line 1114, sass/screen.sass */
+.stream {
+  margin-top: 20px;
+}
+
+/* line 1117, sass/screen.sass */
+.next-streams {
+  margin-top: 10px;
+}
+
+/*Awards */
+/* line 1122, sass/screen.sass */
+.award {
+  margin-top: 10px;
+}
+/* line 1124, sass/screen.sass */
+.award .title {
+  font-weight: bold;
+  font-size: 110%;
+  color: #484848;
+}
+/* line 1128, sass/screen.sass */
+.award .title img {
+  margin-right: 3px;
+}
+/* line 1130, sass/screen.sass */
+.award .place {
+  height: 20px;
+  color: gray;
+  font-weight: bold;
+}
+
+/*Jquery pagination */
+/* line 1139, sass/screen.sass */
+#holder {
+  clear: both;
+  overflow: hidden;
+  margin: 10px -14px 0 -11px;
+}
+
+/*Insider */
+/* line 1146, sass/screen.sass */
+ul.insider {
+  margin: 20px;
+  clear: both;
+}
+
+/* line 1150, sass/screen.sass */
+.insider li, .insider-page li {
+  height: 20px;
+  line-height: 1.5;
+}
+
+/* line 1154, sass/screen.sass */
+.insider-content {
+  margin-top: 10px;
+}
+
+/* line 1157, sass/screen.sass */
+.insider-page {
+  margin: 10px;
+}
+
+/* line 1160, sass/screen.sass */
+.server {
+  list-style: none;
+}
+/* line 1162, sass/screen.sass */
+.server .name {
+  display: block;
+  float: left;
+  width: 200px;
+}
+/* line 1166, sass/screen.sass */
+.server .ip {
+  display: block;
+  float: left;
+  width: 150px;
+}
+/* line 1170, sass/screen.sass */
+.server a {
+  display: block;
+  float: right;
+}
+
+/* line 1174, sass/screen.sass */
+.message-box {
+  padding: 7px;
+  border: 1px solid #d9d9d9;
+  background: #ededed;
+  margin-bottom: 10px;
+}
+
+/* line 1180, sass/screen.sass */
+.read {
+  color: gray;
+}
+
+/* line 1183, sass/screen.sass */
+#lang {
+  background: url(../images/lang.png) no-repeat;
+  height: 56px;
+  width: 26px;
+  float: left;
+  margin-left: -32px;
+  list-style: none;
+}
+/* line 1190, sass/screen.sass */
+#lang li {
+  width: 26px;
+  height: 27px;
+  margin-bottom: 3px;
+}
+/* line 1194, sass/screen.sass */
+#lang a {
+  display: block;
+  width: 26px;
+  height: 27px;
+  text-indent: -3000px;
+  overflow: hidden;
+}
+/* line 1201, sass/screen.sass */
+#lang #english a:hover, #lang #english.selected {
+  background: url(../images/lang.png) -25px 0;
+}
+/* line 1204, sass/screen.sass */
+#lang #portuguese a:hover, #lang #portuguese.selected {
+  background: url(../images/lang.png) -25px 26px;
+}
+
+/*
+ * Admin stylesheet
+ * Author: Alex Duller 2010 */
+/* line 1210, sass/screen.sass */
+table.admin-table {
+  width: 100%;
+  border: 1px solid gray;
+  margin: 20px 0;
+  border-collapse: collapse;
+}
+/* line 1215, sass/screen.sass */
+table.admin-table td, table.admin-table th {
+  border-bottom: 1px solid gray;
+  padding: 6px;
+}
+/* line 1218, sass/screen.sass */
+table.admin-table tr.even td {
+  background: #e5ecf9;
+}
+/* line 1220, sass/screen.sass */
+table.admin-table td.edit {
+  width: 10%;
+  text-align: center;
+}
+
+/* line 1224, sass/screen.sass */
+td.delete {
+  width: 10%;
+  text-align: center;
+}
+
+/* line 1228, sass/screen.sass */
+table.admin-table .centered {
+  text-align: center;
+}
+
+/* line 1231, sass/screen.sass */
+input {
+  border: 1px solid #bbbbbb;
+  margin-top: 4px;
+}
+
+/* line 1235, sass/screen.sass */
+#admin-settings {
+  list-style: none;
+  margin-top: 10px;
+}
+/* line 1238, sass/screen.sass */
+#admin-settings a {
+  text-decoration: none;
+  display: block;
+  line-height: 2em;
+  border: 1px solid gray;
+  float: left;
+  padding: 0 5px;
+  margin: 0 5px;
+}
+/* line 1246, sass/screen.sass */
+#admin-settings a:hover {
+  background: #e5ecf9;
+  color: black;
+}
+
+/* line 1250, sass/screen.sass */
+#admin-content {
+  margin: 10px;
+}
+
+/* line 1253, sass/screen.sass */
+.admin-links a {
+  font-size: 10px;
+  color: #999999;
+}
+/* line 1256, sass/screen.sass */
+.admin-links a:hover {
+  color: black;
+}
+
+/* line 1259, sass/screen.sass */
+.match-admin-links {
+  float: right;
+  line-height: 25px;
+  padding-left: 5px;
+}
+
+/* line 1264, sass/screen.sass */
+.player-admin-links a {
+  display: inline !important;
+}
+
+/* line 1267, sass/screen.sass */
+.team-admin-links {
+  float: right;
+}
+
+/* line 1270, sass/screen.sass */
+.user-admin-links a {
+  color: #1a3f5a;
+}
+
+/* line 1273, sass/screen.sass */
+.group-match-admin-links, .ok-staff-admin, .inline-admin {
+  display: inline !important;
+}
+
+/* line 1276, sass/screen.sass */
+#admin-nav {
+  color: white;
+  position: fixed;
+  right: -1px;
+  top: 10px;
+  width: 100px;
+  padding: 10px;
+  background: black;
+  border: 1px solid gray;
+}
+/* line 1285, sass/screen.sass */
+#admin-nav a {
+  color: white;
+}
+/* line 1287, sass/screen.sass */
+#admin-nav a:hover {
+  text-decoration: underline;
+}
+/* line 1289, sass/screen.sass */
+#admin-nav li {
+  margin: 4px 0;
+  list-style: none;
+}
+/* line 1292, sass/screen.sass */
+#admin-nav li a {
+  text-decoration: none;
+}
+/* line 1294, sass/screen.sass */
+#admin-nav #hidden {
+  margin: 10px 0;
+  display: none;
+}
+
+/* line 1297, sass/screen.sass */
+label {
+  font-weight: bold;
+  display: block;
+}
+
+/* line 1301, sass/screen.sass */
+textarea {
+  width: 80%;
+}
+/* line 1303, sass/screen.sass */
+textarea.comment-area {
+  height: 100px;
+}
+
+/* line 1307, sass/screen.sass */
+input[type=text], input[type=password] {
+  height: 20px;
+  line-height: 20px;
+  padding-left: 5px;
+}
+/* line 1311, sass/screen.sass */
+input[type=submit] {
+  background: black;
+  color: white;
+}
+
+/* line 1315, sass/screen.sass */
+form p {
+  margin-top: 15px;
+}
+
+/* line 1318, sass/screen.sass */
+input.number {
+  width: 30px;
+}
+
+/* line 1321, sass/screen.sass */
+form br {
+  display: none;
+}
+
+/*Brackets form */
+/* line 1326, sass/screen.sass */
+#bracket_submit {
+  margin-top: 30px;
+}
+
+/*Matches form */
+/* line 1331, sass/screen.sass */
+.match-team {
+  width: 300px;
+  float: left;
+  border: 1px solid gray;
+  background: #eeeeee;
+  margin: 5px;
+  padding: 5px;
+}
+
+/*Search */
+/* line 1341, sass/screen.sass */
+#switcher-search {
+  margin-top: -20px;
+}
+
+/* line 1344, sass/screen.sass */
+.search {
+  float: right;
+}
+/* line 1347, sass/screen.sass */
+.search input[type=text] {
+  width: 150px;
+  height: 18px;
+  line-height: 18px;
+  margin: 0;
+  padding-right: 53px;
+  float: left;
+}
+/* line 1354, sass/screen.sass */
+.search input[type=submit] {
+  float: left;
+  margin: 1px 0 0 -51px;
+  width: 50px;
+}
+
+/*Insider */
+/* line 1361, sass/screen.sass */
+#insider_prizes .fields, #insider_events .fields, #insider_files .fields, #insider_servers .fields {
+  background: #eeeeee;
+  border: 1px solid gray;
+  margin: 10px;
+  padding: 5px;
+}
+
+/* line 1367, sass/screen.sass */
+#insider_prizes .fields {
+  float: left;
+}
+
+/* line 1370, sass/screen.sass */
+#insider_events .fields, #insider_files .fields, #insider_servers .fields {
+  width: 300px;
+}
+
+/* line 1373, sass/screen.sass */
+form h1 {
+  margin-top: 20px;
+  font-size: 110%;
+  clear: both;
+}
+
+/*
+ * Stylesheet for the tournament tree */
+/* line 1380, sass/screen.sass */
+#tournament {
+  padding: -20px 0 -20px 15px;
+  white-space: nowrap;
+  overflow-x: scroll;
+}
+
+/* line 1385, sass/screen.sass */
+#team-select {
+  display: none;
+}
+
+/* line 1388, sass/screen.sass */
+.tournament-round {
+  display: inline-block;
+  width: 120px;
+  vertical-align: top;
+  margin: 0 -1px 0 -2px;
+}
+
+/* line 1394, sass/screen.sass */
+.match {
+  background: #d4d4d4;
+}
+
+/* line 1397, sass/screen.sass */
+.group-match-link {
+  width: 200px;
+  text-decoration: none;
+  margin: 5px;
+}
+
+/* line 1402, sass/screen.sass */
+.group-match {
+  margin-bottom: 15px;
+}
+
+/* line 1405, sass/screen.sass */
+.bracket-match-link {
+  text-decoration: none;
+  display: block;
+}
+/* line 1408, sass/screen.sass */
+.bracket-match-link:hover {
+  background: #95cbf2;
+}
+
+/* line 1411, sass/screen.sass */
+#tournament .team {
+  padding: 0 5px;
+  height: 20px;
+  line-height: 20px;
+  display: block;
+  background: #1e2021;
+  color: white;
+}
+
+/* line 1420, sass/screen.sass */
+.team img {
+  padding-top: 4px;
+}
+/* line 1422, sass/screen.sass */
+.team select {
+  width: 100%;
+}
+/* line 1425, sass/screen.sass */
+.team span.name {
+  float: left;
+  display: block;
+}
+/* line 1428, sass/screen.sass */
+.team span.score {
+  float: right;
+  display: block;
+}
+
+/* line 1432, sass/screen.sass */
+#round-1 .team {
+  margin: 20px 0;
+}
+
+/* line 1435, sass/screen.sass */
+#round-2 .team {
+  margin: 40px 0 60px 0;
+}
+
+/* line 1438, sass/screen.sass */
+#round-3 .team {
+  margin: 80px 0 140px 0;
+}
+
+/* line 1441, sass/screen.sass */
+#round-4 .team {
+  margin: 160px 0 300px 0;
+}
+
+/* line 1444, sass/screen.sass */
+#round-5 .team {
+  margin: 320px 0 620px 0;
+}
+
+/* line 1447, sass/screen.sass */
+#round-6 .team {
+  margin: 640px 0 1260px 0;
+}
+
+/* line 1450, sass/screen.sass */
+#round-7 .team {
+  margin: 1280px 0 0 0;
+}
+
+/*Groups */
+/* line 1455, sass/screen.sass */
+table.group {
+  border-collapse: collapse;
+  margin: 10px;
+  width: 95%;
+}
+/* line 1459, sass/screen.sass */
+table.group .pos {
+  width: 5px;
+}
+/* line 1461, sass/screen.sass */
+table.group tr {
+  height: 25px;
+  border: 1px solid #d9d9d9;
+}
+/* line 1464, sass/screen.sass */
+table.group th, table.group .centered {
+  text-align: center;
+}
+/* line 1466, sass/screen.sass */
+table.group th {
+  font-weight: bold;
+}
+/* line 1468, sass/screen.sass */
+table.group .centered {
+  width: 30px;
+}
+/* line 1470, sass/screen.sass */
+table.group td {
+  padding: 5px;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+/* line 1473, sass/screen.sass */
+h1, h2 {
+  font-weight: bold;
+}
+
+/* line 1476, sass/screen.sass */
+h1#album-title {
+  margin-bottom: 15px;
+}
+
+/* line 1479, sass/screen.sass */
+h2 {
+  margin: 15px;
+}
+
+/* line 1482, sass/screen.sass */
+#blog h1 {
+  font-size: 9pt;
+  margin: 15px 0 0 0;
+}
+
+/* line 1486, sass/screen.sass */
+.title {
+  font-weight: bold;
+}
+
+/* line 1489, sass/screen.sass */
+.subtitle {
+  font-size: 8.5px;
+}
+/* line 1491, sass/screen.sass */
+.subtitle span {
+  color: #5d5d5d;
+}
+
+/* line 1494, sass/screen.sass */
+.blue {
+  color: #1e2957;
+}
+
+/* line 1497, sass/screen.sass */
+.win {
+  color: #056b16;
+}
+
+/* line 1500, sass/screen.sass */
+.lose {
+  color: #f20707;
+}
+
+/* line 1503, sass/screen.sass */
+a {
+  color: #1a3f5a;
+}
+/* line 1505, sass/screen.sass */
+a:hover {
+  color: gray;
+}
+
+/* line 1508, sass/screen.sass */
+.medium-narrow {
+  font-size: 8pt;
+}
+
+/* line 1511, sass/screen.sass */
+#full-col p {
+  margin: 10px 0;
 }

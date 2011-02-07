@@ -11,16 +11,12 @@
  *The following style may be *conditionally* included for improved support on older versions of IE(<8)
  *form.formtastic fieldset ol li fieldset legend { margin-left: -6px;}
  *
- *-------------------------------------------------------------------------------------------------- */
-/* line 16, sass/formtastic_changes.sass */
-form.formtastic {
-  margin: 15px;
-}
-/* line 19, sass/formtastic_changes.sass */
-form.formtastic input[type=submit] {
-  padding: 5px;
-}
-/* line 21, sass/formtastic_changes.sass */
-form.formtastic input[type=text] {
-  width: 200px;
-}
+ *--------------------------------------------------------------------------------------------------
+
+form.formtastic
+  margin: 15px
+  input
+    &[type=submit]
+      padding: 5px
+    &[type=text]
+      width: 200px

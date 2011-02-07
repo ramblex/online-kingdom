@@ -1,0 +1,1512 @@
+/**
+ * Layout stylesheet for Online Kingdom
+ * Author: Alex Duller
+ * Contents:
+ *  - Header
+ *  - Navigation
+ *  - Content
+ *    - Right column
+ *    - Left column
+ *  - Footer
+ *  - Misc
+ *  - Article ratings
+
+@import "compass/reset"
+
+@import "formtastic"
+@import "formtastic_changes"
+
+body
+  background: url(/images/background.png) #5a7f9a
+  font: 11px Arial
+  color: white
+
+hr
+  border: 0
+  height: 1px
+  background: #c4c4c4
+  clear: both
+
+p
+  line-height: 1.5
+
+em
+  font-style: italic
+
+.info-msg
+  clear: both
+  margin: 20px
+  text-align: center
+
+ul, ol
+  margin-left: 20px
+
+div
+  &#flash-notice
+    position: fixed
+    top: 10px
+    left: -1px
+    color: black
+    padding: 10px
+  &#flash-alert
+    position: fixed
+    top: 10px
+    left: -1px
+    color: black
+    padding: 10px
+    border: 1px solid #dc1313
+    background: #e5b6b6
+
+#error
+  border: 1px solid #dc1313
+  background: #e5b6b6
+  padding: 10px
+
+div#flash-notice
+  border: 1px solid #558108
+  background: #bcdd9f
+
+#loading
+  line-height: 40px
+  clear: left
+  left: 40%
+  position: relative
+  img
+    width: 30px !important
+    height: 30px !important
+    float: left
+
+/* Header
+
+#wrapper
+  margin: 26px auto 0 auto
+  width: 953px
+  height: 545px
+  background: url(../images/header.png) no-repeat
+
+#top-news
+  width: 466px
+  height: 187px
+  float: left
+  padding: 11px
+
+#top-news-title, #top-match-title
+  height: 24px
+  line-height: 24px
+  margin-bottom: 6px
+
+#top-news .num_comments a
+  float: right
+  color: white
+  text-decoration: none
+  &:hover
+    text-decoration: underline
+
+.logo
+  width: 61px
+  height: 24px
+  margin-right: 11px
+  float: left
+
+#top-match-content .team
+  float: left
+  margin-bottom: 10px
+  .name
+    width: 100px
+    text-align: center
+    margin-top: 5px
+    color: white
+    text-decoration: none
+    display: block
+
+#top-match-title a
+  color: white
+
+#top-match-content
+  .team a:hover
+    text-decoration: underline
+  .versus
+    width: 89px
+    text-align: center
+    line-height: 100px
+    float: left
+    font-size: 80%
+  .logo
+    width: 100px
+    height: 100px
+    display: block
+    padding: 0
+    margin: 0
+    float: none
+
+#top-news-title
+  .title
+    font-weight: bold
+  .rating
+    float: right
+    width: 55px
+    height: 24px
+    margin-top: 5px
+
+#top-match-title .rating
+  float: right
+  width: 55px
+  height: 24px
+  margin-top: 5px
+
+.top-info
+  color: #c3c3c3
+  margin-bottom: 12px
+  .author
+    color: white
+
+#top-news-content
+  .image
+    width: 108px
+    height: 108px
+    float: left
+    background: gray
+    margin-right: 9px
+  float: left
+  /* Float left so that we can clear it
+  width: 100%
+  overflow: hidden
+  height: 108px
+
+.readmore
+  clear: both
+  float: right
+
+#top-advert
+  margin: 0 0 24px 0
+  width: 455px
+  height: 117px
+  float: right
+
+/* Login
+
+#login
+  padding: 10px 0 0 27px
+  width: 428px
+  height: 59px
+  float: right
+  span
+    margin: 0 0 0 33px
+    &.forgot
+      display: block
+      float: right
+      margin: 20px
+    a
+      color: white
+  form
+    margin: 0
+    width: 242px
+    position: relative
+    float: left
+    p
+      position: absolute
+      right: -122px
+      bottom: 0
+
+#login-username, #login-password
+  width: 184px
+  height: 20px
+  padding: 0 0 0 23px
+  margin: 0
+  border: 0
+  background: none
+  float: left
+  color: white
+
+#login-username
+  background: url(../images/username-bg.png)
+
+#login-password
+  background: url(../images/password-bg.png)
+  margin-top: 9px
+
+#login-btn
+  position: absolute
+  top: -5px
+  right: 0
+  border: 0
+
+#login .pw
+  position: absolute
+  bottom: -3px
+  right: 0
+
+#logged-in
+  line-height: 50px
+  height: 50px
+  padding-left: 70px
+  a
+    color: white
+  #links
+    float: right
+    width: 200px
+    a
+      margin-left: 10px
+      text-decoration: none
+  a:hover
+    color: gray
+
+#top-match
+  margin: 10px 0 0 0
+  padding: 11px
+  float: left
+  width: 289px
+  height: 194px
+  clear: both
+
+#sponsors
+  margin: 10px 0 0 10px
+  float: left
+  width: 631px
+  height: 217px
+  img
+    position: relative
+    top: 33px
+    margin-left: 40px
+
+/* Navigation
+
+#home-btn
+  display: block
+  width: 23px
+  height: 20px
+  background: url(../images/home_button.png) 0 0 no-repeat
+  float: left
+  margin-left: -40px
+
+#top-nav
+  margin: 0 0 6px 64px
+  float: left
+  width: 808px
+  height: 56px
+  clear: both
+  position: relative
+
+ul#top-nav
+  li
+    background: url(../images/top-nav-bg.png) 0 0 no-repeat
+    list-style: none
+    position: absolute
+    height: 20px
+    width: 68px
+    display: block
+    top: 28px
+    &#home
+      background: none
+  #news
+    left: 19px
+  #videos
+    left: 94px
+    background-position: -74px 0
+  #albums
+    left: 168px
+    background-position: -148px 0
+  #events
+    left: 242px
+    background-position: -222px 0
+  #blogs
+    left: 316px
+    background-position: -296px 0
+  #matches
+    left: 390px
+    background-position: -370px 0
+  #players
+    left: 497px
+    background-position: -477px 0
+  #awards
+    left: 571px
+    background-position: -551px 0
+  #partners
+    left: 645px
+    background-position: -625px 0
+  #about
+    left: 719px
+    background-position: -699px 0
+  a
+    width: 68px
+    height: 20px
+    display: block
+
+/* Content
+
+#content
+  padding: 6px
+  width: 940px
+  background: white
+  clear: both
+  color: black
+
+/* Full Column
+
+#full-col
+  border: 1px solid #c4c4c4
+  padding: 10px 13px
+  -moz-border-radius: 5px
+  -webkit-border-radius: 5px
+
+.news-item
+  clear: both
+  padding: 16px 0
+  height: 139px
+
+.news-stats
+  margin-top: 20px
+  font-size: 90%
+
+.news-title
+  color: black
+  text-decoration: none
+
+.news-left
+  float: left
+  width: 236px
+  height: 139px
+
+.news-author
+  margin-top: 16px
+  width: 236px
+  height: 50px
+  a
+    text-decoration: none
+    &:hover
+      text-decoration: underline
+
+.news-author-picture
+  float: left
+  height: 50px
+  width: 50px
+  margin-right: 3px
+
+.news-content
+  padding: 16px 28px 0 0
+  float: left
+  margin-bottom: 16px
+  width: 367px
+  font-size: 110%
+  overflow: hidden
+
+.date
+  font-size: 90%
+  color: #5d5d5d
+
+.news-rating
+  width: 60px
+  height: 12px
+  margin: 5px 0 10px 0
+
+.news-picture
+  float: left
+  width: 202px
+  height: 139px
+  border: 1px solid gray
+
+#settings-current
+  clear: both
+
+/* Wide left column
+/* Most pages have a wider left column and a thinner right-hand column
+
+#wide-left-col
+  margin: 0 5px 0 0
+  width: 628px
+  float: left
+
+.matches
+  padding: 10px 41px 0 41px
+
+.matches-title
+  clear: both
+  line-height: 11px
+  margin-top: 16px
+  padding: 7px
+  border: 1px solid #d9d9d9
+  height: 11px
+  background: #ededed
+  .team1
+    width: 209px
+    display: block
+    float: left
+  .right
+    float: right
+  .left
+    float: left
+
+#team1-roster, #team2-roster
+  margin-top: 10px
+  width: 120px
+  text-align: left
+  list-style: none
+
+#team1-roster li, #team2-roster li
+  margin-top: 3px
+
+#team1-roster
+  float: left
+
+#team2-roster
+  float: right
+
+img.flag
+  margin: 0 3px 0 0
+  height: 11px
+  line-height: 11px
+  /** Set the line-height in case the image is missing and text is displayed
+  float: left
+
+.comment-info .flag
+  margin-top: 7px
+
+.matches-title .team2
+  float: right
+
+.match-picture
+  float: right
+  margin: 16px 0 0 0
+  width: 200px
+  height: 100px
+
+#match-results
+  padding: 5px
+
+.team-players
+  margin: 10px
+  list-style: none
+  li
+    margin: 10px 3px
+    height: 11px
+    clear: left
+
+table.match-info
+  border: 1px solid #d9d9d9
+  width: 275px
+  margin: 15px 0
+  border-collapse: collapse
+  float: left
+  tr, td
+    height: 25px
+    border-bottom: 1px solid #d9d9d9
+
+.odd, .unread
+  background: #ededed
+
+table.match-info td.title
+  padding-left: 9px
+  width: 63px
+
+.matches-logo
+  float: right
+  margin: 15px 0
+
+/** Albums
+
+.album
+  float: left
+  width: 120px
+  height: 184px
+  margin: 27px 52px 0 0
+
+#home-page-videos .album
+  margin-right: 48px
+
+.album
+  .name
+    height: 38px
+  .info
+    width: 73px
+    height: 41px
+    background: #f2f2f2
+
+#user-albums
+  clear: both
+  margin-top: 25px
+  .album
+    margin: 0 3px 0 0 !important
+
+#current
+  margin-bottom: 15px
+  img
+    padding: 3px
+    border: 1px solid gray
+    background: #efefef
+
+#photos
+  width: 150px
+  float: left
+  padding: 0 5px
+  img
+    width: 50px
+    height: 50px
+    margin: 1px 1px 0 0
+    border: 1px solid gray
+    padding: 1px
+
+.hidden-slideshow, #album-links
+  display: none
+
+/** Partners
+
+.partner
+  clear: both
+  margin-top: 25px
+
+.partner-logo
+  float: left
+  margin-right: 15px
+
+.partner-description
+  float: right
+  width: 300px
+  p
+    margin-top: 10px
+
+#official-partners
+  margin: 20px
+  clear: both
+
+.official-partner
+  float: left
+  width: 50%
+  height: 120px
+  .title
+    margin: 5px 0
+    color: gray
+
+div
+  &.comment
+    padding: 6px 11px
+    clear: both
+  &.comment-info
+    clear: both
+    border-top: 1px solid #d9d9d9
+    border-bottom: 1px solid #d9d9d9
+    background: #ededed
+    height: 25px
+    line-height: 25px
+    padding: 0 0 0 11px
+    color: #6e6f70
+    font-weight: bold
+    margin-top: 10px
+    .date
+      float: right
+      margin-right: 10px
+
+.reply-form
+  display: none
+
+.comment-children
+  clear: both
+  margin-left: 50px
+
+.comment-reply
+  text-align: right
+  padding-right: 10px
+
+#pagination
+  margin-top: 10px
+  height: 19px
+
+.pagination
+  height: 19px
+  text-align: center
+  float: left
+  left: 50%
+  position: relative
+
+.swControls
+  position: relative
+  float: right
+  margin-top: -15px
+
+.prev_page, .next_page
+
+.pagination
+  .gap
+    color: black
+    font-size: 12px
+  span, a
+    position: relative
+    width: 32px
+    height: 19px
+    display: block
+    float: left
+    text-decoration: none
+    text-align: center
+    line-height: 19px
+    color: white
+    margin-right: 2px
+
+.swControls a
+  position: relative
+  width: 32px
+  height: 19px
+  display: block
+  float: left
+  text-decoration: none
+  text-align: center
+  line-height: 19px
+  color: white
+  margin-right: 2px
+
+.pagination
+  span
+    right: 50%
+  a
+    right: 50%
+    background: url(/images/pagination-link.png)
+
+.swControls a
+  background: url(/images/pagination-link.png)
+
+.pagination
+  .current, a:hover
+    background: url(/images/pagination-hover.png)
+
+.swControls a
+  &.current, &:hover
+    background: url(/images/pagination-hover.png)
+
+/* Left Column
+
+#left-col
+  margin: 0 5px 0 0
+  width: 535px
+  float: left
+
+#roller
+  height: 292px
+
+.switcher
+  height: 19px
+  li
+    list-style: none
+    float: left
+    margin: -2px 1px 0 1px
+    border: 1px solid #525252
+    height: 17px
+    -moz-border-radius: 5px
+    -webkit-border-radius: 5px
+    a
+      text-align: center
+      display: block
+      height: 15px
+      line-height: 15px
+      color: white
+      text-decoration: none
+      font-family: "Arial Rounded MT Bold", Arial
+      font-weight: bold
+      font-size: 8px
+      margin-bottom: 12px
+      padding: 0 7px
+      background: #1a3f5a
+      border: 1px solid white
+      -moz-border-radius: 4px
+      -webkit-border-radius: 4px
+      &:hover
+        background-color: black
+        background-image: -moz-linear-gradient(100% 100% 90deg, #110f0f, #322f30)
+        background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, to(#110f0f), from(#322f30))
+  .selected
+    background-color: black
+    background-image: -moz-linear-gradient(100% 100% 90deg, #110f0f, #322f30)
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, to(#110f0f), from(#322f30))
+
+#news-picture
+  clear: both
+  width: 270px
+  height: 179px
+  border: 1px solid #888
+
+.profile-picture
+  width: 128px
+  height: 128px
+  float: left
+  margin-right: 11px
+
+.profile-info
+  margin-top: 32px
+  clear: left
+
+.profile-details
+  width: 374px
+
+.profile-username
+  margin: 10px 0 0 139px
+  color: #797979
+  padding-left: 3px
+  width: 371px
+
+.profile-description
+  margin-top: 30px
+  clear: both
+
+.profile-details tr, .profile-username
+  background: #ebebeb
+  height: 23px
+  line-height: 23px
+
+.profile-details
+  tr.odd
+    background: #e0e0e0
+  td
+    padding-left: 10px
+    &.title
+      width: 65%
+
+/* Thin right column
+
+#thin-right-col
+  width: 305px
+  float: right
+
+/* Right Column
+
+#right-col
+  width: 397px
+  float: right
+
+.box
+  clear: both
+  border: 1px solid #c4c4c4
+  padding: 9px 14px 7px 11px
+  margin-bottom: 6px
+  -moz-border-radius: 5px
+  -webkit-border-radius: 5px
+  p
+    margin-bottom: 10px
+
+.box-title
+  position: relative
+  font-weight: bold
+  float: left
+  margin-right: 10px
+  line-height: 9px
+
+#matchticker-switcher
+  list-style: none
+  li
+    float: left
+
+#match-ticker
+  margin: 10px 0 0 0
+  clear: both
+  list-style: none
+  li
+    line-height: 25px
+    border-bottom: 1px dotted #e3e3e3
+    a
+      text-decoration: none
+      display: block
+      color: black
+      padding: 0 3px
+      &:hover
+        background: #E5ECF9
+  .team1
+    width: 30%
+    display: block
+    float: left
+    overflow: hidden
+  img
+    width: 27px
+    height: 15px
+    margin: 6px 5px 0 0
+    float: left
+  .team2
+    margin-left: 16px
+    width: 150px
+    overflow: hidden
+  .scores
+    float: right
+    text-align: center
+    font-weight: bold
+
+.all-matches
+  padding-top: 5px
+  font-weight: bold
+  float: right
+  text-decoration: none
+
+#user-hardware
+  clear: both
+  list-style: none
+  margin: 0 10px
+  li
+    border-bottom: 1px dotted #e3e3e3
+    padding: 10px 5px
+  span
+    float: right
+
+#user-blogs
+  margin-top: 30px
+
+.blog-user-summary
+  clear: both
+  font-weight: normal
+  margin: 10px 0 0 10px
+  p
+    margin-top: 5px
+
+.blog-summary
+  clear: both
+  margin: 18px 0
+  .news-author-picture
+    margin-right: 14px
+
+.blog-info
+  font-size: 110%
+  margin-bottom: 10px
+  a
+    text-decoration: none
+  span
+    color: black
+    a
+      color: black
+      text-decoration: underline
+
+.blog-show-info p
+  font-size: 120%
+  margin: 16px 0
+
+#blog .preamble
+  margin-top: 15px
+
+.player
+  height: 100px
+  margin: 15px 0
+  img
+    width: 90px
+    height: 90px
+  a.name
+    text-decoration: none
+    font-size: 110%
+    margin-right: 10px
+    font-weight: bold
+  .description
+    border: 2px solid #ccc
+    -mozilla-border-radius: 7px
+    -webkit-border-radius: 7px
+    margin-top: 5px
+    padding: 10px
+    display: block
+    float: right
+    width: 382px
+
+#ok_staff
+  margin-top: 30px
+
+.ok-staff
+  clear: both
+  margin-top: 20px
+  img
+    width: 50px
+    height: 50px
+    float: left
+    margin-right: 10px
+  .desc
+    margin-top: 3px
+    height: 2.5em
+    line-height: 1.2em
+    overflow: hidden
+
+.left img
+  float: left
+  margin-right: 12px
+
+.right img
+  float: right
+  margin-left: 12px
+
+/* Footer
+
+#footer
+  padding: 66px 0 100px 170px
+  width: 782px
+  height: 54px
+  clear: both
+  background: url(/images/footer.png) no-repeat
+  font-size: 80%
+  color: #c7c7c7
+  .copyright
+    float: left
+    span
+      display: block
+      float: none
+      margin-bottom: 12px
+  ul
+    margin: 13px 15px 0 0
+    float: right
+    li
+      float: left
+      margin: 0 0 0 12px
+      list-style: none
+      a
+        color: #c7c7c7
+        text-decoration: none
+        &:hover
+          color: white
+
+/* Misc
+
+.clear
+  clear: both
+
+.settings-avatar
+  height: 50px
+  border: 1px solid #ccc
+  width: 50px
+  padding: 5px
+  img
+    width: 50px
+    height: 50px
+
+/** Article ratings
+
+.star
+  width: 10px
+  height: 10px
+  background: url(/images/star_small.png)
+  display: block
+  float: left
+
+.filled
+  background-position: 0 -20px
+
+.prev-filled
+  background-position: 0 -10px
+
+/** Events
+
+#events-list
+  clear: both
+  margin-top: 20px
+
+#pagination
+  clear: both
+
+.attending-teams
+  list-style: none
+  float: left
+  width: 160px
+  margin: 10px 0
+  li
+    padding: 5px 5px 0 5px
+
+#group
+  margin-top: 20px
+
+.stage-nav
+  text-align: center
+  border: 1px solid #dfdfdf
+  padding: 5px
+  margin-top: 3px
+
+.group-switcher
+  float: right
+  margin-top: -2px
+  li a
+    /* Set left and right explicitly as we don't want to override top or bottom padding
+    padding-left: 10px
+    padding-right: 10px
+
+#group-matches
+  margin: 20px
+
+/** About page
+
+.high-manager
+  float: left
+  width: 385px
+  margin: 10px 58px 10px 10px
+  img
+    float: left
+    margin: 0 10px 5px 0
+    width: 90px
+    height: 90px
+
+.medium-manager
+  float: left
+  margin: 10px 5px 10px 10px
+  width: 180px
+  img
+    float: left
+    margin: 0 10px 5px 0
+    width: 50px
+    height: 50px
+
+/** Home page
+
+/* News slider
+
+#news-slider
+  margin: 10px 0 -8px 0
+  position: relative
+  #current
+    float: left
+    width: 275px
+    img
+      width: 275px
+      height: 180px
+  ul
+    float: right
+    width: 200px
+    list-style: none
+    border-top: 1px dashed #dadada
+    li a
+      border-bottom: 1px dashed #dadada
+      height: 25px
+      line-height: 25px
+      display: block
+      text-decoration: none
+      font-weight: bold
+      color: #6e6f70
+      &:hover, &.selected
+        background: #ebebeb
+        color: #1a3f5a
+  #preamble
+    color: #1a3f5a
+    text-align: justify
+    text-justify: newspaper
+  a.all-matches
+    clear: right
+  ul li .content
+    display: none
+
+#follow-us
+  clear: right
+  float: right
+  width: 200px
+  height: 86px
+  padding: 9px 0 0 12px
+  margin: 10px -15px 0 0
+  border-left: 1px solid #c4c4c4
+  border-top: 1px solid #c4c4c4
+  border-right: 1px solid white
+  border-bottom: 1px solid white
+  background: white
+  img
+    margin: 5px
+
+/** Home page blogs
+
+#home-page-blogs
+  margin-top: 30px
+
+.blog
+  clear: both
+  height: 50px
+  margin-top: 25px
+  img
+    width: 50px
+    height: 50px
+    float: left
+    margin-right: 3px
+
+#home-page-videos
+  width: 100%
+  height: 200px
+
+/** Streams
+
+.stream
+  margin-top: 20px
+
+.next-streams
+  margin-top: 10px
+
+/** Awards
+
+.award
+  margin-top: 10px
+  .title
+    font-weight: bold
+    font-size: 110%
+    color: #484848
+    img
+      margin-right: 3px
+  .place
+    height: 20px
+    color: gray
+    font-weight: bold
+
+/** Jquery pagination
+
+.swPage
+
+#holder
+  clear: both
+  overflow: hidden
+  margin: 10px -14px 0 -11px
+
+/** Insider
+
+ul.insider
+  margin: 20px
+  clear: both
+
+.insider li, .insider-page li
+  height: 20px
+  line-height: 1.5
+
+.insider-content
+  margin-top: 10px
+
+.insider-page
+  margin: 10px
+
+.server
+  list-style: none
+  .name
+    display: block
+    float: left
+    width: 200px
+  .ip
+    display: block
+    float: left
+    width: 150px
+  a
+    display: block
+    float: right
+
+.message-box
+  padding: 7px
+  border: 1px solid #d9d9d9
+  background: #ededed
+  margin-bottom: 10px
+
+.read
+  color: gray
+
+#lang
+  background: url(../images/lang.png) no-repeat
+  height: 56px
+  width: 26px
+  float: left
+  margin-left: -32px
+  list-style: none
+  li
+    width: 26px
+    height: 27px
+    margin-bottom: 3px
+  a
+    display: block
+    width: 26px
+    height: 27px
+    text-indent: -3000px
+    overflow: hidden
+  #english
+    a:hover, &.selected
+      background: url(../images/lang.png) -25px 0
+  #portuguese
+    a:hover, &.selected
+      background: url(../images/lang.png) -25px 26px
+/**
+ * Admin stylesheet
+ * Author: Alex Duller 2010
+
+table.admin-table
+  width: 100%
+  border: 1px solid gray
+  margin: 20px 0
+  border-collapse: collapse
+  td, th
+    border-bottom: 1px solid gray
+    padding: 6px
+  tr.even td
+    background: #e5ecf9
+  td.edit
+    width: 10%
+    text-align: center
+
+td.delete
+  width: 10%
+  text-align: center
+
+table.admin-table .centered
+  text-align: center
+
+input
+  border: 1px solid #bbb
+  margin-top: 4px
+
+#admin-settings
+  list-style: none
+  margin-top: 10px
+  a
+    text-decoration: none
+    display: block
+    line-height: 2em
+    border: 1px solid gray
+    float: left
+    padding: 0 5px
+    margin: 0 5px
+    &:hover
+      background: #e5ecf9
+      color: black
+
+#admin-content
+  margin: 10px
+
+.admin-links a
+  font-size: 10px
+  color: #999
+  &:hover
+    color: black
+
+.match-admin-links
+  float: right
+  line-height: 25px
+  padding-left: 5px
+
+.player-admin-links a
+  display: inline !important
+
+.team-admin-links
+  float: right
+
+.user-admin-links a
+  color: #1a3f5a
+
+.group-match-admin-links, .ok-staff-admin, .inline-admin
+  display: inline !important
+
+#admin-nav
+  color: white
+  position: fixed
+  right: -1px
+  top: 10px
+  width: 100px
+  padding: 10px
+  background: black
+  border: 1px solid gray
+  a
+    color: white
+    &:hover
+      text-decoration: underline
+  li
+    margin: 4px 0
+    list-style: none
+    a
+      text-decoration: none
+  #hidden
+    margin: 10px 0
+    display: none
+label
+  font-weight: bold
+  display: block
+
+textarea
+  width: 80%
+  &.comment-area
+    height: 100px
+
+input
+  &[type=text], &[type=password]
+    height: 20px
+    line-height: 20px
+    padding-left: 5px
+  &[type=submit]
+    background: black
+    color: white
+
+form p
+  margin-top: 15px
+
+input.number
+  width: 30px
+
+form br
+  display: none
+
+/** Brackets form
+
+#bracket_submit
+  margin-top: 30px
+
+/** Matches form
+
+.match-team
+  width: 300px
+  float: left
+  border: 1px solid gray
+  background: #eee
+  margin: 5px
+  padding: 5px
+
+/** Search
+
+#switcher-search
+  margin-top: -20px
+
+.search
+  float: right
+  input
+    &[type=text]
+      width: 150px
+      height: 18px
+      line-height: 18px
+      margin: 0
+      padding-right: 53px
+      float: left
+    &[type=submit]
+      float: left
+      margin: 1px 0 0 -51px
+      width: 50px
+
+/** Insider
+
+#insider_prizes .fields, #insider_events .fields, #insider_files .fields, #insider_servers .fields
+  background: #eee
+  border: 1px solid gray
+  margin: 10px
+  padding: 5px
+
+#insider_prizes .fields
+  float: left
+
+#insider_events .fields, #insider_files .fields, #insider_servers .fields
+  width: 300px
+
+form h1
+  margin-top: 20px
+  font-size: 110%
+  clear: both
+/**
+ * Stylesheet for the tournament tree
+
+#tournament
+  padding: -20px 0 -20px 15px
+  white-space: nowrap
+  overflow-x: scroll
+
+#team-select
+  display: none
+
+.tournament-round
+  display: inline-block
+  width: 120px
+  vertical-align: top
+  margin: 0 -1px 0 -2px
+
+.match
+  background: #d4d4d4
+
+.group-match-link
+  width: 200px
+  text-decoration: none
+  margin: 5px
+
+.group-match
+  margin-bottom: 15px
+
+.bracket-match-link
+  text-decoration: none
+  display: block
+  &:hover
+    background: #95cbf2
+
+#tournament .team
+  padding: 0 5px
+  height: 20px
+  line-height: 20px
+  display: block
+  background: #1e2021
+  color: white
+
+.team
+  img
+    padding-top: 4px
+  select
+    width: 100%
+  span
+    &.name
+      float: left
+      display: block
+    &.score
+      float: right
+      display: block
+
+#round-1 .team
+  margin: 20px 0
+
+#round-2 .team
+  margin: 40px 0 60px 0
+
+#round-3 .team
+  margin: 80px 0 140px 0
+
+#round-4 .team
+  margin: 160px 0 300px 0
+
+#round-5 .team
+  margin: 320px 0 620px 0
+
+#round-6 .team
+  margin: 640px 0 1260px 0
+
+#round-7 .team
+  margin: 1280px 0 0 0
+
+/** Groups
+
+table.group
+  border-collapse: collapse
+  margin: 10px
+  width: 95%
+  .pos
+    width: 5px
+  tr
+    height: 25px
+    border: 1px solid #d9d9d9
+  th, .centered
+    text-align: center
+  th
+    font-weight: bold
+  .centered
+    width: 30px
+  td
+    padding: 5px
+    border-bottom: 1px solid #d9d9d9
+h1, h2
+  font-weight: bold
+
+h1#album-title
+  margin-bottom: 15px
+
+h2
+  margin: 15px
+
+#blog h1
+  font-size: 9pt
+  margin: 15px 0 0 0
+
+.title
+  font-weight: bold
+
+.subtitle
+  font-size: 8.5px
+  span
+    color: #5d5d5d
+
+.blue
+  color: #1e2957
+
+.win
+  color: #056b16
+
+.lose
+  color: #f20707
+
+a
+  color: #1a3f5a
+  &:hover
+    color: gray
+
+.medium-narrow
+  font-size: 8pt
+
+#full-col p
+  margin: 10px 0

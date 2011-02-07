@@ -1,6 +1,7 @@
-<tr class="<%= cycle('even', 'odd') %>">
-  <td><%= user.username %></td>
-  <td><%= user.roles %></td>
-  <td><%= link_to 'show', user %></td>
-  <td><%= admin_links user, 'user-admin-links' %></td>
-</tr>
+<% local_assigns[:role] ||= 'Author' %>
+
+<div class="user">
+  <%= image_tag user.avatar.url %>
+  <div class="name"><%= link_to user.fullname %></div>
+  <div class="role"><%= local_assigns[:role] %></div>
+</div>

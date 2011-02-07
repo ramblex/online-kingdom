@@ -1,6 +1,6 @@
 <div class="news-item">
   <div class="news-left">
-    <%= render :partial => 'author', :locals => {:user => article.user} %>
+    <%= render :partial => article.user %>
     <% if article.article_editors.size > 0 %>
       <% editor = article.article_editors.first %>
       <div class="news-author">

@@ -6,5 +6,12 @@
     <th>Profile</th>
     <th>Admin</th>
   </tr>
-  <%= render :partial => @users %>
+  <% @users.each do |user| %>
+    <tr class="<%= cycle('even', 'odd') %>">
+      <td><%= user.username %></td>
+      <td><%= user.roles %></td>
+      <td><%= link_to 'show', user %></td>
+      <td><%= admin_links user, 'user-admin-links' %></td>
+    </tr>
+  <% end %>
 </table>

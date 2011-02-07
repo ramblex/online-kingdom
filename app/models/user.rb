@@ -28,7 +28,12 @@ class User < ActiveRecord::Base
     :default => "50x50#",
     :profile => "128x128"
   },
-    :default_url => '/images/small-default-user.png'
+    :default_url => '/images/small-default-user.png',
+    :default_style => :default
+
+  def fullname
+    "#{firstname} '#{username}' #{surname}"
+  end
 
   def roles=(roles)
     self.roles_mask = (roles & ROLES).map { |r| 2**ROLES.index(r) }.sum

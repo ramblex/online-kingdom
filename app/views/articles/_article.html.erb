@@ -3,11 +3,7 @@
     <%= render :partial => article.user %>
     <% if article.article_editors.size > 0 %>
       <% editor = article.article_editors.first %>
-      <div class="news-author">
-        <%= image_tag editor.user.avatar.url(:default), :class => 'news-author-picture' %>
-        <%= link_to full_name(editor.user), editor.user %><br />
-        <strong><%= editor.update_type %></strong>
-      </div>
+      <%= render :partial => editor.user, :locals => {:role => editor.update_type} %>
     <% end %>
   </div>
   <%= render :partial => 'article_info', :locals => {:article => article} %>

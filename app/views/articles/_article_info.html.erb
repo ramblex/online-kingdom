@@ -3,7 +3,8 @@
   <div class="date">Posted on <%= article.created_at.strftime "%d %B %Y at %H:%M %Z" %></div>
   <%= admin_links article %>
   <div class="news-rating"><%= stars_for article %></div>
-  <%= truncate_html(article.preamble, :length => 320) %>
+  <p><%= truncate_html(article.preamble, :length => 320) %></p>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="OnlineKingdom">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 <% end %>
 <%= image_tag article.image.url(:default), :class => 'news-picture' if article.image? %>
 

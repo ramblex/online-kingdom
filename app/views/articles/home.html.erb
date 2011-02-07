@@ -19,7 +19,7 @@
             <%= link_to (image_tag article.image.url(:slider)), article %>
             <p><%= truncate_html article.preamble, :length => 550 %></p>
             <hr />
-            <strong><%= link_to '&raquo; read more', :class => 'all-matches' %></strong>
+            <strong><%= link_to '&raquo; read more', article, :class => 'all-matches' %></strong>
           </div>
         </li>
       <% end %>

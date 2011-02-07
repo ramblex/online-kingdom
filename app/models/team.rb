@@ -26,5 +26,5 @@ class Team < ActiveRecord::Base
     team1_matches.happened.team2_wins + team2_matches.happened.team1_wins
   end
 
-  has_attached_file :logo, :styles => { :default => '100x100#' }
+  has_attached_file :logo, :styles => { :default => '100x100#' }, :default_style => :default
 end

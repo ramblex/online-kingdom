@@ -3,8 +3,22 @@
  * <!--[if IE]>
  *   <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
  * <![endif]--> */
-/* line 7, sass/ie.sass */
+/* line 10, sass/ie.sass */
 .box {
-  border-radius: 5px;
+  overflow: hidden;
+  *zoom: 1;
+  border: 1px solid #c4c4c4;
+  padding: 10px;
+  margin-bottom: 6px;
+  -webkit-border-radius: 5px 5px;
+  -moz-border-radius: 5px / 5px;
+  -o-border-radius: 5px / 5px;
+  -ms-border-radius: 5px / 5px;
+  -khtml-border-radius: 5px / 5px;
+  border-radius: 5px / 5px;
   behavior: url(/stylesheets/ie-css3.htc);
+}
+/* line 16, sass/ie.sass */
+.box p {
+  margin-bottom: 10px;
 }

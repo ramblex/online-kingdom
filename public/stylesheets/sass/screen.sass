@@ -13,6 +13,7 @@
 
 @import "compass/reset"
 @import "compass/utilities/general/clearfix"
+@import "compass/css3/border-radius"
 
 @import "formtastic"
 @import "formtastic_changes"
@@ -337,7 +338,8 @@ ul#top-nav
 /* Content
 
 #content
-  padding: 6px
+  /* top image gives 5px padding at top */
+  padding: 1px 6px 6px 6px
   width: 940px
   background: white
   clear: both
@@ -347,9 +349,8 @@ ul#top-nav
 
 #full-col
   border: 1px solid #c4c4c4
-  padding: 10px 13px
-  -moz-border-radius: 5px
-  -webkit-border-radius: 5px
+  padding: 10px
+  @include border-radius(5px, 5px)
 
 .news-item
   clear: both

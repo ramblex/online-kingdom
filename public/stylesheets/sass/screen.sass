@@ -348,9 +348,7 @@ ul#top-nav
 /* Full Column
 
 #full-col
-  border: 1px solid #c4c4c4
-  padding: 10px
-  @include border-radius(5px, 5px)
+  @extend .box
 
 .news-item
   clear: both
@@ -790,12 +788,10 @@ div
 
 .box
   @include clearfix
-  clear: both
   border: 1px solid #c4c4c4
-  padding: 9px 14px 7px 11px
+  padding: 10px
   margin-bottom: 6px
-  -moz-border-radius: 5px
-  -webkit-border-radius: 5px
+  @include border-radius(5px, 5px)
   p
     margin-bottom: 10px
 

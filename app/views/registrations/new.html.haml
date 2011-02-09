@@ -1,13 +1,25 @@
 #full-col
   %h2 Sign up
 
-  - semantic_form_for resource_name, resource, :url => registration_path(resource_name) do |f|
-    - f.inputs do
-      = f.input :username
-      = f.input :email
-      = f.input :password
-      = f.input :password_confirmation
-      = f.input :country
-      = f.input :birthdate, :order => [:day, :month, :year], :start_year => Time.now.year - 70
-    - f.buttons do
-      = f.commit_button :label => 'Sign up'
+  - form_for resource_name, resource, :url => registration_path(resource_name) do |f|
+    = f.error_messages
+    .p
+      = f.label :username
+      = f.text_field :username
+    .p
+      = f.label :email
+      = f.text_field :email
+    .p
+      = f.label :password
+      = f.password_field :password
+    .p
+      = f.label :password_confirmation
+      = f.password_field :password_confirmation
+    .p
+      = f.label :country
+      = f.country_select :country
+    .p
+      = f.label :birthdate
+      = f.date_select :birthdate, :order => [:day, :month, :year], :start_year => Time.now.year - 70
+    .p
+      = f.submit 'Sign up'

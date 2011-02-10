@@ -14,6 +14,8 @@
 @import "compass/reset"
 @import "compass/utilities/general/clearfix"
 @import "compass/css3/border-radius"
+@import "compass/css3/gradient"
+@import "compass/css3/text-shadow"
 
 @import "formtastic"
 @import "formtastic_changes"
@@ -351,9 +353,6 @@ ul#top-nav
 
 /* Full Column
 
-#full-col
-  @extend .box
-
 .news-item
   clear: both
   padding: 16px 0
@@ -686,40 +685,30 @@ div
 #roller
   height: 292px
 
+.button
+  float: left
+  color: #4183c4
+  padding: 2px 4px
+  text-decoration: none
+  font-weight: bold
+  background: #fcfcfc
+  border: 1px solid #d4d4d4
+  @include border-radius(3px, 3px)
+  @include linear-gradient(color-stops(#fcfcfc, #ececec), top)
+  @include text-shadow(#fff, 1px, 1px, 0)
+  &:hover, &.selected
+    background: #ececec
+    color: #333
+    @include linear-gradient(color-stops(#f4f4f4, #ececec), top)
+  &:active
+    @include linear-gradient(color-stops(#f4f4f4, #ececec), bottom)
+    background: #ececec
+
 .switcher
-  height: 19px
   li
     list-style: none
     float: left
-    margin: -2px 1px 0 1px
-    border: 1px solid #525252
-    height: 17px
-    -moz-border-radius: 5px
-    -webkit-border-radius: 5px
-    a
-      text-align: center
-      display: block
-      height: 15px
-      line-height: 15px
-      color: white
-      text-decoration: none
-      font-family: "Arial Rounded MT Bold", Arial
-      font-weight: bold
-      font-size: 8px
-      margin-bottom: 12px
-      padding: 0 7px
-      background: #1a3f5a
-      border: 1px solid white
-      -moz-border-radius: 4px
-      -webkit-border-radius: 4px
-      &:hover
-        background-color: black
-        background-image: -moz-linear-gradient(100% 100% 90deg, #110f0f, #322f30)
-        background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, to(#110f0f), from(#322f30))
-  .selected
-    background-color: black
-    background-image: -moz-linear-gradient(100% 100% 90deg, #110f0f, #322f30)
-    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, to(#110f0f), from(#322f30))
+    margin-right: 3px
 
 #news-picture
   clear: both
@@ -797,7 +786,6 @@ div
   padding: 10px
   margin-bottom: 6px
   @include border-radius(5px, 5px)
-  behavior: url(ie-css3.htc)
   p
     margin-bottom: 10px
 

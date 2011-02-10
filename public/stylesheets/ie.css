@@ -3,3 +3,18 @@
  * <!--[if IE]>
  *   <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
  * <![endif]--> */
+/* line 7, sass/ie.sass */
+.button {
+  z-index: 100;
+  position: relative;
+  margin-top: -1px;
+  behavior: url(ie-css3.htc);
+}
+
+/* line 13, sass/ie.sass */
+.box {
+  position: relative;
+  z-index: 99;
+  behavior: url(ie-css3.htc);
+  background: white;
+}

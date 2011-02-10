@@ -5,10 +5,7 @@
       <span class="subtitle">CONTENT <span>CHANGER</span></span>
     </div>
     <ul id="player-categories" class="switcher">
-      <li><%= link_to 'ALL', params.merge(:category => 'all'), :class => 'selected' %></li>
-      <% Category.all.each do |category| %>
-        <li><%= link_to category.name, params.merge(:category => category.id) %></li>
-      <% end %>
+      <%= render :partial => 'shared/switcher_list' %>
     </ul>
     <div id="player-list">
       <%= render :partial => @ok_players %>

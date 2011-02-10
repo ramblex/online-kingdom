@@ -86,4 +86,30 @@ module ApplicationHelper
   def page_title(title)
     content_for(:page_title) { title }
   end
+
+  class CurrentPageDecorator
+    def initialize(helper,options)
+      @helper = helper
+      @html_class = options[:class] || 'selected button'
+      @default = options[:default] || 'as;dklf'
+    end
+
+    def link_to(*args, &blk)
+      name = args.first
+      options = args.second || {}
+      html_options = args.third || {}
+      html_options[:class] = @html_class if @helper.my_current_page?(options, @default)
+      @helper.link_to(name, options, html_options, blk)
+    end
+  end
+
+  def my_current_page?(options, default)
+    params[:category].to_s == options[:category].to_s ||
+      (params[:category].nil? && options[:category].to_s == default)
+  end
+
+  def highlight_current_link(options= {}, &blk)
+    raise ArgumentError unless block_given?
+    yield CurrentPageDecorator.new(self, options)
+  end
 end

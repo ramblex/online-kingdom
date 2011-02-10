@@ -9,8 +9,10 @@
     = stylesheet_link_tag 'print.css', :media => 'print'
     /[if IE]
       = stylesheet_link_tag 'ie.css', :media => 'screen, projection'
+    /[if IE 8]
+      = stylesheet_link_tag 'ie8.css', :media => 'screen, projection'
     = javascript_include_tag 'jquery'
-    = javascript_include_tag 'application', 'cufon-yui', 'Arial_Rounded_MT_Bold_400.font'
+    = javascript_include_tag 'application'
     = javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery?
     = javascript_include_tiny_mce_if_used
     = tiny_mce if using_tiny_mce?
@@ -57,5 +59,3 @@
           %li= link_to 'CONTACT', 'mailto:info@onlinekingdom.org'
           %li= link_to 'ESPORTSM', 'http://www.esportsm.pt', :target => :_blank
     = yield :extra_js
-    :javascript
-      Cufon.replace('.switcher li a')

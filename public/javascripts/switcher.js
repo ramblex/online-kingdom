@@ -4,6 +4,7 @@ function update_content(content_id, data) {
 }
 
 function switcher(switcher_id, content_id, func) {
+  return false;
   if (func === undefined) {
     func = function(data) {update_content(content_id, data)}
   }

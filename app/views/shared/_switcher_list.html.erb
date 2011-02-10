@@ -1,4 +1,10 @@
-<li><%= link_to 'ALL', params.merge(:category => 'all', :page => 1), :class => 'selected' %></li>
-<% Category.all.each do |category| %>
-  <li><%= link_to category.name, params.merge(:category => category.id, :page => 1) %></li>
+<%- highlight_current_link ({:default => 'all'}) do |n| %>
+  <li><%= n.link_to 'ALL',
+          params.merge(:category => 'all', :page => 1, :anchor => 'content'),
+          :class => 'button' %></li>
+  <% Category.all.each do |category| %>
+    <li><%= n.link_to category.name,
+            params.merge(:category => category.id, :page => 1, :anchor => 'content'),
+            :class => 'button' %></li>
+  <% end %>
 <% end %>

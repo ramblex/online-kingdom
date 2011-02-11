@@ -1,73 +1,10 @@
-/*
-Syntax error: Properties aren't allowed at the root of a document.
-        on line 7 of /Users/alexduller/www/online-kingdom/public/stylesheets/sass/ie.sass
-
-2:  * Import this file using the following HTML or equivalent:
-3:  * <!--[if IE]>
-4:  *   <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
-5:  * <![endif]--> */
-6: 
-7: .ie-border:
-8:   padding: 1px
-9:   display: inline-block
-
-Backtrace:
-/Users/alexduller/www/online-kingdom/public/stylesheets/sass/ie.sass:7
-/Library/Ruby/Gems/1.8/gems/haml-3.0.21/lib/sass/tree/node.rb:108:in `check_child!'
-/Library/Ruby/Gems/1.8/gems/haml-3.0.21/lib/sass/tree/node.rb:95:in `<<'
-/Library/Ruby/Gems/1.8/gems/haml-3.0.21/lib/sass/engine.rb:386:in `validate_and_append_child'
-/Library/Ruby/Gems/1.8/gems/haml-3.0.21/lib/sass/engine.rb:372:in `append_children'
-/Library/Ruby/Gems/1.8/gems/haml-3.0.21/lib/sass/engine.rb:338:in `each'
-/Library/Ruby/Gems/1.8/gems/haml-3.0.21/lib/sass/engine.rb:338:in `append_children'
-/Library/Ruby/Gems/1.8/gems/haml-3.0.21/lib/sass/engine.rb:208:in `_to_tree'
-/Library/Ruby/Gems/1.8/gems/haml-3.0.21/lib/sass/engine.rb:178:in `to_tree'
-/Library/Ruby/Gems/1.8/gems/haml-3.0.21/lib/haml/util.rb:289:in `silence_haml_warnings'
-/Library/Ruby/Gems/1.8/gems/haml-3.0.21/lib/sass/engine.rb:178:in `to_tree'
-/Library/Ruby/Gems/1.8/gems/haml-3.0.21/lib/sass/files.rb:44:in `tree_for'
-/Library/Ruby/Gems/1.8/gems/haml-3.0.21/rails/../lib/sass/plugin.rb:220:in `update_stylesheet'
-/Library/Ruby/Gems/1.8/gems/haml-3.0.21/rails/../lib/sass/plugin.rb:85:in `update_stylesheets'
-/Library/Ruby/Gems/1.8/gems/haml-3.0.21/rails/../lib/sass/plugin.rb:78:in `each'
-/Library/Ruby/Gems/1.8/gems/haml-3.0.21/rails/../lib/sass/plugin.rb:78:in `update_stylesheets'
-/Library/Ruby/Gems/1.8/gems/haml-3.0.21/rails/../lib/sass/plugin.rb:76:in `each'
-/Library/Ruby/Gems/1.8/gems/haml-3.0.21/rails/../lib/sass/plugin.rb:76:in `update_stylesheets'
-/Library/Ruby/Gems/1.8/gems/haml-3.0.21/rails/../lib/sass/plugin.rb:50:in `check_for_updates'
-/Library/Ruby/Gems/1.8/gems/haml-3.0.21/rails/../lib/sass/plugin/rack.rb:40:in `call'
-/Library/Ruby/Gems/1.8/gems/actionpack-2.3.9/lib/action_controller/string_coercion.rb:25:in `call'
-/Library/Ruby/Gems/1.8/gems/rack-1.1.0/lib/rack/head.rb:9:in `call'
-/Library/Ruby/Gems/1.8/gems/rack-1.1.0/lib/rack/methodoverride.rb:24:in `call'
-/Library/Ruby/Gems/1.8/gems/actionpack-2.3.9/lib/action_controller/params_parser.rb:15:in `call'
-/Library/Ruby/Gems/1.8/gems/actionpack-2.3.9/lib/action_controller/session/cookie_store.rb:100:in `call'
-/Users/alexduller/www/online-kingdom/vendor/plugins/uploadify_rails/lib/flash_session_cookie_middleware.rb:15:in `call'
-/Library/Ruby/Gems/1.8/gems/actionpack-2.3.9/lib/action_controller/failsafe.rb:26:in `call'
-/Library/Ruby/Gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
-/Library/Ruby/Gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `synchronize'
-/Library/Ruby/Gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
-/Library/Ruby/Gems/1.8/gems/actionpack-2.3.9/lib/action_controller/dispatcher.rb:114:in `call'
-/Library/Ruby/Gems/1.8/gems/actionpack-2.3.9/lib/action_controller/reloader.rb:34:in `run'
-/Library/Ruby/Gems/1.8/gems/actionpack-2.3.9/lib/action_controller/dispatcher.rb:108:in `call'
-/Library/Ruby/Gems/1.8/gems/rails-2.3.9/lib/rails/rack/static.rb:31:in `call'
-/Library/Ruby/Gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:47:in `call'
-/Library/Ruby/Gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `each'
-/Library/Ruby/Gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `call'
-/Library/Ruby/Gems/1.8/gems/rails-2.3.9/lib/rails/rack/log_tailer.rb:17:in `call'
-/Library/Ruby/Gems/1.8/gems/rack-1.1.0/lib/rack/content_length.rb:13:in `call'
-/Library/Ruby/Gems/1.8/gems/rack-1.1.0/lib/rack/handler/webrick.rb:48:in `service'
-/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
-/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
-/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
-/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
-/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
-/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
-/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
-/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
-/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
-/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
-/Library/Ruby/Gems/1.8/gems/rack-1.1.0/lib/rack/handler/webrick.rb:14:in `run'
-/Library/Ruby/Gems/1.8/gems/rails-2.3.9/lib/commands/server.rb:111
-script/server:3:in `require'
-script/server:3
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Syntax error: Properties aren't allowed at the root of a document.\A         on line 7 of /Users/alexduller/www/online-kingdom/public/stylesheets/sass/ie.sass\A \A 2:  * Import this file using the following HTML or equivalent:\A 3:  * <!--[if IE]>\A 4:  *   <link href=\"/stylesheets/ie.css\" media=\"screen, projection\" rel=\"stylesheet\" type=\"text/css\" />\A 5:  * <![endif]--> */\A 6: \A 7: .ie-border:\A 8:   padding: 1px\A 9:   display: inline-block"; }
+/* Welcome to Compass. Use this file to write IE specific override styles.
+ * Import this file using the following HTML or equivalent:
+ * <!--[if IE]>
+ *   <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+ * <![endif]--> */
+/* line 7, sass/ie.sass */
+.ie-border {
+  padding: 1px;
+  display: inline-block;
+}

@@ -4,6 +4,6 @@ $(".ie-border").each(function() {
   var c = $(this).children().first().css('border-left-color');
   $(this).css('background', c);
 });
-$(".box").corner();
-$(".button").corner();
-$(".ie-border").corner();
+$(".box").corner('5px');
+$(".button").corner('5px');
+$(".ie-border").corner('5px');

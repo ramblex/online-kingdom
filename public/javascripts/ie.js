@@ -9,5 +9,6 @@ $(".box").corner('5px');
 $(".box").parent().css('margin-bottom', '5px');
 $(".box").css('margin', '0');
 $(".pagination a").corner('5px');
+$(".pagination a").parent().css('display', 'inline-block');
 $(".button").corner('5px');
 $(".ie-border").corner('5px');

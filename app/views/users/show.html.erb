@@ -1,28 +1,31 @@
 <div id="left-col">
-  <div class="box-title">
-    <span class="blue">PRO</span>FILE
-    <%= admin_links @user, nil, {}, {:no_delete => true} %>
+  <div class="box">
+    <div class="box-title">
+      <%= title 'PROFILE' %>
+      <%= admin_links @user, nil, {}, {:no_delete => true} %>
+    </div>
+    <div class="profile-info">
+      <%= image_tag @user.avatar.url(:profile), :class => 'profile-picture' %>
+      <p>Personal information</p>
+      <div class="profile-username"><%= @user.username %></div>
+      <table class="profile-details">
+        <tr class="odd">
+          <td class="title">Name</td>
+          <td><%= @user.firstname %> <%= @user.surname %></td>
+        </tr>
+        <tr>
+          <td class="title">Age</td>
+          <td><%= Date.today.year - @user.birthdate.year %>; <%= @user.birthdate.strftime('%d-%m-%Y') %></td>
+        </tr>
+        <tr class="odd">
+          <td class="title">City</td>
+          <td><%= @user.city %></td>
+        </tr>
+      </table>
+    </div>
   </div>
-  <div class="profile-info">
-    <%= image_tag @user.avatar.url(:profile), :class => 'profile-picture' %>
-    <p>Personal information</p>
-    <div class="profile-username"><%= @user.username %></div>
-    <table class="profile-details">
-      <tr class="odd">
-        <td class="title">Name</td>
-        <td><%= @user.firstname %> <%= @user.surname %></td>
-      </tr>
-      <tr>
-        <td class="title">Age</td>
-        <td><%= Date.today.year - @user.birthdate.year %>; <%= @user.birthdate.strftime('%d-%m-%Y') %></td>
-      </tr>
-      <tr class="odd">
-        <td class="title">City</td>
-        <td><%= @user.city %></td>
-      </tr>
-    </table>
-  </div>
-  <div class="profile-description">Description
+  <div class="box">
+    <%= title 'DESCRIPTION' %>
     <p><%= @user.description %></p>
   </div>
 </div>
@@ -32,7 +35,7 @@
     <div class="box-title">
       <span class="blue">HARD</span>WARE
     </div>
-    <ul id="user-hardware">
+    <ul class="dotted">
       <li>Headset<span><%= @user.headset %></span></li>
       <li>Mousepad<span><%= @user.mousepad %></span></li>
       <li>Keyboard<span><%= @user.keyboard %></span></li>
@@ -48,23 +51,19 @@
   </div>
   <div class="box">
     <div class="box-title">
-      <span class="blue">BL</span>OGS<br />
+      <%= title 'BLOGS' %>
       <span class="subtitle">WRITTEN <span>IN PERSON</span></span>
     </div>
-    <div id="user-blogs">
-      <%= render :partial => 'blog', :collection => @user.blogs %>
-    </div>
+    <ul class="dotted">
+      <% @user.blogs.each do |blog| %>
+        <li><%= link_to blog.title, blog %></li>
+      <% end %>
+    </ul>
     <div class="clear"></div>
   </div>
   <div class="box">
     <div class="box-title">
-      <span class="blue">VI</span>DEOS<br />
-    </div>
-    <div class="clear"></div>
-  </div>
-  <div class="box">
-    <div class="box-title">
-      <span class="blue">AL</span>BUMS<br />
+      <%= title 'ALBUMS' %>
     </div>
     <div id="user-albums">
       <%= render :partial => @user.albums %>

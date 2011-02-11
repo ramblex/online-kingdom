@@ -7,13 +7,14 @@
   <ul id="news-category" class="switcher">
     <%= render :partial => 'shared/switcher_list' %>
   </ul>
+  <div class="top-pagination"><%= my_paginate @articles %></div>
   <div id="paginated-news-list">
     <%= render :partial => @articles %>
   </div>
   <div class="clear"></div>
   <div id="pagination"><%= my_paginate @articles %></div>
   <% if can? :create, Article %>
-    <%= link_to 'Add a news item', new_article_path %>
+    <%= link_to 'Add a news item', new_article_path, :class => 'button' %>
   <% end %>
 </div> <!-- end left-col -->
 

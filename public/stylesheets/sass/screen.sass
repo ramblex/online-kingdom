@@ -403,11 +403,11 @@ ul#top-nav
   margin: 5px 0 10px 0
 
 .news-picture
-  float: left
+  float: right
   width: 202px
   height: 139px
   border: 1px solid gray
-  margin-top: 12px
+  margin: 12px 0 10px 0
 
 #settings-current
   clear: both
@@ -618,13 +618,17 @@ div
 
 #pagination
   @include clearfix
+  text-align: center
+  margin-top: 5px
+
+.top-pagination
+  float: right
 
 .pagination
+  display: inline-block
   a
     @extend .button
-    margin-right: 3px
   span
-    float: left
     padding: 3px 4px
 
 .swControls a
@@ -676,6 +680,7 @@ div
     background: #ececec
 
 .switcher
+  display: inline-block
   li
     list-style: none
     float: left
@@ -721,10 +726,6 @@ div
   color: #797979
   padding-left: 3px
   width: 371px
-
-.profile-description
-  margin-top: 30px
-  clear: both
 
 .profile-details tr, .profile-username
   background: #ebebeb
@@ -812,15 +813,17 @@ div
   float: right
   text-decoration: none
 
-#user-hardware
-  clear: both
+.dotted
   list-style: none
-  margin: 0 10px
+  margin: 10px 0
   li
     border-bottom: 1px dotted #e3e3e3
-    padding: 10px 5px
+    padding: 10px 0
+    @include clearfix
   span
     float: right
+    width: 50%
+    display: block
 
 #user-blogs
   margin-top: 30px
@@ -1022,9 +1025,11 @@ div
 #news-slider-switcher
   @include clearfix
 
+#news-slider-box
+  position: relative
+
 #news-slider
   margin: 10px 0 -8px 0
-  position: relative
   #current
     float: left
     width: 275px
@@ -1055,21 +1060,6 @@ div
     clear: right
   ul li .content
     display: none
-
-#follow-us
-  clear: right
-  float: right
-  width: 200px
-  height: 86px
-  padding: 9px 0 0 12px
-  margin: 10px -15px 0 0
-  border-left: 1px solid #c4c4c4
-  border-top: 1px solid #c4c4c4
-  border-right: 1px solid white
-  border-bottom: 1px solid white
-  background: white
-  img
-    margin: 5px
 
 /** Home page blogs
 
@@ -1322,9 +1312,6 @@ form br
 
 /** Search
 
-#switcher-search
-  margin-top: -20px
-
 .search
   float: right
   input
@@ -1469,6 +1456,7 @@ h2
 
 .title
   font-weight: bold
+  @include clearfix
 
 .subtitle
   font-size: 8.5px

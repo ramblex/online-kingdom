@@ -1,8 +1,9 @@
-$(".box").corner("5px").wrap('<div class="ie-border" />');
-$(".button").corner("5px").wrap('<div class="ie-border" />');
-$(".ie-border:first-child").each(function() {
-  var border_colour = $(this).css('border-left-color');
-  alert(border_colour);
-  $(this).parent().css('background-color', border_colour);
+$(".button").wrap('<div class="ie-border"></div>');
+$(".box").wrap('<div class="ie-border"></div>');
+$(".ie-border").each(function() {
+  var c = $(this).children().first().css('border-left-color');
+  $(this).css('background', c);
 });
-$(".ie-border").css('padding', '1px').corner('5px');
+$(".box").corner('5px');
+$(".button").corner('5px');
+$(".ie-border").corner('5px');

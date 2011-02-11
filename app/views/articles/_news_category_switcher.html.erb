@@ -1,0 +1,11 @@
+<% first = true %>
+<% NewsCategory.all.each do |c| %>
+  <% classes = 'button'
+    classes += ' selected' if params[:news_category].to_s == c.id.to_s
+    if params[:news_category].nil? and first
+      classes += ' selected'
+      first = false
+    end
+  %>
+  <li><%= link_to c.name, params.merge(:news_category => c.id, :anchor => 'content'), :class => classes %></li>
+<% end %>

@@ -7,16 +7,16 @@ class ArticlesController < ApplicationController
   # overkill for now.
   def home
     params[:lang] ||= 'English'
-    if params[:match_category].blank? or params[:match_category].downcase.eql? 'all'
+    if params[:category].blank? or params[:category].downcase.eql? 'all'
       @matches = Match.all :limit => 15, :include => [:team1, :team2, :category]
     else
-      @matches = Match.all :limit => 15, :conditions => ['category_id = ?', params[:match_category]], :include => [:team1, :team2, :category]
+      @matches = Match.all :limit => 15, :conditions => ['category_id = ?', params[:category]], :include => [:team1, :team2, :category]
     end
 
-    if params[:category].blank? or params[:category].downcase.eql? 'all'
+    if params[:news_category].blank? or params[:news_category].downcase.eql? 'all'
       @articles = Article.approved.front_page.get_lang(params[:lang]).news_category(NewsCategory.first.id)
     else
-      @articles = Article.approved.front_page.get_lang(params[:lang]).news_category(params[:category])
+      @articles = Article.approved.front_page.get_lang(params[:lang]).news_category(params[:news_category])
     end
 
     @blogs = Blog.all :limit => 5, :include => [:user, :slug]

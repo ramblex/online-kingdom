@@ -6,7 +6,7 @@
       <span class="subtitle">CONTENT <span>CHANGER</span></span>
     </div>
     <ul id="news-slider-switcher" class="switcher">
-      <%= render :partial => 'shared/switcher_list', :locals => {:collection => NewsCategory.all} %>
+      <%= render :partial => 'news_category_switcher' %>
     </ul>
     <div id="news-slider">
       <ul>
@@ -42,10 +42,10 @@
       <span class="subtitle"><span>SPECIAL</span> PLAN</span>
     </div>
     <ul class="switcher" id="insider-switcher">
-      <li><%= link_to 'PRIZES', insiders_path, :class => 'selected' %></li>
-      <li><%= link_to 'EVENTS', insiders_path %></li>
-      <li><%= link_to 'FILES', insiders_path %></li>
-      <li><%= link_to 'SERVERS', insiders_path %></li>
+      <li><%= link_to 'PRIZES', insiders_path, :class => 'button' %></li>
+      <li><%= link_to 'EVENTS', insiders_path, :class => 'button' %></li>
+      <li><%= link_to 'FILES', insiders_path, :class => 'button' %></li>
+      <li><%= link_to 'SERVERS', insiders_path, :class => 'button' %></li>
     </ul>
     <ul id="insider_prizes" class="insider-page">
       <%= render :partial => Insider.first.insider_prizes %>

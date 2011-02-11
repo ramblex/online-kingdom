@@ -1,7 +1,8 @@
 set :application, "online-kingdom"
 set :repository,  "ssh://git@178.79.132.38/home/git/online-kingdom.git"
 set :user, "alexd"
-set :ip, "178.79.140.129"
+set :ip, "178.79.132.38"
+set :branch, "remoteie"
 ssh_options[:forward_agent] = true
 
 default_run_options[:pty] = true

@@ -9,7 +9,12 @@
 }
 
 /* line 10, sass/ie.sass */
-.button {
-  padding: 0px 4px 2px 2px;
+.button, .pagination a {
+  padding: 0px 4px 2px 2px !important;
   background: url(/images/button-bg.png);
+}
+
+/* line 14, sass/ie.sass */
+input[checkbox] {
+  margin: 0;
 }

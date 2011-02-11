@@ -5,5 +5,7 @@ $(".ie-border").each(function() {
   $(this).css('background', c);
 });
 $(".box").corner('5px');
+$(".box").parent().css('margin-bottom', '5px');
+$(".box").css('margin', '0');
 $(".button").corner('5px');
 $(".ie-border").corner('5px');

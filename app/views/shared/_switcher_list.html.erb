@@ -1,8 +1,9 @@
+<%- local_assigns[:collection] ||= Category.all %>
 <%- highlight_current_link ({:default => 'all'}) do |n| %>
   <li><%= n.link_to 'ALL',
           params.merge(:category => 'all', :page => 1, :anchor => 'content'),
           :class => 'button' %></li>
-  <% Category.all.each do |category| %>
+  <% local_assigns[:collection].each do |category| %>
     <li><%= n.link_to category.name,
             params.merge(:category => category.id, :page => 1, :anchor => 'content'),
             :class => 'button' %></li>

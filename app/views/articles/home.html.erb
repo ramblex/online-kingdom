@@ -5,10 +5,8 @@
       <span class="blue">NEWS</span> SWITCH<br />
       <span class="subtitle">CONTENT <span>CHANGER</span></span>
     </div>
-    <ul id="news-switcher" class="switcher">
-      <% NewsCategory.all.each do |category| %>
-        <li><%= link_to category.name, params.merge(:category => category.id, :page => 1) %></li>
-      <% end %>
+    <ul id="news-slider-switcher" class="switcher">
+      <%= render :partial => 'shared/switcher_list', :locals => {:collection => NewsCategory.all} %>
     </ul>
     <div id="news-slider">
       <ul>
@@ -90,10 +88,7 @@
       <span class="subtitle">CONTENT <span>CHANGER</span></span>
     </div>
     <ul id="matches-switcher" class="switcher">
-      <li><%= link_to 'ALL', params.merge(:match_category => 'all', :page => 1), :class => 'selected' %></li>
-      <% Category.all.each do |category| %>
-        <li><%= link_to category.name, params.merge(:match_category => category.id, :page => 1) %></li>
-      <% end %>
+      <%= render :partial => 'shared/switcher_list' %>
     </ul>
     <ul id="match-ticker">
       <%= render :partial => @matches, :locals => {:no_admin => true} %>

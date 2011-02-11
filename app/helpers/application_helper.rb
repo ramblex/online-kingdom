@@ -112,4 +112,12 @@ module ApplicationHelper
     raise ArgumentError unless block_given?
     yield CurrentPageDecorator.new(self, options)
   end
+
+  def my_paginate(collection)
+     will_paginate collection,
+      :previous_label => '&laquo;',
+      :next_label => '&raquo;',
+      :inner_window => 1,
+      :outer_window => 0
+  end
 end

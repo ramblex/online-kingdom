@@ -11,12 +11,7 @@
     <%= render :partial => @articles %>
   </div>
   <div class="clear"></div>
-  <div id="pagination">
-      <%= will_paginate @articles,
-        :previous_label => '&laquo;',
-        :next_label => '&raquo;',
-        :inner_window => 1,
-        :outer_window => 0 %></div>
+  <div id="pagination"><%= my_paginate @articles %></div>
   <% if can? :create, Article %>
     <%= link_to 'Add a news item', new_article_path %>
   <% end %>

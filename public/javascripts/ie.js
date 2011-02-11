@@ -1,2 +1,2 @@
-$(".box").corner("5px");
-$(".button").corner("5px");
+$(".box").corner("5px keep");
+$(".button").corner("5px keep");

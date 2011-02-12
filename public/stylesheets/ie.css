@@ -15,6 +15,11 @@
 }
 
 /* line 14, sass/ie.sass */
+.right {
+  float: right !important;
+}
+
+/* line 17, sass/ie.sass */
 input[checkbox] {
   margin: 0;
   padding: 0;

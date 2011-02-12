@@ -56,3 +56,8 @@ table {
 .header {
   clear: both;
 }
+
+/* line 39, sass/ie7.sass */
+.readmore {
+  display: block;
+}

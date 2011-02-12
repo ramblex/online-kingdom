@@ -2,11 +2,13 @@
   <div class="photo_<%= comment_content.album_photo_id %>">
 <% end %>
 <div class="comment-info">
-  <%= flag comment_content.user.country %>
-  <%= link_to full_name(comment_content.user), comment_content.user %>
-  <% if can? :update, comment_content %>
-    <%= admin_links comment_content, 'inline-admin', :controller => 'comments' %>
-  <% end %>
+  <span>
+    <%= flag comment_content.user.country %>
+    <%= link_to full_name(comment_content.user), comment_content.user %>
+    <% if can? :update, comment_content %>
+      <%= admin_links comment_content, 'inline-admin', :controller => 'comments' %>
+    <% end %>
+  </span>
   <span class="date">Posted on <%= comment_content.created_at.strftime("%d %B %Y %H:%M %Z") %></span>
 </div>
 <div class="comment"><%= simple_format comment_content.content %></div>

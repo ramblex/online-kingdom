@@ -1,6 +1,3 @@
-<% unless local_assigns[:no_admin] %>
-  <%= admin_links match, 'match-admin-links', :controller => 'matches' %>
-<% end %>
 <li>
 <% link_to match do %>
   <%= image_tag match.category.small_icon.url(:default) %>

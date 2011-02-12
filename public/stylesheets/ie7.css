@@ -42,4 +42,5 @@ span.date {
 /* line 27, sass/ie7.sass */
 td {
   padding: 0;
+  border: 0;
 }

@@ -2,7 +2,7 @@
   <div class="photo_<%= comment_content.album_photo_id %>">
 <% end %>
 <div class="comment-info">
-  <span>
+  <span class="name">
     <%= flag comment_content.user.country %>
     <%= link_to full_name(comment_content.user), comment_content.user %>
     <% if can? :update, comment_content %>

@@ -46,3 +46,8 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
+/* line 33, sass/ie7.sass */
+.comment-info .name {
+  float: left;
+}

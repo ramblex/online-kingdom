@@ -1,83 +1,65 @@
-/*
-Syntax error: Undefined mixin 'clearfix'.
-        on line 3 of /Users/alexduller/www/online-kingdom/public/stylesheets/sass/ie7.sass, in `clearfix'
-        from line 3 of /Users/alexduller/www/online-kingdom/public/stylesheets/sass/ie7.sass
+/* line 3, sass/ie7.sass */
+.news-content {
+  overflow: hidden;
+  *zoom: 1;
+}
 
-1: 
-2: .news-content
-3:   @include clearfix
-4: 
-5: .switcher
-6:   float: left
-7:   li
-8:     float: left
+/* line 6, sass/ie7.sass */
+.switcher {
+  float: left;
+}
+/* line 8, sass/ie7.sass */
+.switcher li {
+  float: left;
+  margin-right: 3px;
+}
 
-Backtrace:
-/Users/alexduller/www/online-kingdom/public/stylesheets/sass/ie7.sass:3:in `clearfix'
-/Users/alexduller/www/online-kingdom/public/stylesheets/sass/ie7.sass:3
-/Library/Ruby/Gems/1.8/gems/haml-3.0.21/lib/sass/tree/mixin_node.rb:74:in `perform!'
-/Library/Ruby/Gems/1.8/gems/haml-3.0.21/lib/sass/tree/node.rb:305:in `_perform'
-/Library/Ruby/Gems/1.8/gems/haml-3.0.21/lib/sass/tree/node.rb:213:in `perform'
-/Library/Ruby/Gems/1.8/gems/haml-3.0.21/lib/sass/tree/node.rb:326:in `perform_children'
-/Library/Ruby/Gems/1.8/gems/haml-3.0.21/lib/sass/tree/node.rb:326:in `map'
-/Library/Ruby/Gems/1.8/gems/haml-3.0.21/lib/sass/tree/node.rb:326:in `perform_children'
-/Library/Ruby/Gems/1.8/gems/haml-3.0.21/lib/sass/tree/node.rb:317:in `perform!'
-/Library/Ruby/Gems/1.8/gems/haml-3.0.21/lib/sass/tree/rule_node.rb:191:in `perform!'
-/Library/Ruby/Gems/1.8/gems/haml-3.0.21/lib/sass/tree/node.rb:305:in `_perform'
-/Library/Ruby/Gems/1.8/gems/haml-3.0.21/lib/sass/tree/node.rb:213:in `perform'
-/Library/Ruby/Gems/1.8/gems/haml-3.0.21/lib/sass/tree/node.rb:326:in `perform_children'
-/Library/Ruby/Gems/1.8/gems/haml-3.0.21/lib/sass/tree/node.rb:326:in `map'
-/Library/Ruby/Gems/1.8/gems/haml-3.0.21/lib/sass/tree/node.rb:326:in `perform_children'
-/Library/Ruby/Gems/1.8/gems/haml-3.0.21/lib/sass/tree/node.rb:317:in `perform!'
-/Library/Ruby/Gems/1.8/gems/haml-3.0.21/lib/sass/tree/root_node.rb:59:in `perform!'
-/Library/Ruby/Gems/1.8/gems/haml-3.0.21/lib/sass/tree/node.rb:305:in `_perform'
-/Library/Ruby/Gems/1.8/gems/haml-3.0.21/lib/sass/tree/node.rb:213:in `perform'
-/Library/Ruby/Gems/1.8/gems/haml-3.0.21/lib/sass/tree/root_node.rb:37:in `perform'
-/Library/Ruby/Gems/1.8/gems/haml-3.0.21/lib/sass/tree/root_node.rb:29:in `render'
-/Library/Ruby/Gems/1.8/gems/haml-3.0.21/rails/../lib/sass/plugin.rb:220:in `update_stylesheet'
-/Library/Ruby/Gems/1.8/gems/haml-3.0.21/rails/../lib/sass/plugin.rb:85:in `update_stylesheets'
-/Library/Ruby/Gems/1.8/gems/haml-3.0.21/rails/../lib/sass/plugin.rb:78:in `each'
-/Library/Ruby/Gems/1.8/gems/haml-3.0.21/rails/../lib/sass/plugin.rb:78:in `update_stylesheets'
-/Library/Ruby/Gems/1.8/gems/haml-3.0.21/rails/../lib/sass/plugin.rb:76:in `each'
-/Library/Ruby/Gems/1.8/gems/haml-3.0.21/rails/../lib/sass/plugin.rb:76:in `update_stylesheets'
-/Library/Ruby/Gems/1.8/gems/haml-3.0.21/rails/../lib/sass/plugin.rb:50:in `check_for_updates'
-/Library/Ruby/Gems/1.8/gems/haml-3.0.21/rails/../lib/sass/plugin/rack.rb:40:in `call'
-/Library/Ruby/Gems/1.8/gems/actionpack-2.3.9/lib/action_controller/string_coercion.rb:25:in `call'
-/Library/Ruby/Gems/1.8/gems/rack-1.1.0/lib/rack/head.rb:9:in `call'
-/Library/Ruby/Gems/1.8/gems/rack-1.1.0/lib/rack/methodoverride.rb:24:in `call'
-/Library/Ruby/Gems/1.8/gems/actionpack-2.3.9/lib/action_controller/params_parser.rb:15:in `call'
-/Library/Ruby/Gems/1.8/gems/actionpack-2.3.9/lib/action_controller/session/cookie_store.rb:100:in `call'
-/Users/alexduller/www/online-kingdom/vendor/plugins/uploadify_rails/lib/flash_session_cookie_middleware.rb:15:in `call'
-/Library/Ruby/Gems/1.8/gems/actionpack-2.3.9/lib/action_controller/failsafe.rb:26:in `call'
-/Library/Ruby/Gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
-/Library/Ruby/Gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `synchronize'
-/Library/Ruby/Gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
-/Library/Ruby/Gems/1.8/gems/actionpack-2.3.9/lib/action_controller/dispatcher.rb:114:in `call'
-/Library/Ruby/Gems/1.8/gems/actionpack-2.3.9/lib/action_controller/reloader.rb:34:in `run'
-/Library/Ruby/Gems/1.8/gems/actionpack-2.3.9/lib/action_controller/dispatcher.rb:108:in `call'
-/Library/Ruby/Gems/1.8/gems/rails-2.3.9/lib/rails/rack/static.rb:31:in `call'
-/Library/Ruby/Gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:47:in `call'
-/Library/Ruby/Gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `each'
-/Library/Ruby/Gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `call'
-/Library/Ruby/Gems/1.8/gems/rails-2.3.9/lib/rails/rack/log_tailer.rb:17:in `call'
-/Library/Ruby/Gems/1.8/gems/rack-1.1.0/lib/rack/content_length.rb:13:in `call'
-/Library/Ruby/Gems/1.8/gems/rack-1.1.0/lib/rack/handler/webrick.rb:48:in `service'
-/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
-/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
-/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
-/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
-/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
-/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
-/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
-/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
-/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
-/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
-/Library/Ruby/Gems/1.8/gems/rack-1.1.0/lib/rack/handler/webrick.rb:14:in `run'
-/Library/Ruby/Gems/1.8/gems/rails-2.3.9/lib/commands/server.rb:111
-script/server:3:in `require'
-script/server:3
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Syntax error: Undefined mixin 'clearfix'.\A         on line 3 of /Users/alexduller/www/online-kingdom/public/stylesheets/sass/ie7.sass, in `clearfix'\A         from line 3 of /Users/alexduller/www/online-kingdom/public/stylesheets/sass/ie7.sass\A \A 1: \A 2: .news-content\A 3:   @include clearfix\A 4: \A 5: .switcher\A 6:   float: left\A 7:   li\A 8:     float: left"; }
+/* line 12, sass/ie7.sass */
+.title {
+  float: left;
+  margin-right: 10px;
+}
+
+/* line 16, sass/ie7.sass */
+.button {
+  float: left;
+  font-size: 90%;
+}
+
+/* line 20, sass/ie7.sass */
+.tournament-round {
+  float: left;
+}
+
+/* line 23, sass/ie7.sass */
+.official-partner {
+  width: 49%;
+}
+
+/* line 26, sass/ie7.sass */
+span {
+  display: inline;
+}
+
+/* line 29, sass/ie7.sass */
+.twitter-share-button {
+  display: block;
+}
+
+/* line 32, sass/ie7.sass */
+table {
+  padding: 0;
+  border: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 38, sass/ie7.sass */
+.comment-info .name {
+  float: left;
+}
+
+/* line 41, sass/ie7.sass */
+.header {
+  clear: both;
+}

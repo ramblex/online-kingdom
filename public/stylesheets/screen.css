@@ -1457,7 +1457,7 @@ div.comment-info .date {
   font-weight: bold;
   text-align: right;
   text-decoration: none;
-  display: block;
+  float: right;
 }
 
 /* line 803, sass/screen.sass */

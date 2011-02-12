@@ -1,6 +1,8 @@
 <div id="wide-left-col">
   <div class="box">
-    <div class="box-title"><span class="blue">MATCH</span> DETAILS</div>
+    <div class="header">
+      <%= title 'MATCH DETAILS' %>
+    </div>
     <%= admin_links @match %>
     <div class="matches">
       <div class="matches-title">
@@ -8,21 +10,21 @@
         <span class="scores">[ <%= render :partial => 'scores', :locals => {:match => @match} %> ]</span>
         <span class="team2"><%= flag @match.team2.country %><%= link_to @match.team2.name, @match.team2 %></span>
       </div>
-      <table class="match-info">
+      <table class="info">
         <tr class="odd">
-          <td class="title">Date</td>
+          <td class="field">Date</td>
           <td><%= @match.start_date.to_formatted_s :match %></td>
         </tr>
         <tr>
-          <td class="title">Game</td>
+          <td class="field">Game</td>
           <td><%= @match.category.name %></td>
         </tr>
         <tr class="odd">
-          <td class="title">Event</td>
+          <td class="field">Event</td>
           <td><%= link_to @match.event.name, @match.event %></td>
         </tr>
         <tr>
-          <td class="title">Format</td>
+          <td class="field">Format</td>
           <td><%= @match.format.name %></td>
         </tr>
       </table>
@@ -69,10 +71,9 @@
 
 <div id="thin-right-col">
   <div class="box">
-    <div class="box-title">
-      <span class="blue">CREDITS</span> TO
+    <div class="header">
+      <%= title 'CREDITS TO' %>
     </div>
-    <div class="clear"></div>
     <% render :partial => @match.user %>
     <%= render :partial => 'event_editors/event_editor', :collection => @editors %>
     <div class="news-stats">

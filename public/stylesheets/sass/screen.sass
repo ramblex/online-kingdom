@@ -762,36 +762,33 @@ div
 
 #match-ticker
   margin: 10px 0
-  clear: both
   list-style: none
   li
-    line-height: 25px
     border-bottom: 1px dotted #e3e3e3
     a
+      @include clearfix
+      width: 100%
+      line-height: 25px
       text-decoration: none
       display: block
       color: black
       padding: 0 3px
       &:hover
         background: #E5ECF9
-  .team1
-    width: 30%
-    display: block
-    float: left
-    overflow: hidden
-  img
-    width: 27px
-    height: 15px
-    margin: 6px 5px 0 0
-    float: left
-  .team2
-    margin-left: 16px
-    width: 150px
-    overflow: hidden
-  .scores
-    float: right
-    text-align: center
-    font-weight: bold
+      .team
+        width: 35%
+        display: block
+        float: left
+      img
+        width: 27px
+        height: 15px
+        margin: 6px 5px 0 0
+        float: left
+      .scores
+        float: right
+        margin-right: 10px
+        text-align: center
+        font-weight: bold
 
 .all-matches
   padding-top: 5px

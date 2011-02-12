@@ -8,26 +8,30 @@
   padding: 1px;
 }
 
-/* line 11, sass/ie.sass */
+/* line 10, sass/ie.sass */
+.switcher {
+  float: left;
+}
+/* line 12, sass/ie.sass */
 .switcher li {
   float: left;
   margin-right: 3px;
 }
 
-/* line 15, sass/ie.sass */
+/* line 16, sass/ie.sass */
 .title {
   float: left;
-  margin-rigth: 10px;
+  margin-right: 10px;
 }
 
-/* line 19, sass/ie.sass */
+/* line 20, sass/ie.sass */
 .button {
   padding: 2px 4px !important;
   background: url(/images/button-bg.png);
   float: left;
 }
 
-/* line 24, sass/ie.sass */
+/* line 25, sass/ie.sass */
 input[checkbox] {
   margin: 0;
   padding: 0;

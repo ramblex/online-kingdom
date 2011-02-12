@@ -17,29 +17,30 @@
 /* line 12, sass/ie7.sass */
 .button {
   float: left;
+  font-size: 90%;
 }
 
-/* line 15, sass/ie7.sass */
+/* line 16, sass/ie7.sass */
 .tournament-round {
   float: left;
 }
 
-/* line 18, sass/ie7.sass */
+/* line 19, sass/ie7.sass */
 .official-partner {
   width: 49%;
 }
 
-/* line 21, sass/ie7.sass */
+/* line 22, sass/ie7.sass */
 span {
   display: inline;
 }
 
-/* line 24, sass/ie7.sass */
+/* line 25, sass/ie7.sass */
 .twitter-share-button {
   display: block;
 }
 
-/* line 27, sass/ie7.sass */
+/* line 28, sass/ie7.sass */
 table {
   padding: 0;
   border: 0;
@@ -47,17 +48,12 @@ table {
   border-spacing: 0;
 }
 
-/* line 33, sass/ie7.sass */
+/* line 34, sass/ie7.sass */
 .comment-info .name {
   float: left;
 }
 
-/* line 36, sass/ie7.sass */
+/* line 37, sass/ie7.sass */
 .header {
   clear: both;
-}
-
-/* line 39, sass/ie7.sass */
-.readmore {
-  display: block;
 }

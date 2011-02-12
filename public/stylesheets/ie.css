@@ -8,14 +8,24 @@
   padding: 1px;
 }
 
-/* line 10, sass/ie.sass */
+/* line 11, sass/ie.sass */
+.switcher li {
+  float: left;
+}
+
+/* line 14, sass/ie.sass */
+.title {
+  float: left;
+}
+
+/* line 17, sass/ie.sass */
 .button {
   padding: 2px 4px !important;
   background: url(/images/button-bg.png);
   float: left;
 }
 
-/* line 15, sass/ie.sass */
+/* line 22, sass/ie.sass */
 input[checkbox] {
   margin: 0;
   padding: 0;

@@ -12,9 +12,10 @@
 .button {
   padding: 2px 4px !important;
   background: url(/images/button-bg.png);
+  *display: inline;
 }
 
-/* line 14, sass/ie.sass */
+/* line 15, sass/ie.sass */
 input[checkbox] {
   margin: 0;
   padding: 0;

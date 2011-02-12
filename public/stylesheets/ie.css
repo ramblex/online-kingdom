@@ -17,9 +17,10 @@
 /* line 14, sass/ie.sass */
 .right {
   float: right !important;
+  text-align: right;
 }
 
-/* line 17, sass/ie.sass */
+/* line 18, sass/ie.sass */
 input[checkbox] {
   margin: 0;
   padding: 0;

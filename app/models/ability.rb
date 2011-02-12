@@ -18,6 +18,11 @@ class Ability
       u && u.id == user.id
     end
 
+    # Update their own comment
+    can :update, Comment do |c|
+      c && c.user.id == user.id
+    end
+
     can [:read, :update], Message do |m|
       m && (m.from_id == user.id or m.receiver_id == user.id)
     end

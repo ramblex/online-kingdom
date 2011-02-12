@@ -48,16 +48,16 @@
         <li><%= link_to 'SERVERS', insiders_path, :class => 'button' %></li>
       </ul>
     </div>
-    <ul id="insider_prizes" class="insider-page">
+    <ul id="insider_prizes" class="insider-page dotted">
       <%= render :partial => Insider.first.insider_prizes %>
     </ul>
-    <ul id="insider_events" class="insider-page">
+    <ul id="insider_events" class="insider-page dotted">
       <%= render :partial => Insider.first.insider_events %>
     </ul>
-    <ul id="insider_files" class="insider-page">
+    <ul id="insider_files" class="insider-page dotted">
       <%= render :partial => Insider.first.insider_files %>
     </ul>
-    <ul id="insider_servers" class="insider-page">
+    <ul id="insider_servers" class="insider-page dotted">
       <%= render :partial => Insider.first.insider_servers %>
     </ul>
     <%= link_to '&raquo; Become an OK insider!', insiders_path, :class => 'all-matches' %>

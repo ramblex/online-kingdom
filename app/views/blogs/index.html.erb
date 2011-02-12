@@ -4,6 +4,11 @@
       <%= title 'BLOGS PAGE' %>
     </div>
     <%= render :partial => @blogs %>
+  </div>
+</div>
+
+<div id="thin-right-col">
+  <div class="box">
     <% if can? :create, Blog %>
       <%= link_to 'Create a blog post', new_blog_path, :class => 'button' %>
     <% end %>

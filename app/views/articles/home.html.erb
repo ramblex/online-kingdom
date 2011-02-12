@@ -8,20 +8,24 @@
       </ul>
     </div>
     <div id="news-slider">
-      <ul>
-      <% @articles.each do |article| %>
-        <li>
-          <%= link_to "&raquo; #{truncate article.title, :length => 30}", article %>
-          <div class="content">
-            <%= link_to (image_tag article.image.url(:slider)), article %>
-            <p><%= truncate_html article.preamble, :length => 550 %></p>
-            <hr />
-            <strong><%= link_to '&raquo; read more', article, :class => 'all-matches' %></strong>
-          </div>
-        </li>
-      <% end %>
-      </ul>
-      <%= link_to "&raquo; all news", articles_path, :class => 'all-matches' %>
+      <div id="left">
+      </div>
+      <div id="right">
+        <ul>
+        <% @articles.each do |article| %>
+          <li>
+            <%= link_to "&raquo; #{truncate article.title, :length => 30}", article %>
+            <div class="content">
+              <%= link_to (image_tag article.image.url(:slider)), article %>
+              <p><%= truncate_html article.preamble, :length => 550 %></p>
+              <hr />
+              <strong><%= link_to '&raquo; read more', article, :class => 'all-matches' %></strong>
+            </div>
+          </li>
+        <% end %>
+        </ul>
+        <%= link_to "&raquo; all news", articles_path, :class => 'all-matches' %>
+      </div>
     </div>
   </div>
 
@@ -133,7 +137,7 @@
     bind_slider_links();
 
     function bind_slider_links() {
-      $('<div id="current"></div>').insertBefore("#news-slider ul");
+      $('#left').html('<div id="current"></div>');
       select_news_item($("#news-slider ul li a:first"));
       $("#news-slider ul li a").click(function() {
           select_news_item($(this));
@@ -144,7 +148,7 @@
     function select_news_item(item) {
       $("#news-slider ul li a").removeClass('selected');
       item.addClass('selected');
-      $("#news-slider #current").html(item.parent().find('.content').html());
+      $("#current").html(item.parent().find('.content').html());
     }
 
     $(".insider-page").hide();

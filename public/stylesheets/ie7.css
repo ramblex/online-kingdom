@@ -28,3 +28,13 @@
 .official-partner {
   width: 49%;
 }
+
+/* line 21, sass/ie7.sass */
+span.date {
+  display: inline;
+}
+
+/* line 24, sass/ie7.sass */
+.twitter-share-button {
+  display: block;
+}

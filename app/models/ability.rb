@@ -28,7 +28,7 @@ class Ability
     end
 
     can :create, [Blog, Album, Video, Comment, Article, Message]
-    can :comment, Article
+    can :comment, [Article, Blog, Match]
     can :rate, Article
 
     if user.is? :news_writer

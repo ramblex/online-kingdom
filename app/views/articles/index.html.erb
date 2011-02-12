@@ -1,17 +1,15 @@
 <%= render :partial => 'lang_switcher' %>
 <div id="full-col" class="box">
-  <div class="box-title">
-    <%= title 'NEWS PAGE' %>
-    <span class="subtitle">CONTENT <span>CHANGER</span></span>
+  <div class="header">
+    <%= title 'NEWS PAGE', 'CONTENT CHANGER' %>
+    <ul id="news-category" class="switcher">
+      <%= render :partial => 'shared/switcher_list' %>
+    </ul>
+    <div class="pagination"><%= will_paginate @articles %></div>
   </div>
-  <ul id="news-category" class="switcher">
-    <%= render :partial => 'shared/switcher_list' %>
-  </ul>
-  <div class="top-pagination"><%= will_paginate @articles %></div>
   <div id="paginated-news-list">
     <%= render :partial => @articles %>
   </div>
-  <div class="clear"></div>
   <div class="pagination"><%= will_paginate @articles %></div>
   <% if can? :create, Article %>
     <%= link_to 'Add a news item', new_article_path, :class => 'button' %>

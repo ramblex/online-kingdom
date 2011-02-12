@@ -1,17 +1,16 @@
 <div id="wide-left-col">
   <div class="box">
-    <div class="box-title">
-      <span class="blue">MATCHES</span> PAGE<br />
-      <span class="subtitle">CONTENT <span>CHANGER</span></span>
-    </div>
-    <ul id="matches-switcher" class="switcher">
-      <%= render :partial => 'shared/switcher_list' %>
-    </ul>
-    <div class="search" id="switcher-search">
-      <% form_tag matches_path, :method => 'get' do %>
-        <%= text_field_tag :search, params[:search] %>
-        <%= submit_tag "Search", :name => nil %>
-      <% end %>
+    <div class="header">
+      <%= title 'MATCHES PAGE', 'CONTENT CHANGER' %>
+      <ul id="matches-switcher" class="switcher">
+        <%= render :partial => 'shared/switcher_list' %>
+      </ul>
+      <div class="search" id="switcher-search">
+        <% form_tag matches_path, :method => 'get' do %>
+          <%= text_field_tag :search, params[:search] %>
+          <%= submit_tag "Search", :name => nil %>
+        <% end %>
+      </div>
     </div>
     <% if params[:search] %>
       <div class="info-msg">
@@ -26,12 +25,7 @@
         <div class="info-msg">No matches found</div>
       <% end %>
     </ul>
-    <div id="pagination">
-      <%= will_paginate @matches,
-        :prev_label => '&laquo;',
-        :next_label => '&raquo;',
-        :inner_window => 1,
-        :outer_window => 0 %></div>
+    <div class="pagination"><%= will_paginate @matches %></div>
   </div>
 </div>
 

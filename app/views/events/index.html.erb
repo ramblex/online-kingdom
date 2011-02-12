@@ -1,17 +1,16 @@
 <div id="wide-left-col">
   <div class="box">
-    <div class="box-title">
-      <span class="blue">EVENTS</span> PAGE<br />
-      <span class="subtitle">CONTENT <span>CHANGER</span></span>
-    </div>
-    <ul id="event-category" class="switcher">
-      <%= render :partial => 'shared/switcher_list' %>
-    </ul>
-    <div class="search" id="switcher-search">
-      <% form_tag events_path, :method => 'get' do %>
-        <%= text_field_tag :search, params[:search] %>
-        <%= submit_tag "Search", :name => nil %>
-      <% end %>
+    <div class="header">
+      <%= title 'EVENTS PAGE', 'CONTENT CHANGER' %>
+      <ul id="event-category" class="switcher">
+        <%= render :partial => 'shared/switcher_list' %>
+      </ul>
+      <div class="search" id="switcher-search">
+        <% form_tag events_path, :method => 'get' do %>
+          <%= text_field_tag :search, params[:search] %>
+          <%= submit_tag "Search", :name => nil %>
+        <% end %>
+      </div>
     </div>
     <% if params[:search] %>
       <div class="info-msg">
@@ -22,8 +21,7 @@
     <div id="events-list">
       <%= render :partial => @events %>
     </div>
-    <div id="pagination"><%= will_paginate @events %></div>
-    <div class="clear"></div>
+    <div class="pagination"><%= will_paginate @events %></div>
   </div>
 </div>
 

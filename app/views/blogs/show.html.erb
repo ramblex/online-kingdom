@@ -39,9 +39,14 @@
   </div>
   <div class="box">
     <%= title 'BLOG ARCHIVE' %>
-    <ul id="blog-archive">
+    <ul id="blog-archive" class="dotted">
       <% @blog.user.blogs.each do |blog| %>
-        <li><%= link_to blog.title, blog %></li>
+        <li>
+          <%= link_to blog.title, blog %><br />
+          <div class="date">
+            posted on <%= blog.created_at.strftime("%d %B %Y %H:%M %Z") %>
+          </div>
+        </li>
       <% end %>
     </ul>
   </div>

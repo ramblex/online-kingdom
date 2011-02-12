@@ -1,12 +1,10 @@
-<div id="full-col">
+<div id="full-col" class="box">
 <% if @page.permalink.eql? 'about' %>
-  <h1><span class="blue">OUR</span> HISTORY</h1>
-  <span class="subtitle">ABOUT <span>ONLINE KINGDOM</span></span>
+  <%= title 'OUR HISTORY', 'ABOUT ONLINE KINGDOM' %>
   <%= admin_links @page %>
   <hr />
   <%= @page.content %>
-  <h1><span class="blue">OUR</span> ORGANIZATION</h1>
-  <span class="subtitle">THE PEOPLE <span>WHO MAKE IT HAPPEN</span></span>
+  <%= title 'OUR ORGANIZATION', 'THE PEOPLE WHO MAKE IT HAPPEN' %>
   <hr />
   <% @high_managers.each_slice(2) do |pair| %>
     <div class="clear"></div>
@@ -23,10 +21,7 @@
   <div class="clear"></div>
   <% @medium_managers.each do |manager| %>
     <div class="medium-manager">
-      <%= image_tag manager.user.avatar.url(:default) %>
-      <%= link_to "#{manager.firstname} '#{manager.nickname}' #{manager.surname}", manager.user %>
-      <%= admin_links manager, 'inline-admin', :controller => 'managers' %><br />
-      <%= manager.role %><br />
+      <%= render :partial => manager.user, :locals => {:role => manager.role} %>
     </div>
   <% end %>
   <div class="clear"></div>

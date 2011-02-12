@@ -1,13 +1,12 @@
 <%= render :partial => 'lang_switcher' %>
 <div id="left-col">
   <div class="box" id="news-slider-box">
-    <div class="box-title">
-      <span class="blue">NEWS</span> SWITCH<br />
-      <span class="subtitle">CONTENT <span>CHANGER</span></span>
+    <div class="header">
+      <%= title 'NEWS SWITCH', 'CONTENT CHANGER' %>
+      <ul id="news-slider-switcher" class="switcher">
+        <%= render :partial => 'news_category_switcher' %>
+      </ul>
     </div>
-    <ul id="news-slider-switcher" class="switcher">
-      <%= render :partial => 'news_category_switcher' %>
-    </ul>
     <div id="news-slider">
       <ul>
       <% @articles.each do |article| %>
@@ -27,23 +26,24 @@
   </div>
 
   <div class="box">
-    <%= title 'FOLLOW US' %>
+    <div class="header">
+      <%= title 'FOLLOW US' %>
+    </div>
     <%= link_to image_tag('twitter.gif'), 'http://twitter.com/OnlineKingdom' %>
     <%= link_to image_tag('facebook.gif'), 'http://www.facebook.com/ONLINEKINGDOM.ORG' %>
   </div>
 
   <!-- Insider page -->
   <div class="box">
-    <div class="box-title">
-      <span class="blue">INSIDER</span> PAGE<br />
-      <span class="subtitle"><span>SPECIAL</span> PLAN</span>
+    <div class="header">
+      <%= title 'INSIDER PAGE', 'SPECIAL PLAN' %>
+      <ul class="switcher" id="insider-switcher">
+        <li><%= link_to 'PRIZES', insiders_path, :class => 'button' %></li>
+        <li><%= link_to 'EVENTS', insiders_path, :class => 'button' %></li>
+        <li><%= link_to 'FILES', insiders_path, :class => 'button' %></li>
+        <li><%= link_to 'SERVERS', insiders_path, :class => 'button' %></li>
+      </ul>
     </div>
-    <ul class="switcher" id="insider-switcher">
-      <li><%= link_to 'PRIZES', insiders_path, :class => 'button' %></li>
-      <li><%= link_to 'EVENTS', insiders_path, :class => 'button' %></li>
-      <li><%= link_to 'FILES', insiders_path, :class => 'button' %></li>
-      <li><%= link_to 'SERVERS', insiders_path, :class => 'button' %></li>
-    </ul>
     <ul id="insider_prizes" class="insider-page">
       <%= render :partial => Insider.first.insider_prizes %>
     </ul>
@@ -62,11 +62,9 @@
 
   <!-- Videos page -->
   <div class="box">
-    <div class="box-title">
-      <span class="blue">VI</span>DEOS<br />
-      <span class="subtitle"><span>CINEMA</span> VAULT</span>
+    <div class="header">
+      <%= title 'VIDEOS', 'CINEMA VAULT' %>
     </div>
-    <div class="clear"></div>
     <div id="home-page-videos">
       <%= render :partial => @videos %>
     </div>
@@ -80,13 +78,12 @@
 
   <!-- Matches box -->
   <div class="box">
-    <div class="box-title">
-      <span class="blue">MATCH</span> TICKER<br />
-      <span class="subtitle">CONTENT <span>CHANGER</span></span>
+    <div class="header">
+      <%= title 'MATCH TICKER', 'CONTENT CHANGER' %>
+      <ul id="matches-switcher" class="switcher">
+        <%= render :partial => 'shared/switcher_list' %>
+      </ul>
     </div>
-    <ul id="matches-switcher" class="switcher">
-      <%= render :partial => 'shared/switcher_list' %>
-    </ul>
     <ul id="match-ticker">
       <%= render :partial => @matches, :locals => {:no_admin => true} %>
     </ul>
@@ -99,9 +96,8 @@
 
   <!-- Blogs box -->
   <div class="box">
-    <div class="box-title">
-      <span class="blue">BL</span>OGS<br />
-      <span class="subtitle">WRITTEN <span>IN PERSON</span></span>
+    <div class="header">
+      <%= title 'BLOGS', 'WRITTEN IN PERSON' %>
     </div>
     <div id="home-page-blogs">
       <% @blogs.each do |blog| %>

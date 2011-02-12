@@ -72,13 +72,23 @@ module ApplicationHelper
     "#{obj.firstname} '#{obj.username}' #{obj.surname}"
   end
 
-  def title(title)
+  def title(title, subtitle='')
+    unless subtitle.empty?
+      subtitle = %Q[<div class="subtitle">#{subtitle}</div>]
+    end
     if title.split.length > 1
       words = title.split
-      html = %Q[<div class="title"><span class="blue">#{words[0]}</span> #{words[1..-1]}</div>]
+      html = %Q[<div class="title">
+          <span class="blue">#{words[0]}</span> #{words[1..-1]}
+          #{subtitle}
+        </div>]
     else
       mid = (title.length / 2) - 1
-      html = %Q[<div class="title"><span class="blue">#{title[0..mid]}</span>#{title[mid+1..-1]}</div>]
+      html = %Q[
+      <div class="title">
+        <span class="blue">#{title[0..mid]}</span>#{title[mid+1..-1]}
+        #{subtitle}
+      </div>]
     end
     html
   end

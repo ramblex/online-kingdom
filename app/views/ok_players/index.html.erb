@@ -1,12 +1,11 @@
 <div id="left-col">
   <div class="box">
-    <div class="box-title">
-      <span class="blue">PLAYERS</span> SWITCH<br />
-      <span class="subtitle">CONTENT <span>CHANGER</span></span>
+    <div class="header">
+      <%= title 'PLAYERS', 'CONTENT CHANGER' %>
+      <ul id="player-categories" class="switcher">
+        <%= render :partial => 'shared/switcher_list' %>
+      </ul>
     </div>
-    <ul id="player-categories" class="switcher">
-      <%= render :partial => 'shared/switcher_list' %>
-    </ul>
     <div id="player-list">
       <%= render :partial => @ok_players %>
     </div>
@@ -18,19 +17,16 @@
 
 <div id="right-col">
   <div class="box">
-    <div class="box-title">
-      <span class="blue">ST</span>AFF<br />
-      <span class="subtitle">CONTENT <span>CHANGER</span></span>
+    <div class="header">
+      <%= title 'STAFF' %>
     </div>
     <div id="ok_staff">
       <%= render :partial => 'ok_staff', :collection => @ok_staff %>
     </div>
-    <div class="clear"></div>
   </div>
   <div class="box">
-    <div class="box-title">
-      <span class="blue">LAST</span> MATCHES<br />
-      <span class="subtitle">CONTENT <span>CHANGER</span></span>
+    <div class="header">
+      <%= title 'LAST MATCHES' %>
     </div>
     <div id="match-ticker">
       <%= render :partial => 'matches/match', :collection => @ok_matches, :locals => {:no_admin => true} %>

@@ -1,8 +1,7 @@
 <div id="left-col">
   <div class="box">
-    <div class="box-title">
-      <span class="blue">SPONSORS</span> PAGE<br />
-      <span class="subtitle">PRIME <span>SPONSORS</span></span>
+    <div class="header">
+      <%= title 'SPONSORS PAGE', 'PRIME SPONSORS' %>
     </div>
     <%= render :partial => @partners %>
     <div class="clear"></div>
@@ -14,13 +13,10 @@
 
 <div id="right-col">
   <div class="box">
-    <div class="box-title">
-      <span class="blue">CONTACT</span> US<br />
-      <span class="subtitle">EMAIL <span>US</span></span>
+    <div class="header">
+      <%= title 'CONTACT US', 'EMAIL US' %>
     </div>
-    <div class="clear">
       Want to become a partner? <%= link_to 'Feel free to contact us', 'mailto:info@online-kingdom.org' %>
-    </div>
   </div>
   <%= render :partial => 'shared/official_partners' %>
 </div>

@@ -485,7 +485,7 @@ img.flag
     height: 11px
     clear: left
 
-table.match-info
+table.info
   border: 1px solid #d9d9d9
   width: 275px
   margin: 15px 0
@@ -494,13 +494,13 @@ table.match-info
   tr, td
     height: 25px
     border-bottom: 1px solid #d9d9d9
+  .field
+    padding-left: 9px
+    width: 63px
+    font-weight: bold
 
 .odd, .unread
   background: #ededed
-
-table.match-info td.title
-  padding-left: 9px
-  width: 63px
 
 .matches-logo
   float: right
@@ -616,7 +616,8 @@ div
   float: right
   margin-top: -15px
 
-.top-pagination
+.pagination
+  clear: both
   float: right
 
 .swControls a
@@ -668,11 +669,12 @@ div
     background: #ececec
 
 .switcher
+  vertical-align: top
   display: inline-block
+  margin-top: 1px
   li, span.gap
     list-style: none
-    float: left
-    margin-right: 3px
+    display: inline-block
 
 #news-picture
   clear: both
@@ -750,12 +752,8 @@ div
   p
     margin-bottom: 10px
 
-.box-title
-  position: relative
-  font-weight: bold
-  float: left
-  margin-right: 10px
-  line-height: 9px
+.header
+  @include clearfix
 
 #matchticker-switcher
   list-style: none
@@ -763,7 +761,7 @@ div
     float: left
 
 #match-ticker
-  margin: 10px 0 0 0
+  margin: 10px 0
   clear: both
   list-style: none
   li
@@ -1010,9 +1008,6 @@ div
 /** Home page
 
 /* News slider
-#news-slider-switcher
-  @include clearfix
-
 #news-slider-box
   position: relative
 
@@ -1051,13 +1046,10 @@ div
 
 /** Home page blogs
 
-#home-page-blogs
-  margin-top: 30px
-
 .blog
   clear: both
   height: 50px
-  margin-top: 25px
+  margin-bottom: 25px
   img
     width: 50px
     height: 50px
@@ -1445,6 +1437,7 @@ h2
 .title
   font-weight: bold
   @include clearfix
+  display: inline-block
 
 .subtitle
   font-size: 8.5px

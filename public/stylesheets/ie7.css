@@ -18,3 +18,13 @@
 .button {
   float: left;
 }
+
+/* line 15, sass/ie7.sass */
+.tournament-round {
+  float: left;
+}
+
+/* line 18, sass/ie7.sass */
+.official-partner {
+  width: 49%;
+}

@@ -1,7 +1,9 @@
 <% page_title @article.title %>
 <div id="wide-left-col">
   <div class="box">
-    <%= title 'NEWS PAGE' %>
+    <div class="header">
+      <%= title 'NEWS PAGE' %>
+    </div>
     <%= render :partial => 'article_info', :locals => {:article => @article} %>
     <hr />
     <%= @article.content %>
@@ -30,10 +32,9 @@
 
 <div id="thin-right-col">
   <div class="box">
-    <div class="box-title">
+    <div class="header">
       <%= title 'CREDITS TO' %>
     </div>
-    <div class="clear"></div>
     <%= render :partial => @article.user %>
     <% @editors.each do |editor| %>
       <%= render :partial => editor.user, :locals => {:role => editor.update_type } %>

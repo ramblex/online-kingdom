@@ -58,8 +58,3 @@ table {
 .comment-info .name {
   float: left;
 }
-
-/* line 41, sass/ie7.sass */
-.header {
-  clear: both;
-}

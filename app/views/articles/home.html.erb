@@ -15,7 +15,7 @@
         <ul>
           <% @momentnews.each do |article| %>
           <li>
-            <%= link_to "&raquo; #{truncate article.title, :length => 30}", article %>
+            <%= link_to "&raquo; #{truncate article.title, :length => 45}", article %>
           </li>
           <% end %>
         </ul>
@@ -28,7 +28,7 @@
             <div class="content">
               <%= link_to (image_tag article.image.url(:slider)), article %>
               <p><%= truncate_html article.preamble, :length => 550 %></p>
-              <%= link_to '&raquo; read more', article, :class => 'button' %>
+              <%= link_to '&raquo; read more', article, :class => 'button right' %>
             </div>
           </li>
         <% end %>

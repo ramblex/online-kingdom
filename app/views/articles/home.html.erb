@@ -9,6 +9,14 @@
     </div>
     <div id="news-slider">
       <div id="left">
+        <%= title 'NEWS OF THE MOMENT' %>
+        <ul>
+          <% @momentnews.each do |article| %>
+          <li>
+            <%= link_to "&raquo; #{truncate article.title, :length => 30}", article %>
+          </li>
+          <% end %>
+        </ul>
       </div>
       <div id="right">
         <ul>
@@ -18,8 +26,7 @@
             <div class="content">
               <%= link_to (image_tag article.image.url(:slider)), article %>
               <p><%= truncate_html article.preamble, :length => 550 %></p>
-              <hr />
-              <strong><%= link_to '&raquo; read more', article, :class => 'all-matches' %></strong>
+              <%= link_to '&raquo; read more', article, :class => 'button' %>
             </div>
           </li>
         <% end %>
@@ -134,19 +141,19 @@
         update_content('#news-slider', data);
         bind_slider_links();
     });
+    $('#left').prepend('<div id="current"></div>');
     bind_slider_links();
 
     function bind_slider_links() {
-      $('#left').html('<div id="current"></div>');
-      select_news_item($("#news-slider ul li a:first"));
-      $("#news-slider ul li a").click(function() {
+      select_news_item($("#right ul li a:first"));
+      $("#right ul li a").click(function() {
           select_news_item($(this));
           return false;
       });
     }
 
     function select_news_item(item) {
-      $("#news-slider ul li a").removeClass('selected');
+      $("#right ul li a").removeClass('selected');
       item.addClass('selected');
       $("#current").html(item.parent().find('.content').html());
     }

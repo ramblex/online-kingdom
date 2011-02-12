@@ -79,7 +79,7 @@ module ApplicationHelper
     if title.split.length > 1
       words = title.split
       html = %Q[<div class="title">
-          <span class="blue">#{words[0]}</span> #{words[1..-1]}
+          <span class="blue">#{words[0]}</span> #{words[1..-1].join(" ")}
           #{subtitle}
         </div>]
     else

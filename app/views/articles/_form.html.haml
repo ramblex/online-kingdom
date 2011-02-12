@@ -8,5 +8,6 @@
     = f.input :preamble, :input_html => {:class => 'comment-area'}
     = f.input :content, :input_html => {:class => 'mceEditor'}
     = f.input :featured
+    = f.input :momentnews, :label => 'News of the moment'
     = f.input :approved if can? :approve, @article
   = f.buttons

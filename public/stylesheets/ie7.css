@@ -51,3 +51,8 @@ table {
 .comment-info .name {
   float: left;
 }
+
+/* line 36, sass/ie7.sass */
+.header {
+  clear: both;
+}

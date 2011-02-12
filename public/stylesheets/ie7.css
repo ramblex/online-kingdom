@@ -40,7 +40,9 @@ span.date {
 }
 
 /* line 27, sass/ie7.sass */
-td {
+table {
   padding: 0;
   border: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }

@@ -38,3 +38,8 @@ span.date {
 .twitter-share-button {
   display: block;
 }
+
+/* line 27, sass/ie7.sass */
+td {
+  padding: 0;
+}

@@ -11,6 +11,8 @@
       = stylesheet_link_tag 'ie.css', :media => 'screen, projection'
     /[if IE 8]
       = stylesheet_link_tag 'ie8.css', :media => 'screen, projection'
+    /[if IE 7]
+      = stylesheet_link_tag 'ie7.css', :media => 'screen, projection'
     = javascript_include_tag 'jquery'
     = javascript_include_tag 'application'
     = javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery?

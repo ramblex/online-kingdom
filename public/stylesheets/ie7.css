@@ -1,0 +1,20 @@
+/* line 2, sass/ie7.sass */
+.switcher {
+  float: left;
+}
+/* line 4, sass/ie7.sass */
+.switcher li {
+  float: left;
+  margin-right: 3px;
+}
+
+/* line 8, sass/ie7.sass */
+.title {
+  float: left;
+  margin-right: 10px;
+}
+
+/* line 12, sass/ie7.sass */
+.button {
+  float: left;
+}

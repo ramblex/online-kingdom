@@ -11,21 +11,23 @@
 /* line 11, sass/ie.sass */
 .switcher li {
   float: left;
+  margin-right: 3px;
 }
 
-/* line 14, sass/ie.sass */
+/* line 15, sass/ie.sass */
 .title {
   float: left;
+  margin-rigth: 10px;
 }
 
-/* line 17, sass/ie.sass */
+/* line 19, sass/ie.sass */
 .button {
   padding: 2px 4px !important;
   background: url(/images/button-bg.png);
   float: left;
 }
 
-/* line 22, sass/ie.sass */
+/* line 24, sass/ie.sass */
 input[checkbox] {
   margin: 0;
   padding: 0;

@@ -7,6 +7,6 @@ $(".ie-border").each(function() {
 $(".box").corner('5px');
 $(".box").parent().css('margin-bottom', '5px');
 $(".box").css('margin', '0');
-$(".button").parent().css('display', 'inline');
+$(".button").parent().css('float', 'left');
 $(".button").corner('5px');
 $(".ie-border").corner('5px');

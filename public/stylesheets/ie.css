@@ -12,7 +12,7 @@
 .button {
   padding: 2px 4px !important;
   background: url(/images/button-bg.png);
-  *display: inline;
+  float: left;
 }
 
 /* line 15, sass/ie.sass */

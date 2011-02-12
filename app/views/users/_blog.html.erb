@@ -1,4 +1,4 @@
-<div class="blog-user-summary">
-  <%= link_to blog.title, blog %> (<%= time_ago_in_words(blog.created_at) %> ago)
-  <p><%= truncate blog.content, :length => 200 %></p>
-</div>
+<li>
+  <%= link_to blog.title, blog %> 
+  <span class="date">posted <%= time_ago_in_words(blog.created_at) %> ago</span>
+</li>

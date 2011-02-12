@@ -766,13 +766,12 @@ div
   li
     border-bottom: 1px dotted #e3e3e3
     a
-      @include clearfix
+      height: 25px
       width: 100%
       line-height: 25px
       text-decoration: none
       display: block
       color: black
-      padding: 0 3px
       &:hover
         background: #E5ECF9
       .team
@@ -786,7 +785,6 @@ div
         float: left
       .scores
         float: right
-        margin-right: 10px
         text-align: center
         font-weight: bold
 
@@ -803,11 +801,14 @@ div
   li
     border-bottom: 1px dotted #e3e3e3
     padding: 10px 0
-    @include clearfix
-  span
-    float: right
-    width: 50%
-    display: block
+
+table#hardware
+  width: 100%
+  border-top: 1px dotted #e3e3e3
+  margin-top: 10px
+  td
+    border-bottom: 1px dotted #e3e3e3
+    padding: 10px
 
 #user-blogs
   margin-top: 30px

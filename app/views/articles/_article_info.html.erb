@@ -4,7 +4,7 @@
   <%= admin_links article %>
   <div class="news-rating"><%= stars_for article %></div>
   <p><%= truncate_html(article.preamble, :length => 320) %></p>
-  <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="OnlineKingdom" data-url="http://www.online-kingdom.org/articles/<%= article.id %>">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+  <p><a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="OnlineKingdom" data-url="http://www.online-kingdom.org/articles/<%= article.id %>">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script></p>
 <% end %>
 <%= image_tag article.image.url(:default), :class => 'news-picture' if article.image? %>
 

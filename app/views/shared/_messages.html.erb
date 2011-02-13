@@ -1,4 +1,4 @@
-<% if current_user and (current_user.is? :admin or current_user.is? :news_writer) %>
+<% if current_user and (current_user.is? :admin or current_user.is? :news_writer or current_user.is? :events_admin) %>
   <div id="admin-nav">
     <%= link_to_function 'Admin', 'toggle_admin()' %>
     <ul id="hidden">

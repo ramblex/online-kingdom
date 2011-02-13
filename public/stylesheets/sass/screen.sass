@@ -519,22 +519,25 @@ table.info
 
 /** Albums
 
+.home-page-videos
+  @include clearfix
+  width: 100%
+  .album
+    margin-right: 48px
+
 .album
   float: left
   width: 120px
-  height: 184px
-  margin: 27px 52px 0 0
-
-#home-page-videos .album
-  margin-right: 48px
-
-.album
+  height: 190px
+  margin: 5px 52px 0 0
   .name
-    height: 38px
+    margin-bottom: 5px
+    font-weight: bold
   .info
     width: 73px
-    height: 41px
     background: #f2f2f2
+  img
+    @extend .avatar
 
 #user-albums
   clear: both
@@ -1066,10 +1069,6 @@ table#hardware
     height: 50px
     float: left
     margin-right: 3px
-
-#home-page-videos
-  width: 100%
-  height: 200px
 
 /** Streams
 

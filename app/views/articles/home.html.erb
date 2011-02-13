@@ -78,11 +78,20 @@
     <div class="header">
       <%= title 'VIDEOS', 'CINEMA VAULT' %>
     </div>
-    <div id="home-page-videos">
+    <div class="home-page-videos">
       <%= render :partial => @videos %>
     </div>
     <%= link_to '&raquo; More', videos_path, :class => 'all-matches' %>
-    <div class="clear"></div>
+  </div>
+
+  <div class="box">
+    <div class="header">
+      <%= title 'ALBUMS' %>
+    </div>
+    <div class="home-page-videos">
+      <%= render :partial => @albums %>
+    </div>
+    <%= link_to '&raquo; More', albums_path, :class => 'all-matches' %>
   </div>
 
 </div> <!-- End left-col -->

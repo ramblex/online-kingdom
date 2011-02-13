@@ -22,6 +22,7 @@ class ArticlesController < ApplicationController
     @momentnews = Article.approved.get_lang(params[:lang]).news_of_the_moment
     @blogs = Blog.all :limit => 5, :include => [:user, :slug]
     @videos = Video.all :limit => 3, :include => :user
+    @albums = Album.all :limit => 6, :include => :user
   end
 
   def admin

@@ -1,6 +1,10 @@
 class AlbumsController < ApplicationController
   load_and_authorize_resource
 
+  def admin
+    @albums = Album.all
+  end
+
   def comment
     params[:comments]['user_id'] = current_user.id
     @comment = Album.find(params[:id]).comments.build(params[:comments])

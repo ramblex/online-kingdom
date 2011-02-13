@@ -1,16 +1,10 @@
-<h1>Editing album</h1>
+<div class="box">
+  <%= link_to '&laquo; Back to albums', admin_albums_path %>
+</div>
+<div class="box">
+  <div class="header">
+    <%= title "Edit album #{@album.name}" %>
+  </div>
 
-<% form_for(@album) do |f| %>
-  <%= f.error_messages %>
-
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.submit 'Update' %>
-  </p>
-<% end %>
-
-<%= link_to 'Show', @album %> |
-<%= link_to 'Back', albums_path %>
+  <%= render :partial => 'form' %>
+</div>

@@ -1,0 +1,10 @@
+<tr class="fields">
+  <td>
+    <% if f.object.new_record? %>
+      <%= f.file_field :photo %>
+    <% else %>
+      <%= image_tag f.object.photo.url(:mini) %>
+    <% end %>
+    <%= remove_child_link "Remove", f %>
+  </td>
+</tr>

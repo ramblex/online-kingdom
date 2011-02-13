@@ -1,18 +1,22 @@
-<h1>Album administration</h1>
-<%= link_to 'Add an album', new_album_path, :class => 'button' %>
-<table class="admin-table">
-  <tr>
-    <th>Name</th>
-    <th>Author</th>
-    <th>Created at</th>
-    <th>Admin</th>
-  </tr>
-  <% @albums.each do |album| %>
-    <tr class="<%= cycle 'even', 'odd' %>">
-      <td><%= album.name %></td>
-      <td><%= album.user.username %></td>
-      <td><%= album.created_at %></td>
-      <td><%= admin_links album, :none %></td>
+<div class="box">
+  <div class="header">
+    <%= title 'Album administration' %>
+  </div>
+  <%= link_to 'Add an album', new_album_path, :class => 'button' %>
+  <table class="admin-table">
+    <tr>
+      <th>Name</th>
+      <th>Author</th>
+      <th>Created at</th>
+      <th>Admin</th>
     </tr>
-  <% end %>
-</table>
+    <% @albums.each do |album| %>
+      <tr class="<%= cycle 'even', 'odd' %>">
+        <td><%= album.name %></td>
+        <td><%= album.user.username %></td>
+        <td><%= album.created_at %></td>
+        <td><%= admin_links album, :none %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>

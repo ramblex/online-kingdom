@@ -1,17 +1,21 @@
 <div id="full-col">
-  <h1 id="album-title"><%= @album.name %></h1>
-  <div id="photos">
-    <% @album.album_photos.each do |album_photo| %>
-      <%= link_to image_tag(album_photo.photo.url(:mini)), album_photo.photo.url %>
-      <% div_for album_photo, :class => 'hidden-slideshow' do %>
-        <%= link_to image_tag(album_photo.photo.url(:slideshow)), album_photo.photo.url %>
+  <div class="box">
+    <div class="header">
+      <%= title @album.name %>
+      <%= admin_links @album %>
+    </div>
+    <div id="photos">
+      <% @album.album_photos.each do |album_photo| %>
+        <%= link_to image_tag(album_photo.photo.url(:mini)), album_photo.photo.url %>
+        <% div_for album_photo, :class => 'hidden-slideshow' do %>
+          <%= link_to image_tag(album_photo.photo.url(:slideshow)), album_photo.photo.url %>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
+    <div id="current">
+      <%= link_to image_tag(@album.album_photos.first.photo.url(:slideshow)), @album.album_photos.first.photo.url %>
+    </div>
   </div>
-  <div id="current">
-    <%= link_to image_tag(@album.album_photos.first.photo.url(:slideshow)), @album.album_photos.first.photo.url %>
-  </div>
-  <div class="clear"></div>
   <div class="box">
     <h1><span class="blue">COM</span>MENTS</h1>
     <div id="comments">

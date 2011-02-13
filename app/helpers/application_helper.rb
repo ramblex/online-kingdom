@@ -57,7 +57,7 @@ module ApplicationHelper
   def add_child_link(name, f, method, locals = {})
     fields = new_child_fields(f, method, locals)
     Rails.logger.error(fields)
-    link_to_function(name, h("insert_fields(this, \"#{method}\", \"#{escape_javascript(fields)}\")"))
+    link_to_function(name, h("insert_fields(this, \"#{method}\", \"#{escape_javascript(fields)}\")"), :class => 'button')
   end
 
   def new_child_fields(form_builder, method, options = {})

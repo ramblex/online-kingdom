@@ -4,19 +4,5 @@
 <div class="box">
   <h1>Add an album</h1>
 
-  <% form_for @album, :html => {:multipart => true} do |f| %>
-    <%= f.error_messages %>
-
-    <p>
-      <%= f.label :name %><br />
-      <%= f.text_field :name %>
-    </p>
-    <div id="new_photos">
-      <%= render :partial => 'photo', :collection => @album.album_photos %>
-    </div>
-    <%= add_photo_link %>
-    <p>
-      <%= f.submit 'Create' %>
-    </p>
-  <% end %>
+  <%= render :partial => 'form' %>
 </div>

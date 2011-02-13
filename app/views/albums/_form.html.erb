@@ -1,0 +1,15 @@
+<% form_for @album, :html => {:multipart => true} do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p> <%= add_child_link "Add another photo", f, :album_photos %> </p>
+  <table id="album_photos">
+    <% f.fields_for :album_photos do |photo_form| %>
+      <%= render :partial => 'album_photo', :locals => {:f => photo_form} %>
+    <% end %>
+  </table>
+  <p> <%= f.submit 'Submit' %> </p>
+<% end %>

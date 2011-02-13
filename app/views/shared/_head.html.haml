@@ -1,6 +1,6 @@
 #top
   #top-news
-    - latest = Article.find(:first, :conditions => :featured)
+    - latest = Article.find(:first, :conditions => {:featured => true, :approved => true})
     - if latest
       #top-news-title
         %span.title

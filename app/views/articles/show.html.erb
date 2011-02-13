@@ -50,8 +50,24 @@
 
 <% content_for :extra_js do %>
   <script type="text/javascript">
-    $("#holder").sweetPages({perPage:7});
-    var controls = $('.swControls').detach();
-    controls.appendTo("#comments-title");
+    /* Index of the last shown comment */
+    var current_last = 7;
+    var inc_amount = 7;
+    function more_comments() {
+      $("#comments-box .comment-container").hide();
+      $("#comments-box .comment-container").slice(0, current_last).show();
+      if ($(".comment-container").length > current_last) {
+        $('<a href="#" class="button" id="more-comments">More comments</a>')
+          .appendTo("#comments-box")
+          .click(function() {
+            current_last += inc_amount;
+            $("#more-comments").remove();
+            more_comments();
+            return false;
+          });
+      }
+    }
+
+    more_comments();
   </script>
 <% end %>

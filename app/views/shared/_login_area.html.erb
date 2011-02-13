@@ -1,5 +1,5 @@
 <% if user_signed_in? %>
-  <%= image_tag current_user.avatar.url(:default), :class => 'news-author-picture' %>
+  <%= image_tag current_user.avatar.url(:default), :class => 'avatar' %>
   <div id="logged-in">
     Welcome back <%= link_to (truncate current_user.username, :length => 15), current_user %>
     <div id="links">

@@ -294,7 +294,7 @@ div#flash-notice
   outline: 0
 
 #top-nav
-  margin: 0 0 6px 64px
+  margin: 0 0 6px 74px
   float: left
   width: 808px
   height: 56px
@@ -384,11 +384,20 @@ ul#top-nav
     &:hover
       text-decoration: underline
 
-.news-author-picture
+.avatar
   float: left
-  height: 50px
-  width: 50px
-  margin-right: 3px
+  margin-right: 5px
+  padding: 1px
+
+#top
+  .avatar
+    border: 1px solid #4a6278
+    margin-top: -2px
+
+#content
+  .avatar
+    background: #eee
+    border: 1px solid #e1e1e1
 
 .news-content
   padding: 12px 28px 0 0
@@ -694,11 +703,7 @@ div
   .role
     font-weight: bold
   img
-    float: left
-    margin-right: 5px
-    padding: 1px
-    background: #eee
-    border: 1px solid #e1e1e1
+    @extend .avatar
 
 .profile-picture
   width: 128px

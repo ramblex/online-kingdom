@@ -1,5 +1,5 @@
 <div class="blog-summary">
-  <%= image_tag blog.user.avatar.url, :class => 'news-author-picture' %>
+  <%= image_tag blog.user.avatar.url, :class => 'avatar' %>
   <div class="blog-info">
     <%= link_to blog.title, blog %><span> by <%= link_to blog.user.username, blog.user %></span><br />
     <div class="date">Posted on <%= blog.created_at.strftime "%d %B %Y at %H:%M %Z" %></div>
@@ -8,4 +8,3 @@
   <p><%= blog.preamble %></p>
 </div>
 <hr />
-

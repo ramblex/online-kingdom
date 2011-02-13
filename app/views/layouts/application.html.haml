@@ -51,8 +51,10 @@
         .clear
       #footer
         %span.copyright
-          %span 2010 ONLINE KINGDOM - ALL RIGHTS RESERVED
-          %span DESIGN BY DSGF DESIGNS - COPYRIGHT &copy; BY ONLINE KINGDOM
+          %span &copy; 2011 ONLINE KINGDOM
+          %span 
+            DESIGN BY DSGF DESIGNS,
+            DEVELOPMENT BY #{link_to 'RAMBLEX DESIGNS', 'http://ramblexdesigns.com'} 
         %ul
           %li= link_to 'STREAM', streams_path
           - Page.all(:conditions => :show_link).each do |page|

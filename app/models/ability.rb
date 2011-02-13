@@ -45,6 +45,10 @@ class Ability
 
     end
 
+    if user.is? :events_admin
+      can :manage, [Team, Player, Event, Match]
+    end
+
     if user.is? :admin
       can :manage, :all
     end

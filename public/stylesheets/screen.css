@@ -2402,6 +2402,11 @@ h2 {
 }
 
 /* line 1444, sass/screen.sass */
+.header {
+  margin-bottom: 5px;
+}
+
+/* line 1447, sass/screen.sass */
 .title {
   font-weight: bold;
   overflow: hidden;
@@ -2409,45 +2414,45 @@ h2 {
   display: inline-block;
 }
 
-/* line 1449, sass/screen.sass */
+/* line 1452, sass/screen.sass */
 .subtitle {
   font-size: 8.5px;
 }
-/* line 1451, sass/screen.sass */
+/* line 1454, sass/screen.sass */
 .subtitle span {
   color: #5d5d5d;
 }
 
-/* line 1454, sass/screen.sass */
+/* line 1457, sass/screen.sass */
 .blue {
   color: #1e2957;
 }
 
-/* line 1457, sass/screen.sass */
+/* line 1460, sass/screen.sass */
 .win {
   color: #056b16;
 }
 
-/* line 1460, sass/screen.sass */
+/* line 1463, sass/screen.sass */
 .lose {
   color: #f20707;
 }
 
-/* line 1463, sass/screen.sass */
+/* line 1466, sass/screen.sass */
 a {
   color: #1a3f5a;
 }
-/* line 1465, sass/screen.sass */
+/* line 1468, sass/screen.sass */
 a:hover {
   color: gray;
 }
 
-/* line 1468, sass/screen.sass */
+/* line 1471, sass/screen.sass */
 .medium-narrow {
   font-size: 8pt;
 }
 
-/* line 1471, sass/screen.sass */
+/* line 1474, sass/screen.sass */
 #full-col p {
   margin: 10px 0;
 }

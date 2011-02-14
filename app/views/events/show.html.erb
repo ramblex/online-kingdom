@@ -34,7 +34,7 @@
       <% @event.groups.group_by(&:stage).each do |stage, groups| %>
         <div class="stage">
           <div id="groups-title" class="matches-title">
-            <%= stage %> Groups
+            <span><%= stage %> Groups</span>
             <% if can? :edit, Group %>
               <%= link_to 'Manage groups', event_groups_path(@event) %>
             <% end %>

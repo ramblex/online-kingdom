@@ -58,3 +58,13 @@ table {
 .comment-info .name {
   float: left;
 }
+
+/* line 42, sass/ie7.sass */
+#groups-title span {
+  float: left;
+}
+
+/* line 45, sass/ie7.sass */
+#group-switcher {
+  float: left;
+}

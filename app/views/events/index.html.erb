@@ -24,10 +24,3 @@
     <div class="pagination"><%= will_paginate @events %></div>
   </div>
 </div>
-
-<% content_for :extra_js do %>
-  <%= javascript_include_tag 'switcher' %>
-  <script type="text/javascript">
-    switcher('#event-category', '#events-list');
-  </script>
-<% end %>

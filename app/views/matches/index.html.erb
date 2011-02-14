@@ -28,11 +28,3 @@
     <div class="pagination"><%= will_paginate @matches %></div>
   </div>
 </div>
-
-
-<% content_for :extra_js do %>
-  <%= javascript_include_tag 'switcher' %>
-  <script type="text/javascript">
-    switcher('#matches-switcher', '#match-ticker');
-  </script>
-<% end %>

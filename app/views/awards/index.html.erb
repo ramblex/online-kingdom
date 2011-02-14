@@ -16,10 +16,3 @@
 <div id="right-col">
   <%= render :partial => 'shared/official_partners' %>
 </div>
-
-<% content_for :extra_js do %>
-  <%= javascript_include_tag 'switcher' %>
-  <script type="text/javascript">
-    switcher('#awards-switcher', '#awardlist');
-  </script>
-<% end %>

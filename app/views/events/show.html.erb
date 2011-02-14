@@ -96,38 +96,3 @@
     </div>
   </div>
 </div>
-
-<% content_for :head do %>
-  <%= javascript_include_tag 'switcher' %>
-<% end %>
-
-<% content_for :extra_js do %>
-  <script type="text/javascript">
-    // Hide all stages apart from the first
-  if ($('.stage').size() > 1) {
-    $('.stage #groups-title').after('<div class="stage-nav"></div>');
-    $('.stage .stage-nav:not(:first)').append('<a href="" id="prev-stage">Go To Previous Stage</a> ');
-    $('.stage .stage-nav:not(:last)').append('<a href="" id="next-stage">Go To Next Stage</a>');
-    $('.stage').hide();
-    var current_stage = $('.stage').first();
-    var first = current_stage;
-    current_stage.show();
-
-    function switch_stage(new_stage) {
-      current_stage.hide();
-      current_stage = new_stage;
-      current_stage.show();
-    }
-
-    $('#next-stage').click(function() {
-      switch_stage(current_stage.next());
-      return false;
-    });
-
-    $("#prev-stage").click(function() {
-      switch_stage(current_stage.prev());
-      return false;
-    });
-  }
-  </script>
-<% end %>

@@ -36,16 +36,3 @@
   </div>
   <%= render :partial => 'shared/official_partners' %>
 </div>
-
-<% content_for :extra_js do %>
-  <%= javascript_include_tag 'switcher' %>
-  <script type="text/javascript">
-    switcher('#player-categories', '#player-list');
-    function update_content(content_id, data) {
-      $(content_id).html($(content_id, data).html());
-      $("#pagination").html($("#pagination", data).html());
-      $("#ok_staff").html($("#ok_staff", data));
-      $("#match-ticker").html($("#match-ticker", data));
-    }
-  </script>
-<% end %>

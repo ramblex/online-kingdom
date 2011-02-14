@@ -15,10 +15,3 @@
     <%= link_to 'Add a news item', new_article_path, :class => 'button' %>
   <% end %>
 </div> <!-- end left-col -->
-
-<% content_for :extra_js do %>
-  <%= javascript_include_tag 'switcher' %>
-  <script type="text/javascript">
-    switcher('#news-category', '#paginated-news-list');
-  </script>
-<% end %>

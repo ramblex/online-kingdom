@@ -64,5 +64,4 @@
           %li= link_to 'ESPORTSM', 'http://www.esportsm.pt', :target => :_blank
     = yield :extra_js
     /[if IE]
-      = javascript_include_tag 'jquery.corner'
-      = javascript_include_tag 'ie.js'
+      = javascript_include_tag 'jquery.corner', 'ie.js'

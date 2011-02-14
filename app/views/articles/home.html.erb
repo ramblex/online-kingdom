@@ -183,29 +183,21 @@
 
 <% content_for :extra_js do %>
   <script type="text/javascript">
-    switcher('#matches-switcher', '#match-ticker');
-    // Seem to have to setup the slider javascript after changing the slider's category
-    switcher('#news-switcher', '#news-slider', function(data) {
-        update_content('#news-slider', data);
-        bind_slider_links();
-    });
-    $('#left').prepend('<div id="current"></div>');
-    bind_slider_links();
 
-    function bind_slider_links() {
-      select_news_item($("#right ul li a:first"));
-      $("#right ul li a").click(function() {
-          select_news_item($(this));
-          return false;
-      });
-    }
-
+    /* News switcher */
     function select_news_item(item) {
       $("#right ul li a").removeClass('selected');
       item.addClass('selected');
       $("#current").html(item.parent().find('.content').html());
     }
+    $('#left').prepend('<div id="current"></div>');
+    select_news_item($("#right ul li a:first"));
+    $("#right ul li a").click(function() {
+        select_news_item($(this));
+        return false;
+    });
 
+    /* Insider switch */
     $(".insider-page").hide();
     $('#insider_prizes').show();
 
@@ -214,8 +206,6 @@
       $(this).addClass('selected');
       $(".insider-page").hide();
       $('#insider_'+$(this).text().toLowerCase()).fadeIn();
-
-
       return false;
     });
   </script>

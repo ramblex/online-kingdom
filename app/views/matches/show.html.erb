@@ -84,11 +84,3 @@
     </div>
   </div>
 </div>
-
-<% content_for :extra_js do %>
-  <script type="text/javascript">
-    $("#holder").sweetPages({perPage:7});
-    var controls = $('.swControls').detach();
-    controls.appendTo("#comments-title");
-  </script>
-<% end %>

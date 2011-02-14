@@ -41,9 +41,6 @@
             <ul class="group-switcher switcher" name="<%= stage %>">
               <%= render :partial => 'group_links', :collection => groups, :as => :group %>
             </ul>
-            <script type="text/javascript">
-              switcher('ul[name=<%= stage %>]', 'div[name=<%= stage %>]');
-            </script>
           </div>
           <%= render :partial => groups.first %>
         </div>

@@ -87,3 +87,18 @@ $(document).ready(function() {
 function toggle_admin() {
   $("#admin-nav #hidden").toggle();
 }
+
+(function($) {
+  var app = $.sammy(function() {
+    this.get('#/groups/:id', function() {
+      $("#current-group").html('<div id="loading">Loading group...</div>');
+      $.get("/groups/"+this.params['id']+".js", function(response) {
+        $("#current-group").html(response);
+      });
+    });
+  });
+
+  $(function() {
+    app.run();
+  });
+})(jQuery);

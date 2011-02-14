@@ -16,11 +16,11 @@ class GroupsController < ApplicationController
   # GET /groups/1
   # GET /groups/1.xml
   def show
-    @group = Group.find(params[:id])
+    @group = Group.find(:all, :conditions => ['id = ?', params[:id]], :include => [:matches, :group_teams])
 
     respond_to do |format|
       format.html # show.html.erb
-      format.js { render :partial => @group }
+      format.js { render :layout => false }
     end
   end
 

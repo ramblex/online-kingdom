@@ -42,7 +42,9 @@
               <%= render :partial => 'group_links', :collection => groups, :as => :group %>
             </ul>
           </div>
-          <%= render :partial => groups.first %>
+          <div id="current-group">
+            <%= render :partial => groups.first %>
+          </div>
         </div>
       <% end %>
     <% end %>

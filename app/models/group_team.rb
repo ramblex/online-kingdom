@@ -3,22 +3,26 @@ class GroupTeam < ActiveRecord::Base
   belongs_to :group
 
   def played
-    team.matches.reject {|match| match.group_id != group_id or !match.has_happened}.count
+    Match.count(:conditions => ["(team1_id=? OR team2_id=?) AND group_id=? AND start_date < ?", 
+        team.id, team.id, group.id, DateTime.now])
   end
 
   def won
-    team.won.reject {|match| match.group_id != group_id}
+    Match.count(:conditions => ["( (team1_id=? AND team1_score > team2_score) OR (team2_id=? AND team1_score < team2_score)) AND group_id=? AND start_date < ?",
+        team.id, team.id, group.id, DateTime.now])
   end
 
   def drawn
-    team.drawn.reject {|match| match.group_id != group_id}
+    Match.count(:conditions => ["( (team1_id=? AND team1_score = team2_score) OR (team2_id=? AND team1_score = team2_score)) AND group_id=? AND start_date < ?",
+        team.id, team.id, group.id, DateTime.now])
   end
 
   def lost
-    team.lost.reject {|match| match.group_id != group_id}
+    Match.count(:conditions => ["( (team1_id=? AND team1_score < team2_score) OR (team2_id=? AND team1_score > team2_score)) AND group_id=? AND start_date < ?",
+        team.id, team.id, group.id, DateTime.now])
   end
 
   def points
-    (won.count * 3) + drawn.count
+    (won * 3) + drawn
   end
 end

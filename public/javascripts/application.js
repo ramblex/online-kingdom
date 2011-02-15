@@ -90,10 +90,11 @@ function toggle_admin() {
 
 (function($) {
   var app = $.sammy(function() {
-    this.get('#/groups/:id', function() {
-      $("#current-group").html('<div id="loading">Loading group...</div>');
+    this.get('#/groups/:stage/:id', function() {
+      var content_div = "#"+this.params['stage'];
+      $(content_div).html('<div id="loading">Loading group...</div>');
       $.get("/groups/"+this.params['id']+".js", function(response) {
-        $("#current-group").html(response);
+        $(content_div).html(response);
       });
     });
   });

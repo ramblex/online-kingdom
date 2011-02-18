@@ -23,6 +23,7 @@ class BlogsController < ApplicationController
   # GET /blogs.xml
   def index
     @blogs = Blog.all
+    @advert = Advert.random('blogs_list')
 
     respond_to do |format|
       format.html # index.html.erb
@@ -34,6 +35,7 @@ class BlogsController < ApplicationController
   # GET /blogs/1.xml
   def show
     @blog = Blog.find(params[:id])
+    @advert = Advert.random('blogs')
 
     respond_to do |format|
       format.html # show.html.erb

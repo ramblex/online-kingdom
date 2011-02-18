@@ -9,6 +9,7 @@ class VideosController < ApplicationController
   # GET /videos.xml
   def index
     @videos = Video.all
+    @advert = Advert.random('videos_list')
 
     respond_to do |format|
       format.html # index.html.erb

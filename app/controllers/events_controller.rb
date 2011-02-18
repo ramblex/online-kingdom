@@ -30,10 +30,12 @@ class EventsController < ApplicationController
     else
       @last_update = @event.created_at
     end
+    @advert = Advert.random('events')
   end
 
   def index
     @events = search_all(Event)
+    @advert = Advert.random('events_list')
 
     respond_to do |format|
       format.html

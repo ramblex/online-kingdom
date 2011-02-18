@@ -1,0 +1,8 @@
+- unless advert.nil?
+  %div{ local_assigns[:box].nil? ? {:class => "box"} : {} }
+    <center>
+    - if advert.type == "Code"
+      advert.code
+    - else
+      = link_to image_tag(advert.image.url(local_assigns[:image_size])), advert.url, :target => :_blank
+    </center>

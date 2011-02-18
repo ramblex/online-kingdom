@@ -1,0 +1,30 @@
+- semantic_form_for @advert, :html => {:multipart => true} do |f|
+  - f.inputs do
+    = f.input :company
+    = f.input :positions, :as => :check_boxes, :collection => Advert::POSITIONS
+    = f.input :category, :as => :select, :collection => ['Code', 'Image'], :include_blank => false
+
+  - f.inputs :id => 'code-type' do
+    = f.input :code
+
+  - f.inputs :id => 'image-type' do
+    = f.input :image
+    = f.input :url
+  = f.buttons
+
+:javascript
+  function choose_advert_type() {
+    var advert_type = $("#advert_category").val();
+    if (advert_type == "Image") {
+      $("#code-type").hide();
+      $("#image-type").show();
+    } else if (advert_type == "Code") {
+      $("#code-type").show();
+      $("#image-type").hide();
+    }
+  }
+
+  $("#advert_category").change(function() {
+    choose_advert_type();
+  });
+  choose_advert_type();

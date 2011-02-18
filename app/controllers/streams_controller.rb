@@ -13,6 +13,8 @@ class StreamsController < ApplicationController
     @ch2_stream = Stream.future.channel2.first
     @ch1_next = Stream.next.future.channel1
     @ch2_next = Stream.next.future.channel2
+    @advert1 = Advert.random('streams_1')
+    @advert2 = Advert.random('streams_2')
 
     respond_to do |format|
       format.html # index.html.erb

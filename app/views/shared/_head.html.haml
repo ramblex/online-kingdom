@@ -16,6 +16,8 @@
         %p= truncate_html latest.preamble, :length => 500
       = link_to image_tag('readmore.png'), latest, :class => 'readmore'
   #advert
+    - if top_advert = Advert.random('top')
+      = render :partial => top_advert, :locals => {:image_size => :top, :box => false}
   #login
     = render :partial => 'shared/login_area'
   #top-match

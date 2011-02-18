@@ -47,6 +47,8 @@ class AlbumsController < ApplicationController
       @albums = Album.search params[:search]
     end
 
+    @advert = Advert.random('albums_list')
+
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @albums }

@@ -13,4 +13,5 @@
       <%= link_to 'Create a blog post', new_blog_path, :class => 'button' %>
     <% end %>
   </div>
+  <%= render :partial => @advert, :locals => {:image_size => :right_side} %>
 </div>

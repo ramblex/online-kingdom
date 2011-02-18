@@ -5,3 +5,7 @@
 #   
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Major.create(:name => 'Daley', :city => cities.first)
+
+['top', 'video', 'album', 'blog', 'event', 'match'].each do |position|
+  AdvertPosition.find_or_create_by_name(position)
+end

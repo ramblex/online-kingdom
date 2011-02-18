@@ -23,6 +23,7 @@ class ArticlesController < ApplicationController
     @blogs = Blog.all :limit => 5, :include => [:user, :slug]
     @videos = Video.all :limit => 3, :include => :user
     @albums = Album.all :limit => 6, :include => :user
+    @advert = Advert.random('main_page')
   end
 
   def admin
@@ -97,6 +98,7 @@ class ArticlesController < ApplicationController
         @last_update = @article.created_at
       end
 
+      @advert = Advert.random('news_articles')
 
       respond_to do |format|
         format.html # show.html.erb

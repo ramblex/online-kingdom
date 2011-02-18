@@ -77,7 +77,7 @@ class AdvertsController < ApplicationController
     @advert.destroy
 
     respond_to do |format|
-      format.html { redirect_to(adverts_url) }
+      format.html { redirect_to(admin_adverts_url, :notice => 'Advert was deleted') }
       format.xml  { head :ok }
     end
   end

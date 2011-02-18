@@ -1,4 +1,4 @@
-<% latest = Match.find(:last, :include => [:team1, :team2], :conditions => ['featured = ?', true]) %>
+<% latest = Match.find(:first, :include => [:team1, :team2], :conditions => ['featured = ?', true]) %>
 <% if latest and latest.event %>
 <div id="top-match-title">
   <% if latest.event.logo? %>

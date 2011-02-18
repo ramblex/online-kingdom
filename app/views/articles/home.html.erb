@@ -28,12 +28,12 @@
             <div class="content">
               <%= link_to (image_tag article.image.url(:slider)), article %>
               <p><%= truncate_html article.preamble, :length => 550 %></p>
-              <%= link_to '&raquo; read more', article, :class => 'all-matches' %>
+              <%= link_to '&raquo; Read more', article, :class => 'all-matches' %>
             </div>
           </li>
         <% end %>
         </ul>
-        <%= link_to "&raquo; all news", articles_path, :class => 'all-matches' %>
+        <%= link_to "&raquo; More news", articles_path, :class => 'all-matches' %>
       </div>
     </div>
   </div>
@@ -116,7 +116,7 @@
     <ul id="match-ticker">
       <%= render :partial => @matches, :locals => {:no_admin => true} %>
     </ul>
-    <%= link_to '&raquo; all matches', matches_url, :class => 'all-matches' %>
+    <%= link_to '&raquo; More matches', matches_url, :class => 'all-matches' %>
     <div class="clear"></div>
   </div>
   <!-- End matches box -->

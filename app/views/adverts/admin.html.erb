@@ -1,0 +1,28 @@
+<div class="box">
+  <div class="header">
+    <%= title 'ADVERTS ADMINISTRATION' %>
+  </div>
+  <%= link_to 'New advert', new_advert_path, :class => 'button' %>
+
+  <table class="admin-table">
+    <tr>
+      <th>Company</th>
+      <th>Category</th>
+      <th>Url</th>
+      <th>Admin</th>
+    </tr>
+
+  <% @adverts.each do |advert| %>
+    <tr>
+      <td><%=h advert.company %></td>
+      <td><%=h advert.category %></td>
+      <td><%=h advert.url %></td>
+      <td><%= admin_links advert %></td>
+    </tr>
+  <% end %>
+  </table>
+
+  <br />
+
+  <%= link_to 'New advert', new_advert_path, :class => 'button' %>
+</div>

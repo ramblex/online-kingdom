@@ -1,5 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
 
+
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
@@ -26,6 +27,7 @@ ActionController::Routing::Routes.draw do |map|
   # Sample resource route with options:
   #   map.resources :products, :member => { :short => :get, :toggle => :post }, :collection => { :sold => :get }
   map.resources :messages
+  map.resources :adverts, :collection => {:admin => :get}
   map.resources :albums, :collection => {:admin => :get}
   map.resources :streams, :collection => {:admin => :get}
   map.resources :pages, :collection => {:admin => :get}

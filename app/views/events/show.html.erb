@@ -92,4 +92,5 @@
       Last update was <%= time_ago_in_words @last_update %> ago
     </div>
   </div>
+  <%= render :partial => @advert, :locals => {:image_size => :right_side} %>
 </div>

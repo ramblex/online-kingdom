@@ -24,6 +24,7 @@ class MatchesController < ApplicationController
   # GET /matches.xml
   def index
     @matches = search_all(Match)
+    @advert = Advert.random('matches_list')
     respond_to do |format|
       format.html # index.html.erb
       format.js { render :partial => @matches }
@@ -42,6 +43,7 @@ class MatchesController < ApplicationController
     else
       @last_update = @match.created_at
     end
+    @advert = Advert.random('matches')
 
     respond_to do |format|
       format.html # show.html.erb

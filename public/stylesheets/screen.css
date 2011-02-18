@@ -580,10 +580,10 @@ div#flash-notice {
 }
 
 /* line 193, sass/screen.sass */
-#top-advert {
-  margin: 0 0 24px 0;
-  width: 455px;
-  height: 117px;
+#advert {
+  margin: 10px 10px 20px 30px;
+  width: 415px;
+  height: 110px;
   float: right;
 }
 

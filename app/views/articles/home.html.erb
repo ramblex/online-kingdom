@@ -46,6 +46,13 @@
     <%= link_to image_tag('facebook.gif'), 'http://www.facebook.com/ONLINEKINGDOM.ORG' %>
   </div>
 
+  <div class="box">
+    <div class="header">
+      <%= title 'ADVERTISEMENT' %>
+    </div>
+    <%= render :partial => @advert, :locals => {:image_size => :main_page, :box => false} %>
+  </div>
+
   <!-- Insider page -->
   <div class="box">
     <div class="header">

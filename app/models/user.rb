@@ -31,6 +31,14 @@ class User < ActiveRecord::Base
     :default_url => '/images/small-default-user.png',
     :default_style => :default
 
+  def age
+    (Time.now.year - birthdate.year) - (turned_older? ? 0 : 1) rescue 0
+  end
+
+  def turned_older?
+    (birthdate.to_time.change(:year => Time.now.year) <= Time.now)
+  end
+
   def fullname
     "#{firstname} '#{username}' #{surname}"
   end

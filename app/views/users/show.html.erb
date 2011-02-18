@@ -15,7 +15,7 @@
         </tr>
         <tr>
           <td class="title">Age</td>
-          <td><%= Date.today.year - @user.birthdate.year %>; <%= @user.birthdate.strftime('%d-%m-%Y') %></td>
+          <td><%= @user.age %>; <%= @user.birthdate.strftime('%d-%m-%Y') %></td>
         </tr>
         <tr class="odd">
           <td class="title">City</td>

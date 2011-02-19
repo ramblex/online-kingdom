@@ -9,11 +9,11 @@
       <%= f.text_field :name %>
     </p>
     <p>
-      <%= f.hidden_field :original %>
+      <%= f.hidden_field :source_file_name %>
       <%= s3_swf_upload_tag :height => 50,
                             :width => 500,
                             :success => '
-    $("#video_original").val(filename);
+    $("#video_source_file_name").val(filename);
     $("#new_video").submit();
     alert("Video uploaded. Encoding has begun automatically.");',
                             :prefix => Time.now.to_i.to_s %>

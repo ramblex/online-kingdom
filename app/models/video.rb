@@ -5,7 +5,7 @@ class Video < ActiveRecord::Base
   def encode!(options = {})
     begin
       zen = Zencoder.new(zencoder_settings["settings"]["base_url"], zencoder_settings["settings"]["notification_url"])
-      if zen.encode('/'+self.original, 800, 450, "/thumbnails_#{self.id}", options)
+      if zen.encode('/'+self.source_file_name, 800, 450, "/thumbnails_#{self.id}", options)
         self.encoded_state = "queued"
         self.output_url = zen.output_url
         self.job_id = zen.job_id

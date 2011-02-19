@@ -20,6 +20,9 @@
 @import "formtastic"
 @import "formtastic_changes"
 
+/* Colours */
+$top-gray = #c3c3c3
+
 body
   background: url(/images/background.jpg) #5a7f9a
   font: 11px Arial
@@ -52,30 +55,25 @@ ul, ol
   margin-left: 20px
   list-style: disc
 
-div
-  &#flash-notice
-    position: fixed
-    top: 10px
-    left: -1px
-    color: black
-    padding: 10px
-  &#flash-alert
-    position: fixed
-    top: 10px
-    left: -1px
-    color: black
-    padding: 10px
-    border: 1px solid #dc1313
-    background: #e5b6b6
+#flash-notice, #flash-alert
+  position: fixed
+  top: 10px
+  left: -1px
+  color: black
+  padding: 10px
+
+#flash-alert
+  border: 1px solid #dc1313
+  background: #e5b6b6
+
+#flash-notice
+  border: 1px solid #558108
+  background: #bcdd9f
 
 #error
   border: 1px solid #dc1313
   background: #e5b6b6
   padding: 10px
-
-div#flash-notice
-  border: 1px solid #558108
-  background: #bcdd9f
 
 #loading
   line-height: 40px
@@ -95,106 +93,103 @@ div#flash-notice
   height: 545px
   background: url(../images/header.png) no-repeat
 
-#top-news
-  width: 466px
-  height: 187px
-  float: left
-  padding: 11px
-  position: relative
-
-#top-news-title, #top-match-title
-  height: 24px
-  line-height: 24px
-  margin-bottom: 6px
-
-#top-news .num_comments a
-  float: right
-  color: white
-  text-decoration: none
-  &:hover
-    text-decoration: underline
-
-.logo
-  width: 61px
-  height: 24px
-  margin-right: 11px
-  float: left
-
-#top-match-content .team
-  float: left
-  margin-bottom: 10px
-  .name
-    width: 100px
-    text-align: center
-    margin-top: 5px
+#top
+  a
     color: white
     text-decoration: none
-    display: block
+    &:hover
+      text-decoration: underline
 
-#top-match-title a
-  color: white
-
-#top-match-content
-  position: relative
-  height: 155px
-  .team a:hover
-    text-decoration: underline
-  .versus
-    width: 89px
-    text-align: center
-    line-height: 100px
-    float: left
-    font-size: 80%
-  .logo
-    width: 100px
-    height: 100px
-    display: block
-    padding: 0
-    margin: 0
-    float: none
-
-#top-news-title
+  .avatar
+    border: 1px solid #4a6278
+    margin-top: -2px
   .title
-    font-weight: bold
-  .rating
-    float: right
-    width: 55px
     height: 24px
-    margin-top: 5px
-
-#top-match-title .rating
-  float: right
-  width: 55px
-  height: 24px
-  margin-top: 5px
-
-.top-info
-  color: #c3c3c3
-  margin-bottom: 12px
-  .author
-    color: white
-
-#top-news-content
-  .image
-    width: 108px
-    height: 108px
+    line-height: 24px
+    margin-bottom: 6px
+    font-weight: bold
+  .info
+    height: 25px
+    color: $top-gray
+    span
+      float: right
+  .logo
+    width: 61px
+    height: 24px
+    margin-right: 11px
     float: left
-    background: gray
-    margin-right: 9px
-  width: 100%
-  overflow: hidden
-  height: 108px
+
+  #news
+    width: 466px
+    height: 187px
+    float: left
+    padding: 10px
+    position: relative
+    .stars
+      position: absolute
+      top: 17px
+      right: 10px
+    #image
+      @extend .avatar
+      width: 108px
+      height: 108px
+
+  #advert
+    margin: 10px 10px 20px 30px
+    width: 415px
+    height: 110px
+    float: right
+
+  #match
+    margin: 10px 0 0 0
+    padding: 10px
+    float: left
+    width: 289px
+    height: 205px
+    clear: both
+    position: relative
+    .content
+      height: 155px
+      .team a:hover
+        text-decoration: underline
+      .versus
+        width: 89px
+        text-align: center
+        line-height: 100px
+        float: left
+        font-size: 80%
+      .logo
+        width: 100px
+        height: 100px
+        display: block
+        padding: 0
+        margin: 0
+        float: none
+      .team
+        float: left
+        margin-bottom: 10px
+        .name
+          width: 100px
+          text-align: center
+          margin-top: 5px
+          color: white
+          text-decoration: none
+          display: block
+
+  #sponsors
+    margin: 10px 0 0 10px
+    float: left
+    width: 631px
+    height: 217px
+    img
+      position: relative
+      top: 33px
+      margin-left: 40px
 
 .readmore
   position: absolute
   bottom: 10px
   right: 10px
-
-#advert
-  margin: 10px 10px 20px 30px
-  width: 415px
-  height: 110px
-  float: right
 
 /* Login
 
@@ -264,24 +259,6 @@ div#flash-notice
   a:hover
     color: gray
 
-#top-match
-  margin: 10px 0 0 0
-  padding: 11px
-  float: left
-  width: 289px
-  height: 194px
-  clear: both
-
-#sponsors
-  margin: 10px 0 0 10px
-  float: left
-  width: 631px
-  height: 217px
-  img
-    position: relative
-    top: 33px
-    margin-left: 40px
-
 /* Navigation
 
 #home-btn
@@ -294,10 +271,10 @@ div#flash-notice
   outline: 0
 
 #top-nav
-  margin: 0 0 6px 74px
+  margin: 20px 0 6px 74px
   float: left
   width: 808px
-  height: 56px
+  height: 30px
   clear: both
   position: relative
 
@@ -309,7 +286,6 @@ ul#top-nav
     height: 20px
     width: 68px
     display: block
-    top: 28px
     &#home
       background: none
   #news
@@ -348,6 +324,11 @@ ul#top-nav
 
 /* Content
 
+.avatar
+  float: left
+  margin-right: 5px
+  padding: 1px
+
 #content
   /* top image gives 5px padding at top */
   padding: 1px 6px 6px 6px
@@ -355,6 +336,10 @@ ul#top-nav
   background: white
   clear: both
   color: black
+  @include clearfix
+  .avatar
+    background: #eee
+    border: 1px solid #e1e1e1
 
 /* Full Column
 
@@ -383,21 +368,6 @@ ul#top-nav
     text-decoration: none
     &:hover
       text-decoration: underline
-
-.avatar
-  float: left
-  margin-right: 5px
-  padding: 1px
-
-#top
-  .avatar
-    border: 1px solid #4a6278
-    margin-top: -2px
-
-#content
-  .avatar
-    background: #eee
-    border: 1px solid #e1e1e1
 
 .news-content
   padding: 12px 28px 0 0
@@ -930,9 +900,6 @@ table#hardware
         text-decoration: none
 
 /* Misc
-
-.clear
-  clear: both
 
 .settings-avatar
   height: 50px
@@ -1472,9 +1439,3 @@ a
   color: #1a3f5a
   &:hover
     color: gray
-
-.medium-narrow
-  font-size: 8pt
-
-#full-col p
-  margin: 10px 0

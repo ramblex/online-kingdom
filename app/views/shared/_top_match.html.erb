@@ -1,16 +1,15 @@
 <% latest = Match.find(:first, :include => [:team1, :team2], :conditions => ['featured = ?', true]) %>
 <% if latest and latest.event %>
-<div id="top-match-title">
+<div class="title">
   <% if latest.event.logo? %>
     <%= image_tag latest.event.logo.url(:default), :class => 'logo' %>
   <% end %>
-  <span class="title"><%= link_to latest.event.name, latest.event %></span>
-  <div class="rating"></div>
+  <span><%= link_to latest.event.name, latest.event %></span>
 </div>
-<div class="top-info">
+<div class="info">
   <%= latest.start_date.to_formatted_s :match %>
 </div>
-<div id="top-match-content">
+<div class="content">
   <%= render :partial => 'shared/team_logo', :locals => {:team => latest.team1} %>
   <div class="versus">VERSUS</div>
   <%= render :partial => 'shared/team_logo', :locals => {:team => latest.team2} %>

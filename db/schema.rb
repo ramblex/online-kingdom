@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110218200437) do
+ActiveRecord::Schema.define(:version => 20110219201802) do
 
   create_table "advert_positions", :force => true do |t|
     t.string   "name"
@@ -537,6 +537,16 @@ ActiveRecord::Schema.define(:version => 20110218200437) do
     t.integer  "source_file_size"
     t.datetime "source_updated_at"
     t.integer  "user_id"
+    t.string   "job_id"
+    t.string   "encoded_state",          :default => "unencoded"
+    t.string   "output_url"
+    t.integer  "duration_in_ms"
+    t.string   "aspect_ratio"
+    t.string   "thumbnail_file_name"
+    t.string   "thumbnail_content_type"
+    t.integer  "thumbnail_file_size"
+    t.datetime "thumbnail_updated_at"
+    t.string   "original"
   end
 
 end

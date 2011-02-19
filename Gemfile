@@ -2,7 +2,7 @@ source :gemcutter
 gem 'rails', '2.3.9'
 gem 'mysql', '2.7'
 gem "devise", '1.0.8'
-gem 'paperclip'
+gem 'paperclip', '2.3.8'
 gem 'jrails'
 gem 'cancan'
 gem 'will_paginate', '2.3.11'
@@ -19,3 +19,5 @@ gem 'friendly_id'
 
 # Videos
 gem 'mime-types', :require => 'mime/types'
+gem 'aws-s3', :require => 'aws/s3'
+gem 'httparty'

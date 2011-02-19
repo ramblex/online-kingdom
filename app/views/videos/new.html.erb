@@ -1,25 +1,25 @@
-<h1>New video</h1>
+<div class="box">
+  <%= title 'NEW VIDEO' %>
 
-<%= render_uploadify(:id => 'video_source',
-                     :url => videos_path,
-                     :allowed_extensions => [:mov, :avi, :swf, :wmv],
-                     :fields => ['video_name'],
-                     :allow_multiple_files => false) %>
+  <% form_for @video do |f| %>
+    <%= f.error_messages %>
 
-<% form_for @video, :html => { :multipart => true } do |f| %>
-  <%= f.error_messages %>
-
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :source, 'Video' %><br />
-    <%= f.file_field :source %>
-  </p>
-  <p>
-    <%= uploadify_submit('Upload') %>
-  </p>
-<% end %>
-
-<%= link_to 'Back', videos_path %>
+    <p>
+      <%= f.label :name %><br />
+      <%= f.text_field :name %>
+    </p>
+    <p>
+      <%= f.hidden_field :original %>
+      <%= s3_swf_upload_tag :height => 50,
+                            :width => 500,
+                            :success => '
+    $("#video_original").val(filename);
+    $("#new_video").submit();
+    alert("Video uploaded. Encoding has begun automatically.");',
+                            :prefix => Time.now.to_i.to_s %>
+    </p>
+    <p>
+      Maximum file size: <%= S3SwfUpload::S3Config.max_file_size/1024.0/1024.0 %>MB
+    </p>
+  <% end %>
+</div>

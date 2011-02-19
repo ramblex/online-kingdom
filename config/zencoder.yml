@@ -1,0 +1,7 @@
+s3_output:
+  access_key_id: "AKIAJZEZ6CA4UAG6TTEQ"
+  secret_access_key: "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"
+settings:
+  notification_url: "http://178.79.132.38/videos/encode_notify"
+  base_url: "http://s3.amazonaws.com/onlinekingdom-development"
+  thumb_base_url: "http://s3-eu-west-1.amazonaws.com/onlinekingdom-development"

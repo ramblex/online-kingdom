@@ -34,7 +34,12 @@ module UploadifyRailsHelper
         onComplete    : function(event, queueID, fileObj, response, data) { 
           $('#uploadify_cancel').hide('blind');
           $('#uploadify_submit').show('blind');
-          alert('Converting your video...');
+          var response = eval('(' + response + ')');
+          if (response.errors) {
+            $('#content').html(response.errors + '. Please try again.');
+          } else {
+            $('#content').html('Success:' + response.message);
+          }
         },
         onAllComplete : function(event, data){
           $('#uploadify_cancel').hide('blind');

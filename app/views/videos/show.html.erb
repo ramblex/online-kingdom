@@ -1,8 +1,27 @@
-<p>
-  <b>Name:</b>
-  <%=h @video.name %>
-</p>
+<div class="box">
+  <div class="header">
+    <%= title @video.name.upcase %>
+  </div>
+  <center>
+    <video poster="<%= @video.poster %>" controls="">
+      <source width="800" height="450" src="<%= @video.output_url %>">
+    </video>
+  </center>
+</div>
 
+<div id="wide-left-col">
+  <div class="box">
+    <div class="header">
+      <%= title 'COMMENTS' %>
+    </div>
+  </div>
+</div>
 
-<%= link_to 'Edit', edit_video_path(@video) %> |
-<%= link_to 'Back', videos_path %>
+<div id="thin-right-col">
+  <div class="box">
+    <div class="header">
+      <%= title 'CREDITS TO' %>
+    </div>
+    <%= render :partial => @video.user %>
+  </div>
+</div>

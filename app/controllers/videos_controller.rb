@@ -1,6 +1,14 @@
 class VideosController < ApplicationController
   load_and_authorize_resource
 
+  named_scope :finished, :conditions => { :encoded_state => "finished" }
+
+  def encode_notify
+    video = Video.find_by_job_id(params[:job][:id].to_i)
+    video.capture_notification(params[:output]) if video
+    render :text => "Thanks, Zencoder!", :status => 200
+  end
+
   def admin
     @videos = Video.all
   end
@@ -40,15 +48,10 @@ class VideosController < ApplicationController
     @video.user_id = current_user.id
 
     respond_to do |format|
-      if @video.save
-        flash[:notice] = 'Video was successfully created.'
-        format.html { redirect_to(@video) }
-        format.json { render :json => {:result => 'success', :video => @video} }
-        format.xml  { render :xml => @video, :status => :created, :location => @video }
+      if @video.save && @video.encode!({:test => 1})
+        format.html { redirect_to admin_videos_path, :notice => "Video created. Encoding has started" }
       else
         format.html { render :action => "new" }
-        format.json { render :json => {:result => 'error', :error => @video.errors.full_messages.to_sentence}}
-        format.xml  { render :xml => @video.errors, :status => :unprocessable_entity }
       end
     end
   end

@@ -1206,7 +1206,7 @@ div.comment-info .date {
 }
 
 /* line 636, sass/screen.sass */
-.button {
+.button, .s3-swf-upload-link a {
   display: inline-block;
   color: #4183c4;
   padding: 2px 4px;
@@ -1226,7 +1226,7 @@ div.comment-info .date {
   text-shadow: white 1px 1px 0;
 }
 /* line 647, sass/screen.sass */
-.button:hover, .button.selected {
+.button:hover, .s3-swf-upload-link a:hover, .button.selected, .s3-swf-upload-link a.selected {
   background: #ececec;
   color: #333333;
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, #f4f4f4), color-stop(100%, #ececec));
@@ -1234,7 +1234,7 @@ div.comment-info .date {
   background-image: linear-gradient(top, #f4f4f4 0%, #ececec 100%);
 }
 /* line 651, sass/screen.sass */
-.button:active {
+.button:active, .s3-swf-upload-link a:active {
   background-image: -webkit-gradient(linear, 0% 100%, 0% 0%, color-stop(0%, #f4f4f4), color-stop(100%, #ececec));
   background-image: -moz-linear-gradient(bottom, #f4f4f4 0%, #ececec 100%);
   background-image: linear-gradient(bottom, #f4f4f4 0%, #ececec 100%);

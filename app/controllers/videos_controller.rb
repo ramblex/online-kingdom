@@ -1,8 +1,6 @@
 class VideosController < ApplicationController
   load_and_authorize_resource
 
-  named_scope :finished, :conditions => { :encoded_state => "finished" }
-
   def encode_notify
     video = Video.find_by_job_id(params[:job][:id].to_i)
     video.capture_notification(params[:output]) if video

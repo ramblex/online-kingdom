@@ -51,7 +51,7 @@
     <div class="header">
       <%= title 'CREDITS TO' %>
     </div>
-    <%= render :partial => @video.user %>
+    <%= render :partial => @video.user, :locals => {:role => 'Uploader'} %>
   </div>
 </div>
 

@@ -1,7 +1,7 @@
 <div class="album">
   <%= link_to image_tag(video.thumbnail), video %>
   <div class="info">
-    <%= truncate video.name, :length => 40 %><br />
+    <strong><%= truncate video.name, :length => 40 %></strong><br />
     By: <%= link_to video.user.username, video.user %>
   </div>
 </div>

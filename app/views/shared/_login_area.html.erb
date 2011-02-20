@@ -1,7 +1,9 @@
 <% if user_signed_in? %>
   <%= image_tag current_user.avatar.url(:default), :class => 'avatar' %>
   <div id="logged-in">
-    Welcome back <%= link_to (truncate current_user.username, :length => 15), current_user %>
+    <span>
+      Welcome back <%= link_to (truncate current_user.username, :length => 15), current_user %>
+    </span>
     <div id="links">
       <%= link_to "INBOX (#{current_user.received_messages.unread.size})", messages_path %>
       <%= link_to 'SETTINGS', settings_path %>

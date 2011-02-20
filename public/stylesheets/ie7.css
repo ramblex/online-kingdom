@@ -69,19 +69,19 @@ table {
   float: left;
 }
 
-/* line 50, sass/ie7.sass */
+/* line 49, sass/ie7.sass */
+#top span {
+  float: left;
+}
+/* line 52, sass/ie7.sass */
 #top #article .heading {
   width: 100%;
 }
-/* line 52, sass/ie7.sass */
+/* line 54, sass/ie7.sass */
 #top #article .heading .stars {
   position: absolute;
   top: 12px;
   right: 10px;
-}
-/* line 57, sass/ie7.sass */
-#top #article .info span {
-  float: left;
 }
 /* line 59, sass/ie7.sass */
 #top #article .info span.comments {

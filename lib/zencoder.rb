@@ -2,7 +2,7 @@ class Zencoder
   include HTTParty
   headers "Accept" => "application/json", "Content-Type" => "application/json"
   base_uri 'https://app.zencoder.com/api'
-  default_params :api_key => "9dfedfea9e32bd091d36507fc66c1bfb"
+  default_params :api_key => "9dfedfea9e32bd091d36507fc66c1bfb", :region => "europe"
   format :json
 
   attr_accessor :job_id

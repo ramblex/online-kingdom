@@ -67,7 +67,7 @@ class VideosController < ApplicationController
     @video.user_id = current_user.id
 
     respond_to do |format|
-      if @video.save && @video.encode!()
+      if @video.save && @video.encode!
         format.html { redirect_to admin_videos_path, :notice => "Video created. Encoding has started" }
       else
         format.html { render :action => "new" }

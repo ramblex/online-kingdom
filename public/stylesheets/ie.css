@@ -20,9 +20,7 @@
   text-align: right;
 }
 
-/* line 18, sass/ie.sass */
-input[checkbox] {
-  margin: 0;
-  padding: 0;
-  border: 0;
+/* line 19, sass/ie.sass */
+#login #user_remember_me {
+  border: none;
 }

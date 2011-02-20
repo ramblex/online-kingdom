@@ -76,8 +76,8 @@ table {
 /* line 52, sass/ie7.sass */
 #top #article .heading .stars {
   position: absolute;
-  top: 5px;
-  right: 0;
+  top: 15px;
+  right: 10px;
 }
 /* line 57, sass/ie7.sass */
 #top #article .info span {
@@ -86,4 +86,9 @@ table {
 /* line 59, sass/ie7.sass */
 #top #article .info span.comments {
   float: right;
+}
+
+/* line 63, sass/ie7.sass */
+#login #user_remember_me {
+  border: none;
 }

@@ -2,7 +2,7 @@
   #article
     - latest = Article.find(:first, :conditions => {:featured => true, :approved => true})
     - if latest
-      .title
+      .heading
         %span= latest.title
         = stars_for latest
       .info

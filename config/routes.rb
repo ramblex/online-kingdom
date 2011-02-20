@@ -27,6 +27,7 @@ ActionController::Routing::Routes.draw do |map|
 
   # Sample resource route with options:
   #   map.resources :products, :member => { :short => :get, :toggle => :post }, :collection => { :sold => :get }
+  map.resources :video_categories, :only => [:new, :create, :edit, :update], :collection => {:admin => :get}
   map.resources :messages
   map.resources :adverts, :collection => {:admin => :get}
   map.resources :albums, :collection => {:admin => :get}

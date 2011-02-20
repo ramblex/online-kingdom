@@ -9,6 +9,10 @@
       <%= f.text_field :name %>
     </p>
     <p>
+      <%= f.label :video_category %><br />
+      <%= f.collection_select :video_category_id, VideoCategory.all, :id, :name %>
+    </p>
+    <p>
       <% prefix = Time.now.to_i.to_s %>
       <%= f.hidden_field :source_file_name %>
       <%= s3_swf_upload_tag :height => 50,

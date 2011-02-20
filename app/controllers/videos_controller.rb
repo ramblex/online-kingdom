@@ -14,7 +14,11 @@ class VideosController < ApplicationController
   # GET /videos
   # GET /videos.xml
   def index
-    @videos = Video.all
+    if params[:video_category].nil? or params[:video_category].eql? 'all'
+      @videos = Video.all
+    else
+      @videos = Video.find_by_video_category_id(params[:video_category])
+    end
     @advert = Advert.random('videos_list')
 
     respond_to do |format|

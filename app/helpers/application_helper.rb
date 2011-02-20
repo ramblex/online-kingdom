@@ -102,13 +102,14 @@ module ApplicationHelper
       @helper = helper
       @html_class = options[:class] || 'selected button'
       @default = options[:default] || 'as;dklf'
+      @my_current_page = options[:current_page] || :my_current_page?
     end
 
     def link_to(*args, &blk)
       name = args.first
       options = args.second || {}
       html_options = args.third || {}
-      html_options[:class] = @html_class if @helper.my_current_page?(options, @default)
+      html_options[:class] = @html_class if @helper.send(@my_current_page, options, @default)
       @helper.link_to(name, options, html_options, blk)
     end
   end
@@ -116,6 +117,11 @@ module ApplicationHelper
   def my_current_page?(options, default)
     params[:category].to_s == options[:category].to_s ||
       (params[:category].nil? && options[:category].to_s == default)
+  end
+
+  def current_video_category?(options, default)
+    params[:video_category].to_s == options[:video_category].to_s ||
+      (params[:video_category].nil? && options[:video_category].to_s == default)
   end
 
   def highlight_current_link(options= {}, &blk)

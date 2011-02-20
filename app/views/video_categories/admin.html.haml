@@ -1,0 +1,13 @@
+.box
+  .header
+    = title 'VIDEO CATEGORIES ADMINISTRATION'
+  = link_to 'Add a new category', new_video_category_path, :class => 'button'
+
+  %table.admin-table
+    %tr
+      %th Name
+      %th Admin
+    %tr
+      - @video_categories.each do |category|
+        %td= category.name
+        %td= admin_links category

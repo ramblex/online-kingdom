@@ -1,5 +1,6 @@
 class Video < ActiveRecord::Base
   belongs_to :user
+  belongs_to :video_category
   named_scope :finished, :conditions => { :encoded_state => "finished" }
   has_many :comments
 

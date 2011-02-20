@@ -17,5 +17,6 @@
   <li><%= link_to 'Insider page', edit_insider_path(1) if can? :update, Insider %></li>
   <li><%= link_to 'About', '/pages/1/edit' if can? :manage, Page %></li>
   <li><%= link_to 'Videos', admin_videos_path if can? :manage, Video %></li>
+  <li><%= link_to 'Video categories', admin_video_categories_path if can? :manage, VideoCategory %></li>
   <li><%= link_to 'Albums', admin_albums_path if can? :manage, Album %></li>
   <li><%= link_to 'Adverts', admin_adverts_path if can? :manage, Advert %></li>

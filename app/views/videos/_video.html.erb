@@ -2,6 +2,7 @@
   <%= link_to image_tag(video.thumbnail), video %>
   <div class="info">
     <div class="name"><%= truncate video.name, :length => 40 %></div>
-    By: <%= link_to video.user.username, video.user %>
+    By: <%= link_to video.user.username, video.user %><br />
+    Comments: <%= video.comments.count %>
   </div>
 </div>

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110219201802) do
+ActiveRecord::Schema.define(:version => 20110220140541) do
 
   create_table "advert_positions", :force => true do |t|
     t.string   "name"
@@ -165,6 +165,7 @@ ActiveRecord::Schema.define(:version => 20110219201802) do
     t.integer  "album_photo_id"
     t.integer  "event_id"
     t.integer  "blog_id"
+    t.integer  "video_id"
   end
 
   create_table "event_editors", :force => true do |t|

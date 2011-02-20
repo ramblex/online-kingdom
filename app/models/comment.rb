@@ -5,6 +5,7 @@ class Comment < ActiveRecord::Base
   belongs_to :event
   belongs_to :user
   belongs_to :blog
+  belongs_to :video
   acts_as_tree :order => 'created_at ASC'
 
   attr_protected :user

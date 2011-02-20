@@ -1,6 +1,7 @@
 class Video < ActiveRecord::Base
   belongs_to :user
   named_scope :finished, :conditions => { :encoded_state => "finished" }
+  has_many :comments
 
   def encode!(options = {})
     begin

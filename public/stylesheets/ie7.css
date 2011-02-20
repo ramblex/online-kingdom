@@ -73,11 +73,17 @@ table {
 #top #article .heading {
   width: 100%;
 }
-/* line 53, sass/ie7.sass */
+/* line 52, sass/ie7.sass */
+#top #article .heading .stars {
+  position: absolute;
+  top: 5px;
+  right: 0;
+}
+/* line 57, sass/ie7.sass */
 #top #article .info span {
   float: left;
 }
-/* line 55, sass/ie7.sass */
+/* line 59, sass/ie7.sass */
 #top #article .info span.comments {
   float: right;
 }

@@ -77,3 +77,7 @@ table {
 #top #article .heading span {
   float: left;
 }
+/* line 54, sass/ie7.sass */
+#top #article span.comments {
+  float: right;
+}

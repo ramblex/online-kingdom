@@ -23,6 +23,10 @@ class VideosController < ApplicationController
     end
   end
 
+  def show
+    @video = Video.find(params[:id])
+  end
+
   # GET /videos/new
   # GET /videos/new.xml
   def new

@@ -1,8 +1,7 @@
 <div class="album">
   <%= link_to image_tag(album.album_photos.first.photo.url(:thumb)), album, :rel => album.id %>
-  <div class="name"><%= truncate album.name, :length => 40 %></div>
   <div class="info">
-    <%= admin_links album %>
+    <strong><%= truncate album.name, :length => 40 %></strong><br />
     <%= stars_for album %><br />
     By: <%= link_to album.user.username, album.user %><br />
     Views: <%= album.click_count %><br />

@@ -452,7 +452,7 @@ ul, ol {
   text-decoration: underline;
 }
 /* line 103, sass/screen.sass */
-#top .avatar, #top #news #image, #top .album img, .album #top img, #top .user img, .user #top img {
+#top .avatar, #top #article #image, #top .album img, .album #top img, #top .user img, .user #top img {
   border: 1px solid #4a6278;
   margin-top: -2px;
 }
@@ -480,7 +480,7 @@ ul, ol {
   float: left;
 }
 /* line 122, sass/screen.sass */
-#top #news {
+#top #article {
   width: 466px;
   height: 187px;
   float: left;
@@ -488,13 +488,13 @@ ul, ol {
   position: relative;
 }
 /* line 128, sass/screen.sass */
-#top #news .stars {
+#top #article .stars {
   position: absolute;
   top: 17px;
   right: 10px;
 }
 /* line 132, sass/screen.sass */
-#top #news #image {
+#top #article #image {
   width: 108px;
   height: 108px;
 }
@@ -767,7 +767,7 @@ ul#top-nav a {
 
 /* Content */
 /* line 327, sass/screen.sass */
-.avatar, #top #news #image, .album img, .user img {
+.avatar, #top #article #image, .album img, .user img {
   float: left;
   margin-right: 5px;
   padding: 1px;
@@ -785,7 +785,7 @@ ul#top-nav a {
   *zoom: 1;
 }
 /* line 340, sass/screen.sass */
-#content .avatar, #content #top #news #image, #top #news #content #image, #content .album img, .album #content img, #content .user img, .user #content img {
+#content .avatar, #content #top #article #image, #top #article #content #image, #content .album img, .album #content img, #content .user img, .user #content img {
   background: #eeeeee;
   border: 1px solid #e1e1e1;
 }

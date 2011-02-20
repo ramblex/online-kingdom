@@ -1,29 +1,33 @@
-<h1>News administration</h1>
-<%= link_to 'Add news item', new_article_path %>
-<% @articles.group_by(&:approved).each do |approved, articles| %>
-<% if approved %>
-  <h2>Approved</h2>
-<% else %>
-  <h2>Awaiting approval</h2>
-<% end %>
-<table class="admin-table">
-  <tr>
-    <th>Title</th>
-    <th>Author</th>
-    <th>Category</th>
-    <th>Game</th>
-    <th>Date posted</th>
-    <th>Admin</th>
-  </tr>
-  <% articles.each do |article| %>
-    <tr class="<%= cycle 'even', 'odd' %>">
-      <td><%= article.title %></td>
-      <td><%= article.user.username %></td>
-      <td><%= article.news_category.name unless article.news_category.nil? %></td>
-      <td><%= article.category.name %></td>
-      <td><%= article.created_at %></td>
-      <td><%= admin_links article, :none %></td>
-    </tr>
+<div class="box">
+  <div class="header">
+    <%= title 'NEWS ADMINISTRATION' %>
+  </div>
+  <%= link_to 'Add news item', new_article_path, :class => 'button' %>
+  <% @articles.group_by(&:approved).each do |approved, articles| %>
+  <% if approved %>
+    <h2>Approved</h2>
+  <% else %>
+    <h2>Awaiting approval</h2>
   <% end %>
-</table>
-<% end %>
+  <table class="admin-table">
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Category</th>
+      <th>Game</th>
+      <th>Date posted</th>
+      <th>Admin</th>
+    </tr>
+    <% articles.each do |article| %>
+      <tr class="<%= cycle 'even', 'odd' %>">
+        <td><%= article.title %></td>
+        <td><%= article.user.username %></td>
+        <td><%= article.news_category.name unless article.news_category.nil? %></td>
+        <td><%= article.category.name %></td>
+        <td><%= article.created_at %></td>
+        <td><%= admin_links article, :none %></td>
+      </tr>
+    <% end %>
+  </table>
+  <% end %>
+</div>

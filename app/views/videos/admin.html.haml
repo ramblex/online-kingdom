@@ -1,14 +1,16 @@
-%h1 Video administration
-=link_to 'Add video', new_video_path
-%table.admin-table
-  %tr
-    %th Name
-    %th Uploader
-    %th Encoding status
-    %th Admin
-  - @videos.each do |video|
+.box
+  .header
+    = title 'VIDEO ADMINISTRATION'
+  =link_to 'Add video', new_video_path, :class => 'button'
+  %table.admin-table
     %tr
-      %td= video.name
-      %td= video.user.username
-      %td= video.encoded_state
-      %td= admin_links video, :none, {}, {:no_edit => true}
+      %th Name
+      %th Uploader
+      %th Encoding status
+      %th Admin
+    - @videos.each do |video|
+      %tr
+        %td= video.name
+        %td= video.user.username
+        %td= video.encoded_state
+        %td= admin_links video, :none, {}, {:no_edit => true}

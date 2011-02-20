@@ -1,5 +1,5 @@
 class VideosController < ApplicationController
-  load_and_authorize_resource
+  before_filter :authenticate_user!, :except => [:encode_notify]
 
   def encode_notify
     video = Video.find_by_job_id(params[:job][:id].to_i)

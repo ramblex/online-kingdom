@@ -68,3 +68,12 @@ table {
 #group-switcher {
   float: left;
 }
+
+/* line 50, sass/ie7.sass */
+#top #article .heading {
+  width: 100%;
+}
+/* line 52, sass/ie7.sass */
+#top #article .heading span {
+  float: left;
+}

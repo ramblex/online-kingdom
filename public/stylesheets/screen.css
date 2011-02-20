@@ -1025,7 +1025,7 @@ table.info .field {
 }
 /* line 505, sass/screen.sass */
 .album img {
-  width: 120px;
+  width: 100%;
   height: 94px;
   display: block;
 }

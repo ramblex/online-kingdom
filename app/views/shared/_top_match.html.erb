@@ -1,6 +1,6 @@
 <% latest = Match.find(:first, :include => [:team1, :team2], :conditions => ['featured = ?', true]) %>
 <% if latest and latest.event %>
-<div class="title">
+<div class="heading">
   <% if latest.event.logo? %>
     <%= image_tag latest.event.logo.url(:default), :class => 'logo' %>
   <% end %>

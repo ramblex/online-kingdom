@@ -6,9 +6,10 @@
         %span= latest.title
         = stars_for latest
       .info
-        This news was posted by #{link_to latest.user.username} on
-        = latest.created_at.to_formatted_s :no_time
-        %span= link_to pluralize(latest.comments.size, 'comment'), article_path(latest, :anchor => 'comments')
+        %span
+          This news was posted by #{link_to latest.user.username} on
+          = latest.created_at.to_formatted_s :no_time
+        %span.comments= link_to pluralize(latest.comments.size, 'comment'), article_path(latest, :anchor => 'comments')
       %div
         = image_tag latest.image.url(:square), :id => 'image' if latest.image?
         %p= truncate_html latest.preamble, :length => 500

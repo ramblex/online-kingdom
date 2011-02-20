@@ -469,7 +469,7 @@ ul, ol {
   color: #c3c3c3;
 }
 /* line 114, sass/screen.sass */
-#top .info span {
+#top .info span.comments {
   float: right;
 }
 /* line 116, sass/screen.sass */

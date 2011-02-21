@@ -1,5 +1,12 @@
 <% page_title @article.title %>
 <div id="wide-left-col">
+  <% unless @article.published %>
+    <div class="box">
+      <strong>This is a preview.</strong>
+      <%= admin_links @article %>
+      <%= link_to 'Publish', publish_path, :class => 'button right' %>
+    </div>
+  <% end %>
   <div class="box">
     <div class="header">
       <%= title 'NEWS PAGE' %>

@@ -68,9 +68,9 @@ class ArticlesController < ApplicationController
   def index
     params[:lang] ||= 'English'
     if params[:category].blank? or params[:category].eql? 'all'
-      @articles = Article.approved.with_related.get_lang(params[:lang]).paginate :page => params[:page]
+      @articles = Article.approved.published.with_related.get_lang(params[:lang]).paginate :page => params[:page]
     else
-      @articles = Article.approved.with_related.get_lang(params[:lang]).paginate :page => params[:page], :conditions => ['category_id = ?', params[:category]]
+      @articles = Article.approved.published.with_related.get_lang(params[:lang]).paginate :page => params[:page], :conditions => ['category_id = ?', params[:category]]
     end
 
     respond_to do |format|
@@ -82,11 +82,27 @@ class ArticlesController < ApplicationController
   def unapproved
   end
 
+  def publish
+    @article = Article.find(params[:id])
+    @article.update_attributes({:published => true})
+    if @article.save
+      if @article.approved
+        flash[:notice] = "Article has been published."
+      else
+        flash[:notice] = "Article has been published. It still needs approval."
+      end
+      redirect_to @article
+    else
+      flash[:alert] = "Could not publish the article. Please try again."
+      redirect_to :back
+    end
+  end
+
   # GET /articles/1
   # GET /articles/1.xml
   def show
     @article = Article.find(params[:id])
-    unless @article.approved
+    if !@article.approved and @article.published
       redirect_to :action => 'unapproved'
     else
       @article.increment!(:click_count)
@@ -150,10 +166,13 @@ class ArticlesController < ApplicationController
   # PUT /articles/1.xml
   def update
     @article = Article.find(params[:id])
-    if !@article.approved and params[:article][:approved]
-      editor = @article.article_editors.create({:user_id => current_user.id, :update_type => 'Edited/Approved'})
-    else
-      editor = @article.article_editors.create({:user_id => current_user.id, :update_type => 'Edited'})
+    # Don't add editors until the article is published
+    if @article.published
+      if !@article.approved and params[:article][:approved]
+        editor = @article.article_editors.create({:user_id => current_user.id, :update_type => 'Edited/Approved'})
+      else
+        editor = @article.article_editors.create({:user_id => current_user.id, :update_type => 'Edited'})
+      end
     end
 
     respond_to do |format|

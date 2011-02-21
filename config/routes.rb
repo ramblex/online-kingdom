@@ -15,6 +15,7 @@ ActionController::Routing::Routes.draw do |map|
   map.rate 'articles/:id/rate/:rating', :controller => 'articles', :action => 'rate'
   map.rate_album 'albums/:id/rate/:rating', :controller => 'albums', :action => 'rate'
   map.reply_to_message 'messages/:id/reply', :controller => 'messages', :action => 'reply'
+  map.publish 'articles/:id/publish', :controller => 'articles', :action => 'publish'
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   map.resources :products

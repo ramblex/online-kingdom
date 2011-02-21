@@ -10,4 +10,5 @@
     = f.input :featured
     = f.input :momentnews, :label => 'News of the moment'
     = f.input :approved if can? :approve, @article
+    = f.input :published, :label => 'Publish', :hint => "No editors will be added until article is published"
   = f.buttons

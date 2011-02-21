@@ -3,6 +3,7 @@ class Article < ActiveRecord::Base
   @@per_page = 5
   default_scope :order => 'articles.created_at DESC'
   named_scope :approved, :conditions => ['approved = 1']
+  named_scope :published, :conditions => ['published = 1']
   named_scope :news_of_the_moment, :conditions => ['momentnews = 1'], :limit => 5
   named_scope :front_page, :limit => 20
   named_scope :news_category, lambda {|id| {:conditions => ['news_category_id = ? ', id]}}

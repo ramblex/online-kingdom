@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110220151646) do
+ActiveRecord::Schema.define(:version => 20110221194913) do
 
   create_table "advert_positions", :force => true do |t|
     t.string   "name"
@@ -113,6 +113,7 @@ ActiveRecord::Schema.define(:version => 20110220151646) do
     t.integer  "news_category_id"
     t.string   "lang",               :default => "English"
     t.boolean  "momentnews"
+    t.boolean  "published",          :default => true
   end
 
   create_table "awards", :force => true do |t|

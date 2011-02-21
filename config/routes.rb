@@ -54,6 +54,10 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :groups
 
+  # Insider forums
+  map.resources :forums, :has_many => :topics, :shallow => true
+  map.resources :topics, :has_many => :posts, :shallow => true
+
   # Sample resource route with sub-resources:
   #   map.resources :products, :has_many => [ :comments, :sales ], :has_one => :seller
 

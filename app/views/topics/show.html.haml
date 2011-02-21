@@ -1,0 +1,20 @@
+.box
+  .header
+    = title 'INSIDER FORUMS'
+    = link_to 'Reply', new_topic_post_path(@topic), :class => 'button right' if can? :create, Post
+
+  .header
+    = link_to 'Forums', forums_path
+    &raquo;
+    = link_to @topic.forum.name, @topic.forum
+    &raquo;
+    = @topic.name
+
+  %table#forums
+    %tr
+      %th= @topic.name
+      %th
+    = render :partial => @topic.posts
+
+
+  = link_to 'Reply', new_topic_post_path(@topic), :class => 'button right' if can? :create, Post

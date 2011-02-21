@@ -1,0 +1,9 @@
+%tr{:class => cycle('even', 'odd')}
+  %td.wide
+    %span.forum-or-topic-name= link_to topic.name, topic
+    %span= admin_links topic
+    %p Posted by #{topic.user.fullname} on #{topic.created_at.strftime("%d %B %Y %H:%M %Z")}
+  %td
+    - unless topic.posts.empty?
+      #{time_ago_in_words topic.last_post_at} ago by #{topic.posts.last.user.fullname}
+  %td.number-column= topic.posts.size - 1

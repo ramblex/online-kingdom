@@ -21,3 +21,6 @@ gem 'friendly_id'
 gem 'mime-types', :require => 'mime/types'
 gem 'aws-s3', :require => 'aws/s3'
 gem 'httparty'
+
+# Forums
+gem 'RedCloth'

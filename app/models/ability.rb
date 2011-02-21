@@ -42,7 +42,8 @@ class Ability
     end
 
     if user.is? :insider
-
+      can :read, [Forum, Topic, Post]
+      can :create, [Topic, Post]
     end
 
     if user.is? :events_admin

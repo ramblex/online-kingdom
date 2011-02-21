@@ -1,0 +1,12 @@
+.box
+  .header
+    = title 'INSIDER FORUMS'
+    = link_to 'Add a forum', new_forum_path, :class => 'button right' if can? :create, Forum
+
+  %table#forums
+    %tr
+      %th.wide Forum
+      %th Last post
+      %th.number-column Topics
+      %th.number-column Posts
+    = render :partial => @forums

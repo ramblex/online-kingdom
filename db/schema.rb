@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110221194913) do
+ActiveRecord::Schema.define(:version => 20110221214316) do
 
   create_table "advert_positions", :force => true do |t|
     t.string   "name"
@@ -212,6 +212,13 @@ ActiveRecord::Schema.define(:version => 20110221194913) do
 
   create_table "formats", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "forums", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -430,6 +437,14 @@ ActiveRecord::Schema.define(:version => 20110221194913) do
     t.integer  "category_id"
   end
 
+  create_table "posts", :force => true do |t|
+    t.text     "content"
+    t.integer  "topic_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "prints", :force => true do |t|
     t.string   "image_file_name"
     t.string   "image_file_size"
@@ -482,6 +497,16 @@ ActiveRecord::Schema.define(:version => 20110221194913) do
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
     t.integer  "player_id"
+  end
+
+  create_table "topics", :force => true do |t|
+    t.string   "name"
+    t.integer  "last_poster_id"
+    t.datetime "last_post_at"
+    t.integer  "forum_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|

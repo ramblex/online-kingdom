@@ -1,0 +1,24 @@
+.box
+  .header
+    = title "INSIDER FORUMS"
+    = link_to 'Create topic', new_forum_topic_path(@forum), :class => 'button right' if can? :create, Topic
+
+  .header
+    = link_to 'Forums', forums_path
+    &raquo;
+    = @forum.name
+
+  %table#forums
+    %tr.wide 
+      %th Topic
+      %th Last post
+      %th.number-column Replies
+    - if @forum.topics.empty?
+      %tr
+        %td
+          %em There are no topics in this forum
+        %td
+        %td
+    - else
+      = render :partial => @forum.topics
+  = link_to 'Create topic', new_forum_topic_path(@forum), :class => 'button right' if can? :create, Topic

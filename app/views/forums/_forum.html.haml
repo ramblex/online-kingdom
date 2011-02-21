@@ -1,0 +1,15 @@
+%tr{:class => cycle('even', 'odd')}
+  %td
+    %span.forum-or-topic-name= link_to forum.name, forum
+    %span= admin_links forum
+    %p= forum.description
+  %td
+    - if forum.posts.empty?
+      %em No posts
+    - else
+      %strong= truncate(forum.posts.last.topic.name, :length => 30)
+      %p by #{forum.posts.last.user.fullname} on #{forum.posts.last.created_at.strftime("%d %B %Y %H:%M %Z")}
+  %td.number-column
+    = forum.topics.size
+  %td.number-column
+    = forum.posts.size

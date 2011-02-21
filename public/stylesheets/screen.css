@@ -2387,3 +2387,58 @@ a {
 a:hover {
   color: gray;
 }
+
+/*Forums */
+/* line 1434, sass/screen.sass */
+#forums {
+  border: 1px solid #c4c4c4;
+  border-collapse: collapse;
+  width: 100%;
+  margin: 10px 0;
+}
+/* line 1440, sass/screen.sass */
+#forums .wide {
+  width: 50%;
+}
+/* line 1443, sass/screen.sass */
+#forums .number-column {
+  text-align: center;
+  vertical-align: middle;
+}
+/* line 1447, sass/screen.sass */
+#forums .even {
+  background-color: #e5ecf9;
+}
+/* line 1450, sass/screen.sass */
+#forums .forum-or-topic-name {
+  font-size: 110%;
+  font-weight: bold;
+}
+/* line 1454, sass/screen.sass */
+#forums p {
+  margin: 0;
+}
+/* line 1457, sass/screen.sass */
+#forums td, #forums th {
+  padding: 5px;
+}
+/* line 1460, sass/screen.sass */
+#forums th {
+  font-weight: bold;
+  border-bottom: 1px solid #c4c4c4;
+}
+/* line 1464, sass/screen.sass */
+#forums .post-user {
+  width: 25%;
+  background: #f4f4f4;
+  border-right: 3px double #c4c4c4;
+}
+/* line 1468, sass/screen.sass */
+#forums .post-content {
+  vertical-align: top;
+  padding: 17px 5px;
+}
+/* line 1471, sass/screen.sass */
+#forums .post {
+  border-bottom: 1px solid #c4c4c4;
+}

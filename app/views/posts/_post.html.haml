@@ -1,3 +1,5 @@
 %tr.post
   %td.post-user= render :partial => post.user, :locals => {:role => post.created_at.strftime("%d %B %Y %H:%M %Z")}
-  %td.post-content= post.content
+  %td.post-content
+    = RedCloth.new(post.content).to_html
+    = admin_links post, 'postadmin', :controller => 'posts'

@@ -2429,16 +2429,28 @@ a:hover {
 }
 /* line 1464, sass/screen.sass */
 #forums .post-user {
+  vertical-align: top;
   width: 25%;
   background: #f4f4f4;
   border-right: 3px double #c4c4c4;
 }
-/* line 1468, sass/screen.sass */
+/* line 1469, sass/screen.sass */
 #forums .post-content {
   vertical-align: top;
-  padding: 17px 5px;
+  padding: 15px 5px 5px 10px;
+  position: relative;
 }
-/* line 1471, sass/screen.sass */
+/* line 1473, sass/screen.sass */
 #forums .post {
   border-bottom: 1px solid #c4c4c4;
+}
+/* line 1475, sass/screen.sass */
+#forums .post p {
+  margin-bottom: 10px;
+}
+/* line 1477, sass/screen.sass */
+#forums .postadmin {
+  display: block;
+  margin-top: 50px;
+  text-align: right;
 }

@@ -1,4 +1,6 @@
-- semantic_form_for [@topic, @post] do |f|
-  - f.inputs do
-    = f.input :content
-  = f.buttons
+- form_for [@topic, @post] do |f|
+  %p
+    = f.label :content
+    = f.textile_editor :content
+  %p
+    = f.submit 'Submit'

@@ -2440,16 +2440,43 @@ a:hover {
   vertical-align: top;
   padding: 15px 5px 5px 10px;
   position: relative;
+  font-size: 110%;
 }
-/* line 1473, sass/screen.sass */
+/* line 1474, sass/screen.sass */
 #forums .post {
   border-bottom: 1px solid #c4c4c4;
 }
-/* line 1475, sass/screen.sass */
+/* line 1476, sass/screen.sass */
+#forums .post h1 {
+  font-size: 120%;
+  margin: 0 0 10px 0;
+}
+/* line 1479, sass/screen.sass */
+#forums .post h2 {
+  font-size: 110%;
+  color: #444444;
+  margin: 0 0 10px 0;
+}
+/* line 1483, sass/screen.sass */
+#forums .post blockquote {
+  background: #f4f4f4;
+  border: 1px solid #c4c4c4;
+  padding: 10px 10px 0 10px;
+  margin: 10px;
+}
+/* line 1488, sass/screen.sass */
 #forums .post p {
   margin-bottom: 10px;
 }
-/* line 1477, sass/screen.sass */
+/* line 1490, sass/screen.sass */
+#forums .post ul, #forums .post ol {
+  margin-bottom: 10px;
+}
+/* line 1492, sass/screen.sass */
+#forums .post ol {
+  list-style: decimal;
+}
+/* line 1494, sass/screen.sass */
 #forums .postadmin {
   display: block;
   margin-top: 50px;

@@ -1,7 +1,6 @@
 .box
   .header
     = title 'INSIDER FORUMS'
-    = link_to 'Reply', new_topic_post_path(@topic), :class => 'button right' if can? :create, Post
 
   .header
     = link_to 'Forums', forums_path
@@ -17,5 +16,3 @@
     = render :partial => @topic.posts
 
   = render :partial => 'posts/form'
-
-  = link_to 'Reply', new_topic_post_path(@topic), :class => 'button right' if can? :create, Post

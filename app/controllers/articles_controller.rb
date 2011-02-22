@@ -24,6 +24,7 @@ class ArticlesController < ApplicationController
     @videos = Video.all :limit => 3, :include => :user
     @albums = Album.all :limit => 6, :include => :user
     @advert = Advert.random('main_page')
+    @latest_posts = Post.all :limit => 10, :order => 'updated_at DESC'
   end
 
   def admin

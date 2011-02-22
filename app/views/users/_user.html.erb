@@ -2,6 +2,6 @@
 
 <div class="user">
   <%= image_tag user.avatar.url %>
-  <div class="name"><%= link_to user.fullname, user %></div>
+  <div class="name"><%= link_to user.fullname, user, :class => ("insider" if user.is? :insider) %></div>
   <div class="role"><%= local_assigns[:role] %></div>
 </div>

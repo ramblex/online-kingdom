@@ -4,7 +4,7 @@
 <div class="comment-info">
   <span class="name">
     <%= flag comment_content.user.country %>
-    <%= link_to full_name(comment_content.user), comment_content.user %>
+    <%= link_to full_name(comment_content.user), comment_content.user, :class => ("insider" if comment_content.user.is? :insider) %>
     <% if can? :update, comment_content %>
       <%= admin_links comment_content, 'inline-admin', :controller => 'comments' %>
     <% end %>

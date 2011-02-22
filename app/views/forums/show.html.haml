@@ -1,12 +1,12 @@
 .box
   .header
     = title "INSIDER FORUMS"
-    = link_to 'Create topic', new_forum_topic_path(@forum), :class => 'button right' if can? :create, Topic
 
   .header
     = link_to 'Forums', forums_path
     &raquo;
     = @forum.name
+  = link_to 'Create topic', new_forum_topic_path(@forum), :class => 'button' if can? :create, Topic
 
   %table#forums
     %tr.wide 
@@ -21,4 +21,4 @@
         %td
     - else
       = render :partial => @forum.topics
-  = link_to 'Create topic', new_forum_topic_path(@forum), :class => 'button right' if can? :create, Topic
+  = link_to 'Create topic', new_forum_topic_path(@forum), :class => 'button' if can? :create, Topic

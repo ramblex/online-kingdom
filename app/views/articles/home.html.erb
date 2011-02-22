@@ -58,12 +58,16 @@
     <div class="header">
       <%= title 'INSIDER PAGE', 'SPECIAL PLAN' %>
       <ul class="switcher" id="insider-switcher">
+        <li><%= link_to 'FORUMS', insiders_path, :class => 'button' %></li>
         <li><%= link_to 'PRIZES', insiders_path, :class => 'button' %></li>
         <li><%= link_to 'EVENTS', insiders_path, :class => 'button' %></li>
         <li><%= link_to 'FILES', insiders_path, :class => 'button' %></li>
         <li><%= link_to 'SERVERS', insiders_path, :class => 'button' %></li>
       </ul>
     </div>
+    <ul id="insider_forums" class="insider-page dotted">
+      <%= render :partial => 'posts/latest', :collection => @latest_posts %>
+    </ul>
     <ul id="insider_prizes" class="insider-page dotted">
       <%= render :partial => Insider.first.insider_prizes %>
     </ul>
@@ -172,7 +176,8 @@
 
     /* Insider switch */
     $(".insider-page").hide();
-    $('#insider_prizes').show();
+    $('#insider_forums').show();
+    $("#insider-switcher a:first").addClass('selected');
 
     $('#insider-switcher a').click(function() {
       $('#insider-switcher a').removeClass('selected');

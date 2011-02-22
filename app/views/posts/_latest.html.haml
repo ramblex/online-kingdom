@@ -1,0 +1,5 @@
+%li
+  = link_to latest.topic.name, latest.topic
+  by #{latest.user.fullname}
+  = time_ago_in_words latest.updated_at
+  ago

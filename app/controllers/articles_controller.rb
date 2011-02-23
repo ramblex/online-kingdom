@@ -22,7 +22,7 @@ class ArticlesController < ApplicationController
     @momentnews = Article.approved.get_lang(params[:lang]).news_of_the_moment
     @blogs = Blog.all :limit => 5, :include => [:user, :slug]
     @videos = Video.all :limit => 3, :include => :user
-    @albums = Album.all :limit => 6, :include => :user
+    @albums = Album.all :limit => 6, :include => :user, :order => 'created_at DESC'
     @advert = Advert.random('main_page')
     @latest_posts = Post.all :limit => 10, :order => 'updated_at DESC'
   end

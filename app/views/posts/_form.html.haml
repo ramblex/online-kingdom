@@ -1,6 +1,6 @@
 - form_for [@topic, @post] do |f|
   %p
     = f.label :content
-    = f.textile_editor :content
+    = f.text_area :content
   %p
     = f.submit 'Submit'

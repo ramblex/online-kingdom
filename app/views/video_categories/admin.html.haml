@@ -7,7 +7,7 @@
     %tr
       %th Name
       %th Admin
-    %tr
-      - @video_categories.each do |category|
+    - @video_categories.each do |category|
+      %tr
         %td= category.name
         %td= admin_links category

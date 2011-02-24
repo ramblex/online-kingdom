@@ -85,9 +85,10 @@
   </div>
 
   <!-- Videos page -->
-  <div class="box">
+  <div class="box" id="video-box">
     <div class="header">
       <%= title 'VIDEOS', 'CINEMA VAULT' %>
+      <%= render :partial => 'videos/switcher', :locals => {:anchor => 'video-box'} %>
     </div>
     <div class="home-page-videos">
       <%= render :partial => @videos %>

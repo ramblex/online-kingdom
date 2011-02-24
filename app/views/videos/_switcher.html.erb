@@ -1,0 +1,14 @@
+<ul class="switcher">
+  <% highlight_current_link({:default => 'all', :current_page => :current_video_category?}) do |n| %>
+    <li><%= n.link_to 'ALL',
+            params.merge(:video_category => 'all',
+                         :anchor => (local_assigns[:anchor] || 'content')),
+            :class => 'button' %></li>
+    <% VideoCategory.all.each do |category| %>
+      <li><%= n.link_to category.name.upcase,
+                      params.merge(:video_category => category.id,
+                                   :anchor => (local_assigns[:anchor] || 'content')),
+                      :class => 'button'%></li>
+    <% end %>
+  <% end %>
+</ul>

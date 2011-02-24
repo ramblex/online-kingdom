@@ -1,5 +1,8 @@
 %li
-  = link_to latest.topic.name, latest.topic
+  - if can? :read, Forum
+    = link_to latest.topic.name, latest.topic
+  - else
+    = link_to latest.topic.name, insiders_path
   by #{latest.user.fullname}
   = time_ago_in_words latest.updated_at
   ago

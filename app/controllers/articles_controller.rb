@@ -28,7 +28,7 @@ class ArticlesController < ApplicationController
     end
     @albums = Album.all :limit => 6, :include => :user, :order => 'created_at DESC'
     @advert = Advert.random('main_page')
-    @latest_posts = Post.all :limit => 10, :order => 'updated_at DESC'
+    @latest_posts = Post.all :limit => 12, :order => 'updated_at DESC'
   end
 
   def admin

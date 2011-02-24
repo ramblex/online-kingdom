@@ -16,30 +16,37 @@
       <%= link_to image_tag(@album.album_photos.first.photo.url(:slideshow)), @album.album_photos.first.photo.url %>
     </div>
   </div>
-  <div class="box">
-    <h1><span class="blue">COM</span>MENTS</h1>
-    <div id="comments">
-      <%= render :partial => @album.comments.roots, :locals => {:obj => @album} %>
+  <% @album.album_photos.each do |album_photo| %>
+    <div id="photo_comments_<%= album_photo.id %>">
+      <div class="box">
+        <h1><span class="blue">COM</span>MENTS</h1>
+        <div class="comments">
+          <% if album_photo.comments.empty? %>
+            <em>No comments for this photo</em>
+          <% else %>
+            <%= render :partial => album_photo.comments.roots, :locals => {:obj => @album} %>
+          <% end %>
+        </div>
+      </div>
+      <div class="box">
+        <% form_for :comments, :url => {:action => 'comment', :id => @album.id} do |f| %>
+          <%= f.hidden_field :album_photo_id, :value => album_photo.id %>
+          <p>
+            <%= f.label :content, 'Comment' %><br />
+            <%= f.text_area :content, :class => 'comment-area', :maxlength => 1000 %>
+          </p>
+          <%= f.submit 'Comment on photo' %>
+        <% end %>
+      </div>
     </div>
-  </div>
-  <div class="box">
-    <% form_for :comments, :url => {:action => 'comment', :id => @album.id} do |f| %>
-      <%= f.hidden_field :album_photo_id, :value => @album.album_photos.first.id %>
-      <p>
-        <%= f.label :content, 'Comment' %><br />
-        <%= f.text_area :content, :class => 'comment-area', :maxlength => 1000 %>
-      </p>
-      <%= f.submit 'Comment on photo' %>
-    <% end %>
-  </div>
+  <% end %>
 </div>
 
-<% content_for :extra_js do %>
 <script type="text/javascript">
-  // Show only the comments for the given photo ID - hide all others
-  function show_photo_comments(photo_id) {
-    $("#comments div[class^=photo_]").hide();
-    $("#comments div").filter(".photo_"+photo_id).show();
+  function show_photo_comments(photo_id)
+  {
+    $("div[id^=photo_comments]").hide();
+    $("#photo_comments_"+photo_id).show();
   }
 
   show_photo_comments(<%= @album.album_photos.first.id %>);
@@ -48,9 +55,7 @@
     var next = $(this).next('.hidden-slideshow');
     var photo_id = next.attr('id').split('_').pop();
     show_photo_comments(photo_id);
-    $("#comments_album_photo_id").attr('value', photo_id);
     $("#current").html(next.html());
     return false;
   });
 </script>
-<% end %>

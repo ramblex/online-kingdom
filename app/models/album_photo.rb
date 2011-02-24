@@ -1,6 +1,7 @@
 class AlbumPhoto < ActiveRecord::Base
   belongs_to :album
   default_scope :order => 'created_at DESC'
+  has_many :comments
 
   has_attached_file :photo, :styles => {
     :slideshow => '600x300',

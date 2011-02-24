@@ -42,9 +42,9 @@ class AlbumsController < ApplicationController
   # GET /albums.xml
   def index
     if params[:search].blank?
-      @albums = Album.all
+      @albums = Album.all :order => 'created_at DESC'
     else
-      @albums = Album.search params[:search]
+      @albums = Album.search params[:search], :order => 'created_at DESC'
     end
 
     @advert = Advert.random('albums_list')

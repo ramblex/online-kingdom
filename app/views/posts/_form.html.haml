@@ -1,6 +1,11 @@
 - form_for [@topic, @post] do |f|
   %p
-    = f.label :content
+    = f.label :content, 'Post'
     = f.text_area :content
   %p
     = f.submit 'Submit'
+
+= javascript_include_tag 'jquery.markitup'
+= javascript_include_tag 'textile.js'
+:javascript
+  $("#post_content").markItUp(mySettings);

@@ -2440,45 +2440,161 @@ a:hover {
   vertical-align: top;
   padding: 15px 5px 5px 10px;
   position: relative;
-  font-size: 110%;
 }
-/* line 1474, sass/screen.sass */
+/* line 1473, sass/screen.sass */
 #forums .post {
   border-bottom: 1px solid #c4c4c4;
 }
-/* line 1476, sass/screen.sass */
+/* line 1475, sass/screen.sass */
 #forums .post h1 {
   font-size: 120%;
   margin: 0 0 10px 0;
 }
-/* line 1479, sass/screen.sass */
+/* line 1478, sass/screen.sass */
 #forums .post h2 {
   font-size: 110%;
   color: #444444;
   margin: 0 0 10px 0;
 }
-/* line 1483, sass/screen.sass */
+/* line 1482, sass/screen.sass */
 #forums .post blockquote {
   background: #f4f4f4;
   border: 1px solid #c4c4c4;
   padding: 10px 10px 0 10px;
   margin: 10px;
 }
-/* line 1488, sass/screen.sass */
+/* line 1487, sass/screen.sass */
 #forums .post p {
   margin-bottom: 10px;
 }
-/* line 1490, sass/screen.sass */
+/* line 1489, sass/screen.sass */
 #forums .post ul, #forums .post ol {
   margin-bottom: 10px;
 }
-/* line 1492, sass/screen.sass */
+/* line 1491, sass/screen.sass */
 #forums .post ol {
   list-style: decimal;
 }
-/* line 1494, sass/screen.sass */
+/* line 1493, sass/screen.sass */
 #forums .postadmin {
   display: block;
   margin-top: 50px;
   text-align: right;
+}
+
+/* Mark it up */
+/* line 1499, sass/screen.sass */
+.markItUp {
+  width: 690px;
+  background: #f4f4f4;
+}
+/* line 1502, sass/screen.sass */
+.markItUp .markItUpEditor {
+  border: 1px solid #c4c4c4;
+  width: 684px;
+  font: 11px "Courier New", Courier, monospace;
+}
+/* line 1506, sass/screen.sass */
+.markItUp ul {
+  margin: 0;
+  padding: 0;
+}
+/* line 1509, sass/screen.sass */
+.markItUp .markItUpSeparator {
+  width: 1px;
+  margin: 4px 10px;
+  height: 16px;
+  overflow: hidden;
+  text-indent: -10000px;
+  background: #cccccc;
+}
+/* line 1516, sass/screen.sass */
+.markItUp a {
+  padding: 4px;
+  display: block;
+  width: 16px;
+  height: 16px;
+  text-indent: -10000px;
+  outline: 0;
+  background-repeat: no-repeat;
+  background-position: 4px 4px;
+}
+/* line 1525, sass/screen.sass */
+.markItUp a:hover {
+  background: #eeeeee;
+  background-repeat: no-repeat;
+  background-position: 4px 4px;
+}
+/* line 1529, sass/screen.sass */
+.markItUp li {
+  float: left;
+  list-style: none;
+}
+/* line 1533, sass/screen.sass */
+.markItUp .markItUpButton1 a {
+  background-image: url(/images/editor/h1.png);
+}
+/* line 1535, sass/screen.sass */
+.markItUp .markItUpButton2 a {
+  background-image: url(/images/editor/h2.png);
+}
+/* line 1537, sass/screen.sass */
+.markItUp .markItUpButton3 a {
+  background-image: url(/images/editor/h3.png);
+}
+/* line 1539, sass/screen.sass */
+.markItUp .markItUpButton4 a {
+  background-image: url(/images/editor/h4.png);
+}
+/* line 1541, sass/screen.sass */
+.markItUp .markItUpButton5 a {
+  background-image: url(/images/editor/h5.png);
+}
+/* line 1543, sass/screen.sass */
+.markItUp .markItUpButton6 a {
+  background-image: url(/images/editor/h6.png);
+}
+/* line 1545, sass/screen.sass */
+.markItUp .markItUpButton7 a {
+  background-image: url(/images/editor/paragraph.png);
+}
+/* line 1547, sass/screen.sass */
+.markItUp .markItUpButton8 a {
+  background-image: url(/images/editor/bold.png);
+}
+/* line 1549, sass/screen.sass */
+.markItUp .markItUpButton9 a {
+  background-image: url(/images/editor/italic.png);
+}
+/* line 1551, sass/screen.sass */
+.markItUp .markItUpButton10 a {
+  background-image: url(/images/editor/stroke.png);
+}
+/* line 1553, sass/screen.sass */
+.markItUp .markItUpButton11 a {
+  background-image: url(/images/editor/list-bullet.png);
+}
+/* line 1555, sass/screen.sass */
+.markItUp .markItUpButton12 a {
+  background-image: url(/images/editor/list-numeric.png);
+}
+/* line 1557, sass/screen.sass */
+.markItUp .markItUpButton13 a {
+  background-image: url(/images/editor/picture.png);
+}
+/* line 1559, sass/screen.sass */
+.markItUp .markItUpButton14 a {
+  background-image: url(/images/editor/link.png);
+}
+/* line 1561, sass/screen.sass */
+.markItUp .markItUpButton15 a {
+  background-image: url(/images/editor/quotes.png);
+}
+/* line 1563, sass/screen.sass */
+.markItUp .markItUpButton16 a {
+  background-image: url(/images/editor/code.png);
+}
+/* line 1565, sass/screen.sass */
+.markItUp .preview a {
+  background-image: url(/images/editor/preview.png);
 }

@@ -1,5 +1,5 @@
 source :gemcutter
-gem 'rails', '2.3.9'
+gem 'rails', '2.3.11'
 gem 'mysql', '2.7'
 gem "devise", '1.0.8'
 gem 'paperclip', '2.3.8'

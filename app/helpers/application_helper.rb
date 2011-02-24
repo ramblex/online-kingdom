@@ -20,13 +20,19 @@ module ApplicationHelper
     return country_code
   end
 
-  def stars_for(obj)
+  def stars_for(obj, obj_controller=nil)
     html = '<div class="stars">'
+    options = {:action => 'rate', :id => obj.id}
+    unless obj_controller.nil?
+      options[:controller] = obj_controller
+    end
     5.times.each_with_index do |idx, elem|
+      options[:rating] = idx + 1
+      Rails.logger.error(options)
       if idx < obj.rating
-        html << (link_to '', {:action => 'rate', :id => obj.id, :rating => idx + 1}, :class => 'star filled')
+        html << (link_to '', options, :class => 'star filled')
       else
-        html << (link_to '', {:action => 'rate', :id => obj.id, :rating => idx + 1}, :class => 'star')
+        html << (link_to '', options, :class => 'star')
       end
     end
     html << "</div>"

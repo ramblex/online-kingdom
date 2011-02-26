@@ -1,10 +1,10 @@
 <div class="blog-summary">
   <%= image_tag blog.user.avatar.url, :class => 'avatar' %>
   <div class="blog-info">
-    <%= link_to blog.title, blog %><span> by <%= link_to blog.user.username, blog.user %></span><br />
-    <div class="date">Posted on <%= blog.created_at.strftime "%d %B %Y at %H:%M %Z" %></div>
-    <%= admin_links blog %>
+    <strong><%= link_to blog.title, blog %></strong>
+    <span> by <%= link_to blog.user.username, blog.user %></span><br />
+    <div class="date"><em>Posted on <%= blog.created_at.strftime "%d %B %Y at %H:%M %Z" %></em></div>
   </div>
-  <p><%= blog.preamble %></p>
+  <%= blog.preamble %>
 </div>
 <hr />

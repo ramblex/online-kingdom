@@ -800,12 +800,13 @@ table#hardware
     margin-top: 5px
 
 .blog-summary
-  clear: both
-  margin: 18px 0
+  @include clearfix
+  margin: 10px 0
+  .avatar
+    height: 50px
 
 .blog-info
   font-size: 110%
-  margin-bottom: 10px
   a
     text-decoration: none
   span

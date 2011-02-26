@@ -1,6 +1,15 @@
-- semantic_form_for [@forum, @topic] do |f|
-  - f.inputs do
-    = f.input :name
-  - f.inputs :for => :posts do |p|
-    = p.input :content
-  = f.buttons
+- form_for [@forum, @topic] do |f|
+  %p
+    = f.label :name
+    = f.text_field :name
+  - f.fields_for :posts do |p|
+    %p
+      = p.label :content, 'Post'
+      = p.text_area :content
+  %p
+    = f.submit 'Submit'
+
+= javascript_include_tag 'jquery.markitup'
+= javascript_include_tag 'textile.js'
+:javascript
+  $("#topic_posts_attributes_0_content").markItUp(mySettings);

@@ -1,7 +1,7 @@
 %tr{:class => cycle('odd', 'even')}
   %td.wide
     %span.forum-or-topic-name= link_to topic.name, topic
-    %span= admin_links topic
+    %span= admin_links topic, nil, :controller => 'topics'
     %p Posted by #{topic.user.fullname} on #{topic.created_at.strftime("%d %B %Y %H:%M %Z")}
   %td
     - unless topic.posts.empty?

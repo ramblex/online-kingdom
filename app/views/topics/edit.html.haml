@@ -1,0 +1,7 @@
+.box
+  .header
+    = title 'EDIT TOPIC'
+  - semantic_form_for @topic do |f|
+    - f.inputs do
+      = f.input :name
+    = f.buttons

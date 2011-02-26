@@ -18,7 +18,7 @@
         <%= link_to 'Clear search', matches_url %>
       </div>
     <% end %>
-    <ul id="match-ticker" class="matches">
+    <ul id="match-ticker" class="dotted">
       <% if @matches.size > 0 %>
         <%= render :partial => @matches %>
       <% else %>

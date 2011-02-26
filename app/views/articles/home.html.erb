@@ -12,7 +12,7 @@
         <div class="header">
           <%= title 'NEWS OF THE MOMENT' %>
         </div>
-        <ul>
+        <ul class="dotted">
           <% @momentnews.each do |article| %>
           <li>
             <%= link_to "&raquo; #{truncate article.title, :length => 45}", article %>
@@ -21,30 +21,23 @@
         </ul>
       </div>
       <div id="right">
-        <ul>
+        <ul class="dotted">
         <% @articles.each do |article| %>
           <li>
             <%= link_to "&raquo; #{truncate article.title, :length => 30}", article %>
             <div class="content">
               <%= link_to (image_tag article.image.url(:slider)), article %>
               <p><%= truncate_html article.preamble, :length => 550 %></p>
-              <%= link_to '&raquo; Read more', article, :class => 'all-matches' %>
+              <%= link_to '&raquo; Read more', article, :class => 'more' %>
             </div>
           </li>
         <% end %>
         </ul>
-        <%= link_to "&raquo; More news", articles_path, :class => 'all-matches' %>
+        <%= link_to "&raquo; More news", articles_path, :class => 'more' %>
       </div>
     </div>
   </div>
 
-  <div class="box">
-    <div class="header">
-      <%= title 'FOLLOW US' %>
-    </div>
-    <%= link_to image_tag('twitter.gif'), 'http://twitter.com/OnlineKingdom' %>
-    <%= link_to image_tag('facebook.gif'), 'http://www.facebook.com/ONLINEKINGDOM.ORG' %>
-  </div>
 
   <div class="box">
     <div class="header">
@@ -80,7 +73,7 @@
     <ul id="insider_servers" class="insider-page dotted">
       <%= render :partial => Insider.first.insider_servers %>
     </ul>
-    <%= link_to '&raquo; Become an OK insider!', insiders_path, :class => 'all-matches' %>
+    <%= link_to '&raquo; Become an OK insider!', insiders_path, :class => 'more' %>
     <div class="clear"></div>
   </div>
 
@@ -93,7 +86,7 @@
     <div class="home-page-videos">
       <%= render :partial => @videos %>
     </div>
-    <%= link_to '&raquo; More', videos_path, :class => 'all-matches' %>
+    <%= link_to '&raquo; More', videos_path, :class => 'more' %>
   </div>
 
   <div class="box">
@@ -103,7 +96,7 @@
     <div class="home-page-videos">
       <%= render :partial => @albums %>
     </div>
-    <%= link_to '&raquo; More', albums_path, :class => 'all-matches' %>
+    <%= link_to '&raquo; More', albums_path, :class => 'more' %>
   </div>
 
 </div> <!-- End left-col -->
@@ -118,13 +111,21 @@
         <%= render :partial => 'shared/switcher_list' %>
       </ul>
     </div>
-    <ul id="match-ticker">
+    <ul class="dotted">
       <%= render :partial => @matches, :locals => {:no_admin => true} %>
     </ul>
-    <%= link_to '&raquo; More matches', matches_url, :class => 'all-matches' %>
+    <%= link_to '&raquo; More matches', matches_url, :class => 'more' %>
     <div class="clear"></div>
   </div>
   <!-- End matches box -->
+
+  <div class="box">
+    <div class="header">
+      <%= title 'FOLLOW US' %>
+    </div>
+    <%= link_to image_tag('twitter.gif'), 'http://twitter.com/OnlineKingdom' %>
+    <%= link_to image_tag('facebook.gif'), 'http://www.facebook.com/ONLINEKINGDOM.ORG' %>
+  </div>
 
   <%= render :partial => 'shared/official_partners' %>
 
@@ -133,19 +134,19 @@
     <div class="header">
       <%= title 'BLOGS', 'WRITTEN IN PERSON' %>
     </div>
-    <div id="home-page-blogs">
+    <ul id="home-page-blogs" class="dotted">
       <% @blogs.each do |blog| %>
-        <div class="blog">
-          <%= image_tag blog.user.avatar.url(:default) %>
-          <%= link_to blog.title, blog %> by <%= link_to blog.user.username, blog.user %><br />
-          <div class="date">posted on <%= blog.created_at.strftime "%d %B %Y at %H:%M %Z" %></div>
-          <%= admin_links blog, 'inline-admin', :controller => 'blogs' %>
-          <%= truncate_html blog.preamble, :length => 100 %>
-        </div>
+        <li>
+          <%= image_tag blog.user.avatar.url(:default), :class => 'avatar' %>
+          <p>
+            <%= link_to blog.title, blog %> by <%= link_to blog.user.username, blog.user %><br />
+            <em>posted on <%= blog.created_at.strftime "%d %B %Y at %H:%M %Z" %></em><br />
+            <%= truncate_html blog.preamble, :length => 100 %>
+          </p>
+        </li>
       <% end %>
-      <%= link_to '&raquo; More', blogs_url, :class => 'all-matches' %>
-    </div>
-    <div class="clear"></div>
+    </ul>
+    <%= link_to '&raquo; More', blogs_url, :class => 'more' %>
   </div>
   <!-- End blogs box -->
 

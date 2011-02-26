@@ -24,6 +24,7 @@ class Match < ActiveRecord::Base
   named_scope :drawn, :conditions => 'team1_score = team2_score'
   named_scope :homepage, :conditions => 'start_date < (NOW() + INTERVAL 48 HOUR)', :limit => 15, :include => [:team1, :team2, :category]
   named_scope :happened, :conditions => 'start_date < NOW()'
+  named_scope :category, lambda {|x| {:conditions => {:category_id => x}}}
 
   has_attached_file :map_picture, :styles => {:default => '200x100'}
 

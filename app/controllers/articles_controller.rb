@@ -10,7 +10,7 @@ class ArticlesController < ApplicationController
     if params[:category].blank? or params[:category].downcase.eql? 'all'
       @matches = Match.homepage
     else
-      @matches = Match.homepage :conditions => ['category_id = ?', params[:category]]
+      @matches = Match.homepage.category(params[:category])
     end
 
     if params[:news_category].blank? or params[:news_category].downcase.eql? 'all'

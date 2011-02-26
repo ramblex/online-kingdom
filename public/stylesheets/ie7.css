@@ -87,3 +87,8 @@ table {
 #top #article .info span.comments {
   float: right;
 }
+
+/* line 62, sass/ie7.sass */
+.team1, .team {
+  float: left;
+}

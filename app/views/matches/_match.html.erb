@@ -1,10 +1,10 @@
 <li>
-<% link_to match do %>
   <%= image_tag match.category.small_icon.url(:default) %>
-  <span class="team"><%= truncate match.team1.name, :length => 15 %></span>
-  <span class="team">vs. <%= truncate match.team2.name, :length => 15 %></span>
+  <% link_to match do %>
+    <span class="team1"><%= truncate match.team1.name, :length => 15 %></span>
+    <span class="team">vs. <%= truncate match.team2.name, :length => 15 %></span>
+  <% end %>
   <span class="scores">
     <%= render :partial => 'matches/scores', :locals => {:match => match} %>
   </span>
-<% end %>
 </li>

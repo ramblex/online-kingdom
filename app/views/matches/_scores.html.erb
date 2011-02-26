@@ -1,4 +1,4 @@
-<% if match.has_happened %>
+<% if match.has_happened and !match.team1_score.nil?  and !match.team2_score.nil? %>
   <% if match.team1_score > match.team2_score %>
     <span class="win"><%= match.team1_score %></span> :
     <span class="lose"><%= match.team2_score %></span>

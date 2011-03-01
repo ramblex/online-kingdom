@@ -3,7 +3,7 @@
     - latest = Article.find(:first, :conditions => {:featured => true, :approved => true})
     - if latest
       .heading
-        %span= latest.title
+        %span= truncate latest.title, :length => 70
         = stars_for latest
       .info
         %span

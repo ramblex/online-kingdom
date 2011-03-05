@@ -1,0 +1,6 @@
+#content{:title => 'News Images'}
+  - if @news_images.empty?
+    %em Currently no images
+  - else
+    - @news_images.each do |news_image|
+      = news_image.image_uid

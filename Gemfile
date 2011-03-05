@@ -17,6 +17,9 @@ gem 'compass', '>= 0.10.6'
 
 gem 'friendly_id'
 
+gem 'dragonfly', '~>0.8.2'
+gem 'rack-cache', :require => 'rack/cache'
+
 # Videos
 gem 'mime-types', :require => 'mime/types'
 gem 'aws-s3', :require => 'aws/s3'

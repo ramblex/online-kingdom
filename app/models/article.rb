@@ -15,6 +15,7 @@ class Article < ActiveRecord::Base
   has_many :article_ratings
   has_many :comments
   has_many :article_editors
+  belongs_to :news_image
 
   validates_presence_of :category, :title, :content, :user, :preamble, :news_category, :lang
 

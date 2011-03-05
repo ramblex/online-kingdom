@@ -12,3 +12,14 @@
     = f.input :approved if can? :approve, @article
     = f.input :published, :label => 'Publish', :hint => "No editors will be added until article is published"
   = f.buttons
+
+:javascript
+  $("#article_image").hide();
+  $('<a href="#">Add an image</a>')
+    .appendTo("#article_image_input")
+    .click(function() {
+      $.get('/news_images/index', function(data) {
+        $('#content', data).dialog();
+      });
+      return false;
+    });

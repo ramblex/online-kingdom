@@ -1,38 +1,37 @@
 <div id="wide-left-col">
   <div class="box">
-    <div class="box-title">
-      <span class="blue">PL</span>AYER
+    <div class="header">
+      <%= title 'PLAYER' %>
     </div>
     <div class="matches">
       <div class="matches-title"><%= "#{@player.firstname} #{@player.surname}" %> (<%= @player.nickname %>)</div>
-      <table class="match-info">
+      <table class="info">
         <tr class="odd">
-          <td class="title">Date of birth</td>
+          <td class="field">Date of birth</td>
           <td><%= @player.birth_date.strftime('%d-%m-%Y') if @player.birth_date? %></td>
         </tr>
         <tr>
-          <td class="title">Country</td>
+          <td class="field">Country</td>
           <td><%= flag @player.country %><%= country_name @player.country %></td>
         </tr>
         <tr class="odd">
-          <td class="title">Game</td>
+          <td class="field">Game</td>
           <td><%= @player.category.name %></td>
         </tr>
         <tr>
-          <td class="title">Team</td>
+          <td class="field">Team</td>
           <td><%= link_to @player.team.name, @player.team if @player.team %></td>
         </tr>
       </table>
       <%= image_tag @player.avatar.url, :class => 'matches-logo' %>
     </div>
-    <div class="clear"></div>
   </div>
 </div>
 
 <div id="thin-right-col">
   <div class="box">
-    <div class="box-title">
-      <span class="blue">CREDITS</span> TO
+    <div class="header">
+      <%= title 'CREDITS TO' %>
     </div>
     <%= render :partial => @player.user %>
   </div>

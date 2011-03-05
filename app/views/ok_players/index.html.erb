@@ -28,10 +28,10 @@
     <div class="header">
       <%= title 'LAST MATCHES' %>
     </div>
-    <div id="match-ticker">
+    <div id="match-ticker" class="dotted">
       <%= render :partial => 'matches/match', :collection => @ok_matches, :locals => {:no_admin => true} %>
     </div>
-    <%= link_to '&raquo; all matches', matches_path, :class => 'all-matches' %>
+    <%= link_to '&raquo; all matches', matches_path, :class => 'more' %>
     <div class="clear"></div>
   </div>
   <%= render :partial => 'shared/official_partners' %>

@@ -4,8 +4,5 @@
     <% Setting.all.each do |section| %>
       <li><%= link_to section.name.upcase, "/settings/#{section.permalink}", :class => 'button' %></li>
     <% end %>
-    <% if can? :manage, :any %>
-      <li><%= link_to 'ADMIN', "/settings/admin", :class => 'button' %></li>
-    <% end %>
   </ul>
 </div>

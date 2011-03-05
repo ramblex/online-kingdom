@@ -50,9 +50,12 @@
   }
 
   show_photo_comments(<%= @album.album_photos.first.id %>);
+  $("#photos a:first").addClass('selected');
 
   $("#photos a").click(function() {
     var next = $(this).next('.hidden-slideshow');
+    $("#photos a").removeClass('selected');
+    $(this).addClass('selected');
     var photo_id = next.attr('id').split('_').pop();
     show_photo_comments(photo_id);
     $("#current").html(next.html());

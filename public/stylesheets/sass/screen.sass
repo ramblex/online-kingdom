@@ -29,6 +29,13 @@ body
   font: 11px Arial
   color: white
 
+h1
+  font-weight: bold
+
+h2
+  font-weight: bold
+  font-size: 105%
+
 hr
   border: 0
   height: 1px
@@ -936,6 +943,9 @@ table#hardware
 #group
   margin-top: 20px
 
+.stage
+  margin-top: 10px
+
 .stage-nav
   text-align: center
   border: 1px solid #dfdfdf
@@ -1097,23 +1107,22 @@ ul.insider
   #portuguese
     a:hover, &.selected
       background: url(../images/lang.png) -25px 26px
-/**
- * Admin stylesheet
- * Author: Alex Duller 2010
 
 table.admin-table
   width: 100%
   border: 1px solid #c4c4c4
-  margin: 20px 0
   border-collapse: collapse
+  margin-top: 10px
   td, th
     border-bottom: 1px solid #c4c4c4
     padding: 6px
   th
     font-weight: bold
-    border-bottom: 2px solid #c4c4c4
+    border-bottom: 3px double #c4c4c4
   tr.even td
     background: #e5ecf9
+  tr.odd
+    background: none
   td.edit
     width: 10%
     text-align: center
@@ -1358,10 +1367,13 @@ form h1
 
 /** Groups
 
+div.group
+  margin-top: 10px
+
 table.group
   border-collapse: collapse
-  margin: 10px
-  width: 95%
+  margin: 10px 0
+  width: 100%
   .pos
     width: 5px
   tr
@@ -1376,14 +1388,9 @@ table.group
   td
     padding: 5px
     border-bottom: 1px solid #d9d9d9
-h1, h2
-  font-weight: bold
 
 h1#album-title
   margin-bottom: 15px
-
-h2
-  margin: 15px
 
 #blog h1
   font-size: 9pt

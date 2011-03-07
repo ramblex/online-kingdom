@@ -1,4 +1,4 @@
-<div id="<%= group.stage.parameterize %>">
+<div id="<%= group.stage.parameterize %>" class="group">
   <h2><%= group.name %><%= admin_links group, nil, :controller => 'groups' %></h2>
   <table class="group">
     <tr>
@@ -22,14 +22,7 @@
       </tr>
     <% end %>
   </table>
-  <div id="group-matches">
-    <% group.matches.each do |match| %>
-      <div class="group-match">
-        <% link_to match, :class => 'group-match-link' do %>
-          <%= match.team1.name %> vs. <%= match.team2.name %> 
-        <% end %><%= render :partial => 'matches/scores', :locals => {:match => match} %>
-        <%= admin_links match, 'group-match-admin-links', :controller => 'matches' %><br />
-      </div>
-    <% end %>
-  </div>
+  <ul class="dotted">
+    <%= render :partial => group.matches %>
+  </ul>
 </div>

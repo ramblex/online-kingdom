@@ -1,0 +1,10 @@
+- form_for @news_image, :html => {:multipart => true} do |f|
+  = f.error_messages
+  %p
+    = f.label :name
+    = f.text_field :name
+  %p
+    = f.label :image, 'Upload a new image'
+    = f.file_field :image
+  %p
+    = f.submit 'Upload'

@@ -1,0 +1,5 @@
+.news_image
+  .image= image_tag(news_image.image.thumb("100x100#").url)
+  .full_image
+    = image_tag news_image.image.thumb("202x139").url, :image_id => news_image.id, :class => 'news-picture'
+  %p= news_image.name

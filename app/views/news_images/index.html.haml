@@ -1,6 +1,36 @@
-#content{:title => 'News Images'}
-  - if @news_images.empty?
-    %em Currently no images
-  - else
-    - @news_images.each do |news_image|
-      = news_image.image_uid
+#dialog{:title => 'News Images'}
+  .box
+    = title 'UPLOAD AN IMAGE'
+    = render :partial => 'form'
+  .box
+    .header
+      = title 'SELECT AN IMAGE'
+    = render :partial => @news_images
+    .pagination= will_paginate @news_images
+
+= javascript_include_tag 'https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js'
+= javascript_include_tag 'jquery.form.js'
+:javascript
+  function select_image() {
+    $(".news_image").removeAttr("id");
+    $(this).parent().parent().attr("id", "selected");
+    return false;
+  }
+
+  $("#new_news_image").ajaxForm({
+    success: function(responseText, statusText, xhr, form) {
+      if ($(responseText).attr('class') == "news_image") {
+        var img = $(responseText);
+        img.appendTo("#dialog .box:last");
+        img.find("img").click(select_image);
+      } else {
+        $("#dialog .box:first").html(responseText);
+      }
+    }
+  });
+  $(".news_image img").click(select_image);
+
+  $(".pagination a").click(function() {
+    $("#dialog").load($(this).attr('href'));
+    return false;
+  });

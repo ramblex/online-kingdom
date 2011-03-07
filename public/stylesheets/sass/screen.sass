@@ -383,6 +383,10 @@ ul#top-nav
   border: 1px solid gray
   margin: 12px 0 20px 0
 
+form
+  .news-picture
+    float: none
+
 #settings-current
   clear: both
 
@@ -1596,3 +1600,24 @@ a
 
 .ui-draggable .ui-dialog-titlebar 
   cursor: move
+
+#dialog
+  color: black
+  background: white
+
+.news_image
+  float: left
+  margin-right: 5px
+  height: 150px
+
+  img
+    width: 100px
+    height: 100px
+    display: block
+    cursor: pointer
+
+  &#selected img
+    border: 2px solid blue
+
+  .full_image
+    display: none

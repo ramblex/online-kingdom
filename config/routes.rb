@@ -1,6 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :s3_uploads
-  map.resources :news_images, :only => [:index]
+  map.resources :news_images, :only => [:index, :create, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
 

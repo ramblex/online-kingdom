@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110305205743) do
+ActiveRecord::Schema.define(:version => 20110306193624) do
 
   create_table "advert_positions", :force => true do |t|
     t.string   "name"
@@ -114,6 +114,7 @@ ActiveRecord::Schema.define(:version => 20110305205743) do
     t.string   "lang",               :default => "English"
     t.boolean  "momentnews"
     t.boolean  "published",          :default => true
+    t.integer  "news_image_id"
   end
 
   create_table "awards", :force => true do |t|
@@ -395,6 +396,7 @@ ActiveRecord::Schema.define(:version => 20110305205743) do
 
   create_table "news_images", :force => true do |t|
     t.string   "image_uid"
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

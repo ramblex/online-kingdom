@@ -4,7 +4,11 @@
     = f.input :lang, :as => :select, :collection => ['English', 'Portuguese'], :label => 'Language'
     = f.input :category, :label => 'Game'
     = f.input :news_category, :label => 'Category'
-    = f.input :image
+    = f.input :news_image_id, :as => :hidden
+    %li
+      #current_image
+        - unless @article.news_image.nil?
+          = image_tag @article.news_image.image.thumb("202x139").url, :class => 'news-picture'
     = f.input :preamble, :input_html => {:class => 'comment-area'}
     = f.input :content, :input_html => {:class => 'mceEditor'}
     = f.input :featured
@@ -14,12 +18,26 @@
   = f.buttons
 
 :javascript
-  $("#article_image").hide();
-  $('<a href="#">Add an image</a>')
-    .appendTo("#article_image_input")
-    .click(function() {
-      $.get('/news_images/index', function(data) {
-        $('#content', data).dialog();
-      });
-      return false;
+  var init_dialog = $('<div id="dialog">Loading images...</div>').dialog({
+      autoOpen: false,
+      title: "Upload or select an image",
+      width: 700,
+      modal: true,
+      open: function() {$(this).load('/news_images');},
+      position: ['center', 'top'],
+      buttons: {
+        "Select image": function() {
+          var img_html = $("#selected .full_image").html();
+          $("#current_image").html(img_html);
+          $("#article_news_image_id").val($(img_html).attr("image_id"));
+          init_dialog.dialog("close");
+        }
+      }
     });
+  function show_images_dialog() {
+    init_dialog.dialog("open");
+    return false;
+  }
+
+  $("#article_image").hide();
+  $('<label>Image*</label><a href="#">Select image</a>').insertBefore("#current_image").click(show_images_dialog);

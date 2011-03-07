@@ -9,7 +9,7 @@
   </p>
 <% end %>
 <%# image_tag article.image.url(:default), :class => 'news-picture' if article.image? %>
-<%= image_tag article.news_image.image.thumb("202x139").url, :class => 'news-picture' unless article.news_image.nil? %>
+<%= image_tag article.news_image.image.thumb("202x139!").url, :class => 'news-picture' unless article.news_image.nil? %>
 
 <% if user_signed_in? %>
 <script type="text/javascript">

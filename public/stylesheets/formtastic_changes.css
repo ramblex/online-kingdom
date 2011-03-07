@@ -19,8 +19,9 @@ form.formtastic {
 /* line 19, sass/formtastic_changes.sass */
 form.formtastic input[type=submit] {
   padding: 5px;
+  font-weight: bold;
 }
-/* line 21, sass/formtastic_changes.sass */
+/* line 22, sass/formtastic_changes.sass */
 form.formtastic input[type=text] {
   width: 200px;
 }

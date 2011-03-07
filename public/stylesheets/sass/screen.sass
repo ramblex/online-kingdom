@@ -22,6 +22,7 @@
 
 /* Colours */
 $top-gray = #c3c3c3
+$button-text-colour = #4183c4
 
 body
   background: url(/images/background.jpg) #5a7f9a
@@ -586,6 +587,7 @@ div
 
 .reply-form
   display: none
+  padding: 10px
 
 .comment-children
   clear: both
@@ -635,7 +637,7 @@ div
 
 .button
   display: inline-block
-  color: #4183c4
+  color: $button-text-colour
   padding: 2px 4px
   text-decoration: none
   font-weight: bold
@@ -1206,8 +1208,18 @@ input
     padding-left: 5px
     width: 500px
   &[type=submit]
-    background: black
-    color: white
+    text-align: center
+    width: 100px
+    height: 26px
+    background: url(/images/submit.png)
+    color: $button-text-colour
+    border: 0
+    cursor: pointer
+    font-weight: bold
+    &:hover
+      color: black
+    &:active
+      text-indent: -1px
 
 form p
   margin-top: 15px

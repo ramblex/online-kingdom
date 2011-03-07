@@ -27,8 +27,8 @@
         <p class="charRemaining">asdklj</p>
       </p>
       <%= f.submit 'Add comment' %>
+      <%= link_to_function 'Cancel', '$(this).parent().slideUp()' %>
     <% end %>
-    <%= link_to_function 'Cancel', '$(this).parent().slideUp()' %>
   </div>
 <% end %>
 <% if comment_content.album_photo_id? %>

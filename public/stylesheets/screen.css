@@ -340,7 +340,8 @@ form.formtastic input[type=submit] {
 }
 /* line 22, sass/formtastic_changes.sass */
 form.formtastic input[type=text] {
-  width: 200px;
+  width: 400px;
+  padding: 3px;
 }
 
 /* Colours */

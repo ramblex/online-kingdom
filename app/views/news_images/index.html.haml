@@ -34,3 +34,6 @@
     $("#dialog").load($(this).attr('href'));
     return false;
   });
+
+/[if IE]
+  = javascript_include_tag 'ie.js'

@@ -4,23 +4,89 @@
  *   <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
  * <![endif]--> */
 /* line 7, sass/ie.sass */
-.ie-border {
-  padding: 1px;
-}
-
-/* line 10, sass/ie.sass */
 .button {
-  padding: 2px 4px !important;
-  background: url(/images/button-bg.png);
+  padding: 0 !important;
+  height: 20px;
+  border: 0;
+  background: url(/images/button-doors.png) no-repeat top right;
+  margin: 0 2px;
+}
+/* line 13, sass/ie.sass */
+.button span {
+  margin: 0 5px 0 -5px;
+  display: block;
+  height: 20px;
+  line-height: 20px;
+  padding-left: 5px;
+  background: url(/images/button-doors.png) no-repeat top left;
+}
+/* line 20, sass/ie.sass */
+.button:hover, .button.selected {
+  background: url(/images/button-doors.png) no-repeat bottom right;
+}
+/* line 22, sass/ie.sass */
+.button.selected span, .button:hover span {
+  background: url(/images/button-doors.png) no-repeat bottom left;
 }
 
-/* line 14, sass/ie.sass */
+/* line 25, sass/ie.sass */
 .right {
   float: right !important;
   text-align: right;
 }
 
-/* line 19, sass/ie.sass */
+/* line 30, sass/ie.sass */
 #login #user_remember_me {
   border: none;
+}
+
+/* line 33, sass/ie.sass */
+.top-left-corner, .top-right-corner, .bottom-left-corner, .bottom-right-corner {
+  width: 5px;
+  height: 5px;
+  background: url(/images/5px-corners.gif);
+  position: absolute;
+}
+
+/* line 39, sass/ie.sass */
+.top-left-corner {
+  top: -1px;
+  left: -1px;
+}
+
+/* line 43, sass/ie.sass */
+.top-right-corner {
+  background-position: -5px 0;
+  top: -1px;
+  right: -1px;
+}
+
+/* line 48, sass/ie.sass */
+.bottom-left-corner {
+  background-position: 0 -5px;
+  bottom: -1px;
+  left: -1px;
+}
+
+/* line 53, sass/ie.sass */
+.bottom-right-corner {
+  background-position: -5px -5px;
+  bottom: -1px;
+  right: -1px;
+}
+
+/* line 58, sass/ie.sass */
+.box {
+  position: relative;
+  overflow: visible;
+}
+
+/* line 62, sass/ie.sass */
+.header {
+  clear: none;
+}
+
+/* line 65, sass/ie.sass */
+.clear {
+  clear: both;
 }

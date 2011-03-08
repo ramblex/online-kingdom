@@ -13,9 +13,8 @@
       = stylesheet_link_tag 'ie8.css', :media => 'screen, projection'
     /[if IE 7]
       = stylesheet_link_tag 'ie7.css', :media => 'screen, projection'
-    =# javascript_include_tag 'https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js'
-    = javascript_include_tag 'jquery'
-    =# javascript_include_tag 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.min.js'
+    = javascript_include_tag 'https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js'
+    = javascript_include_tag 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.min.js'
     = javascript_include_tag 'sammy', 'application'
     = javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery?
     = javascript_include_tiny_mce_if_used
@@ -66,4 +65,4 @@
           %li= link_to 'ESPORTSM', 'http://www.esportsm.pt', :target => :_blank
     = yield :extra_js
     /[if IE]
-      = javascript_include_tag 'jquery.corner', 'ie.js'
+      = javascript_include_tag 'ie.js'

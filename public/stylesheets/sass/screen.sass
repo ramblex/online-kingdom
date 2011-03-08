@@ -222,6 +222,9 @@ ul, ol
       position: absolute
       right: -122px
       bottom: 0
+  .avatar
+    width: 50px
+    height: 50px
 
 #login-username, #login-password
   width: 184px
@@ -1210,6 +1213,21 @@ textarea
     height: 100px
     border: 1px solid #c4c4c4
 
+button
+  text-align: center
+  width: 100px
+  height: 26px
+  background: url(/images/submit.png)
+  color: $button-text-colour
+  border: 0
+  cursor: pointer
+  font-weight: bold
+  font-size: 11px
+  &:hover
+    color: black
+  &:active
+    text-indent: -1px
+
 input
   &[type=text], &[type=password]
     height: 20px
@@ -1217,18 +1235,7 @@ input
     padding-left: 5px
     width: 500px
   &[type=submit]
-    text-align: center
-    width: 100px
-    height: 26px
-    background: url(/images/submit.png)
-    color: $button-text-colour
-    border: 0
-    cursor: pointer
-    font-weight: bold
-    &:hover
-      color: black
-    &:active
-      text-indent: -1px
+    @extend button
 
 form p
   margin-top: 15px
@@ -1573,6 +1580,8 @@ a
 .ui-dialog .ui-dialog-title 
   float: left
   margin: .1em 16px .1em 0
+  font-weight: bold
+  color: black
 
 .ui-dialog .ui-dialog-titlebar-close 
   position: absolute
@@ -1582,13 +1591,12 @@ a
   margin: -10px 0 0 0
   padding: 1px
   height: 18px
+  background: url(/images/cross.png) no-repeat
 
 .ui-dialog .ui-dialog-titlebar-close span 
   display: block
   margin: 1px
-
-.ui-dialog .ui-dialog-titlebar-close:hover, .ui-dialog .ui-dialog-titlebar-close:focus
-  padding: 0
+  display: none
 
 .ui-dialog .ui-dialog-content 
   position: relative
@@ -1602,14 +1610,13 @@ a
   text-align: left
   border-width: 1px 0 0 0
   background-image: none
-  margin: .5em 0 0 0
   padding: .3em 1em .5em .4em
 
 .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset 
   float: right
 
 .ui-dialog .ui-dialog-buttonpane button 
-  margin: .5em .4em .5em 0
+  margin: 0 .4em .5em 0
 
 .ui-dialog .ui-resizable-se 
   width: 14px

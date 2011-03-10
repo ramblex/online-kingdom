@@ -1,8 +1,11 @@
-#full-col
-  %h2 Sign in
+.box
+  .header
+    = title 'SIGN IN'
 
-  - semantic_form_for resource_name, resource, :url => session_path(resource_name) do |f|
-    = f.inputs :username, :password
-    - f.buttons do
-      = f.commit_button :label => 'Sign in'
-  = render :partial => "shared/devise_links"
+  #user-form
+    - semantic_form_for resource_name, resource, :url => session_path(resource_name) do |f|
+      = f.inputs :username, :password
+      - f.buttons do
+        = f.commit_button :label => 'Sign in'
+  %p
+    = render :partial => "shared/devise_links"

@@ -1,25 +1,26 @@
-#full-col
-  %h2 Sign up
+.box
+  .header
+    = title 'SIGN UP'
 
   - form_for resource_name, resource, :url => registration_path(resource_name) do |f|
     = f.error_messages
-    .p
+    %p
       = f.label :username
       = f.text_field :username
-    .p
+    %p
       = f.label :email
       = f.text_field :email
-    .p
+    %p
       = f.label :password
       = f.password_field :password
-    .p
+    %p
       = f.label :password_confirmation
       = f.password_field :password_confirmation
-    .p
+    %p
       = f.label :country
       = f.country_select :country
-    .p
+    %p
       = f.label :birthdate
       = f.date_select :birthdate, :order => [:day, :month, :year], :start_year => Time.now.year - 70
-    .p
+    %p
       = f.submit 'Sign up'

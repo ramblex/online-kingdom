@@ -22,7 +22,12 @@ form.formtastic input[type=submit] {
   font-weight: bold;
 }
 /* line 22, sass/formtastic_changes.sass */
-form.formtastic input[type=text] {
+form.formtastic input[type=text], form.formtastic input[type=password] {
   width: 400px;
   padding: 3px;
+}
+
+/* line 25, sass/formtastic_changes.sass */
+form.formtastic fieldset > ol > li.password input {
+  max-width: 400px;
 }

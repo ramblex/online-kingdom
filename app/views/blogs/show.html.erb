@@ -10,7 +10,7 @@
       <%= @blog.preamble %>
     </div>
     <hr />
-    <%= @blog.content %>
+    <%= sanitize @blog.content %>
   </div>
   <div id="comments-box" class="box">
     <a name="comments"></a>

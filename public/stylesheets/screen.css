@@ -2700,19 +2700,20 @@ a:hover {
 .news_image {
   margin-right: 5px;
   height: 150px;
+  width: 100px;
 }
-/* line 1643, sass/screen.sass */
+/* line 1644, sass/screen.sass */
 .news_image img {
   width: 100px;
   height: 100px;
   display: block;
   cursor: pointer;
 }
-/* line 1649, sass/screen.sass */
+/* line 1650, sass/screen.sass */
 .news_image#selected img {
   border: 2px solid blue;
 }
-/* line 1652, sass/screen.sass */
+/* line 1653, sass/screen.sass */
 .news_image .full_image {
   display: none;
 }

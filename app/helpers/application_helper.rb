@@ -28,7 +28,6 @@ module ApplicationHelper
     end
     5.times.each_with_index do |idx, elem|
       options[:rating] = idx + 1
-      Rails.logger.error(options)
       if idx < obj.rating
         html << (link_to '', options, :class => 'star filled')
       else
@@ -62,7 +61,6 @@ module ApplicationHelper
 
   def add_child_link(name, f, method, locals = {})
     fields = new_child_fields(f, method, locals)
-    Rails.logger.error(fields)
     link_to_function(name, h("insert_fields(this, \"#{method}\", \"#{escape_javascript(fields)}\")"), :class => 'button')
   end
 

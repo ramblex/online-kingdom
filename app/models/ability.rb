@@ -34,7 +34,7 @@ class Ability
 
     can :create, [Blog, Album, Video, Comment, Article, Message]
     can :comment, [Article, Blog, Match, Event, Video, Album]
-    can :rate, Article
+    can :rate, [Article, Album]
 
     if user.is? :news_writer
       can :manage, Article

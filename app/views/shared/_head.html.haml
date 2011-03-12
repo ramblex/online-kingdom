@@ -4,7 +4,7 @@
     - if latest
       .heading
         %span= truncate latest.title, :length => 70
-        = stars_for latest
+        = stars_for latest, 'articles'
       .info
         %span
           This news was posted by #{link_to latest.user.username} on

@@ -23,12 +23,6 @@ class Article < ActiveRecord::Base
 
   has_friendly_id :title, :use_slug => true
 
-  has_attached_file :image, :styles => {
-    :default => "202x139",
-    :square => "128x128#",
-    :slider => "275x180"
-  }
-
   def rating
     if article_ratings.size.eql? 0
       0

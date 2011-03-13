@@ -8,7 +8,7 @@
     %li
       #current_image
         - unless @article.news_image.nil?
-          = image_tag @article.news_image.image.thumb("202x139!").url, :class => 'news-picture'
+          = image_tag @article.news_image.image.url(:default), :class => 'news-picture'
     = f.input :preamble, :input_html => {:class => 'comment-area'}
     = f.input :content, :input_html => {:class => 'mceEditor'}
     = f.input :featured

@@ -26,7 +26,7 @@
           <li>
             <%= link_to "&raquo; #{truncate article.title, :length => 30}", article %>
             <div class="content">
-              <%= link_to (image_tag article.news_image.image.thumb("275x180").url), article unless article.news_image.nil? %>
+              <%= link_to (image_tag article.news_image.image.url(:slider)), article unless article.news_image.nil? %>
               <p><%= truncate_html article.preamble, :length => 550 %></p>
               <%= link_to '&raquo; Read more', article, :class => 'more' %>
             </div>

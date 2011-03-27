@@ -81,6 +81,7 @@ class ArticlesController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.js { render :partial => @articles }
+      format.xml { render :xml => @articles }
     end
   end
 

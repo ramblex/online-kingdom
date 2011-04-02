@@ -1,17 +1,22 @@
-<h1>Users</h1>
-<table class="admin-table">
-  <tr>
-    <th>Username</th>
-    <th>Roles</th>
-    <th>Profile</th>
-    <th>Admin</th>
-  </tr>
-  <% @users.each do |user| %>
-    <tr class="<%= cycle('even', 'odd') %>">
-      <td><%= user.username %></td>
-      <td><%= user.roles %></td>
-      <td><%= link_to 'show', user %></td>
-      <td><%= admin_links user, 'user-admin-links' %></td>
+<div class="box">
+  <div class="header">
+    <%= title 'USERS ADMIN' %>
+  </div>
+  <strong><%= @users.length %></strong> users currently registered
+  <table class="admin-table">
+    <tr>
+      <th>Username</th>
+      <th>Roles</th>
+      <th>Profile</th>
+      <th>Admin</th>
     </tr>
-  <% end %>
-</table>
+    <% @users.each do |user| %>
+      <tr class="<%= cycle('even', 'odd') %>">
+        <td><%= user.username %></td>
+        <td><%= user.roles %></td>
+        <td><%= link_to 'show', user %></td>
+        <td><%= admin_links user, 'user-admin-links' %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>

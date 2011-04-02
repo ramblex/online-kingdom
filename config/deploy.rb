@@ -33,6 +33,10 @@ namespace :deploy do
 
   task :symlink_shared do
     run "ln -sfn /home/#{user}/public_html/#{application}/shared/database.yml #{release_path}/config/database.yml"
+    run "ln -sfn /home/#{user}/public_html/#{application}/shared/amazon_s3.yml #{release_path}/config/amazon_s3.yml"
+    run "ln -sfn /home/#{user}/public_html/#{application}/shared/s3.yml #{release_path}/config/s3.yml"
+    run "ln -sfn /home/#{user}/public_html/#{application}/shared/zencoder.yml #{release_path}/config/zencoder.yml"
+    run "ln -sfn /home/#{user}/public_html/#{application}/shared/environment.rb #{release_path}/config/environment.rb"
   end
 
   task :copy_uploads do

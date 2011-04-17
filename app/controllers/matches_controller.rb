@@ -1,6 +1,7 @@
 class MatchesController < ApplicationController
   load_and_authorize_resource
   uses_tiny_mce :options => AppConfig.default_mce_options, :only => [:new, :create, :edit, :update, :show]
+  cache_sweeper :article_sweeper, :only => [:create, :update, :destroy]
 
   def comment
     @comment = Match.find(params[:id]).comments.build(params[:comments])

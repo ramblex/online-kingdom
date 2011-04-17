@@ -3,7 +3,8 @@ class ArticlesController < ApplicationController
   load_and_authorize_resource
   uses_tiny_mce :options => AppConfig.default_mce_options, :only => [:new, :create, :edit, :update, :show]
 
-  caches_action :index
+  caches_page :home
+  cache_sweeper :article_sweeper, :only => [:create, :update, :destroy]
 
   # Home page - may be worth putting this in a separate controller but that seems
   # overkill for now.

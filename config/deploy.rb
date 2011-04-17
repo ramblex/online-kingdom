@@ -1,5 +1,5 @@
 set :application, "online-kingdom"
-set :repository,  "ssh://git@178.79.132.38/home/git/online-kingdom.git"
+set :repository, "git@github.com:ramblex/online-kingdom.git"
 set :user, "alexd"
 set :ip, "178.79.140.129"
 ssh_options[:forward_agent] = true

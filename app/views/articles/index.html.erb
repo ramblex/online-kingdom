@@ -1,20 +1,24 @@
-<%= render :partial => 'lang_switcher' %>
-<div id="full-col" class="box">
-  <div class="header">
-    <%= title 'NEWS PAGE', 'CONTENT CHANGER' %>
-    <ul id="news-category" class="switcher">
-      <%= render :partial => 'shared/switcher_list' %>
-    </ul>
+<% cache({:page => params[:page] || 1,
+          :category => params[:category] || 'all',
+          :action_suffix => 'all_articles'}) do %>
+  <%= render :partial => 'lang_switcher' %>
+  <div id="full-col" class="box">
+    <div class="header">
+      <%= title 'NEWS PAGE', 'CONTENT CHANGER' %>
+      <ul id="news-category" class="switcher">
+        <%= render :partial => 'shared/switcher_list' %>
+      </ul>
+      <div class="pagination"><%= will_paginate @articles %></div>
+    </div>
+    <div id="paginated-news-list">
+      <%= render :partial => @articles %>
+    </div>
     <div class="pagination"><%= will_paginate @articles %></div>
-  </div>
-  <div id="paginated-news-list">
-    <%= render :partial => @articles %>
-  </div>
-  <div class="pagination"><%= will_paginate @articles %></div>
-  <% if can? :create, Article %>
-    <%= link_to 'Add a news item', new_article_path, :class => 'button' %>
-  <% end %>
-</div> <!-- end left-col -->
+    <% if can? :create, Article %>
+      <%= link_to 'Add a news item', new_article_path, :class => 'button' %>
+    <% end %>
+  </div> <!-- end left-col -->
+<% end %>
 
 <% content_for :head do %>
   <link rel="alternate" type="application/rss+xml" title="Online Kingdom Articles" href="/articles.xml" />

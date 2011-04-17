@@ -3,9 +3,6 @@ class ArticlesController < ApplicationController
   load_and_authorize_resource
   uses_tiny_mce :options => AppConfig.default_mce_options, :only => [:new, :create, :edit, :update, :show]
 
-  caches_page :home
-  caches_action :index, :cache_path => Proc.new { |c| c.params }
-  cache_sweeper :article_sweeper, :only => [:create, :update, :destroy]
 
   # Home page - may be worth putting this in a separate controller but that seems
   # overkill for now.
@@ -76,16 +73,13 @@ class ArticlesController < ApplicationController
   # GET /articles.xml
   def index
     params[:lang] ||= 'English'
-    if params[:category].blank? or params[:category].eql? 'all'
-      @articles = Article.approved.published.with_related.get_lang(params[:lang]).paginate :page => params[:page]
-    else
-      @articles = Article.approved.published.with_related.get_lang(params[:lang]).paginate :page => params[:page], :conditions => ['category_id = ?', params[:category]]
-    end
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.js { render :partial => @articles }
-      format.xml { render :xml => @articles }
+    unless read_fragment({:page => params[:page] || 1,
+                          :category => params[:category] || 'all'})
+      if params[:category].blank? or params[:category].eql? 'all'
+        @articles = Article.approved.published.with_related.get_lang(params[:lang]).paginate :page => params[:page]
+      else
+        @articles = Article.approved.published.with_related.get_lang(params[:lang]).paginate :page => params[:page], :conditions => ['category_id = ?', params[:category]]
+      end
     end
   end
 
@@ -161,7 +155,8 @@ class ArticlesController < ApplicationController
         flash[:notice] = 'Article was successfully created.'
         format.html { redirect_to(@article) }
         format.xml  { render :xml => @article, :status => :created, :location => @article }
-        expire_action :action => :index
+        expire_fragment :action => 'index', :action_suffix => 'all_articles'
+        expire_fragment :action_suffix => 'top_article'
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @article.errors, :status => :unprocessable_entity }
@@ -187,7 +182,8 @@ class ArticlesController < ApplicationController
         flash[:notice] = 'Article was successfully updated.'
         format.html { redirect_to(@article) }
         format.xml  { head :ok }
-        expire_action :action => :index
+        expire_fragment :action => 'index', :action_suffix => 'all_articles'
+        expire_fragment :action_suffix => 'top_article'
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @article.errors, :status => :unprocessable_entity }
@@ -205,6 +201,7 @@ class ArticlesController < ApplicationController
       format.html { redirect_to(articles_url) }
       format.xml  { head :ok }
     end
-    expire_action :action => :index
+    expire_fragment :action => 'index', :action_suffix => 'all_articles'
+    expire_fragment :action_suffix => 'top_article'
   end
 end

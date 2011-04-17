@@ -1,19 +1,20 @@
 #top
   #article
-    - latest = Article.find(:first, :conditions => {:featured => true, :approved => true})
-    - if latest
-      .heading
-        %span= truncate latest.title, :length => 70
-        = stars_for latest, 'articles'
-      .info
-        %span
-          This news was posted by #{link_to latest.user.username} on
-          = latest.created_at.to_formatted_s :no_time
-        %span.comments= link_to pluralize(latest.comments.size, 'comment'), article_path(latest, :anchor => 'comments')
-      %div
-        = image_tag latest.news_image.image.url(:square), :id => 'image' unless latest.news_image.nil?
-        %p= truncate_html latest.preamble, :length => 500
-      = link_to image_tag('readmore.png'), latest, :class => 'readmore'
+    - cache :action_suffix => 'top_article' do
+      - latest = Article.find(:first, :conditions => {:featured => true, :approved => true})
+      - if latest
+        .heading
+          %span= truncate latest.title, :length => 70
+          = stars_for latest, 'articles'
+        .info
+          %span
+            This news was posted by #{link_to latest.user.username} on
+            = latest.created_at.to_formatted_s :no_time
+          %span.comments= link_to pluralize(latest.comments.size, 'comment'), article_path(latest, :anchor => 'comments')
+        %div
+          = image_tag latest.news_image.image.url(:square), :id => 'image' unless latest.news_image.nil?
+          %p= truncate_html latest.preamble, :length => 500
+        = link_to image_tag('readmore.png'), latest, :class => 'readmore'
   #advert
     - if top_advert = Advert.random('top')
       = render :partial => top_advert, :locals => {:image_size => :top, :box => false}

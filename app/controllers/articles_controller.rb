@@ -3,6 +3,8 @@ class ArticlesController < ApplicationController
   load_and_authorize_resource
   uses_tiny_mce :options => AppConfig.default_mce_options, :only => [:new, :create, :edit, :update, :show]
 
+  caches_action :index
+
   # Home page - may be worth putting this in a separate controller but that seems
   # overkill for now.
   def home
@@ -121,11 +123,7 @@ class ArticlesController < ApplicationController
       end
 
       @advert = Advert.random('news_articles')
-
-      respond_to do |format|
-        format.html # show.html.erb
-        format.xml  { render :xml => @article }
-      end
+      fresh_when :last_modified => @article.updated_at.utc, :etag => @article
     end
   end
 
@@ -161,6 +159,7 @@ class ArticlesController < ApplicationController
         flash[:notice] = 'Article was successfully created.'
         format.html { redirect_to(@article) }
         format.xml  { render :xml => @article, :status => :created, :location => @article }
+        expire_action :action => :index
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @article.errors, :status => :unprocessable_entity }
@@ -186,6 +185,7 @@ class ArticlesController < ApplicationController
         flash[:notice] = 'Article was successfully updated.'
         format.html { redirect_to(@article) }
         format.xml  { head :ok }
+        expire_action :action => :index
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @article.errors, :status => :unprocessable_entity }
@@ -203,5 +203,6 @@ class ArticlesController < ApplicationController
       format.html { redirect_to(articles_url) }
       format.xml  { head :ok }
     end
+    expire_action :action => :index
   end
 end

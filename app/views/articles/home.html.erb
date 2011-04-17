@@ -88,15 +88,17 @@
     <%= link_to '&raquo; More videos', videos_path, :class => 'more' %>
   </div>
 
-  <div class="box">
-    <div class="header">
-      <%= title 'ALBUMS' %>
+  <% cache :action_suffix => 'homepage_albums' %>
+    <div class="box">
+      <div class="header">
+        <%= title 'ALBUMS' %>
+      </div>
+      <div class="home-page-videos">
+        <%= render :partial => @albums %>
+      </div>
+      <%= link_to '&raquo; More albums', albums_path, :class => 'more' %>
     </div>
-    <div class="home-page-videos">
-      <%= render :partial => @albums %>
-    </div>
-    <%= link_to '&raquo; More albums', albums_path, :class => 'more' %>
-  </div>
+  <% end %>
 
 </div> <!-- End left-col -->
 
@@ -118,42 +120,44 @@
   </div>
   <!-- End matches box -->
 
-  <div class="box">
-    <div class="header">
-      <%= title 'FOLLOW US' %>
+  <% cache :action_suffix => 'homepage_static' do %>
+    <div class="box">
+      <div class="header">
+        <%= title 'FOLLOW US' %>
+      </div>
+      <%= link_to image_tag('twitter.gif'), 'http://twitter.com/OnlineKingdom' %>
+      <%= link_to image_tag('facebook.gif'), 'http://www.facebook.com/ONLINEKINGDOM.ORG' %>
     </div>
-    <%= link_to image_tag('twitter.gif'), 'http://twitter.com/OnlineKingdom' %>
-    <%= link_to image_tag('facebook.gif'), 'http://www.facebook.com/ONLINEKINGDOM.ORG' %>
-  </div>
 
-  <%= render :partial => 'shared/official_partners' %>
+    <%= render :partial => 'shared/official_partners' %>
 
-  <!-- Blogs box -->
-  <div class="box">
-    <div class="header">
-      <%= title 'BLOGS', 'WRITTEN IN PERSON' %>
+    <!-- Blogs box -->
+    <div class="box">
+      <div class="header">
+        <%= title 'BLOGS', 'WRITTEN IN PERSON' %>
+      </div>
+      <ul id="home-page-blogs" class="dotted">
+        <% @blogs.each do |blog| %>
+          <li>
+            <%= image_tag blog.user.avatar.url(:default), :class => 'avatar' %>
+            <strong><%= link_to blog.title, blog %></strong> by <%= link_to blog.user.username, blog.user %><br />
+            <em>posted on <%= blog.created_at.strftime "%d %B %Y at %H:%M %Z" %></em><br />
+            <%= truncate_html blog.preamble, :length => 100 %>
+          </li>
+        <% end %>
+      </ul>
+      <%= link_to '&raquo; More blogs', blogs_url, :class => 'more' %>
     </div>
-    <ul id="home-page-blogs" class="dotted">
-      <% @blogs.each do |blog| %>
-        <li>
-          <%= image_tag blog.user.avatar.url(:default), :class => 'avatar' %>
-          <strong><%= link_to blog.title, blog %></strong> by <%= link_to blog.user.username, blog.user %><br />
-          <em>posted on <%= blog.created_at.strftime "%d %B %Y at %H:%M %Z" %></em><br />
-          <%= truncate_html blog.preamble, :length => 100 %>
-        </li>
-      <% end %>
-    </ul>
-    <%= link_to '&raquo; More blogs', blogs_url, :class => 'more' %>
-  </div>
-  <!-- End blogs box -->
+    <!-- End blogs box -->
+  <% end %>
 
-  <!-- Social networks -->
-  <div class="box">
-    <div class="header">
-      <%= title 'SOCIAL NETWORKS' %>
+    <!-- Social networks -->
+    <div class="box">
+      <div class="header">
+        <%= title 'SOCIAL NETWORKS' %>
+      </div>
+      <iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.facebook.com%2FONLINEKINGDOM.ORG%23%21%2Fpages%2FOnline-Kingdom%2F199344953415189&amp;layout=standard&amp;show_faces=true&amp;width=450&amp;action=like&amp;colorscheme=light&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:80px;" allowTransparency="true"></iframe>
     </div>
-    <iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.facebook.com%2FONLINEKINGDOM.ORG%23%21%2Fpages%2FOnline-Kingdom%2F199344953415189&amp;layout=standard&amp;show_faces=true&amp;width=450&amp;action=like&amp;colorscheme=light&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:80px;" allowTransparency="true"></iframe>
-  </div>
 
 </div>
 

@@ -70,6 +70,7 @@ class BlogsController < ApplicationController
         flash[:notice] = 'Blog was successfully created.'
         format.html { redirect_to(@blog) }
         format.xml  { render :xml => @blog, :status => :created, :location => @blog }
+        expire_fragment :action_suffix => 'homepage_static'
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @blog.errors, :status => :unprocessable_entity }
@@ -84,6 +85,7 @@ class BlogsController < ApplicationController
 
     respond_to do |format|
       if @blog.update_attributes(params[:blog])
+        expire_fragment :action_suffix => 'homepage_static'
         flash[:notice] = 'Blog was successfully updated.'
         format.html { redirect_to(@blog) }
         format.xml  { head :ok }
@@ -99,6 +101,7 @@ class BlogsController < ApplicationController
   def destroy
     @blog = Blog.find(params[:id])
     @blog.destroy
+    expire_fragment :action_suffix => 'homepage_static'
 
     respond_to do |format|
       format.html { redirect_to(blogs_url) }

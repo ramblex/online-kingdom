@@ -92,6 +92,7 @@ class AlbumsController < ApplicationController
 
     respond_to do |format|
       if @album.save
+        expire_fragment :action_suffix => 'homepage_albums'
         flash[:notice] = 'Album was successfully created.'
         format.html { redirect_to(@album) }
         format.xml  { render :xml => @album, :status => :created, :location => @album }
@@ -109,6 +110,7 @@ class AlbumsController < ApplicationController
 
     respond_to do |format|
       if @album.update_attributes(params[:album])
+        expire_fragment :action_suffix => 'homepage_albums'
         flash[:notice] = 'Album was successfully updated.'
         format.html { redirect_to(@album) }
         format.xml  { head :ok }
@@ -124,6 +126,7 @@ class AlbumsController < ApplicationController
   def destroy
     @album = Album.find(params[:id])
     @album.destroy
+    expire_fragment :action_suffix => 'homepage_albums'
 
     respond_to do |format|
       format.html { redirect_to(albums_url) }

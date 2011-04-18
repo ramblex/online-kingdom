@@ -5,19 +5,7 @@
       <ul id="matches-switcher" class="switcher">
         <%= render :partial => 'shared/switcher_list' %>
       </ul>
-      <div class="search" id="switcher-search">
-        <% form_tag matches_path, :method => 'get' do %>
-          <%= text_field_tag :search, params[:search] %>
-          <%= submit_tag "Search", :name => nil %>
-        <% end %>
-      </div>
     </div>
-    <% if params[:search] %>
-      <div class="info-msg">
-        Results for '<%= params[:search] %>'
-        <%= link_to 'Clear search', matches_url %>
-      </div>
-    <% end %>
     <ul id="match-ticker" class="dotted">
       <% if @matches.size > 0 %>
         <%= render :partial => @matches %>

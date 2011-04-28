@@ -74,7 +74,8 @@ class ArticlesController < ApplicationController
   def index
     params[:lang] ||= 'English'
     unless read_fragment({:page => params[:page] || 1,
-                          :category => params[:category] || 'all'})
+                          :category => params[:category] || 'all',
+                          :lang => params[:lang] || 'English'})
       if params[:category].blank? or params[:category].eql? 'all'
         @articles = Article.approved.published.with_related.get_lang(params[:lang]).paginate :page => params[:page]
       else

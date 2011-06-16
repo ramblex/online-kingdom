@@ -140,7 +140,7 @@
         <% @blogs.each do |blog| %>
           <li>
             <%= image_tag blog.user.avatar.url(:default), :class => 'avatar' %>
-            <strong><%= link_to truncate(blog.title, :length => 50), blog %></strong> by <%= link_to blog.user.username, blog.user %><br />
+            <strong><%= link_to truncate(blog.title, :length => 40), blog %></strong> by <%= link_to blog.user.username, blog.user %><br />
             <em>posted on <%= blog.created_at.strftime "%d %B %Y at %H:%M %Z" %></em><br />
             <%= truncate_html blog.preamble, :length => 100 %>
           </li>

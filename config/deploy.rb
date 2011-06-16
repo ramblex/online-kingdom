@@ -7,7 +7,7 @@ ssh_options[:forward_agent] = true
 default_run_options[:pty] = true
 
 set :deploy_to, "/home/#{user}/public_html/#{application}"
-set :deploy_via, :remote_cache
+#set :deploy_via, :remote_cache
 
 set :default_environment, {
   'PATH' => '/var/lib/gems/1.8/bin:$PATH'

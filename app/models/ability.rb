@@ -12,6 +12,8 @@ class Ability
     end
 
     ## Regular users
+    can :read, [Forum, Topic, Post]
+    can :create, [Topic, Post]
 
     # Update their own profile
     can :update, User do |u|
@@ -39,11 +41,6 @@ class Ability
     if user.is? :news_writer
       can :manage, Article
       can :destroy, [Blog, Video, Album]
-    end
-
-    if user.is? :insider
-      can :read, [Forum, Topic, Post]
-      can :create, [Topic, Post]
     end
 
     if user.is? :events_admin

@@ -26,3 +26,9 @@ gem 'httparty'
 
 # Forums
 gem 'RedCloth'
+
+group :development, :test do
+  gem 'rspec-rails', '1.3.3'
+  gem 'capybara', '~> 0.3.7'
+  gem 'factory_girl', '1.2.4'
+end

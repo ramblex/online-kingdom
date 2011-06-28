@@ -3,7 +3,8 @@ class UsersController < ApplicationController
   uses_tiny_mce :options => AppConfig.default_mce_options, :only => [:new, :create, :edit, :update, :show]
 
   def index
-    @users = User.all
+    @users = User.paginate :page => params[:page]
+    @num_users = User.count
   end
 
   def show

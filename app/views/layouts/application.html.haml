@@ -57,6 +57,7 @@
             DESIGN BY DSGF DESIGNS,
             DEVELOPMENT BY #{link_to 'RAMBLEX DESIGNS', 'http://ramblexdesigns.com'} 
         %ul
+          %li= link_to 'FORUMS', forums_path
           %li= link_to 'STREAM', streams_path
           - Page.all(:conditions => :show_link).each do |page|
             %li= link_to page.permalink.upcase, '/static/'+page.permalink unless page.permalink.eql? 'about'

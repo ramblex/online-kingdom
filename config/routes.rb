@@ -43,7 +43,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :blogs, :collection => {:admin => :get}
   map.resources :categories, :collection => {:admin => :get}
   map.resources :formats, :collection => {:admin => :get}
-  map.resources :articles, 
+  map.resources :articles,
     :collection => {:admin => :get, :unapproved => :get},
     :member => {:lock => :get, :unlock => :get}
   map.resources :matches, :collection => {:admin => :get}
@@ -58,7 +58,7 @@ ActionController::Routing::Routes.draw do |map|
 
   # Insider forums
   map.resources :forums, :has_many => :topics, :shallow => true
-  map.resources :topics, :has_many => :posts, :shallow => true
+  map.resources :topics, :has_many => :posts, :shallow => true, :member => {:lock => :get, :unlock => :get}
 
   # Sample resource route with sub-resources:
   #   map.resources :products, :has_many => [ :comments, :sales ], :has_one => :seller

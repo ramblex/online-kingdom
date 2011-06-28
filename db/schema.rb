@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110628173213) do
+ActiveRecord::Schema.define(:version => 20110628175823) do
 
   create_table "advert_positions", :force => true do |t|
     t.string   "name"
@@ -516,6 +516,7 @@ ActiveRecord::Schema.define(:version => 20110628173213) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "locked",         :default => false
   end
 
   create_table "users", :force => true do |t|

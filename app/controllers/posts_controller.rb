@@ -39,15 +39,20 @@ class PostsController < ApplicationController
   # POST /posts.xml
   def create
     @topic = Topic.find(params[:topic_id])
-    @topic.update_attributes(:last_post_at => Time.now)
-    @post = @topic.posts.build(params[:post])
-    @post.user = current_user
-
-    if @post.save
-      flash[:notice] = 'Post was successfully created.'
-      redirect_to topic_url(@post.topic_id)
+    if @topic.locked
+      flash[:alert] = "Topic locked."
+      redirect_to :back
     else
-      render :action => "new"
+      @topic.update_attributes(:last_post_at => Time.now)
+      @post = @topic.posts.build(params[:post])
+      @post.user = current_user
+
+      if @post.save
+        flash[:notice] = 'Post was successfully created.'
+        redirect_to topic_url(@post.topic_id)
+      else
+        render :action => "new"
+      end
     end
   end
 
@@ -55,12 +60,16 @@ class PostsController < ApplicationController
   # PUT /posts/1.xml
   def update
     @post = Post.find(params[:id])
-
-    if @post.update_attributes(params[:post])
-      flash[:notice] = 'Post was successfully updated.'
-      redirect_to topic_url(@post.topic_id)
+    if @post.topic.locked
+      flash[:alert] = "Topic locked"
+      redirect_to :back
     else
-      render :action => "edit"
+      if @post.update_attributes(params[:post])
+        flash[:notice] = 'Post was successfully updated.'
+        redirect_to topic_url(@post.topic_id)
+      else
+        render :action => "edit"
+      end
     end
   end
 
@@ -68,11 +77,14 @@ class PostsController < ApplicationController
   # DELETE /posts/1.xml
   def destroy
     @post = Post.find(params[:id])
-    @post.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(posts_url) }
-      format.xml  { head :ok }
+    if @post.topic.locked
+      flash[:alert] = "Topic locked"
+      redirect_to :back
+    else
+      topic = @post.topic
+      @post.destroy
+      flash[:notice] = "Deleted post"
+      redirect_to topic
     end
   end
 end

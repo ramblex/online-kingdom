@@ -1,7 +1,15 @@
 %tr{:class => cycle('odd', 'even')}
   %td.wide
-    %span.forum-or-topic-name= link_to topic.name, topic
-    %span= admin_links topic, nil, :controller => 'topics'
+    %span.forum-or-topic-name
+      = link_to topic.name, topic
+      = "[LOCKED]" if topic.locked
+    %span
+      = admin_links topic, nil, :controller => 'topics'
+    %span.admin-links
+      - if topic.locked
+        = link_to '[Unlock]', unlock_topic_path(topic)
+      - else
+        = link_to '[Lock]', lock_topic_path(topic)
     %p Posted by #{topic.user.fullname} on #{topic.created_at.strftime("%d %B %Y %H:%M %Z")}
   %td
     - unless topic.posts.empty?

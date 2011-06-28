@@ -1,6 +1,26 @@
 class TopicsController < ApplicationController
   load_and_authorize_resource
 
+  def lock
+    @topic = Topic.find(params[:id])
+    if @topic.update_attributes(:locked => true)
+      flash[:notice] = "Locked topic"
+    else
+      flash[:alert] = "Could not lock topic"
+    end
+    redirect_to :back
+  end
+
+  def unlock
+    @topic = Topic.find(params[:id])
+    if @topic.update_attributes(:locked => false)
+      flash[:notice] = "Unlocked topic"
+    else
+      flash[:alert] = "topic"
+    end
+    redirect_to :back
+  end
+
   # GET /topics
   # GET /topics.xml
   def index
@@ -13,9 +33,15 @@ class TopicsController < ApplicationController
   end
 
   def reply
-    Topic.find(params[:id]).posts.create(params[:post])
-    flash[:notice] = "Posted reply"
-    redirect_to :action => "show", :id => params[:id]
+    topic = Topic.find(params[:id])
+    if topic.locked
+      flash[:alert] = "Topic is locked."
+      redirect_to :action => "show", :id => params[:id]
+    else
+      topic.posts.create(params[:post])
+      flash[:notice] = "Posted reply"
+      redirect_to :action => "show", :id => params[:id]
+    end
   end
 
   # GET /topics/1

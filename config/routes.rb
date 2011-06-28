@@ -43,7 +43,9 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :blogs, :collection => {:admin => :get}
   map.resources :categories, :collection => {:admin => :get}
   map.resources :formats, :collection => {:admin => :get}
-  map.resources :articles, :collection => {:admin => :get, :unapproved => :get}
+  map.resources :articles, 
+    :collection => {:admin => :get, :unapproved => :get},
+    :member => {:lock => :get, :unlock => :get}
   map.resources :matches, :collection => {:admin => :get}
   map.resources :videos, :collection => {:admin => :get, :encode_notify => :post}
   map.resources :events, :collection => {:admin => :get}, :shallow => true do |event|

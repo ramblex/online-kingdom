@@ -36,8 +36,34 @@ class ArticlesController < ApplicationController
     @articles = Article.all
   end
 
+  def lock
+    @article = Article.find(params[:id])
+    if @article.update_attributes(:comments_locked => true)
+      flash[:notice] = "Locked article comments"
+    else
+      flash[:alert] = "Could not lock article comments"
+    end
+    redirect_to :back
+  end
+
+  def unlock
+    @article = Article.find(params[:id])
+    if @article.update_attributes(:comments_locked => false)
+      flash[:notice] = "Unlocked article comments"
+    else
+      flash[:alert] = "Could not unlock article comments"
+    end
+    redirect_to :back
+  end
+
   def comment
-    @comment = Article.find(params[:id]).comments.build(params[:comments])
+    article = Article.find(params[:id])
+    if article.comments_locked
+      flash[:alert] = "Comments are locked for this article"
+      redirect_to :back
+      return
+    end
+    @comment = article.comments.build(params[:comments])
     @comment.user_id = current_user.id
 
     if @comment.save

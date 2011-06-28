@@ -21,8 +21,18 @@
     <div id="holder">
       <%= render :partial => @article.comments.roots, :locals => {:obj => @article} %>
     </div>
+    <% if can? :lock, Article %>
+      <% if @article.comments_locked %>
+        <%= link_to 'Unlock comments', unlock_article_path(@article) %>
+      <% else %>
+        <%= link_to 'Lock comments', lock_article_path(@article) %>
+      <% end %>
+    <% end %>
   </div>
-  <% if can? :create, Comment %>
+  <% if @article.comments_locked %>
+    <div class="box">Comments are locked for this article</div>
+  <% end %>
+  <% if can?(:create, Comment) && !@article.comments_locked %>
     <div class="box">
       <% form_for :comments, :url => {:action => 'comment', :id => @article } do |f| %>
         <%= f.error_messages %>

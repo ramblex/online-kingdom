@@ -4,21 +4,40 @@
     <div class="pagination"><%= will_paginate @users %></div>
   </div>
   <strong><%= @num_users %></strong> users currently registered
-  <table class="admin-table">
-    <tr>
-      <th>Username</th>
-      <th>Roles</th>
-      <th>Profile</th>
-      <th>Admin</th>
-    </tr>
-    <% @users.each do |user| %>
-      <tr class="<%= cycle('even', 'odd') %>">
-        <td><%= user.username %></td>
-        <td><%= user.roles %></td>
-        <td><%= link_to 'show', user %></td>
-        <td><%= admin_links user, 'user-admin-links' %></td>
+  <div>
+    <%= text_field_tag :search %>
+  </div>
+  <div id="search-results">
+    <table class="admin-table">
+      <tr>
+        <th>Username</th>
+        <th>Roles</th>
+        <th>Profile</th>
+        <th>Admin</th>
       </tr>
-    <% end %>
-  </table>
+      <% @users.each do |user| %>
+        <tr class="<%= cycle('even', 'odd') %>">
+          <td><%= user.username %></td>
+          <td><%= user.roles %></td>
+          <td><%= link_to 'show', user %></td>
+          <td><%= admin_links user, 'user-admin-links' %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
   <div class="pagination"><%= will_paginate @users %></div>
 </div>
+
+<script type="text/javascript">
+  $('#search').val('Search').css('color', '#ccc')
+    .click(function() {
+      $(this).val('');
+      $(this).css('color', 'inherit');
+    })
+    .keyup(function(event) {
+      if (event.keyCode == 13) {
+        $('#search-results').html('<div id="loading">Loading...</div>');
+        $('#search-results').load('?q='+$(this).val()+' .admin-table');
+      }
+    });
+</script>

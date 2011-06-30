@@ -82,6 +82,25 @@ $(document).ready(function() {
 
     $("#flash-notice").fadeOut(6000);
     $("#admin-nav").css({opacity: 0.6});
+
+    $('.dropdown li').hide();
+    $('.dropdown li a.selected').parent().show();
+    $('<span class="dropdown-arrow-button button">v</span>')
+      .appendTo('.dropdown')
+      .click(function() {
+        if ($(this).text() == "v") {
+          $(this).closest('.header').css('overflow', 'visible');
+          $(this).parent().find('li').each(function(idx) {
+            $(this).css({'top': idx * 20});
+            $(this).show();
+          });
+          $(this).text('^');
+        } else {
+          $(this).parent().find('li').hide();
+          $(this).parent().find('li a.selected').parent().show().css('top', 0);
+          $(this).text('v');
+        }
+      });
 });
 
 function toggle_admin() {

@@ -12,6 +12,8 @@
       <tr>
         <th>Username</th>
         <th>Roles</th>
+        <th>Last login</th>
+        <th>Joined</th>
         <th>Profile</th>
         <th>Admin</th>
       </tr>
@@ -19,6 +21,8 @@
         <tr class="<%= cycle('even', 'odd') %>">
           <td><%= user.username %></td>
           <td><%= user.roles %></td>
+          <td><%= user.last_sign_in_at.to_formatted_s :match unless user.last_sign_in_at.nil? %></td>
+          <td><%= user.created_at.to_formatted_s :match %></td>
           <td><%= link_to 'show', user %></td>
           <td><%= admin_links user, 'user-admin-links' %></td>
         </tr>
